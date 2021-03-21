@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import Web3 from 'web3';
 
 import {
-    validateAddress, validateUrl, validateTokenId,
-    ERROR_ADDRESS_TEXT, ERROR_TOKEN_ID_TEXT, ERROR_URL_TEXT, ERROR_CONTRACT_TEXT
+    validateUrl, validateTokenId, ERROR_TOKEN_ID_TEXT, ERROR_URL_TEXT, ERROR_CONTRACT_TEXT
 } from "../utils/validator";
 import { CONTRACT_ADDRESS } from '../constants/contract';
 import CONTRACT_ABI from '../constants/mintNFT.json';
@@ -15,18 +14,16 @@ const web3 = new Web3(Web3.givenProvider);
 export const App = () => {
     const contract = new web3.eth.Contract(CONTRACT_ABI, CONTRACT_ADDRESS);
     const [currentAccount, setCurrentAccount] = useState(undefined);
+    const [url, setUrl] = useState('');
+    const [tokenId, setTokenId] = useState(null);
+    const [errors, setErrors] = useState([]);
+    const [isDone, setIsDone] = useState(false);
+
     useEffect(() => {
         window.ethereum.enable();
         setCurrentAccount(web3.eth.accounts.currentProvider.selectedAddress.toLowerCase());
     }, []);
 
-    const [url, setUrl] = useState('');
-    const [address, setAddress] = useState('');
-    const [tokenId, setTokenId] = useState(null);
-    const [errors, setErrors] = useState([]);
-    const [isDone, setIsDone] = useState(false);
-
-    const handleChangeAddress = (e) => setAddress(e.target.value);
     const handleChangeTokenId = (e) => setTokenId(+e.target.value || null);
     const handleChangeUrl = (e) => setUrl(e.target.value);
 
@@ -35,13 +32,9 @@ export const App = () => {
         try {
             setErrors([]);
             setIsDone(false);
-            const isValidAddress = validateAddress(address);
             const isValidUrl = validateUrl(url);
             const isValidTokenId = validateTokenId(tokenId);
 
-            if (!isValidAddress) {
-                setErrors((errors) => [...errors, ERROR_ADDRESS_TEXT]);
-            }
             if (!isValidUrl) {
                 setErrors((errors) => [...errors, ERROR_URL_TEXT]);
             }
@@ -52,8 +45,8 @@ export const App = () => {
                 setErrors((errors) => [...errors, ERROR_CONTRACT_TEXT]);
             }
 
-            if (isValidAddress && isValidTokenId && isValidUrl) {
-                await contract.methods.mint(address, tokenId, url).send({ from: currentAccount });
+            if (currentAccount && isValidTokenId && isValidUrl) {
+                await contract.methods.mint(currentAccount, tokenId, url).send({ from: currentAccount });
                 setIsDone(true);
             }
         } catch (e) {
@@ -68,10 +61,6 @@ export const App = () => {
             <div className="App__content">
                 <form className="App__form" onSubmit={handleSubmit}>
                     <label className="App__form__label">
-                        Address:
-                        <input className="App__form__input" type="text" value={address} onChange={handleChangeAddress} />
-                    </label>
-                    <label className="App__form__label">
                         TokenId:
                         <input className="App__form__input" type="number" value={tokenId} onChange={handleChangeTokenId} />
                     </label>
@@ -79,7 +68,7 @@ export const App = () => {
                         Url:
                         <input className="App__form__input" type="text" value={url} onChange={handleChangeUrl} />
                     </label>
-                    <input type="submit" className="App__form__button" disabled={!address || !tokenId || !url } value="Mint" />
+                    <input type="submit" className="App__form__button" disabled={!tokenId || !url} value="Mint" />
                 </form>
             </div>
             {
