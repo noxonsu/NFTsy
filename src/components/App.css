@@ -84,3 +84,11 @@
   padding-bottom: 0.5rem;
   color: #990033;
 }
+
+.App__done {
+  padding-top: 2rem;
+  color: #009933;
+  text-align: left;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
