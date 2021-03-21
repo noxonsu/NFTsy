@@ -10,19 +10,19 @@
   font-size: 4rem;
 }
 
-.App__content {
+.App__form {
   padding-top: 3rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-.App__content__label {
+.App__form__label {
   margin-top: 1rem;
   font-size: 1.4rem;
 }
 
-.App__content__input {
+.App__form__input {
   margin-left: 1rem;
   height: 1.5rem;
   width: 20rem;
@@ -30,7 +30,7 @@
   color: #282c34;
 }
 
-.App__content__button {
+.App__form__button {
   margin-top: 2rem;
   padding: 0.5rem 1.5rem;
   font-size: 1.4rem;
@@ -46,7 +46,7 @@
   transition: all 250ms;
 }
 
-.App__content__button:active {
+.App__form__button:active {
   background-color: #009ed8;
   background-image: none;
   border-color: #00759f;
@@ -55,18 +55,18 @@
   transform: scale(0.95);
 }
 
-.App__content__button:focus {
+.App__form__button:focus {
   border-color: #444;
   box-shadow: 0 0 1px #fff inset;
 }
 
-.App__content__button:hover {
+.App__form__button:hover {
   background-color: #1daee5;
   background-image: linear-gradient(to bottom, #1daee5 0%, #00a3df 100%);
   border-color: #00759f;
 }
 
-.App__content__button[disabled] {
+.App__form__button[disabled] {
   background-color: #0096cc;
   background-image: linear-gradient(to bottom, #00a7e6 0%, #0096cc 100%);
   border-color: #0095ce;

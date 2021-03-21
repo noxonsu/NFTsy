@@ -6,10 +6,13 @@ import './App.css';
 export const App = () => {
     const [url, setUrl] = useState('');
     const [address, setAddress] = useState('');
+    const [errors, setErrors] = useState([]);
+
     const handleChangeUrl = (e) => setUrl(e.target.value);
     const handleChangeAddress = (e) => setAddress(e.target.value);
-    const [errors, setErrors] = useState([]);
-    const handleSubmit = () => {
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
         setErrors([]);
         const isValidAddress = validateAddress(address);
         const isValidUrl = validateUrl(url);
@@ -32,17 +35,17 @@ export const App = () => {
         <div className="App">
             <header className="App__header">NFT Marketplace</header>
             <div className="App__content">
-                <label className="App__content__label">
-                    Address:
-                    <input className="App__content__input" type="text" value={address} onChange={handleChangeAddress} />
-                </label>
-                <label className="App__content__label">
-                    Url:
-                    <input className="App__content__input" type="text" value={url} onChange={handleChangeUrl} />
-                </label>
-                <button className="App__content__button" disabled={!address || !url} onClick={handleSubmit}>
-                    Mint
-                </button>
+                <form className="App__form" onSubmit={handleSubmit}>
+                    <label className="App__form__label">
+                        Address:
+                        <input className="App__form__input" type="text" value={address} onChange={handleChangeAddress} />
+                    </label>
+                    <label className="App__form__label">
+                        Url:
+                        <input className="App__form__input" type="text" value={url} onChange={handleChangeUrl} />
+                    </label>
+                    <input type="submit" className="App__form__button" disabled={!address || !url} value="Mint" />
+                </form>
             </div>
             {
                 !!errors.length && (
