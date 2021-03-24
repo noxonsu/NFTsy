@@ -25,18 +25,20 @@ define( 'NFT_VER', "1.0.0");
 function nft_load_scripts($hook) {
 
     // create my own version codes
-    $my_js_ver  = date("ymd-Gis", filemtime( plugin_dir_path( __FILE__ ) . 'lib/nft.js' ));
-    $my_css_ver  = date("ymd-Gis", filemtime( plugin_dir_path( __FILE__ ) . 'nft.css' ));
 
-	wp_enqueue_script( 'nft-js', plugins_url( 'lib/nft.js', __FILE__ ), array(), $my_js_ver );
+    $my_js_ver  = date("ymd-Gis", filemtime( plugin_dir_path( __FILE__ ) . 'build/static/css/main.css' ));
+    $my_css_ver  = date("ymd-Gis", filemtime( plugin_dir_path( __FILE__ ) . 'build/static/js/main.js' ));
 
-	wp_register_style( 'nfta-css',    plugins_url( 'nft.css',    __FILE__ ), false,   $my_css_ver );
+	wp_enqueue_script( 'nft-js', plugins_url( 'build/static/js/main.js', __FILE__ ), array(), $my_js_ver );
+
+	wp_register_style( 'nft-css',    plugins_url( 'build/static/css/main.css',    __FILE__ ), false,   $my_css_ver );
 	wp_enqueue_style ( 'nft-css' );
 }
+
 add_action('wp_enqueue_scripts', 'nft_load_scripts');
 
 
-add_shortcode( 'nft', 'nft_addform' );
+add_shortcode( 'nft_addform', 'nft_main_shortcode' );
 function nft_main_shortcode( $atts ){
-	 return "тут форма";
+	 return '<div id="root"></div>';
 }
