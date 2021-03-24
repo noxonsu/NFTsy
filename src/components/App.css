@@ -12,11 +12,13 @@
 
 .App__content {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .App__form {
   padding-top: 3rem;
   padding-right: 5em;
+  padding-bottom: 5rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;

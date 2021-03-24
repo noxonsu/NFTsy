@@ -3,7 +3,7 @@ import Web3 from 'web3';
 
 import {
     validateUrl, validateTokenId, validateAddress,
-    ERROR_TOKEN_ID_TEXT, ERROR_URL_TEXT, ERROR_CONTRACT_TEXT, ERROR_PRICE_TEXT, ERROR_ADDRESS_TEXT
+    ERROR_TOKEN_ID_TEXT, ERROR_URL_TEXT, ERROR_CONTRACT_TEXT, ERROR_PRICE_TEXT, ERROR_ADDRESS_TEXT, ERROR_PURCHASE_VALUE_TEXT
 } from "../utils/validator";
 import { CONTRACT_ADDRESS_MAIN, CONTRACT_ADDRESS_SELL } from '../constants/contract';
 import CONTRACT_MAIN_ABI from '../constants/mintNFT.json';
@@ -20,11 +20,13 @@ export const App = () => {
     }, []);
 
     const contractMain = new web3.eth.Contract(CONTRACT_MAIN_ABI, CONTRACT_ADDRESS_MAIN);
+    const contractSell = new web3.eth.Contract(CONTRACT_SELL_ABI, CONTRACT_ADDRESS_SELL);
     const [currentAccount, setCurrentAccount] = useState(undefined);
-    const [url, setUrl] = useState('');
-    const [tokenId, setTokenId] = useState(null);
     const [errors, setErrors] = useState([]);
     const [isDone, setIsDone] = useState(false);
+
+    const [url, setUrl] = useState('');
+    const [tokenId, setTokenId] = useState(null);
 
     const handleChangeTokenId = (e) => setTokenId(+e.target.value || null);
     const handleChangeUrl = (e) => setUrl(e.target.value);
@@ -56,7 +58,6 @@ export const App = () => {
         }
     };
 
-    const contractSell = new web3.eth.Contract(CONTRACT_SELL_ABI, CONTRACT_ADDRESS_SELL);
     const [tokenIdPrice, setTokenIdPrice] = useState(null);
     const [price, setPrice] = useState(null);
 
@@ -109,6 +110,34 @@ export const App = () => {
         }
     }
 
+    const [purchaseTokenId, setPurchaseTokenId] = useState(null);
+    const [purchaseValue, setPurchaseValue] = useState(null);
+    const handleChangePurchaseTokenId = (e) => setPurchaseTokenId(+e.target.value || null);
+    const handleChangePurchaseValue = (e) => setPurchaseValue(+e.target.value || null);
+    const handlePurchase = async (e) => {
+        e.preventDefault();
+        try {
+            setErrors([]);
+            setIsDone(false);
+            const isValidPurchaseTokenId = validateTokenId(purchaseTokenId);
+            const isValidPurchaseValue = validateTokenId(purchaseValue);
+
+            if (!isValidPurchaseTokenId) {
+                setErrors((errors) => [...errors, ERROR_TOKEN_ID_TEXT]);
+            }
+            if (!isValidPurchaseValue) {
+                setErrors((errors) => [...errors, ERROR_PURCHASE_VALUE_TEXT]);
+            }
+
+            if (currentAccount && isValidPurchaseTokenId && isValidPurchaseValue) {
+                await contractSell.methods.purchaseToken(purchaseTokenId).send({ from: currentAccount, value: purchaseValue });
+                setIsDone(true);
+            }
+        } catch (e) {
+            setErrors([e.message]);
+        }
+    }
+
     return (
         <div className="App">
             <header className="App__header">NFT Marketplace</header>
@@ -143,6 +172,18 @@ export const App = () => {
                         <input className="App__form__input" type="string" value={addressToApprove} onChange={handleChangeAddressToApprove} />
                     </label>
                     <input type="submit" className="App__form__button" disabled={!addressToApprove} value="Approve" />
+                </form>
+
+                <form className="App__form" onSubmit={handlePurchase}>
+                    <label className="App__form__label">
+                        TokenId:
+                        <input className="App__form__input" type="number" value={purchaseTokenId} onChange={handleChangePurchaseTokenId} />
+                    </label>
+                    <label className="App__form__label">
+                        Value:
+                        <input className="App__form__input" type="number" value={purchaseValue} onChange={handleChangePurchaseValue} />
+                    </label>
+                    <input type="submit" className="App__form__button" disabled={!purchaseTokenId || !purchaseValue} value="Purchase" />
                 </form>
             </div>
             {
