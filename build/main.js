@@ -5883,7 +5883,7 @@ function blitBuffer(src, dst, offset, length) {
 function isnan(val) {
   return val !== val; // eslint-disable-line no-self-compare
 }
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
 
 /***/ }),
 /* 3 */
@@ -6465,7 +6465,7 @@ __webpack_require__.d(__webpack_exports__, "a", function() { return /* binding *
 var classCallCheck = __webpack_require__(5);
 
 // EXTERNAL MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/regenerator/index.js
-var regenerator = __webpack_require__(15);
+var regenerator = __webpack_require__(14);
 var regenerator_default = /*#__PURE__*/__webpack_require__.n(regenerator);
 
 // EXTERNAL MODULE: ./node_modules/@ethersproject/logger/lib.esm/index.js + 1 modules
@@ -6670,17 +6670,6 @@ var lib_esm_Description = function Description(info) {
 
 /***/ }),
 /* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-if (true) {
-  module.exports = __webpack_require__(471);
-} else {}
-
-/***/ }),
-/* 10 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -6893,7 +6882,7 @@ process.umask = function () {
 };
 
 /***/ }),
-/* 11 */
+/* 10 */
 /***/ (function(module, exports) {
 
 var g; // This works in non-strict mode
@@ -6914,6 +6903,17 @@ try {
 
 
 module.exports = g;
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+if (true) {
+  module.exports = __webpack_require__(471);
+} else {}
 
 /***/ }),
 /* 12 */
@@ -8788,28 +8788,17 @@ module.exports = {
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
   }
 })();
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11), __webpack_require__(30)(module)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10), __webpack_require__(30)(module)))
 
 /***/ }),
 /* 14 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-if (true) {
-  module.exports = __webpack_require__(202);
-} else {}
-
-/***/ }),
-/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(207);
 
 
 /***/ }),
-/* 16 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -9249,6 +9238,17 @@ module.exports = {
   isInBloom: utils.isInBloom,
   compareBlockNumbers: compareBlockNumbers
 };
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+if (true) {
+  module.exports = __webpack_require__(202);
+} else {}
 
 /***/ }),
 /* 17 */
@@ -10714,7 +10714,7 @@ function randomBytes(size, cb) {
 
   return bytes;
 }
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11), __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10), __webpack_require__(9)))
 
 /***/ }),
 /* 26 */
@@ -10772,7 +10772,7 @@ function nextTick(fn, arg1, arg2, arg3) {
       });
   }
 }
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(9)))
 
 /***/ }),
 /* 27 */
@@ -11238,7 +11238,7 @@ module.exports = function (module) {
  */
 
 
-var _regeneratorRuntime = __webpack_require__(15);
+var _regeneratorRuntime = __webpack_require__(14);
 
 var _asyncToGenerator = __webpack_require__(72);
 
@@ -11248,7 +11248,7 @@ var errors = __webpack_require__(12).errors;
 
 var formatters = __webpack_require__(12).formatters;
 
-var utils = __webpack_require__(16);
+var utils = __webpack_require__(15);
 
 var promiEvent = __webpack_require__(58);
 
@@ -13127,7 +13127,7 @@ Object.defineProperty(Duplex.prototype, 'destroyed', {
     this._writableState.destroyed = value;
   }
 });
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(9)))
 
 /***/ }),
 /* 43 */
@@ -13493,7 +13493,7 @@ Object.defineProperty(Duplex.prototype, 'destroyed', {
     this._writableState.destroyed = value;
   }
 });
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(9)))
 
 /***/ }),
 /* 46 */
@@ -15475,7 +15475,7 @@ function config(name) {
   if (null == val) return false;
   return String(val).toLowerCase() === 'true';
 }
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
 
 /***/ }),
 /* 58 */
@@ -15666,7 +15666,7 @@ var core = __webpack_require__(29);
 
 var Method = __webpack_require__(31);
 
-var utils = __webpack_require__(16);
+var utils = __webpack_require__(15);
 
 var Net = function Net() {
   var _this = this; // sets _requestmanager
@@ -16650,7 +16650,7 @@ http.Agent.defaultMaxSockets = 4;
 http.globalAgent = new http.Agent();
 http.STATUS_CODES = statusCodes;
 http.METHODS = ['CHECKOUT', 'CONNECT', 'COPY', 'DELETE', 'GET', 'HEAD', 'LOCK', 'M-SEARCH', 'MERGE', 'MKACTIVITY', 'MKCOL', 'MOVE', 'NOTIFY', 'OPTIONS', 'PATCH', 'POST', 'PROPFIND', 'PROPPATCH', 'PURGE', 'PUT', 'REPORT', 'SEARCH', 'SUBSCRIBE', 'TRACE', 'UNLOCK', 'UNSUBSCRIBE'];
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
 
 /***/ }),
 /* 69 */
@@ -16788,7 +16788,7 @@ __webpack_require__(248); // On some exotic environments, it's not clear which o
 
 exports.setImmediate = typeof self !== "undefined" && self.setImmediate || typeof global !== "undefined" && global.setImmediate || this && this.setImmediate;
 exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || typeof global !== "undefined" && global.clearImmediate || this && this.clearImmediate;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
 
 /***/ }),
 /* 71 */
@@ -18750,7 +18750,7 @@ Writable.prototype._destroy = function (err, cb) {
   this.end();
   cb(err);
 };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10), __webpack_require__(70).setImmediate, __webpack_require__(11)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(9), __webpack_require__(70).setImmediate, __webpack_require__(10)))
 
 /***/ }),
 /* 86 */
@@ -19396,7 +19396,7 @@ if (!safer.constants) {
 }
 
 module.exports = safer;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(9)))
 
 /***/ }),
 /* 94 */
@@ -20904,7 +20904,7 @@ var Shh = __webpack_require__(450);
 
 var Bzz = __webpack_require__(451);
 
-var utils = __webpack_require__(16);
+var utils = __webpack_require__(15);
 
 var Web3 = function Web3() {
   var _this = this; // sets _requestmanager etc
@@ -21668,7 +21668,7 @@ function callbackify(original) {
 }
 
 exports.callbackify = callbackify;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(9)))
 
 /***/ }),
 /* 102 */
@@ -22377,7 +22377,7 @@ module.exports = {
  */
 
 
-var utils = __webpack_require__(16);
+var utils = __webpack_require__(15);
 
 var BigNumber = __webpack_require__(1);
 
@@ -23270,7 +23270,7 @@ module.exports = Jsonrpc;
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
   } else {}
 })(this);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(30)(module), __webpack_require__(11)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(30)(module), __webpack_require__(10)))
 
 /***/ }),
 /* 110 */
@@ -23346,7 +23346,7 @@ function isFunction(value) {
 }
 
 xhr = null; // Help gc
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
 
 /***/ }),
 /* 111 */
@@ -23593,7 +23593,7 @@ IncomingMessage.prototype._onXHRProgress = function () {
     self.push(null);
   }
 };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10), __webpack_require__(11), __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(9), __webpack_require__(10), __webpack_require__(2).Buffer))
 
 /***/ }),
 /* 112 */
@@ -24651,7 +24651,7 @@ function indexOf(xs, x) {
 
   return -1;
 }
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11), __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10), __webpack_require__(9)))
 
 /***/ }),
 /* 114 */
@@ -25420,7 +25420,7 @@ Writable.prototype._destroy = function (err, cb) {
   this.end();
   cb(err);
 };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10), __webpack_require__(70).setImmediate, __webpack_require__(11)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(9), __webpack_require__(70).setImmediate, __webpack_require__(10)))
 
 /***/ }),
 /* 117 */
@@ -26186,7 +26186,7 @@ var core = __webpack_require__(29);
 
 var Method = __webpack_require__(31);
 
-var utils = __webpack_require__(16);
+var utils = __webpack_require__(15);
 
 var Subscription = __webpack_require__(59).subscription;
 
@@ -27143,7 +27143,7 @@ var Buffer = __webpack_require__(2).Buffer;
 
 var _ = __webpack_require__(13);
 
-var utils = __webpack_require__(16);
+var utils = __webpack_require__(15);
 
 var EthersAbiCoder = __webpack_require__(194).AbiCoder;
 
@@ -28347,7 +28347,7 @@ var core = __webpack_require__(29);
 
 var Method = __webpack_require__(31);
 
-var utils = __webpack_require__(16);
+var utils = __webpack_require__(15);
 
 var Net = __webpack_require__(60);
 
@@ -29693,7 +29693,7 @@ function indexOf(xs, x) {
 
   return -1;
 }
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11), __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10), __webpack_require__(9)))
 
 /***/ }),
 /* 138 */
@@ -29811,7 +29811,7 @@ module.exports = {
   undestroy: undestroy,
   errorOrDestroy: errorOrDestroy
 };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(9)))
 
 /***/ }),
 /* 140 */
@@ -30548,7 +30548,7 @@ Writable.prototype._undestroy = destroyImpl.undestroy;
 Writable.prototype._destroy = function (err, cb) {
   cb(err);
 };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11), __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10), __webpack_require__(9)))
 
 /***/ }),
 /* 142 */
@@ -32130,7 +32130,7 @@ function indexOf(xs, x) {
 
   return -1;
 }
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11), __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10), __webpack_require__(9)))
 
 /***/ }),
 /* 146 */
@@ -32575,7 +32575,7 @@ if (process.browser) {
 }
 
 module.exports = defaultEncoding;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(9)))
 
 /***/ }),
 /* 155 */
@@ -34657,7 +34657,7 @@ function indexOf(xs, x) {
 
   return -1;
 }
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11), __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10), __webpack_require__(9)))
 
 /***/ }),
 /* 167 */
@@ -34775,7 +34775,7 @@ module.exports = {
   undestroy: undestroy,
   errorOrDestroy: errorOrDestroy
 };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(9)))
 
 /***/ }),
 /* 169 */
@@ -35512,7 +35512,7 @@ Writable.prototype._undestroy = destroyImpl.undestroy;
 Writable.prototype._destroy = function (err, cb) {
   cb(err);
 };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11), __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10), __webpack_require__(9)))
 
 /***/ }),
 /* 171 */
@@ -41565,7 +41565,7 @@ var objectKeys = Object.keys || function (obj) {
 
   return keys;
 };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
 
 /***/ }),
 /* 192 */
@@ -46132,7 +46132,7 @@ if (true) {
     }
   }
 })();
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10), __webpack_require__(11)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(9), __webpack_require__(10)))
 
 /***/ }),
 /* 197 */
@@ -48365,7 +48365,7 @@ var elliptic_1 = createCommonjsModule(function (module, exports) {
 });
 var EC$1 = elliptic_1.ec;
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
 
 /***/ }),
 /* 198 */
@@ -48820,7 +48820,7 @@ exports.version = "17.0.1";
 */
 
 
-var aa = __webpack_require__(14),
+var aa = __webpack_require__(16),
     m = __webpack_require__(36),
     r = __webpack_require__(204);
 
@@ -58193,7 +58193,7 @@ var _objectSpread = __webpack_require__(214);
 
 var _ = __webpack_require__(13);
 
-var utils = __webpack_require__(16);
+var utils = __webpack_require__(15);
 
 var Iban = __webpack_require__(107);
 /**
@@ -67731,7 +67731,7 @@ function addSlice(array) {
     }
   }
 })();
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10), __webpack_require__(11)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(9), __webpack_require__(10)))
 
 /***/ }),
 /* 226 */
@@ -69015,7 +69015,7 @@ module.exports = {
   parseURL: helpers,
   btoa: _btoa
 };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10), __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(9), __webpack_require__(2).Buffer))
 
 /***/ }),
 /* 233 */
@@ -70174,7 +70174,7 @@ exports.XMLHttpRequest = XMLHttpRequest;
 XMLHttpRequest.prototype.nodejsHttpAgent = http.globalAgent;
 XMLHttpRequest.prototype.nodejsHttpsAgent = https.globalAgent;
 XMLHttpRequest.prototype.nodejsBaseUrl = null;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10), __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(9), __webpack_require__(2).Buffer))
 
 /***/ }),
 /* 244 */
@@ -70479,7 +70479,7 @@ ClientRequest.prototype.setSocketKeepAlive = function () {}; // Taken from http:
 
 
 var unsafeHeaders = ['accept-charset', 'accept-encoding', 'access-control-request-headers', 'access-control-request-method', 'connection', 'content-length', 'cookie', 'cookie2', 'date', 'dnt', 'expect', 'host', 'keep-alive', 'origin', 'referer', 'te', 'trailer', 'transfer-encoding', 'upgrade', 'via'];
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2).Buffer, __webpack_require__(11), __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2).Buffer, __webpack_require__(10), __webpack_require__(9)))
 
 /***/ }),
 /* 245 */
@@ -70801,7 +70801,7 @@ if (util && util.inspect && util.inspect.custom) {
   attachTo.setImmediate = setImmediate;
   attachTo.clearImmediate = clearImmediate;
 })(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11), __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10), __webpack_require__(9)))
 
 /***/ }),
 /* 249 */
@@ -75583,7 +75583,7 @@ var formatters = __webpack_require__(12).formatters;
 
 var Method = __webpack_require__(31);
 
-var utils = __webpack_require__(16);
+var utils = __webpack_require__(15);
 
 var extend = function extend(pckg) {
   /* jshint maxcomplexity:5 */
@@ -76984,7 +76984,7 @@ var Subscriptions = __webpack_require__(59).subscriptions;
 
 var Method = __webpack_require__(31);
 
-var utils = __webpack_require__(16);
+var utils = __webpack_require__(15);
 
 var Net = __webpack_require__(60);
 
@@ -77615,7 +77615,7 @@ module.exports = ENS;
  */
 
 
-var _regeneratorRuntime = __webpack_require__(15);
+var _regeneratorRuntime = __webpack_require__(14);
 
 var _asyncToGenerator = __webpack_require__(72);
 
@@ -77625,7 +77625,7 @@ var config = __webpack_require__(123);
 
 var formatters = __webpack_require__(12).formatters;
 
-var utils = __webpack_require__(16);
+var utils = __webpack_require__(15);
 
 var Registry = __webpack_require__(272);
 
@@ -78239,7 +78239,7 @@ var PromiEvent = __webpack_require__(58);
 
 var formatters = __webpack_require__(12).formatters;
 
-var utils = __webpack_require__(16);
+var utils = __webpack_require__(15);
 
 var REGISTRY_ABI = __webpack_require__(276);
 
@@ -79301,7 +79301,7 @@ module.exports = Registry;
     }
   }
 })();
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10), __webpack_require__(11)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(9), __webpack_require__(10)))
 
 /***/ }),
 /* 274 */
@@ -80084,7 +80084,7 @@ module.exports = RESOLVER;
  */
 
 
-var _regeneratorRuntime = __webpack_require__(15);
+var _regeneratorRuntime = __webpack_require__(14);
 
 var _asyncToGenerator = __webpack_require__(72);
 
@@ -83574,7 +83574,7 @@ var scrypt = __webpack_require__(408);
 
 var uuid = __webpack_require__(409);
 
-var utils = __webpack_require__(16);
+var utils = __webpack_require__(15);
 
 var helpers = __webpack_require__(12);
 
@@ -84127,7 +84127,7 @@ function storageAvailable(type) {
 }
 
 module.exports = Accounts;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11), __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10), __webpack_require__(2).Buffer))
 
 /***/ }),
 /* 319 */
@@ -84858,7 +84858,7 @@ var createReadableStreamAsyncIterator = function createReadableStreamAsyncIterat
 };
 
 module.exports = createReadableStreamAsyncIterator;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(9)))
 
 /***/ }),
 /* 330 */
@@ -85696,7 +85696,7 @@ module.exports = function (password, salt, iterations, keylen, digest, callback)
     return sync(password, salt, iterations, keylen, digest);
   }), callback);
 };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11), __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10), __webpack_require__(9)))
 
 /***/ }),
 /* 348 */
@@ -87467,7 +87467,7 @@ var createReadableStreamAsyncIterator = function createReadableStreamAsyncIterat
 };
 
 module.exports = createReadableStreamAsyncIterator;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(9)))
 
 /***/ }),
 /* 373 */
@@ -94727,7 +94727,7 @@ function randomFillSync(buf, offset, size) {
   assertSize(size, offset, buf.length);
   return actualFill(buf, offset, size);
 }
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11), __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10), __webpack_require__(9)))
 
 /***/ }),
 /* 407 */
@@ -99364,7 +99364,7 @@ if (typeof window !== "undefined") {
 }
 
 module.exports = win;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
 
 /***/ }),
 /* 462 */
@@ -100663,7 +100663,7 @@ module.exports = function (_ref) {
 
 __webpack_require__(36);
 
-var f = __webpack_require__(14),
+var f = __webpack_require__(16),
     g = 60103;
 
 exports.Fragment = 60107;
@@ -100721,7 +100721,7 @@ exports.jsxs = q;
 __webpack_require__.r(__webpack_exports__);
 
 // EXTERNAL MODULE: ./node_modules/react/index.js
-var react = __webpack_require__(14);
+var react = __webpack_require__(16);
 var react_default = /*#__PURE__*/__webpack_require__.n(react);
 
 // EXTERNAL MODULE: ./node_modules/react-dom/index.js
@@ -100732,7 +100732,7 @@ var react_dom_default = /*#__PURE__*/__webpack_require__.n(react_dom);
 var src = __webpack_require__(206);
 
 // EXTERNAL MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/regenerator/index.js
-var regenerator = __webpack_require__(15);
+var regenerator = __webpack_require__(14);
 var regenerator_default = /*#__PURE__*/__webpack_require__.n(regenerator);
 
 // CONCATENATED MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js
@@ -100875,14 +100875,15 @@ var sellNFT_CryptoArteSales = __webpack_require__(199);
 var components_App = __webpack_require__(470);
 
 // EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
-var jsx_runtime = __webpack_require__(9);
+var jsx_runtime = __webpack_require__(11);
 
 // CONCATENATED MODULE: ./src/components/App.tsx
-var web3=new lib_default.a(lib_default.a.givenProvider);var App_App=function App(){Object(react["useEffect"])(function(){// @ts-ignore
+var web3=new lib_default.a(lib_default.a.givenProvider);var tokenId;// @ts-ignore
+window.init=function(initialParams){tokenId=initialParams.tokenId;};var App_App=function App(){Object(react["useEffect"])(function(){// @ts-ignore
 window.ethereum.enable();// @ts-ignore
 setCurrentAccount(web3.eth.accounts.currentProvider.selectedAddress.toLowerCase());},[]);// @ts-ignore
 var contractMain=new web3.eth.Contract(mintNFT,CONTRACT_ADDRESS_MAIN);// @ts-ignore
-var contractSell=new web3.eth.Contract(sellNFT_CryptoArteSales,CONTRACT_ADDRESS_SELL);var _useState=Object(react["useState"])(undefined),_useState2=_slicedToArray(_useState,2),currentAccount=_useState2[0],setCurrentAccount=_useState2[1];var _useState3=Object(react["useState"])([]),_useState4=_slicedToArray(_useState3,2),errors=_useState4[0],setErrors=_useState4[1];var _useState5=Object(react["useState"])(false),_useState6=_slicedToArray(_useState5,2),isDone=_useState6[0],setIsDone=_useState6[1];var _useState7=Object(react["useState"])(''),_useState8=_slicedToArray(_useState7,2),url=_useState8[0],setUrl=_useState8[1];var _useState9=Object(react["useState"])(undefined),_useState10=_slicedToArray(_useState9,2),tokenId=_useState10[0],setTokenId=_useState10[1];var handleChangeTokenId=function handleChangeTokenId(e){return setTokenId(+e.target.value||undefined);};var handleChangeUrl=function handleChangeUrl(e){return setUrl(e.target.value);};var handleSubmitMint=/*#__PURE__*/function(){var _ref=_asyncToGenerator(/*#__PURE__*/regenerator_default.a.mark(function _callee(e){var isValidUrl,isValidTokenId;return regenerator_default.a.wrap(function _callee$(_context){while(1){switch(_context.prev=_context.next){case 0:e.preventDefault();_context.prev=1;setErrors([]);setIsDone(false);isValidUrl=validateUrl(url);isValidTokenId=validateTokenId(tokenId);if(!isValidUrl){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_URL_TEXT]);});}if(!isValidTokenId){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_TOKEN_ID_TEXT]);});}if(!currentAccount){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_CONTRACT_TEXT]);});}if(!(currentAccount&&isValidTokenId&&isValidUrl)){_context.next=13;break;}_context.next=12;return contractMain.methods.mint(currentAccount,tokenId,url).send({from:currentAccount});case 12:setIsDone(true);case 13:_context.next=18;break;case 15:_context.prev=15;_context.t0=_context["catch"](1);setErrors([_context.t0.message]);case 18:case"end":return _context.stop();}}},_callee,null,[[1,15]]);}));return function handleSubmitMint(_x){return _ref.apply(this,arguments);};}();var _useState11=Object(react["useState"])(undefined),_useState12=_slicedToArray(_useState11,2),tokenIdPrice=_useState12[0],setTokenIdPrice=_useState12[1];var _useState13=Object(react["useState"])(undefined),_useState14=_slicedToArray(_useState13,2),price=_useState14[0],setPrice=_useState14[1];var handleChangePrice=function handleChangePrice(e){return setPrice(+e.target.value||undefined);};var handleChangeTokenIdPrice=function handleChangeTokenIdPrice(e){return setTokenIdPrice(+e.target.value||undefined);};var handleSubmitSetPrice=/*#__PURE__*/function(){var _ref2=_asyncToGenerator(/*#__PURE__*/regenerator_default.a.mark(function _callee2(e){var isValidTokenIdPrice,isValidPrice;return regenerator_default.a.wrap(function _callee2$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:e.preventDefault();_context2.prev=1;setErrors([]);setIsDone(false);isValidTokenIdPrice=validateTokenId(tokenIdPrice);isValidPrice=validateTokenId(price);if(!isValidTokenIdPrice){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_TOKEN_ID_TEXT]);});}if(!isValidPrice){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_PRICE_TEXT]);});}if(!(currentAccount&&isValidTokenIdPrice&&isValidPrice)){_context2.next=12;break;}_context2.next=11;return contractSell.methods.setCurrentPrice(tokenIdPrice,price).send({from:currentAccount});case 11:setIsDone(true);case 12:_context2.next=17;break;case 14:_context2.prev=14;_context2.t0=_context2["catch"](1);setErrors([_context2.t0.message]);case 17:case"end":return _context2.stop();}}},_callee2,null,[[1,14]]);}));return function handleSubmitSetPrice(_x2){return _ref2.apply(this,arguments);};}();var _useState15=Object(react["useState"])(''),_useState16=_slicedToArray(_useState15,2),addressToApprove=_useState16[0],setAddressToApprove=_useState16[1];var handleChangeAddressToApprove=function handleChangeAddressToApprove(e){return setAddressToApprove(e.target.value);};var handleSubmitApprove=/*#__PURE__*/function(){var _ref3=_asyncToGenerator(/*#__PURE__*/regenerator_default.a.mark(function _callee3(e){var isValidAddressToApprove;return regenerator_default.a.wrap(function _callee3$(_context3){while(1){switch(_context3.prev=_context3.next){case 0:e.preventDefault();_context3.prev=1;setErrors([]);setIsDone(false);isValidAddressToApprove=validateAddress(addressToApprove);if(!isValidAddressToApprove){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_ADDRESS_TEXT]);});}if(!(currentAccount&&isValidAddressToApprove)){_context3.next=10;break;}_context3.next=9;return contractMain.methods.setApprovalForAll(addressToApprove,true).send({from:currentAccount});case 9:setIsDone(true);case 10:_context3.next=15;break;case 12:_context3.prev=12;_context3.t0=_context3["catch"](1);setErrors([_context3.t0.message]);case 15:case"end":return _context3.stop();}}},_callee3,null,[[1,12]]);}));return function handleSubmitApprove(_x3){return _ref3.apply(this,arguments);};}();var _useState17=Object(react["useState"])(undefined),_useState18=_slicedToArray(_useState17,2),purchaseTokenId=_useState18[0],setPurchaseTokenId=_useState18[1];var _useState19=Object(react["useState"])(undefined),_useState20=_slicedToArray(_useState19,2),purchaseValue=_useState20[0],setPurchaseValue=_useState20[1];var handleChangePurchaseTokenId=function handleChangePurchaseTokenId(e){return setPurchaseTokenId(+e.target.value||undefined);};var handleChangePurchaseValue=function handleChangePurchaseValue(e){return setPurchaseValue(+e.target.value||undefined);};var handlePurchase=/*#__PURE__*/function(){var _ref4=_asyncToGenerator(/*#__PURE__*/regenerator_default.a.mark(function _callee4(e){var isValidPurchaseTokenId,isValidPurchaseValue;return regenerator_default.a.wrap(function _callee4$(_context4){while(1){switch(_context4.prev=_context4.next){case 0:e.preventDefault();_context4.prev=1;setErrors([]);setIsDone(false);isValidPurchaseTokenId=validateTokenId(purchaseTokenId);isValidPurchaseValue=validateTokenId(purchaseValue);if(!isValidPurchaseTokenId){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_TOKEN_ID_TEXT]);});}if(!isValidPurchaseValue){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_PURCHASE_VALUE_TEXT]);});}if(!(currentAccount&&isValidPurchaseTokenId&&isValidPurchaseValue)){_context4.next=12;break;}_context4.next=11;return contractSell.methods.purchaseToken(purchaseTokenId).send({from:currentAccount,value:purchaseValue});case 11:setIsDone(true);case 12:_context4.next=17;break;case 14:_context4.prev=14;_context4.t0=_context4["catch"](1);setErrors([_context4.t0.message]);case 17:case"end":return _context4.stop();}}},_callee4,null,[[1,14]]);}));return function handlePurchase(_x4){return _ref4.apply(this,arguments);};}();return/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"App",children:[/*#__PURE__*/Object(jsx_runtime["jsx"])("header",{className:"App__header",children:"NFT Marketplace"}),/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"App__content",children:[/*#__PURE__*/Object(jsx_runtime["jsxs"])("form",{className:"App__form",onSubmit:handleSubmitMint,children:[/*#__PURE__*/Object(jsx_runtime["jsxs"])("label",{className:"App__form__label",children:["TokenId:",/*#__PURE__*/Object(jsx_runtime["jsx"])("input",{className:"App__form__input",type:"number",value:tokenId,onChange:handleChangeTokenId})]}),/*#__PURE__*/Object(jsx_runtime["jsxs"])("label",{className:"App__form__label",children:["Url:",/*#__PURE__*/Object(jsx_runtime["jsx"])("input",{className:"App__form__input",type:"text",value:url,onChange:handleChangeUrl})]}),/*#__PURE__*/Object(jsx_runtime["jsx"])("input",{type:"submit",className:"App__form__button",disabled:!tokenId||!url,value:"Mint"})]}),/*#__PURE__*/Object(jsx_runtime["jsxs"])("form",{className:"App__form",onSubmit:handleSubmitSetPrice,children:[/*#__PURE__*/Object(jsx_runtime["jsxs"])("label",{className:"App__form__label",children:["TokenId:",/*#__PURE__*/Object(jsx_runtime["jsx"])("input",{className:"App__form__input",type:"number",value:tokenIdPrice,onChange:handleChangeTokenIdPrice})]}),/*#__PURE__*/Object(jsx_runtime["jsxs"])("label",{className:"App__form__label",children:["Price:",/*#__PURE__*/Object(jsx_runtime["jsx"])("input",{className:"App__form__input",type:"number",value:price,onChange:handleChangePrice})]}),/*#__PURE__*/Object(jsx_runtime["jsx"])("input",{type:"submit",className:"App__form__button",disabled:!tokenIdPrice||!price,value:"Set price"})]}),/*#__PURE__*/Object(jsx_runtime["jsxs"])("form",{className:"App__form",onSubmit:handleSubmitApprove,children:[/*#__PURE__*/Object(jsx_runtime["jsxs"])("label",{className:"App__form__label",children:["Address:",/*#__PURE__*/Object(jsx_runtime["jsx"])("input",{className:"App__form__input",type:"string",value:addressToApprove,onChange:handleChangeAddressToApprove})]}),/*#__PURE__*/Object(jsx_runtime["jsx"])("input",{type:"submit",className:"App__form__button",disabled:!addressToApprove,value:"Approve"})]}),/*#__PURE__*/Object(jsx_runtime["jsxs"])("form",{className:"App__form",onSubmit:handlePurchase,children:[/*#__PURE__*/Object(jsx_runtime["jsxs"])("label",{className:"App__form__label",children:["TokenId:",/*#__PURE__*/Object(jsx_runtime["jsx"])("input",{className:"App__form__input",type:"number",value:purchaseTokenId,onChange:handleChangePurchaseTokenId})]}),/*#__PURE__*/Object(jsx_runtime["jsxs"])("label",{className:"App__form__label",children:["Value:",/*#__PURE__*/Object(jsx_runtime["jsx"])("input",{className:"App__form__input",type:"number",value:purchaseValue,onChange:handleChangePurchaseValue})]}),/*#__PURE__*/Object(jsx_runtime["jsx"])("input",{type:"submit",className:"App__form__button",disabled:!purchaseTokenId||!purchaseValue,value:"Purchase"})]})]}),!!errors.length&&/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"App__errors",children:errors.map(function(error){return/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"App__errors__error",children:error},error);})}),isDone&&/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"App__done",children:"DONE"})]});};
+var contractSell=new web3.eth.Contract(sellNFT_CryptoArteSales,CONTRACT_ADDRESS_SELL);var _useState=Object(react["useState"])(undefined),_useState2=_slicedToArray(_useState,2),currentAccount=_useState2[0],setCurrentAccount=_useState2[1];var _useState3=Object(react["useState"])([]),_useState4=_slicedToArray(_useState3,2),errors=_useState4[0],setErrors=_useState4[1];var _useState5=Object(react["useState"])(false),_useState6=_slicedToArray(_useState5,2),isDone=_useState6[0],setIsDone=_useState6[1];var _useState7=Object(react["useState"])(''),_useState8=_slicedToArray(_useState7,2),url=_useState8[0],setUrl=_useState8[1];var handleChangeUrl=function handleChangeUrl(e){return setUrl(e.target.value);};var handleSubmitMint=/*#__PURE__*/function(){var _ref=_asyncToGenerator(/*#__PURE__*/regenerator_default.a.mark(function _callee(e){var isValidUrl,isValidTokenId;return regenerator_default.a.wrap(function _callee$(_context){while(1){switch(_context.prev=_context.next){case 0:e.preventDefault();_context.prev=1;setErrors([]);setIsDone(false);isValidUrl=validateUrl(url);isValidTokenId=validateTokenId(tokenId);if(!isValidUrl){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_URL_TEXT]);});}if(!isValidTokenId){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_TOKEN_ID_TEXT]);});}if(!currentAccount){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_CONTRACT_TEXT]);});}if(!(currentAccount&&isValidTokenId&&isValidUrl)){_context.next=13;break;}_context.next=12;return contractMain.methods.mint(currentAccount,tokenId,url).send({from:currentAccount});case 12:setIsDone(true);case 13:_context.next=18;break;case 15:_context.prev=15;_context.t0=_context["catch"](1);setErrors([_context.t0.message]);case 18:case"end":return _context.stop();}}},_callee,null,[[1,15]]);}));return function handleSubmitMint(_x){return _ref.apply(this,arguments);};}();var _useState9=Object(react["useState"])(undefined),_useState10=_slicedToArray(_useState9,2),price=_useState10[0],setPrice=_useState10[1];var handleChangePrice=function handleChangePrice(e){return setPrice(+e.target.value||undefined);};var handleSubmitSetPrice=/*#__PURE__*/function(){var _ref2=_asyncToGenerator(/*#__PURE__*/regenerator_default.a.mark(function _callee2(e){var isValidTokenId,isValidPrice;return regenerator_default.a.wrap(function _callee2$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:e.preventDefault();_context2.prev=1;setErrors([]);setIsDone(false);isValidTokenId=validateTokenId(tokenId);isValidPrice=validateTokenId(price);if(!isValidTokenId){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_TOKEN_ID_TEXT]);});}if(!isValidPrice){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_PRICE_TEXT]);});}if(!(currentAccount&&isValidTokenId&&isValidPrice)){_context2.next=12;break;}_context2.next=11;return contractSell.methods.setCurrentPrice(tokenId,price).send({from:currentAccount});case 11:setIsDone(true);case 12:_context2.next=17;break;case 14:_context2.prev=14;_context2.t0=_context2["catch"](1);setErrors([_context2.t0.message]);case 17:case"end":return _context2.stop();}}},_callee2,null,[[1,14]]);}));return function handleSubmitSetPrice(_x2){return _ref2.apply(this,arguments);};}();var _useState11=Object(react["useState"])(''),_useState12=_slicedToArray(_useState11,2),addressToApprove=_useState12[0],setAddressToApprove=_useState12[1];var handleChangeAddressToApprove=function handleChangeAddressToApprove(e){return setAddressToApprove(e.target.value);};var handleSubmitApprove=/*#__PURE__*/function(){var _ref3=_asyncToGenerator(/*#__PURE__*/regenerator_default.a.mark(function _callee3(e){var isValidAddressToApprove;return regenerator_default.a.wrap(function _callee3$(_context3){while(1){switch(_context3.prev=_context3.next){case 0:e.preventDefault();_context3.prev=1;setErrors([]);setIsDone(false);isValidAddressToApprove=validateAddress(addressToApprove);if(!isValidAddressToApprove){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_ADDRESS_TEXT]);});}if(!(currentAccount&&isValidAddressToApprove)){_context3.next=10;break;}_context3.next=9;return contractMain.methods.setApprovalForAll(addressToApprove,true).send({from:currentAccount});case 9:setIsDone(true);case 10:_context3.next=15;break;case 12:_context3.prev=12;_context3.t0=_context3["catch"](1);setErrors([_context3.t0.message]);case 15:case"end":return _context3.stop();}}},_callee3,null,[[1,12]]);}));return function handleSubmitApprove(_x3){return _ref3.apply(this,arguments);};}();var _useState13=Object(react["useState"])(undefined),_useState14=_slicedToArray(_useState13,2),purchaseValue=_useState14[0],setPurchaseValue=_useState14[1];var handleChangePurchaseValue=function handleChangePurchaseValue(e){return setPurchaseValue(+e.target.value||undefined);};var handlePurchase=/*#__PURE__*/function(){var _ref4=_asyncToGenerator(/*#__PURE__*/regenerator_default.a.mark(function _callee4(e){var isValidTokenId,isValidPurchaseValue;return regenerator_default.a.wrap(function _callee4$(_context4){while(1){switch(_context4.prev=_context4.next){case 0:e.preventDefault();_context4.prev=1;setErrors([]);setIsDone(false);isValidTokenId=validateTokenId(tokenId);isValidPurchaseValue=validateTokenId(purchaseValue);if(!isValidTokenId){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_TOKEN_ID_TEXT]);});}if(!isValidPurchaseValue){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_PURCHASE_VALUE_TEXT]);});}if(!(currentAccount&&isValidTokenId&&isValidPurchaseValue)){_context4.next=12;break;}_context4.next=11;return contractSell.methods.purchaseToken(tokenId).send({from:currentAccount,value:purchaseValue});case 11:setIsDone(true);case 12:_context4.next=17;break;case 14:_context4.prev=14;_context4.t0=_context4["catch"](1);setErrors([_context4.t0.message]);case 17:case"end":return _context4.stop();}}},_callee4,null,[[1,14]]);}));return function handlePurchase(_x4){return _ref4.apply(this,arguments);};}();return/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"App",children:[/*#__PURE__*/Object(jsx_runtime["jsx"])("header",{className:"App__header",children:"NFT Marketplace"}),/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"App__content",children:[/*#__PURE__*/Object(jsx_runtime["jsxs"])("form",{className:"App__form",onSubmit:handleSubmitMint,children:[/*#__PURE__*/Object(jsx_runtime["jsxs"])("label",{className:"App__form__label",children:["Url:",/*#__PURE__*/Object(jsx_runtime["jsx"])("input",{className:"App__form__input",type:"text",value:url,onChange:handleChangeUrl})]}),/*#__PURE__*/Object(jsx_runtime["jsx"])("input",{type:"submit",className:"App__form__button",disabled:!url,value:"Mint"})]}),/*#__PURE__*/Object(jsx_runtime["jsxs"])("form",{className:"App__form",onSubmit:handleSubmitSetPrice,children:[/*#__PURE__*/Object(jsx_runtime["jsxs"])("label",{className:"App__form__label",children:["Price:",/*#__PURE__*/Object(jsx_runtime["jsx"])("input",{className:"App__form__input",type:"number",value:price,onChange:handleChangePrice})]}),/*#__PURE__*/Object(jsx_runtime["jsx"])("input",{type:"submit",className:"App__form__button",disabled:!price,value:"Set price"})]}),/*#__PURE__*/Object(jsx_runtime["jsxs"])("form",{className:"App__form",onSubmit:handleSubmitApprove,children:[/*#__PURE__*/Object(jsx_runtime["jsxs"])("label",{className:"App__form__label",children:["Address:",/*#__PURE__*/Object(jsx_runtime["jsx"])("input",{className:"App__form__input",type:"string",value:addressToApprove,onChange:handleChangeAddressToApprove})]}),/*#__PURE__*/Object(jsx_runtime["jsx"])("input",{type:"submit",className:"App__form__button",disabled:!addressToApprove,value:"Approve"})]}),/*#__PURE__*/Object(jsx_runtime["jsxs"])("form",{className:"App__form",onSubmit:handlePurchase,children:[/*#__PURE__*/Object(jsx_runtime["jsxs"])("label",{className:"App__form__label",children:["Value:",/*#__PURE__*/Object(jsx_runtime["jsx"])("input",{className:"App__form__input",type:"number",value:purchaseValue,onChange:handleChangePurchaseValue})]}),/*#__PURE__*/Object(jsx_runtime["jsx"])("input",{type:"submit",className:"App__form__button",disabled:!purchaseValue,value:"Purchase"})]})]}),!!errors.length&&/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"App__errors",children:errors.map(function(error){return/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"App__errors__error",children:error},error);})}),isDone&&/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"App__done",children:"DONE"})]});};
 // CONCATENATED MODULE: ./src/index.tsx
 react_dom_default.a.render(/*#__PURE__*/Object(jsx_runtime["jsx"])(react_default.a.StrictMode,{children:/*#__PURE__*/Object(jsx_runtime["jsx"])(App_App,{})}),document.getElementById('root'));
 

@@ -12,6 +12,12 @@ code {
     monospace;
 }
 
+#root {
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+}
+
 .App {
   text-align: center;
   color: #282c34;
@@ -49,7 +55,7 @@ code {
 .App__form__label {
   margin-top: 1rem;
   font-size: 1.4rem;
-  width: 450px;
+  width: 400px;
   display: -webkit-flex;
   display: flex;
   -webkit-justify-content: space-between;

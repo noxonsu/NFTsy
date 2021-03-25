@@ -15,6 +15,12 @@ const web3 = new Web3(Web3.givenProvider);
 
 type NumberOrUndef = number | undefined;
 
+let tokenId: number | undefined;
+// @ts-ignore
+window.init = (initialParams: any) => {
+    tokenId = initialParams.tokenId;
+}
+
 export const App = () => {
     useEffect(() => {
         // @ts-ignore
@@ -32,11 +38,7 @@ export const App = () => {
     const [isDone, setIsDone] = useState(false);
 
     const [url, setUrl] = useState('');
-    const [tokenId, setTokenId] = useState(undefined as NumberOrUndef);
-
-    const handleChangeTokenId = (e: React.ChangeEvent<HTMLInputElement>) => setTokenId(+e.target.value || undefined);
     const handleChangeUrl = (e: React.ChangeEvent<HTMLInputElement>) => setUrl(e.target.value);
-
     const handleSubmitMint = async (e: React.SyntheticEvent) => {
         e.preventDefault();
         try {
@@ -64,29 +66,25 @@ export const App = () => {
         }
     };
 
-    const [tokenIdPrice, setTokenIdPrice] = useState(undefined as NumberOrUndef);
     const [price, setPrice] = useState(undefined as NumberOrUndef);
-
     const handleChangePrice = (e: React.ChangeEvent<HTMLInputElement>) => setPrice(+e.target.value || undefined);
-    const handleChangeTokenIdPrice = (e: React.ChangeEvent<HTMLInputElement>) => setTokenIdPrice(+e.target.value || undefined);
-
     const handleSubmitSetPrice = async (e: React.SyntheticEvent) => {
         e.preventDefault();
         try {
             setErrors([]);
             setIsDone(false);
-            const isValidTokenIdPrice = validateTokenId(tokenIdPrice);
+            const isValidTokenId = validateTokenId(tokenId);
             const isValidPrice = validateTokenId(price);
 
-            if (!isValidTokenIdPrice) {
+            if (!isValidTokenId) {
                 setErrors((errors) => [...errors, ERROR_TOKEN_ID_TEXT]);
             }
             if (!isValidPrice) {
                 setErrors((errors) => [...errors, ERROR_PRICE_TEXT]);
             }
 
-            if (currentAccount && isValidTokenIdPrice && isValidPrice) {
-                await contractSell.methods.setCurrentPrice(tokenIdPrice, price).send({ from: currentAccount });
+            if (currentAccount && isValidTokenId && isValidPrice) {
+                await contractSell.methods.setCurrentPrice(tokenId, price).send({ from: currentAccount });
                 setIsDone(true);
             }
         } catch (e) {
@@ -116,27 +114,25 @@ export const App = () => {
         }
     }
 
-    const [purchaseTokenId, setPurchaseTokenId] = useState(undefined as NumberOrUndef);
     const [purchaseValue, setPurchaseValue] = useState(undefined as NumberOrUndef);
-    const handleChangePurchaseTokenId = (e: React.ChangeEvent<HTMLInputElement>) => setPurchaseTokenId(+e.target.value || undefined);
     const handleChangePurchaseValue = (e: React.ChangeEvent<HTMLInputElement>) => setPurchaseValue(+e.target.value || undefined);
     const handlePurchase = async (e: React.SyntheticEvent) => {
         e.preventDefault();
         try {
             setErrors([]);
             setIsDone(false);
-            const isValidPurchaseTokenId = validateTokenId(purchaseTokenId);
+            const isValidTokenId = validateTokenId(tokenId);
             const isValidPurchaseValue = validateTokenId(purchaseValue);
 
-            if (!isValidPurchaseTokenId) {
+            if (!isValidTokenId) {
                 setErrors((errors) => [...errors, ERROR_TOKEN_ID_TEXT]);
             }
             if (!isValidPurchaseValue) {
                 setErrors((errors) => [...errors, ERROR_PURCHASE_VALUE_TEXT]);
             }
 
-            if (currentAccount && isValidPurchaseTokenId && isValidPurchaseValue) {
-                await contractSell.methods.purchaseToken(purchaseTokenId).send({ from: currentAccount, value: purchaseValue });
+            if (currentAccount && isValidTokenId && isValidPurchaseValue) {
+                await contractSell.methods.purchaseToken(tokenId).send({ from: currentAccount, value: purchaseValue });
                 setIsDone(true);
             }
         } catch (e) {
@@ -150,26 +146,18 @@ export const App = () => {
             <div className="App__content">
                 <form className="App__form" onSubmit={handleSubmitMint}>
                     <label className="App__form__label">
-                        TokenId:
-                        <input className="App__form__input" type="number" value={tokenId} onChange={handleChangeTokenId} />
-                    </label>
-                    <label className="App__form__label">
                         Url:
                         <input className="App__form__input" type="text" value={url} onChange={handleChangeUrl} />
                     </label>
-                    <input type="submit" className="App__form__button" disabled={!tokenId || !url} value="Mint" />
+                    <input type="submit" className="App__form__button" disabled={!url} value="Mint" />
                 </form>
 
                 <form className="App__form" onSubmit={handleSubmitSetPrice}>
                     <label className="App__form__label">
-                        TokenId:
-                        <input className="App__form__input" type="number" value={tokenIdPrice} onChange={handleChangeTokenIdPrice} />
-                    </label>
-                    <label className="App__form__label">
                         Price:
                         <input className="App__form__input" type="number" value={price} onChange={handleChangePrice} />
                     </label>
-                    <input type="submit" className="App__form__button" disabled={!tokenIdPrice || !price} value="Set price" />
+                    <input type="submit" className="App__form__button" disabled={!price} value="Set price" />
                 </form>
 
                 <form className="App__form" onSubmit={handleSubmitApprove}>
@@ -182,14 +170,10 @@ export const App = () => {
 
                 <form className="App__form" onSubmit={handlePurchase}>
                     <label className="App__form__label">
-                        TokenId:
-                        <input className="App__form__input" type="number" value={purchaseTokenId} onChange={handleChangePurchaseTokenId} />
-                    </label>
-                    <label className="App__form__label">
                         Value:
                         <input className="App__form__input" type="number" value={purchaseValue} onChange={handleChangePurchaseValue} />
                     </label>
-                    <input type="submit" className="App__form__button" disabled={!purchaseTokenId || !purchaseValue} value="Purchase" />
+                    <input type="submit" className="App__form__button" disabled={!purchaseValue} value="Purchase" />
                 </form>
             </div>
             {
