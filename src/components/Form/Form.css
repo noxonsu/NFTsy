@@ -1,0 +1,68 @@
+.Form {
+    padding-top: 3rem;
+    padding-right: 5em;
+    padding-bottom: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: fit-content;
+}
+
+.Form__label {
+    margin-top: 1rem;
+    font-size: 1.4rem;
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Form__input {
+    margin-left: 1rem;
+    height: 1.5rem;
+    width: 20rem;
+    font-size: 1.2rem;
+    color: #282c34;
+}
+
+.Form__button {
+    margin-top: 2rem;
+    padding: 0.5rem 1.5rem;
+    font-size: 1.4rem;
+
+    color: #fff;
+    background-color: #0096cc;
+    background-image: linear-gradient(to bottom, #00a7e6 0%, #0096cc 100%);
+    background-repeat: repeat-x;
+    border-color: #0095ce;
+    border-radius: 0.8rem;
+    outline: none;
+
+    transition: all 250ms;
+}
+
+.Form__button:active {
+    background-color: #009ed8;
+    background-image: none;
+    border-color: #00759f;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, .15) inset;
+    opacity: 0.9;
+    transform: scale(0.95);
+}
+
+.Form__button:focus {
+    border-color: #444;
+    box-shadow: 0 0 1px #fff inset;
+}
+
+.Form__button:hover {
+    background-color: #1daee5;
+    background-image: linear-gradient(to bottom, #1daee5 0%, #00a3df 100%);
+    border-color: #00759f;
+}
+
+.Form__button[disabled] {
+    background-color: #0096cc;
+    background-image: linear-gradient(to bottom, #00a7e6 0%, #0096cc 100%);
+    border-color: #0095ce;
+    opacity: 0.5;
+}

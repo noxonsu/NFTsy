@@ -1,0 +1,36 @@
+.App {
+  text-align: center;
+  color: #282c34;
+  padding: 3rem 2rem;
+}
+
+.App__header {
+  width: 100%;
+  text-align: center;
+  font-size: 4rem;
+}
+
+.App__content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.App__errors {
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.App__errors__error {
+  padding-bottom: 0.5rem;
+  color: #990033;
+}
+
+.App__done {
+  padding-top: 2rem;
+  color: #009933;
+  text-align: left;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
