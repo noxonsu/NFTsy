@@ -81,6 +81,7 @@ body {
 .Form {
     padding: 25px;
     margin-right: 80px;
+    margin-bottom: 80px;
     display: -webkit-flex;
     display: flex;
     -webkit-flex-direction: column;
@@ -97,8 +98,17 @@ body {
     box-shadow: 0px 4px 16px rgb(0 0 0 / 8%), 0px 1px 4px rgb(0 0 0 / 8%);
     background: #fff;
     border-radius: 4px;
+
+    transition: all 1s ease;
 }
 
+.Form__result-text {
+    padding-top: 16px;
+    font-size: 18px;
+    text-align: start;
+    width: 420px;
+    word-break: break-all;
+}
 .Input {
     position: relative;
     margin-bottom: 32px;

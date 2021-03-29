@@ -10,6 +10,7 @@ import './App.css';
 import { FormAddress } from "../FormAddress/FormAddress";
 import { FormMint } from "../FormMint/FormMint";
 import { FormPurchase } from "../FormPurchase/FormPurchase";
+import {FormUrl} from "../FormUrl/FormUrl";
 
 const web3 = new Web3(Web3.givenProvider);
 
@@ -43,6 +44,8 @@ export const App = () => {
                 <FormAddress contractMain={contractMain} currentAccount={currentAccount} setErrors={setErrors} setIsDone={setIsDone} />
 
                 <FormPurchase contractSell={contractSell} tokenId={tokenId} currentAccount={currentAccount} setErrors={setErrors} setIsDone={setIsDone} />
+
+                <FormUrl contractMain={contractMain} currentAccount={currentAccount} setErrors={setErrors} setIsDone={setIsDone} />
             </div>
             {
                 !!errors.length && (
