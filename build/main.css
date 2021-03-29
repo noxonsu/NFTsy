@@ -52,62 +52,6 @@ body {
   font-size: 1.4rem;
   font-weight: bold;
 }
-@charset "UTF-8";
-@font-face {
-  font-family: "Manrope";
-  src: url(/static/media/manrope-extrabold.42823ef7.woff2) format("woff2"), 
-  url(/static/media/manrope-extrabold.39e58f2a.woff) format("woff"), 
-  url(/static/media/manrope-extrabold.8f254580.otf) format("truetype"); /* Android, iOS */
-  font-style: normal;
-  font-weight: 800; }
-@font-face {
-  font-family: "Manrope";
-  src: url(/static/media/manrope-bold.9a83fd66.woff2) format("woff2"),
-  url(/static/media/manrope-bold.3a4c15ee.woff) format("woff"),
-  url(/static/media/manrope-bold.ee1a5b9c.otf) format("truetype");
-  font-style: normal;
-  font-weight: 700; }
-@font-face {
-  font-family: "Manrope";
-  src: url(/static/media/manrope-semibold.0228387d.woff2) format("woff2"),
-  url(/static/media/manrope-semibold.684c227a.woff) format("woff"),
-  url(/static/media/manrope-semibold.dde6733b.otf) format("truetype");
-  font-style: normal;
-  font-weight: 600; }
-@font-face {
-  font-family: "Manrope";
-  src: url(/static/media/manrope-medium.7e075fb1.woff2) format("woff2"),
-  url(/static/media/manrope-medium.2babcf7b.woff) format("woff"),
-  url(/static/media/manrope-medium.cc973899.otf) format("truetype");
-  font-style: normal;
-  font-weight: 500; }
-@font-face {
-  font-family: "Manrope";
-  src: url(/static/media/manrope-regular.869859e6.woff2) format("woff2"),
-  url(/static/media/manrope-regular.515b4774.woff) format("woff"),
-  url(/static/media/manrope-regular.70e4f184.otf) format("truetype");
-  font-style: normal;
-  font-weight: 400; }
-@font-face {
-  font-family: "Manrope";
-  src: url(/static/media/manrope-light.794e0184.woff2) format("woff2"),
-  url(/static/media/manrope-light.ce9af1d8.woff) format("woff"),
-  url(/static/media/manrope-light.517f94ae.otf) format("truetype");
-  font-style: normal;
-  font-weight: 300; }
-@font-face {
-  font-family: "Manrope";
-  src: url(/static/media/manrope-thin.fe3fd955.woff2) format("woff2"),
-  url(/static/media/manrope-thin.f7ba5b37.woff) format("woff"),
-  url(/static/media/manrope-thin.0fd3f91e.otf) format("truetype");
-  font-style: normal;
-  font-weight: 200; }
-body, html {
-  font-family: "Manrope",sans-serif; }
-*,*:before,*:after {
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  font-smoothing: antialiased; }
 .Button {
     cursor: pointer;
     border: none;

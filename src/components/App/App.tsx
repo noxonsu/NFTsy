@@ -6,7 +6,6 @@ import CONTRACT_MAIN_ABI from '../../constants/mintNFT.json';
 import CONTRACT_SELL_ABI from '../../constants/sellNFT_CryptoArteSales.json';
 
 import './App.css';
-import '../../fonts/Manrope/index.css';
 
 import { FormAddress } from "../FormAddress/FormAddress";
 import { FormMint } from "../FormMint/FormMint";

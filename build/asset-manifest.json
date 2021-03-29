@@ -4,8 +4,7 @@
     "main.js": "/main.js",
     "main.css.map": "/main.css.map",
     "main.js.map": "/main.js.map",
-    "index.html": "/index.html",
-    "static/media/index.css": "/static/media/manrope-thin.fe3fd955.woff2"
+    "index.html": "/index.html"
   },
   "entrypoints": [
     "main.css",

@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 476);
+/******/ 	return __webpack_require__(__webpack_require__.s = 475);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -6455,7 +6455,7 @@ SafeBuffer.allocUnsafeSlow = function (size) {
 
 
 if (true) {
-  module.exports = __webpack_require__(474);
+  module.exports = __webpack_require__(473);
 } else {}
 
 /***/ }),
@@ -11254,7 +11254,7 @@ var promiEvent = __webpack_require__(58);
 
 var Subscriptions = __webpack_require__(59).subscriptions;
 
-var EthersTransactionUtils = __webpack_require__(477);
+var EthersTransactionUtils = __webpack_require__(476);
 
 var Method = function Method(options) {
   if (!options.call || !options.name) {
@@ -44262,7 +44262,7 @@ var null_NullCoder = /*#__PURE__*/function (_Coder) {
   return NullCoder;
 }(abstract_coder_Coder);
 // EXTERNAL MODULE: ./node_modules/@ethersproject/constants/lib.esm/bignumbers.js
-var bignumbers = __webpack_require__(479);
+var bignumbers = __webpack_require__(478);
 
 // CONCATENATED MODULE: ./node_modules/@ethersproject/abi/lib.esm/coders/number.js
 
@@ -100662,12 +100662,6 @@ module.exports = function (_ref) {
 /* 473 */
 /***/ (function(module, exports, __webpack_require__) {
 
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-/* 474 */
-/***/ (function(module, exports, __webpack_require__) {
-
 "use strict";
 /** @license React v17.0.1
  * react-jsx-runtime.production.min.js
@@ -100731,13 +100725,13 @@ exports.jsx = q;
 exports.jsxs = q;
 
 /***/ }),
-/* 475 */
+/* 474 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
 
 /***/ }),
-/* 476 */
+/* 475 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -100835,9 +100829,6 @@ var sellNFT_CryptoArteSales = __webpack_require__(200);
 // EXTERNAL MODULE: ./src/components/App/App.css
 var App_App = __webpack_require__(471);
 
-// EXTERNAL MODULE: ./src/fonts/Manrope/index.css
-var Manrope = __webpack_require__(472);
-
 // EXTERNAL MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/regenerator/index.js
 var regenerator = __webpack_require__(15);
 var regenerator_default = /*#__PURE__*/__webpack_require__.n(regenerator);
@@ -100902,7 +100893,7 @@ function _asyncToGenerator(fn) {
 // CONCATENATED MODULE: ./src/utils/validator.ts
 var validateTokenId=function validateTokenId(tokenId){return tokenId&&tokenId>0;};var validateUrl=function validateUrl(url){return url.startsWith('https://');};var validateAddress=function validateAddress(url){return url.startsWith('0x');};var ERROR_TOKEN_ID_TEXT='Wrong tokenId: It should be greater than 0';var ERROR_PRICE_TEXT='Wrong price: It should be greater than 0';var ERROR_PURCHASE_VALUE_TEXT='Wrong purchase value: It should be greater than 0';var ERROR_URL_TEXT='Wrong url: It should starts with https://';var ERROR_ADDRESS_TEXT='Wrong address: It should starts with 0x';var ERROR_CONTRACT_TEXT='Error with contract connection';
 // EXTERNAL MODULE: ./src/components/Button/Button.css
-var Button_Button = __webpack_require__(473);
+var Button_Button = __webpack_require__(472);
 
 // EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
 var jsx_runtime = __webpack_require__(8);
@@ -100913,7 +100904,7 @@ var Button_Button_Button=function Button(_ref){var onClick=_ref.onClick,disabled
 var Form = __webpack_require__(100);
 
 // EXTERNAL MODULE: ./src/components/Input/Input.css
-var Input_Input = __webpack_require__(475);
+var Input_Input = __webpack_require__(474);
 
 // CONCATENATED MODULE: ./src/components/Input/Input.tsx
 var Input_Input_Input=function Input(_ref){var title=_ref.title,onChange=_ref.onChange,value=_ref.value,type=_ref.type;return/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"Input",children:[/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"Input__title",children:title}),/*#__PURE__*/Object(jsx_runtime["jsx"])("input",{className:"Input__input",value:value,onChange:onChange,type:type})]});};
@@ -100934,7 +100925,7 @@ var contractSell=new web3.eth.Contract(sellNFT_CryptoArteSales,CONTRACT_ADDRESS_
 react_dom_default.a.render(/*#__PURE__*/Object(jsx_runtime["jsx"])(react_default.a.StrictMode,{children:/*#__PURE__*/Object(jsx_runtime["jsx"])(App_App_App,{})}),document.getElementById('root'));
 
 /***/ }),
-/* 477 */
+/* 476 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -100957,7 +100948,7 @@ var bignumber = __webpack_require__(47);
 var bytes_lib_esm = __webpack_require__(0);
 
 // EXTERNAL MODULE: ./node_modules/@ethersproject/constants/lib.esm/bignumbers.js
-var bignumbers = __webpack_require__(479);
+var bignumbers = __webpack_require__(478);
 
 // EXTERNAL MODULE: ./node_modules/@ethersproject/keccak256/lib.esm/index.js
 var keccak256_lib_esm = __webpack_require__(17);
@@ -101314,8 +101305,8 @@ function parse(rawTransaction) {
 }
 
 /***/ }),
-/* 478 */,
-/* 479 */
+/* 477 */,
+/* 478 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
