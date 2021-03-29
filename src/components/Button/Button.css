@@ -1,0 +1,25 @@
+.Button {
+    cursor: pointer;
+    border: none;
+    border-radius: 2px;
+    background-color: rgb(97, 68, 229);
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 48px;
+    color: white;
+
+    display: inline-block;
+    height: 48px;
+    min-height: 48px;
+    padding: 0 16px;
+    vertical-align: top;
+    text-align: center;
+
+    transition: all 250ms ease;
+}
+
+.Button--disabled {
+    filter: grayscale(1);
+    opacity: .25;
+    cursor: not-allowed;
+}

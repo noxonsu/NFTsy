@@ -6,13 +6,16 @@ import {
     validateTokenId
 } from "../../utils/validator";
 
-import {FormCustomProps, Form} from "../Form/Form";
+import {FormCustomProps} from "../Form/Form";
+import {Button} from "../Button/Button";
+
+import '../Form/Form.css';
+import {Input} from "../Input/Input";
 
 export const FormPurchase = ({ contractSell, tokenId, setErrors, setIsDone, currentAccount }: FormCustomProps) => {
     const [purchaseValue, setPurchaseValue] = useState(undefined as number | undefined);
     const handleChangePurchaseValue = (e: React.ChangeEvent<HTMLInputElement>) => setPurchaseValue(+e.target.value || undefined);
-    const handlePurchase = async (e: React.SyntheticEvent) => {
-        e.preventDefault();
+    const handlePurchase = async () => {
         try {
             setErrors([]);
             setIsDone(false);
@@ -36,12 +39,9 @@ export const FormPurchase = ({ contractSell, tokenId, setErrors, setIsDone, curr
     }
 
     return (
-        <Form onSubmit={handlePurchase}>
-            <label className="Form__label">
-                Value:
-                <input className="Form__input" type="number" value={purchaseValue} onChange={handleChangePurchaseValue} />
-            </label>
-            <input type="submit" className="Form__button" disabled={!purchaseValue} value="Purchase" />
-        </Form>
+        <div className='Form'>
+            <Input title='Value' value={purchaseValue} type="number" onChange={handleChangePurchaseValue} />
+            <Button onClick={handlePurchase} text='Approve' disabled={!purchaseValue} />
+        </div>
     )
 };

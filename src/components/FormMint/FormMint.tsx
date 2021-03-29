@@ -8,15 +8,18 @@ import {
     validateUrl
 } from "../../utils/validator";
 
-import {Form, FormCustomProps} from "../Form/Form";
+import {FormCustomProps} from "../Form/Form";
+import {Button} from "../Button/Button";
+import {Input} from "../Input/Input";
+
+import '../Form/Form.css';
 
 export const FormMint = ({ contractMain, contractSell, setErrors, setIsDone, currentAccount, tokenId }: FormCustomProps) => {
     const [url, setUrl] = useState('');
     const [price, setPrice] = useState(undefined as number | undefined);
     const handleChangeUrl = (e: React.ChangeEvent<HTMLInputElement>) => setUrl(e.target.value);
     const handleChangePrice = (e: React.ChangeEvent<HTMLInputElement>) => setPrice(+e.target.value || undefined);
-    const handleSubmitMint = async (e: React.SyntheticEvent) => {
-        e.preventDefault();
+    const handleSubmitMint = async () => {
         try {
             setErrors([]);
             setIsDone(false);
@@ -47,16 +50,10 @@ export const FormMint = ({ contractMain, contractSell, setErrors, setIsDone, cur
         }
     };
     return (
-        <Form onSubmit={handleSubmitMint}>
-            <label className="Form__label">
-                Url:
-                <input className="Form__input" type="text" value={url} onChange={handleChangeUrl} />
-            </label>
-            <label className="Form__label">
-                Price:
-                <input className="Form__input" type="number" value={price} onChange={handleChangePrice} />
-            </label>
-            <input type="submit" className="Form__button" disabled={!url || !price} value="Mint" />
-        </Form>
+        <div className='Form'>
+            <Input title='Url' value={url} type="text" onChange={handleChangeUrl} />
+            <Input title='Price' value={price} type="number" onChange={handleChangePrice} />
+            <Button onClick={handleSubmitMint} text='Mint' disabled={!url || !price} />
+        </div>
     )
 };

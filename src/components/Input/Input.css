@@ -1,0 +1,34 @@
+.Input {
+    position: relative;
+    margin-bottom: 32px;
+}
+
+.Input__title {
+    font-size: 15px;
+    font-weight: 500;
+
+    color: rgb(33, 37, 41);
+    background-color: #fff;
+    padding: 7px 7px;
+    z-index: 1;
+    position: absolute;
+    top: -18px;
+    left: 10px;
+}
+
+.Input__input {
+    border: 1px solid rgba(0,0,0,.2);
+    width: 420px;
+    box-sizing: border-box;
+    height: 68px;
+    font-size: 24px;
+
+    color: rgb(33, 37, 41);
+    padding: 0 16px;
+}
+
+.Input__input:focus {
+    border: 2px solid rgb(97, 68, 229);
+    outline: none;
+    padding: 0 15px;
+}

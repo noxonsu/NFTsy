@@ -2,13 +2,16 @@ import React, {useState} from "react";
 
 import {ERROR_ADDRESS_TEXT, validateAddress} from "../../utils/validator";
 
-import {FormCustomProps, Form} from "../Form/Form";
+import {FormCustomProps} from "../Form/Form";
+import {Button} from "../Button/Button";
+
+import '../Form/Form.css';
+import {Input} from "../Input/Input";
 
 export const FormAddress = ({ contractMain, setErrors, setIsDone, currentAccount }: FormCustomProps) => {
     const [addressToApprove, setAddressToApprove] = useState('');
     const handleChangeAddressToApprove = (e: React.ChangeEvent<HTMLInputElement>) => setAddressToApprove(e.target.value);
-    const handleSubmitApprove = async (e: React.SyntheticEvent) => {
-        e.preventDefault();
+    const handleSubmitApprove = async () => {
         try {
             setErrors([]);
             setIsDone(false);
@@ -28,13 +31,9 @@ export const FormAddress = ({ contractMain, setErrors, setIsDone, currentAccount
     }
 
     return (
-        <Form onSubmit={handleSubmitApprove}>
-            <label className="Form__label">
-                Address:
-                <input className="Form__input" type="string" value={addressToApprove}
-                       onChange={handleChangeAddressToApprove}/>
-            </label>
-            <input type="submit" className="Form__button" disabled={!addressToApprove} value="Approve"/>
-        </Form>
+        <div className='Form'>
+            <Input title='Address' value={addressToApprove} type='text' onChange={handleChangeAddressToApprove} />
+            <Button onClick={handleSubmitApprove} text='Approve' disabled={!addressToApprove} />
+        </div>
     );
 };

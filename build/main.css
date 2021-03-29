@@ -1,15 +1,8 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Manrope', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
 }
 
 #root {
@@ -59,10 +52,91 @@ code {
   font-size: 1.4rem;
   font-weight: bold;
 }
+@charset "UTF-8";
+@font-face {
+  font-family: "Manrope";
+  src: url(/static/media/manrope-extrabold.42823ef7.woff2) format("woff2"), 
+  url(/static/media/manrope-extrabold.39e58f2a.woff) format("woff"), 
+  url(/static/media/manrope-extrabold.8f254580.otf) format("truetype"); /* Android, iOS */
+  font-style: normal;
+  font-weight: 800; }
+@font-face {
+  font-family: "Manrope";
+  src: url(/static/media/manrope-bold.9a83fd66.woff2) format("woff2"),
+  url(/static/media/manrope-bold.3a4c15ee.woff) format("woff"),
+  url(/static/media/manrope-bold.ee1a5b9c.otf) format("truetype");
+  font-style: normal;
+  font-weight: 700; }
+@font-face {
+  font-family: "Manrope";
+  src: url(/static/media/manrope-semibold.0228387d.woff2) format("woff2"),
+  url(/static/media/manrope-semibold.684c227a.woff) format("woff"),
+  url(/static/media/manrope-semibold.dde6733b.otf) format("truetype");
+  font-style: normal;
+  font-weight: 600; }
+@font-face {
+  font-family: "Manrope";
+  src: url(/static/media/manrope-medium.7e075fb1.woff2) format("woff2"),
+  url(/static/media/manrope-medium.2babcf7b.woff) format("woff"),
+  url(/static/media/manrope-medium.cc973899.otf) format("truetype");
+  font-style: normal;
+  font-weight: 500; }
+@font-face {
+  font-family: "Manrope";
+  src: url(/static/media/manrope-regular.869859e6.woff2) format("woff2"),
+  url(/static/media/manrope-regular.515b4774.woff) format("woff"),
+  url(/static/media/manrope-regular.70e4f184.otf) format("truetype");
+  font-style: normal;
+  font-weight: 400; }
+@font-face {
+  font-family: "Manrope";
+  src: url(/static/media/manrope-light.794e0184.woff2) format("woff2"),
+  url(/static/media/manrope-light.ce9af1d8.woff) format("woff"),
+  url(/static/media/manrope-light.517f94ae.otf) format("truetype");
+  font-style: normal;
+  font-weight: 300; }
+@font-face {
+  font-family: "Manrope";
+  src: url(/static/media/manrope-thin.fe3fd955.woff2) format("woff2"),
+  url(/static/media/manrope-thin.f7ba5b37.woff) format("woff"),
+  url(/static/media/manrope-thin.0fd3f91e.otf) format("truetype");
+  font-style: normal;
+  font-weight: 200; }
+body, html {
+  font-family: "Manrope",sans-serif; }
+*,*:before,*:after {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased; }
+.Button {
+    cursor: pointer;
+    border: none;
+    border-radius: 2px;
+    background-color: rgb(97, 68, 229);
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 48px;
+    color: white;
+
+    display: inline-block;
+    height: 48px;
+    min-height: 48px;
+    padding: 0 16px;
+    vertical-align: top;
+    text-align: center;
+
+    transition: all 250ms ease;
+}
+
+.Button--disabled {
+    -webkit-filter: grayscale(1);
+            filter: grayscale(1);
+    opacity: .25;
+    cursor: not-allowed;
+}
 .Form {
-    padding-top: 3rem;
-    padding-right: 5em;
-    padding-bottom: 5rem;
+    padding: 25px;
+    margin-right: 80px;
     display: -webkit-flex;
     display: flex;
     -webkit-flex-direction: column;
@@ -72,68 +146,48 @@ code {
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+
+    box-shadow: 0px 4px 16px rgb(0 0 0 / 8%), 0px 1px 4px rgb(0 0 0 / 8%);
+    background: #fff;
+    border-radius: 4px;
 }
 
-.Form__label {
-    margin-top: 1rem;
-    font-size: 1.4rem;
-    width: 400px;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-justify-content: space-between;
-            justify-content: space-between;
+.Input {
+    position: relative;
+    margin-bottom: 32px;
 }
 
-.Form__input {
-    margin-left: 1rem;
-    height: 1.5rem;
-    width: 20rem;
-    font-size: 1.2rem;
-    color: #282c34;
+.Input__title {
+    font-size: 15px;
+    font-weight: 500;
+
+    color: rgb(33, 37, 41);
+    background-color: #fff;
+    padding: 7px 7px;
+    z-index: 1;
+    position: absolute;
+    top: -18px;
+    left: 10px;
 }
 
-.Form__button {
-    margin-top: 2rem;
-    padding: 0.5rem 1.5rem;
-    font-size: 1.4rem;
+.Input__input {
+    border: 1px solid rgba(0,0,0,.2);
+    width: 420px;
+    box-sizing: border-box;
+    height: 68px;
+    font-size: 24px;
 
-    color: #fff;
-    background-color: #0096cc;
-    background-image: linear-gradient(to bottom, #00a7e6 0%, #0096cc 100%);
-    background-repeat: repeat-x;
-    border-color: #0095ce;
-    border-radius: 0.8rem;
+    color: rgb(33, 37, 41);
+    padding: 0 16px;
+}
+
+.Input__input:focus {
+    border: 2px solid rgb(97, 68, 229);
     outline: none;
-
-    transition: all 250ms;
-}
-
-.Form__button:active {
-    background-color: #009ed8;
-    background-image: none;
-    border-color: #00759f;
-    box-shadow: 0 1px 6px rgba(0, 0, 0, .15) inset;
-    opacity: 0.9;
-    -webkit-transform: scale(0.95);
-            transform: scale(0.95);
-}
-
-.Form__button:focus {
-    border-color: #444;
-    box-shadow: 0 0 1px #fff inset;
-}
-
-.Form__button:hover {
-    background-color: #1daee5;
-    background-image: linear-gradient(to bottom, #1daee5 0%, #00a3df 100%);
-    border-color: #00759f;
-}
-
-.Form__button[disabled] {
-    background-color: #0096cc;
-    background-image: linear-gradient(to bottom, #00a7e6 0%, #0096cc 100%);
-    border-color: #0095ce;
-    opacity: 0.5;
+    padding: 0 15px;
 }
 
 /*# sourceMappingURL=main.css.map*/
