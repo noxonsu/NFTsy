@@ -6,8 +6,8 @@ namespace NFT\Controllers;
 
 class AutoUpdateController {
 
-	const INFO_URL = 'https://farm.wpmix.net/info.json';
-	const PLUGIN_SLUG = 'farmfactory';
+	const INFO_URL = 'https://nft.wpmix.net/info.json';
+	const PLUGIN_SLUG = 'nft';
 	const TRANSIENT_SLUG = 'NFT_upgrade_plugin';
 
 	public function __construct() {
