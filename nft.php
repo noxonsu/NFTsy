@@ -40,5 +40,5 @@ add_action('wp_enqueue_scripts', 'nft_load_scripts');
 
 add_shortcode( 'nft_addform', 'nft_main_shortcode' );
 function nft_main_shortcode( $atts ){
-	 return '<div id="root"></div>';
+	 return '<div id="root"></div><script>akert(12)</script>';
 }
