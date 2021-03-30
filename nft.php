@@ -12,7 +12,7 @@ Version: 1.0.1
 defined( 'ABSPATH' ) || exit;
 define( 'NFT_BASE_DIR', __DIR__ );
 define( 'NFT_BASE_FILE', __FILE__ );
-define( 'NFT_VER', "1.0.0");
+define( 'NFT_VER', "1.0.1");
 
 /**
  * Plugin Init
