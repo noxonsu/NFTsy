@@ -17,7 +17,7 @@ define( 'NFT_VER', "1.0.2");
 /**
  * Plugin Init
  */
-
+require __DIR__ . '/App/autoload.php';
 
 /**
  * Never worry about cache again!
