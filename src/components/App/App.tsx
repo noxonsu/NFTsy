@@ -6,13 +6,15 @@ import CONTRACT_MAIN_ABI from '../../constants/mintNFT.json';
 import CONTRACT_SELL_ABI from '../../constants/sellNFT_CryptoArteSales.json';
 
 import './App.css';
+import '../Form/Form.css';
 
 import { FormAddress } from "../FormAddress/FormAddress";
 import { FormMint } from "../FormMint/FormMint";
 import { FormPurchase } from "../FormPurchase/FormPurchase";
 import {FormUrl} from "../FormUrl/FormUrl";
+import {Button} from "../Button/Button";
 
-const web3 = new Web3(Web3.givenProvider);
+let web3 = new Web3(Web3.givenProvider);
 
 let tokenId: number | undefined;
 // @ts-ignore
@@ -20,12 +22,34 @@ window.init = (initialParams: any) => {
     tokenId = initialParams.tokenId;
 }
 
+
 export const App = () => {
+    const [isWalletConnected, setIsWalletConnected] = useState(false);
+    const [walletError, setWalletError] = useState('Please connect MetaMask');
+    const connectWallet = () => {
+        try {
+            // @ts-ignore
+            if (window.ethereum) {
+                // @ts-ignore
+                window.ethereum.enable()
+                    .then(() => setIsWalletConnected(true))
+                    .catch(() => setIsWalletConnected(false));
+                // @ts-ignore
+            } else if (window.web3) {
+                web3 = new Web3(web3.currentProvider);
+            } else {
+                setWalletError('Please install MetaMask');
+                setIsWalletConnected(false);
+            }
+        } catch (e) {
+            setIsWalletConnected(false)
+        }
+    }
+
     useEffect(() => {
+        connectWallet();
         // @ts-ignore
-        window.ethereum.enable();
-        // @ts-ignore
-        setCurrentAccount(web3.eth.accounts.currentProvider.selectedAddress.toLowerCase());
+        setCurrentAccount(web3.eth.accounts.currentProvider?.selectedAddress?.toLowerCase());
     }, []);
 
     // @ts-ignore
@@ -39,6 +63,14 @@ export const App = () => {
     return (
         <div className="App">
             <div className="App__content">
+                {
+                    !isWalletConnected && (
+                        <div className='Form App__center-form'>
+                            <div className='App__title-text'>{walletError}</div>
+                            <Button onClick={connectWallet} text='Connect' />
+                        </div>
+                    )
+                }
                 <FormMint contractMain={contractMain} contractSell={contractSell} tokenId={tokenId} currentAccount={currentAccount} setErrors={setErrors} setIsDone={setIsDone} />
 
                 <FormAddress contractMain={contractMain} currentAccount={currentAccount} setErrors={setErrors} setIsDone={setIsDone} />

@@ -34,3 +34,16 @@
   font-size: 1.4rem;
   font-weight: bold;
 }
+
+.App__title-text {
+  padding-bottom: 16px;
+  font-size: 20px;
+  text-align: center;
+  word-break: break-all;
+}
+
+.App__center-form {
+  width: 260px !important;
+  align-items: center !important;
+  justify-content: center;
+}

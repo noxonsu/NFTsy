@@ -22,3 +22,7 @@
     width: 420px;
     word-break: break-all;
 }
+
+.Form__result-text--error {
+    color: #990033;
+}
