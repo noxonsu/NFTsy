@@ -38,7 +38,12 @@ function nft_load_scripts($hook) {
 add_action('wp_enqueue_scripts', 'nft_load_scripts');
 
 
-add_shortcode( 'nft_addform', 'nft_main_shortcode' );
-function nft_main_shortcode( $atts ){
+add_shortcode( 'nft_addform', 'nft_add_shortcode' );
+function nft_add_shortcode( $atts ){
+	if ( isset( $_GET['delete_offer']{1} ) ) {
+		wp_delete_post( sanitize_text_field( $_GET['delete_offer'] ) );
+		wp_safe_redirect( esc_url( home_url( '/' ) ) );
+	}
+	
 	 return '<div id="root"></div><script>akert(12)</script>';
 }
