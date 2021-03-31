@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit;
 define( 'NFT_TEMPLATE_DIR', __DIR__ );
 define( 'NFT_BASE_DIR', __DIR__ );
 define( 'NFT_BASE_FILE', __FILE__ );
-define( 'NFT_VER', "1.0.2");
+define( 'NFT_VER', "1.0.5");
 
 /**
  * Plugin Init
@@ -46,5 +46,5 @@ function nft_add_shortcode( $atts ){
 		wp_safe_redirect( esc_url( home_url( '/' ) ) );
 	}
 	
-	 return '<div id="root"></div><script>akert(12)</script>';
+	return '<div id="root"></div><script>alert("network:"'.update_option("nft_networkName").')</script>';
 }
