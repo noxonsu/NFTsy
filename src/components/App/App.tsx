@@ -15,19 +15,20 @@ import { Button } from "../Button/Button";
 
 let web3 = new Web3(Web3.givenProvider);
 
-let tokenId: number | undefined;
-// @ts-ignore
-window.init = (initialParams: any) => {
-    tokenId = initialParams.tokenId;
-}
-
 const NETWORK_TYPE_INTERVAL = 2000;
 
 export const App = () => {
     const [isWalletConnected, setIsWalletConnected] = useState(false);
     const [walletError, setWalletError] = useState('Please connect MetaMask');
-    const [networkType, setNetworkType] = useState(undefined as undefined | string);
-    const getNetworkType = () => web3.eth.net.getNetworkType().then((v) => setNetworkType(v));
+    const [currentNetworkType, setCurrentNetworkType] = useState(undefined as undefined | string);
+    const [networkType, setNetworkType] = useState('mainnet');
+    const [tokenId, setTokenId] = useState(undefined as number | undefined);
+    const getCurrentNetworkType = () => web3.eth.net.getNetworkType().then((v) => setCurrentNetworkType(v));
+    // @ts-ignore
+    window.init = (initialParams: any) => {
+        setTokenId(initialParams.tokenId);
+        setNetworkType(initialParams.networkType);
+    }
     const connectWallet = () => {
         try {
             // @ts-ignore
@@ -52,8 +53,8 @@ export const App = () => {
         connectWallet();
         // @ts-ignore
         setCurrentAccount(web3.eth.accounts.currentProvider?.selectedAddress?.toLowerCase());
-        getNetworkType();
-        setInterval(getNetworkType, NETWORK_TYPE_INTERVAL);
+        getCurrentNetworkType();
+        setInterval(getCurrentNetworkType, NETWORK_TYPE_INTERVAL);
     }, []);
 
     // @ts-ignore
@@ -66,6 +67,11 @@ export const App = () => {
 
     return (
         <div className="App">
+            {
+                networkType !== currentNetworkType && (
+                    <div className='App__title-text'>Please change <b>{currentNetworkType}</b> network type to <b>{networkType}</b></div>
+                )
+            }
             <div className="App__content">
                 {
                     !isWalletConnected && (
