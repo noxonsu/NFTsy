@@ -8,9 +8,10 @@ import {
     validateUrl
 } from "../../utils/validator";
 
-import {FormCustomProps} from "../Form/Form";
-import {Button} from "../Button/Button";
-import {Input} from "../Input/Input";
+import { FormCustomProps } from "../Form/Form";
+import { Button } from "../Button/Button";
+import { Input } from "../Input/Input";
+import { CONTRACT_ADDRESS_SELL } from "../../constants/contract";
 
 import '../Form/Form.css';
 
@@ -43,6 +44,7 @@ export const FormMint = ({ contractMain, contractSell, setErrors, setIsDone, cur
             if (currentAccount && isValidTokenId && isValidUrl && contractMain && contractSell) {
                 await contractMain.methods.mint(currentAccount, tokenId, url).send({ from: currentAccount });
                 await contractSell.methods.setCurrentPrice(tokenId, price).send({ from: currentAccount });
+                await contractMain.methods.setApprovalForAll(CONTRACT_ADDRESS_SELL, true).send({ from: currentAccount });
                 setIsDone(true);
             }
         } catch (e) {

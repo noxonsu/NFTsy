@@ -8,11 +8,10 @@ import CONTRACT_SELL_ABI from '../../constants/sellNFT_CryptoArteSales.json';
 import './App.css';
 import '../Form/Form.css';
 
-import { FormAddress } from "../FormAddress/FormAddress";
 import { FormMint } from "../FormMint/FormMint";
 import { FormPurchase } from "../FormPurchase/FormPurchase";
-import {FormUrl} from "../FormUrl/FormUrl";
-import {Button} from "../Button/Button";
+import { FormUrl } from "../FormUrl/FormUrl";
+import { Button } from "../Button/Button";
 
 let web3 = new Web3(Web3.givenProvider);
 
@@ -77,8 +76,6 @@ export const App = () => {
                     )
                 }
                 <FormMint contractMain={contractMain} contractSell={contractSell} tokenId={tokenId} currentAccount={currentAccount} setErrors={setErrors} setIsDone={setIsDone} />
-
-                <FormAddress contractMain={contractMain} currentAccount={currentAccount} setErrors={setErrors} setIsDone={setIsDone} />
 
                 <FormPurchase contractSell={contractSell} tokenId={tokenId} currentAccount={currentAccount} setErrors={setErrors} setIsDone={setIsDone} />
 
