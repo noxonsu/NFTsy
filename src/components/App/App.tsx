@@ -22,10 +22,13 @@ window.init = (initialParams: any) => {
     tokenId = initialParams.tokenId;
 }
 
+const NETWORK_TYPE_INTERVAL = 2000;
 
 export const App = () => {
     const [isWalletConnected, setIsWalletConnected] = useState(false);
     const [walletError, setWalletError] = useState('Please connect MetaMask');
+    const [networkType, setNetworkType] = useState(undefined as undefined | string);
+    const getNetworkType = () => web3.eth.net.getNetworkType().then((v) => setNetworkType(v));
     const connectWallet = () => {
         try {
             // @ts-ignore
@@ -50,6 +53,8 @@ export const App = () => {
         connectWallet();
         // @ts-ignore
         setCurrentAccount(web3.eth.accounts.currentProvider?.selectedAddress?.toLowerCase());
+        getNetworkType();
+        setInterval(getNetworkType, NETWORK_TYPE_INTERVAL);
     }, []);
 
     // @ts-ignore
