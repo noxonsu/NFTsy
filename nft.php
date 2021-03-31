@@ -48,5 +48,5 @@ function nft_add_shortcode( $atts ){
 
 add_shortcode( 'nft_item', 'nft_item_shortcode' );
 function nft_item_shortcode( $atts ){
-	return '<div id="root"></div><script>alert("эо страница конкретного товара (не добавления) network:"'.update_option("nft_networkName").')</script>';
+	return '<div id="root"></div><script>alert("эо страница конкретного товара (не добавления) network:"'.get_option("nft_networkName").')</script>';
 }
