@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit;
 define( 'NFT_TEMPLATE_DIR', __DIR__ );
 define( 'NFT_BASE_DIR', __DIR__ );
 define( 'NFT_BASE_FILE', __FILE__ );
-define( 'NFT_VER', "1.0.5");
+define( 'NFT_VER', "1.0.6");
 
 /**
  * Plugin Init
@@ -41,10 +41,12 @@ add_action('wp_enqueue_scripts', 'nft_load_scripts');
 
 add_shortcode( 'nft_addform', 'nft_add_shortcode' );
 function nft_add_shortcode( $atts ){
-	if ( isset( $_GET['delete_offer']{1} ) ) {
-		wp_delete_post( sanitize_text_field( $_GET['delete_offer'] ) );
-		wp_safe_redirect( esc_url( home_url( '/' ) ) );
-	}
+
 	
 	return '<div id="root"></div><script>alert("network:"'.update_option("nft_networkName").')</script>';
+}
+
+add_shortcode( 'nft_item', 'nft_item_shortcode' );
+function nft_item_shortcode( $atts ){
+	return '<div id="root"></div><script>alert("эо страница конкретного товара (не добавления) network:"'.update_option("nft_networkName").')</script>';
 }
