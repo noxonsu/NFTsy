@@ -42,7 +42,7 @@
 
 <div class="wrap">
   <div class="welcome-panel">
-    <h2><?php echo esc_html(get_admin_page_title()); ?></h2>
+    <h2>test</h2>
     <?php esc_html_e('First of all please','nft'); ?> <a href="update-core.php?force-check=1"><?php esc_html_e('check for updates','nft'); ?></a>. <?php esc_html_e('How to use? Just enter [nft] shortcode in your page or post and fill this form:','nft'); ?><Br>
     <br><br>
     <h2><?php esc_html_e('Staking settings', 'nft'); ?></h2>

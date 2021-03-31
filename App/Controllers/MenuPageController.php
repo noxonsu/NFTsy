@@ -31,9 +31,10 @@ class MenuPageController extends Controller
 
     public function page()
     {
+		
         $this->handleRequest();
-     var_dump(   $this->view->display('/settings.php'));
-
+		include(NFT_TEMPLATE_DIR."/settings.php");
+		
     }
 
     public function handleRequest()
