@@ -41,7 +41,7 @@ export const FormPurchase = ({ contractSell, tokenId, setErrors, setIsDone, curr
     return (
         <div className='Form'>
             <Input title='Value' value={purchaseValue} type="number" onChange={handleChangePurchaseValue} />
-            <Button onClick={handlePurchase} text='Approve' disabled={!purchaseValue} />
+            <Button onClick={handlePurchase} text='Purchase' disabled={!purchaseValue} />
         </div>
     )
 };
