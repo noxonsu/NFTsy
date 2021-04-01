@@ -86,3 +86,6 @@ function nft_custom_init(){
 }
 
 
+add_filter( 'login_redirect', function( $url, $query, $user ) {
+    return home_url();
+}, 10, 3 );
