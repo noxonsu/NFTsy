@@ -57,8 +57,8 @@ add_action('init', 'nft_custom_init');
 function nft_custom_init(){
 	register_post_type('nft', array(
 		'labels'             => array(
-			'name'               => esc_html__('NFTs', 'nft' ), // Основное название типа записи
-			'singular_name'      => esc_html__('NFT', 'nft' ), // отдельное название записи типа Book
+			'name'               => esc_html__('NFTs', 'nft' ), 
+			'singular_name'      => esc_html__('NFT', 'nft' ), 
 			'add_new'            => esc_html__('Add new', 'nft' ),
 			'add_new_item'       => esc_html__('Add new NFT', 'nft' ),
 			'edit_item'          => esc_html__('Edit NFT', 'nft' ),
