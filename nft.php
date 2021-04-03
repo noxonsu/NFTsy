@@ -14,6 +14,7 @@ define( 'NFT_TEMPLATE_DIR', __DIR__ );
 define( 'NFT_BASE_DIR', __DIR__ );
 define( 'NFT_BASE_FILE', __FILE__ );
 define( 'NFT_VER', "1.0.6");
+define( 'NFT_ADDUSER', 1);
 
 /**
  * Plugin Init
@@ -57,8 +58,8 @@ add_action('init', 'nft_custom_init');
 function nft_custom_init(){
 	register_post_type('nft', array(
 		'labels'             => array(
-			'name'               => esc_html__('NFTs', 'nft' ), 
-			'singular_name'      => esc_html__('NFT', 'nft' ), 
+			'name'               => esc_html__('NFTs', 'nft' ), // Основное название типа записи
+			'singular_name'      => esc_html__('NFT', 'nft' ), // отдельное название записи типа Book
 			'add_new'            => esc_html__('Add new', 'nft' ),
 			'add_new_item'       => esc_html__('Add new NFT', 'nft' ),
 			'edit_item'          => esc_html__('Edit NFT', 'nft' ),
@@ -86,6 +87,3 @@ function nft_custom_init(){
 }
 
 
-add_filter( 'login_redirect', function( $url, $query, $user ) {
-    return home_url();
-}, 10, 3 );
