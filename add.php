@@ -5,8 +5,10 @@
 // delete places
 
 
-if ( is_user_logged_in() ) {
-
+if ( is_user_logged_in() || NFT_ADDUSER > 0) {
+		
+		if (NFT_ADDUSER > 0) {$nft_autor = NFT_ADDUSER;} else { get_current_user_id(); }
+		
 		if (isset($_POST['nft_new_url'])) {
 			// Create post object
 			$nft_new_item = array(
@@ -14,7 +16,7 @@ if ( is_user_logged_in() ) {
 			  'post_content'  => esc_url($_POST['nft_new_url']),
 			  'post_status'   => 'publish',
 			  
-			  'post_author'   => get_current_user_id(),
+			  'post_author'   => $nft_autor,
 			  'post_type' => 'nft'
 			);
 			 
