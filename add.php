@@ -7,9 +7,11 @@
 
 if ( is_user_logged_in() || NFT_ADDUSER > 0) {
 		
+		
 		if (NFT_ADDUSER > 0) {$nft_autor = NFT_ADDUSER;} else { get_current_user_id(); }
 		
 		if (isset($_POST['nft_new_url'])) {
+
 			// Create post object
 			$nft_new_item = array(
 			  'post_title'    => wp_strip_all_tags( $_POST['nft_new_url'] ),
@@ -23,29 +25,25 @@ if ( is_user_logged_in() || NFT_ADDUSER > 0) {
 			// Insert the post into the database
 			$nft_new_id = wp_insert_post( $nft_new_item );
 			$nft_new_edit = add_query_arg( 'token_id', $nft_new_id , get_permalink( get_the_ID() ) ) ;
-			echo '<a href="'.$nft_new_edit.'">'.$nft_new_edit.'</a>
-			<br>';
-			
+			?>
+			<script>window.location='<?php echo $nft_new_edit; ?>'</script>
+			<?
 		}
+		
+		
 
 		$place_title = '';
 		$nft_id = '';
-		if ( isset( $_GET['token_id']{1} ) ) {
+		
+		if ( isset($nft_new_id)) $nft_id = $nft_new_id;
+		if ( isset( $_GET['token_id']{1} ) ) $nft_id = (int) $_GET['token_id'];
+		
+		
+		if ( $nft_id ) {
 
-			$nft_id = sanitize_text_field( (int) $_GET['token_id'] );
-			// only user why can edit places can edit it
-			if ( !current_user_can( "edit_post", $nft_id ) ) {
-				$nft_id = '';
-			}
-			$nft_title = get_the_title( $nft_id );
-			$city2_postplace = get_post( $nft_id );
-			
-			if ( isset( $_GET['delete_places']{1} ) ) {
-				wp_delete_post( $nft_title );
-				wp_safe_redirect( esc_url( home_url( '/' ) ) );
-			}
 			
 			?>
+			NFT ID: <?php echo $nft_id; ?>
 			<div id="root"></div>
 			<script>
 			alert("<?php echo get_post_field('post_content', $nft_id); ?>");
