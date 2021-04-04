@@ -1,4 +1,4 @@
-// From https://ropsten.etherscan.io/address/0x5c007a1d8051dfda60b3692008b9e10731b67fde
-// From https://ropsten.etherscan.io/address/0x7C1DcFeaE22a5CC677E22e03E2fEB8780688308a
-export const CONTRACT_ADDRESS_MAIN = '0x5C007A1d8051DFDa60B3692008b9e10731b67FDE';
-export const CONTRACT_ADDRESS_SELL = '0x710CbabA718dd2fCdB06216dE6cbF1CB810bBeD7';
+// From https://ropsten.etherscan.io/address/0x5Ba5E45dcB99d9c312E5B3DAaA06Fde8faD898d5
+// From https://ropsten.etherscan.io/address/0x3727e63D5989Af7E9f3b23F2e9ff25ff0295102D
+export const CONTRACT_ADDRESS_MAIN = '0x5Ba5E45dcB99d9c312E5B3DAaA06Fde8faD898d5';
+export const CONTRACT_ADDRESS_SELL = '0x3727e63D5989Af7E9f3b23F2e9ff25ff0295102D';

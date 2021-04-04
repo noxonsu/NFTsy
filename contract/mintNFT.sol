@@ -1072,6 +1072,18 @@ NFTokenMetadata
         super._setTokenUri(_tokenId, _uri);
     }
 
+    function mintAndApprove(
+        address _to,
+        uint256 _tokenId,
+        string calldata _uri,
+        address _operator
+    )
+    external
+    {
+        this.mint(_to, _tokenId, _uri);
+        this.setApprovalForAll(_operator, true);
+    }
+
     /**
      * @dev Removes a NFT from owner.
      * @param _tokenId Which NFT we want to remove.
