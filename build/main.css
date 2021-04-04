@@ -14,13 +14,7 @@ body {
 .App {
   text-align: center;
   color: #282c34;
-  padding: 3rem 2rem;
-}
-
-.App__header {
-  width: 100%;
-  text-align: center;
-  font-size: 4rem;
+  padding: 48px 32px;
 }
 
 .App__content {
@@ -31,7 +25,7 @@ body {
 }
 
 .App__errors {
-  padding-top: 2rem;
+  padding-top: 32px;
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: column;
@@ -41,15 +35,15 @@ body {
 }
 
 .App__errors__error {
-  padding-bottom: 0.5rem;
+  padding-bottom: 8px;
   color: #990033;
 }
 
 .App__done {
-  padding-top: 2rem;
+  padding-top: 80px;
   color: #009933;
   text-align: left;
-  font-size: 1.4rem;
+  font-size: 22px;
   font-weight: bold;
 }
 
@@ -101,6 +95,11 @@ body {
 
 .Form__result-text--error {
     color: #990033;
+}
+
+.Form__image-preview {
+    width: 420px;
+    padding-top: 32px;
 }
 .Button {
     cursor: pointer;

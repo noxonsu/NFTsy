@@ -8,12 +8,12 @@ import {
     validateUrl
 } from "../../utils/validator";
 
-import { FormCustomProps } from "../Form/Form";
+import { FormCustomProps } from "../FormsContainer/FormsContainer";
 import { Button } from "../Button/Button";
 import { Input } from "../Input/Input";
 import { CONTRACT_ADDRESS_SELL } from "../../constants/contract";
 
-import '../Form/Form.css';
+import '../FormsContainer/FormsContainer.css';
 
 export const FormMint = ({ contractMain, contractSell, setErrors, setIsDone, currentAccount, tokenId }: FormCustomProps) => {
     const [url, setUrl] = useState('');

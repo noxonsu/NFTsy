@@ -6,10 +6,10 @@ import {
     validateTokenId
 } from "../../utils/validator";
 
-import {FormCustomProps} from "../Form/Form";
+import {FormCustomProps} from "../FormsContainer/FormsContainer";
 import {Button} from "../Button/Button";
 
-import '../Form/Form.css';
+import '../FormsContainer/FormsContainer.css';
 import {Input} from "../Input/Input";
 
 export const FormPurchase = ({ contractSell, tokenId, setErrors, setIsDone, currentAccount }: FormCustomProps) => {
@@ -40,7 +40,7 @@ export const FormPurchase = ({ contractSell, tokenId, setErrors, setIsDone, curr
 
     return (
         <div className='Form'>
-            <Input title='Value' value={purchaseValue} type="number" onChange={handleChangePurchaseValue} />
+            <Input title='Value (Gwei)' value={purchaseValue} type="number" onChange={handleChangePurchaseValue} />
             <Button onClick={handlePurchase} text='Purchase' disabled={!purchaseValue} />
         </div>
     )

@@ -6,12 +6,10 @@ import CONTRACT_MAIN_ABI from '../../constants/mintNFT.json';
 import CONTRACT_SELL_ABI from '../../constants/sellNFT_CryptoArteSales.json';
 
 import './App.css';
-import '../Form/Form.css';
+import '../FormsContainer/FormsContainer.css';
 
-import { FormMint } from "../FormMint/FormMint";
-import { FormPurchase } from "../FormPurchase/FormPurchase";
-import { FormUrl } from "../FormUrl/FormUrl";
 import { Button } from "../Button/Button";
+import { FormsContainer } from "../FormsContainer/FormsContainer";
 
 let web3 = new Web3(Web3.givenProvider);
 
@@ -23,11 +21,22 @@ export const App = () => {
     const [currentNetworkType, setCurrentNetworkType] = useState(undefined as undefined | string);
     const [networkType, setNetworkType] = useState('mainnet');
     const [tokenId, setTokenId] = useState(undefined as number | undefined);
+    const [currentPage, setCurrentPage] = useState('');
+    const [currentAccount, setCurrentAccount] = useState(undefined);
     const getCurrentNetworkType = () => web3.eth.net.getNetworkType().then((v) => setCurrentNetworkType(v));
     // @ts-ignore
-    window.init = (initialParams: any) => {
-        setTokenId(initialParams.tokenId);
-        setNetworkType(initialParams.networkType);
+    const getCurrentAccount = () => setCurrentAccount(web3.eth.accounts.currentProvider?.selectedAddress?.toLowerCase());
+    // @ts-ignore
+    window.init = ({ tokenId, networkType, page }: Record<string, any>) => {
+        if (tokenId) {
+            setTokenId(tokenId);
+        }
+        if (networkType) {
+            setNetworkType(networkType);
+        }
+        if (page) {
+            setCurrentPage(page);
+        }
     }
     const connectWallet = () => {
         try {
@@ -51,8 +60,8 @@ export const App = () => {
 
     useEffect(() => {
         connectWallet();
-        // @ts-ignore
-        setCurrentAccount(web3.eth.accounts.currentProvider?.selectedAddress?.toLowerCase());
+        getCurrentAccount();
+        setInterval(getCurrentAccount, NETWORK_TYPE_INTERVAL);
         getCurrentNetworkType();
         setInterval(getCurrentNetworkType, NETWORK_TYPE_INTERVAL);
     }, []);
@@ -61,9 +70,13 @@ export const App = () => {
     const contractMain = new web3.eth.Contract(CONTRACT_MAIN_ABI, CONTRACT_ADDRESS_MAIN);
     // @ts-ignore
     const contractSell = new web3.eth.Contract(CONTRACT_SELL_ABI, CONTRACT_ADDRESS_SELL);
-    const [currentAccount, setCurrentAccount] = useState(undefined);
     const [errors, setErrors] = useState([] as string[]);
     const [isDone, setIsDone] = useState(false);
+    const handleChangeCurrentPage = (page: string) => {
+        setCurrentPage(page);
+        setIsDone(false);
+        setErrors([]);
+    }
 
     return (
         <div className="App">
@@ -72,21 +85,30 @@ export const App = () => {
                     <div className='App__title-text'>Please change <b>{currentNetworkType}</b> network type to <b>{networkType}</b></div>
                 )
             }
-            <div className="App__content">
-                {
-                    !isWalletConnected && (
-                        <div className='Form App__center-form'>
-                            <div className='App__title-text'>{walletError}</div>
-                            <Button onClick={connectWallet} text='Connect' />
-                        </div>
-                    )
-                }
-                <FormMint contractMain={contractMain} contractSell={contractSell} tokenId={tokenId} currentAccount={currentAccount} setErrors={setErrors} setIsDone={setIsDone} />
-
-                <FormPurchase contractSell={contractSell} tokenId={tokenId} currentAccount={currentAccount} setErrors={setErrors} setIsDone={setIsDone} />
-
-                <FormUrl contractMain={contractMain} currentAccount={currentAccount} setErrors={setErrors} setIsDone={setIsDone} />
-            </div>
+            {
+                networkType === currentNetworkType && (
+                    <div className="App__content">
+                        {
+                            !isWalletConnected && (
+                                <div className='Form App__center-form'>
+                                    <div className='App__title-text'>{walletError}</div>
+                                    <Button onClick={connectWallet} text='Connect' />
+                                </div>
+                            )
+                        }
+                        <FormsContainer
+                            contractMain={contractMain}
+                            contractSell={contractSell}
+                            tokenId={tokenId}
+                            currentAccount={currentAccount}
+                            setErrors={setErrors}
+                            setIsDone={setIsDone}
+                            currentPage={currentPage}
+                            onChangeCurrentPage={handleChangeCurrentPage}
+                        />
+                    </div>
+                )
+            }
             {
                 !!errors.length && (
                     <div className="App__errors">
