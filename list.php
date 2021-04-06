@@ -24,7 +24,7 @@ if (!isset($nft_id)) {
 	?>THIS IS VIEW NFT ID: <?php echo $nft_id; ?>
 	<div id="root"></div>
 	<script>
-	window.init({ networkType: '<?php esc_html_e(get_option("nft_networkName"),"nft"); ?>', page: 'view', tokenId: <?php echo $nft_id; ?> })
+	window.nftConfig = { networkType: '<?php esc_html_e(get_option("nft_networkName"),"nft"); ?>', page: 'view', tokenId: <?php echo $nft_id; ?> }
 	</script><?
 }
 
