@@ -48,9 +48,14 @@ function nft_add_shortcode( $atts ){
 	//return '<div id="root"></div><script>alert("network:"'.get_option("nft_networkName").')</script>';
 }
 
-add_shortcode( 'nft_item', 'nft_item_shortcode' );
-function nft_item_shortcode( $atts ){
-	return '<div id="root"></div><script>alert("эо страница конкретного товара (не добавления) network:"'.get_option("nft_networkName").')</script>';
+
+
+add_shortcode( 'nft_view_shortcode', 'nft_view_shortcode' );
+function nft_view_shortcode( $atts ){
+	ob_start();
+	include(NFT_TEMPLATE_DIR."/list.php");
+	return ob_get_clean();
+	//return '<div id="root"></div><script>alert("network:"'.get_option("nft_networkName").')</script>';
 }
 
 
