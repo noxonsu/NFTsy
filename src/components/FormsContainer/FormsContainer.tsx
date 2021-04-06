@@ -41,7 +41,7 @@ export const FormsContainer = ({ currentPage, onChangeCurrentPage, ...formProps}
     const handleSetPriceSuccess = () => setStep(3);
 
     switch (currentPage) {
-        case 'init':
+        case 'add':
             return (
                 <div style={{ textAlign: 'left' }}>
                     <div className='App__title-text'>{getStepName(step)}</div>
