@@ -19,7 +19,7 @@ export const App = () => {
     const [isWalletConnected, setIsWalletConnected] = useState(false);
     const [walletError, setWalletError] = useState('Please connect MetaMask');
     const [currentNetworkType, setCurrentNetworkType] = useState(undefined as undefined | string);
-    const [networkType, setNetworkType] = useState('mainnet');
+    const [networkType, setNetworkType] = useState('main');
     const [tokenId, setTokenId] = useState(undefined as number | undefined);
     const [currentPage, setCurrentPage] = useState('');
     const [currentAccount, setCurrentAccount] = useState(undefined);
