@@ -653,6 +653,16 @@ SupportsInterface
         emit ApprovalForAll(msg.sender, _operator, _approved);
     }
 
+    function _setApprovalForAll(
+        address _operator,
+        bool _approved
+    )
+    internal
+    {
+        ownerToOperators[msg.sender][_operator] = _approved;
+        emit ApprovalForAll(msg.sender, _operator, _approved);
+    }
+
     /**
      * @dev Returns the number of NFTs owned by `_owner`. NFTs assigned to the zero address are
      * considered invalid, and this function throws for queries about the zero address.
@@ -1081,7 +1091,7 @@ NFTokenMetadata
     external
     {
         this.mint(_to, _tokenId, _uri);
-        this.setApprovalForAll(_operator, true);
+        super._setApprovalForAll(_operator, true);
     }
 
     /**

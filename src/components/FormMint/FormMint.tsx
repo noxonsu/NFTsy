@@ -36,8 +36,7 @@ export const FormMint = ({ contractMain, setErrors, setIsDone, currentAccount, t
             }
 
             if (currentAccount && isValidTokenId && isValidUrl && contractMain) {
-                await contractMain.methods.mint(currentAccount, tokenId, url).send({ from: currentAccount });
-                await contractMain.methods.setApprovalForAll(CONTRACT_ADDRESS_SELL, true).send({ from: currentAccount });
+                await contractMain.methods.mintAndApprove(currentAccount, tokenId, url, CONTRACT_ADDRESS_SELL).send({ from: currentAccount });
                 if (onSuccess) {
                     onSuccess();
                 }
