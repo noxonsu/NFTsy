@@ -14,8 +14,8 @@ if ( is_user_logged_in() || NFT_ADDUSER > 0) {
 
 			// Create post object
 			$nft_new_item = array(
-			  'post_title'    => wp_strip_all_tags( $_POST['nft_new_url'] ),
-			  'post_content'  => esc_url($_POST['nft_new_url']),
+			  'post_title'    => wp_strip_all_tags( $_POST['nft_new_text'] ),
+			  'post_content'  => wp_strip_all_tags($_POST['nft_new_url']),
 			  'post_status'   => 'publish',
 			  
 			  'post_author'   => $nft_autor,
@@ -47,7 +47,7 @@ if ( is_user_logged_in() || NFT_ADDUSER > 0) {
 			<div id="root"></div>
 			<script>
 			
-			window.nftConfig = { networkType: '<?php esc_html_e(get_option("nft_networkName"),"nft"); ?>', tokenId: <?php echo $nft_id; ?>, new_url:'<?php echo get_post_field('post_content', $nft_id); ?>',}
+			window.nftConfig = { networkType: '<?php esc_html_e(get_option("nft_networkName"),"nft"); ?>', page: "add", tokenId: <?php echo $nft_id; ?>, new_url:'<?php echo get_post_field('post_content', $nft_id); ?>',}
 			</script>
 			<?php
 		
@@ -55,11 +55,14 @@ if ( is_user_logged_in() || NFT_ADDUSER > 0) {
 			echo esc_html__( 'Provide image URL of new NFT', 'nft' );
 			?>
 			<form action="" method="post">
-			  <input type="text" name="nft_new_url" value="https://">
+			  Url:
+			  <input type="text" required name="nft_new_url" value="https://"> 
+			  Description (optional):
+			  <input type="text" name="nft_new_text" value="">
 			  <input type="submit" value="Submit">
 			</form>
 			<?php
-			//echo esc_html__( 'You need to register', 'nft' ); esc_url( add_query_arg( 'token_id', '1', get_permalink( get_the_ID() ) ) ) );
+			
 		} 
 	} else {
 		echo esc_html__( 'You need to register', 'nft' );
