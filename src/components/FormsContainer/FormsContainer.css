@@ -38,3 +38,10 @@
     padding-bottom: 16px;
     font-size: 20px;
 }
+
+.Form__text {
+    width: 470px;
+    text-align: left;
+    padding-top: 16px;
+    font-size: 20px;
+}

@@ -1,5 +1,5 @@
 export const validateTokenId = (tokenId?: number) => {
-    return tokenId && tokenId >= 0;
+    return tokenId !== undefined && tokenId >= 0;
 }
 
 export const validateUrl = (url: string) => {
@@ -11,7 +11,7 @@ export const validateAddress = (url: string) => {
 }
 
 export const ERROR_TOKEN_ID_TEXT = 'Wrong tokenId: It should be >= 0';
-export const ERROR_PRICE_TEXT = 'Wrong price: It should be greater than 0';
+export const ERROR_PRICE_TEXT = 'Wrong price: It should be >= 0';
 export const ERROR_PURCHASE_VALUE_TEXT = 'Wrong purchase value: It should be greater than 0';
 export const ERROR_URL_TEXT = 'Wrong url: It should starts with https://';
 export const ERROR_ADDRESS_TEXT = 'Wrong address: It should starts with 0x';
