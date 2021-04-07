@@ -3,9 +3,7 @@ import React, {useEffect, useState} from "react";
 import {
     ERROR_CONTRACT_TEXT,
     ERROR_TOKEN_ID_TEXT,
-    ERROR_URL_TEXT,
     validateTokenId,
-    validateUrl
 } from "../../utils/validator";
 
 import { FormCustomProps } from "../FormsContainer/FormsContainer";

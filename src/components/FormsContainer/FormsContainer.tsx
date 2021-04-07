@@ -80,13 +80,13 @@ export const FormsContainer = ({ currentPage, onChangeCurrentPage, ...formProps}
             return (
                 <>
                     <FormPurchase {...formProps} />
-                    <FormUrl {...formProps} />
                     {isOwner && (
                         <div>
-                            <div className='App__title-text'>Set item price in ETH, set 0 if you don't want to sell this item</div>
+                            <div className='Form__title'>Set item price in ETH, set 0 if you don't want to sell this item</div>
                             <FormSetPrice {...formProps} isOwner={isOwner} />
                         </div>
                     )}
+                    <FormUrl {...formProps} />
                 </>
             );
         default:

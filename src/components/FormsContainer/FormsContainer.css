@@ -31,3 +31,10 @@
     width: 420px;
     padding-top: 32px;
 }
+
+.Form__title {
+    width: 470px;
+    text-align: left;
+    padding-bottom: 16px;
+    font-size: 20px;
+}

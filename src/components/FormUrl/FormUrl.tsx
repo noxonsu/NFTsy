@@ -1,46 +1,26 @@
-import React, {useState} from "react";
-
-import {ERROR_TOKEN_ID_TEXT, validateTokenId} from "../../utils/validator";
+import React, {useEffect, useState} from "react";
 
 import {FormCustomProps} from "../FormsContainer/FormsContainer";
-import {Button} from "../Button/Button";
 
 import '../FormsContainer/FormsContainer.css';
-import {Input} from "../Input/Input";
 
-export const FormUrl = ({ contractMain, setErrors, setIsDone, currentAccount, tokenId }: FormCustomProps) => {
-    const [tokenIdInput, setTokenId] = useState(tokenId);
+export const FormUrl = ({ contractMain, setErrors, tokenId }: FormCustomProps) => {
     const [url, setUrl] = useState('');
     const [showText, setShowText] = useState(false);
-    const handleChangeTokenId = (e: React.ChangeEvent<HTMLInputElement>) => setTokenId(+e.target.value || undefined);
-    const handleGetUrl = async () => {
+
+    useEffect(() => {
         try {
-            setUrl('');
-            setShowText(false);
-            setErrors([]);
-            setIsDone(false);
-            const isValidTokenId = validateTokenId(tokenIdInput);
-
-            if (!isValidTokenId) {
-                setErrors((errors) => [...errors, ERROR_TOKEN_ID_TEXT]);
-            }
-
-            if (currentAccount && isValidTokenId && contractMain) {
-                setUrl(await contractMain.methods.tokenURI(tokenIdInput).call());
-                setIsDone(true);
+            if (contractMain) {
+                contractMain.methods.tokenURI(tokenId).call().then((res: string) => setUrl(res));
             }
         } catch (e) {
-            setUrl('');
-            setShowText(false);
             setErrors([e.message]);
-            setIsDone(false);
         }
-    }
+    }, [contractMain, tokenId]);
 
     return (
         <div className='Form'>
-            <Input title='TokenId' value={tokenIdInput} type='number' onChange={handleChangeTokenId} />
-            <Button onClick={handleGetUrl} text='Get URL' disabled={!tokenIdInput} />
+            <div className='App__title-text'>Image in token:</div>
             {
                 url && (
                     showText
