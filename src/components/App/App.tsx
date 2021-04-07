@@ -64,6 +64,11 @@ export const App = () => {
         setInterval(getCurrentAccount, NETWORK_TYPE_INTERVAL);
         getCurrentNetworkType();
         setInterval(getCurrentNetworkType, NETWORK_TYPE_INTERVAL);
+        // @ts-ignore
+        if (window.nftConfig) {
+            // @ts-ignore
+            window.init(window.nftConfig);
+        }
     }, []);
 
     // @ts-ignore
