@@ -1,7 +1,7 @@
 .Form {
-    padding: 25px;
-    margin-right: 80px;
-    margin-bottom: 80px;
+    padding: 16px;
+    margin-right: 40px;
+    margin-bottom: 40px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -29,19 +29,19 @@
 
 .Form__image-preview {
     width: 420px;
-    padding-top: 32px;
 }
 
 .Form__title {
-    width: 470px;
+    width: 450px;
     text-align: left;
     padding-bottom: 16px;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .Form__text {
-    width: 470px;
+    width: 420px;
     text-align: left;
-    padding-top: 16px;
-    font-size: 20px;
+    padding-top: 10px;
+    font-size: 16px;
+    color: rgb(122, 122, 122);
 }

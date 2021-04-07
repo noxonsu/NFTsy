@@ -6460,6 +6460,17 @@ SafeBuffer.allocUnsafeSlow = function (size) {
 
 /***/ }),
 /* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+if (true) {
+  module.exports = __webpack_require__(203);
+} else {}
+
+/***/ }),
+/* 10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6476,7 +6487,7 @@ __webpack_require__.d(__webpack_exports__, "a", function() { return /* binding *
 var classCallCheck = __webpack_require__(6);
 
 // EXTERNAL MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/regenerator/index.js
-var regenerator = __webpack_require__(14);
+var regenerator = __webpack_require__(15);
 var regenerator_default = /*#__PURE__*/__webpack_require__.n(regenerator);
 
 // EXTERNAL MODULE: ./node_modules/@ethersproject/logger/lib.esm/index.js + 1 modules
@@ -6678,17 +6689,6 @@ var lib_esm_Description = function Description(info) {
     this[key] = deepCopy(info[key]);
   }
 };
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-if (true) {
-  module.exports = __webpack_require__(203);
-} else {}
 
 /***/ }),
 /* 11 */
@@ -6966,13 +6966,6 @@ module.exports = {
 
 /***/ }),
 /* 14 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(260);
-
-
-/***/ }),
-/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//     Underscore.js 1.9.1
@@ -8809,6 +8802,13 @@ module.exports = __webpack_require__(260);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(12), __webpack_require__(31)(module)))
 
 /***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(260);
+
+
+/***/ }),
 /* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8835,7 +8835,7 @@ module.exports = __webpack_require__(260);
  * @author Fabian Vogelsteller <fabian@ethereum.org>
  * @date 2017
  */
-var _ = __webpack_require__(15);
+var _ = __webpack_require__(14);
 
 var ethjsUnit = __webpack_require__(215);
 
@@ -11327,11 +11327,11 @@ module.exports = function (module) {
  */
 
 
-var _regeneratorRuntime = __webpack_require__(14);
+var _regeneratorRuntime = __webpack_require__(15);
 
 var _asyncToGenerator = __webpack_require__(74);
 
-var _ = __webpack_require__(15);
+var _ = __webpack_require__(14);
 
 var errors = __webpack_require__(13).errors;
 
@@ -21807,7 +21807,7 @@ module.exports = function isHexPrefixed(str) {
  * @author Fabian Vogelsteller <fabian@ethereum.org>
  * @date 2017
  */
-var _ = __webpack_require__(15);
+var _ = __webpack_require__(14);
 
 var BN = __webpack_require__(1);
 
@@ -26186,7 +26186,7 @@ module.exports = config;
  */
 
 
-var _ = __webpack_require__(15);
+var _ = __webpack_require__(14);
 
 var core = __webpack_require__(30);
 
@@ -27147,7 +27147,7 @@ module.exports = Contract;
  */
 var Buffer = __webpack_require__(2).Buffer;
 
-var _ = __webpack_require__(15);
+var _ = __webpack_require__(14);
 
 var utils = __webpack_require__(16);
 
@@ -42423,7 +42423,7 @@ var createClass = __webpack_require__(7);
 var bignumber = __webpack_require__(49);
 
 // EXTERNAL MODULE: ./node_modules/@ethersproject/properties/lib.esm/index.js + 1 modules
-var lib_esm = __webpack_require__(9);
+var lib_esm = __webpack_require__(10);
 
 // EXTERNAL MODULE: ./node_modules/@ethersproject/logger/lib.esm/index.js + 1 modules
 var logger_lib_esm = __webpack_require__(5);
@@ -48826,7 +48826,7 @@ exports.version = "17.0.1";
 */
 
 
-var aa = __webpack_require__(10),
+var aa = __webpack_require__(9),
     m = __webpack_require__(37),
     r = __webpack_require__(205);
 
@@ -56930,7 +56930,7 @@ module.exports = JSON.parse("{\"_from\":\"web3\",\"_id\":\"web3@1.3.4\",\"_inBun
 var _require = __webpack_require__(102),
     callbackify = _require.callbackify;
 
-var _ = __webpack_require__(15);
+var _ = __webpack_require__(14);
 
 var errors = __webpack_require__(13).errors;
 
@@ -57470,7 +57470,7 @@ module.exports = {
 
 var _objectSpread = __webpack_require__(214);
 
-var _ = __webpack_require__(15);
+var _ = __webpack_require__(14);
 
 var utils = __webpack_require__(16);
 
@@ -67047,7 +67047,7 @@ module.exports = __webpack_amd_options__;
  * @author Fabian Vogelsteller <fabian@ethereum.org>
  * @date 2017
  */
-var _ = __webpack_require__(15);
+var _ = __webpack_require__(14);
 
 var BN = __webpack_require__(1);
 
@@ -70900,7 +70900,7 @@ exports.XMLHttpRequestUpload = XMLHttpRequestUpload;
  */
 
 
-var _ = __webpack_require__(15);
+var _ = __webpack_require__(14);
 
 var errors = __webpack_require__(13).errors;
 
@@ -76010,7 +76010,7 @@ if (true) {
  */
 
 
-var _ = __webpack_require__(15);
+var _ = __webpack_require__(14);
 
 var errors = __webpack_require__(13).errors;
 
@@ -76980,7 +76980,7 @@ Hmac.prototype.digest = function digest(enc) {
  */
 
 
-var _ = __webpack_require__(15);
+var _ = __webpack_require__(14);
 
 var core = __webpack_require__(30);
 
@@ -77621,11 +77621,11 @@ module.exports = ENS;
  */
 
 
-var _regeneratorRuntime = __webpack_require__(14);
+var _regeneratorRuntime = __webpack_require__(15);
 
 var _asyncToGenerator = __webpack_require__(74);
 
-var _ = __webpack_require__(15);
+var _ = __webpack_require__(14);
 
 var config = __webpack_require__(124);
 
@@ -78235,7 +78235,7 @@ module.exports = ENS;
  */
 
 
-var _ = __webpack_require__(15);
+var _ = __webpack_require__(14);
 
 var Contract = __webpack_require__(125);
 
@@ -80090,7 +80090,7 @@ module.exports = RESOLVER;
  */
 
 
-var _regeneratorRuntime = __webpack_require__(14);
+var _regeneratorRuntime = __webpack_require__(15);
 
 var _asyncToGenerator = __webpack_require__(74);
 
@@ -80100,7 +80100,7 @@ var namehash = __webpack_require__(127);
 
 var errors = __webpack_require__(13).errors;
 
-var _ = __webpack_require__(15);
+var _ = __webpack_require__(14);
 
 var interfaceIds = __webpack_require__(124).interfaceIds;
 /**
@@ -83558,7 +83558,7 @@ exports.cidV0ToV1Base32 = cidV0ToV1Base32;
 
 var _toConsumableArray = __webpack_require__(320);
 
-var _ = __webpack_require__(15);
+var _ = __webpack_require__(14);
 
 var core = __webpack_require__(30);
 
@@ -98218,7 +98218,7 @@ exports.default = FakeTransaction;
  */
 
 
-var _ = __webpack_require__(15);
+var _ = __webpack_require__(14);
 
 var getNetworkType = function getNetworkType(callback) {
   var _this = this,
@@ -98477,7 +98477,7 @@ module.exports = Shh;
  */
 
 
-var _ = __webpack_require__(15);
+var _ = __webpack_require__(14);
 
 var swarm = __webpack_require__(453);
 
@@ -100675,7 +100675,7 @@ module.exports = function (_ref) {
 
 __webpack_require__(37);
 
-var f = __webpack_require__(10),
+var f = __webpack_require__(9),
     g = 60103;
 
 exports.Fragment = 60107;
@@ -100739,7 +100739,7 @@ exports.jsxs = q;
 __webpack_require__.r(__webpack_exports__);
 
 // EXTERNAL MODULE: ./node_modules/react/index.js
-var react = __webpack_require__(10);
+var react = __webpack_require__(9);
 var react_default = /*#__PURE__*/__webpack_require__.n(react);
 
 // EXTERNAL MODULE: ./node_modules/react-dom/index.js
@@ -100927,7 +100927,7 @@ function _objectWithoutProperties(source, excluded) {
   return target;
 }
 // EXTERNAL MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/regenerator/index.js
-var regenerator = __webpack_require__(14);
+var regenerator = __webpack_require__(15);
 var regenerator_default = /*#__PURE__*/__webpack_require__.n(regenerator);
 
 // CONCATENATED MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js
@@ -100988,33 +100988,33 @@ function _asyncToGenerator(fn) {
   };
 }
 // CONCATENATED MODULE: ./src/utils/validator.ts
-var validateTokenId=function validateTokenId(tokenId){return tokenId&&tokenId>0;};var validateUrl=function validateUrl(url){return url.startsWith('https://');};var validateAddress=function validateAddress(url){return url.startsWith('0x');};var ERROR_TOKEN_ID_TEXT='Wrong tokenId: It should be greater than 0';var ERROR_PRICE_TEXT='Wrong price: It should be greater than 0';var ERROR_PURCHASE_VALUE_TEXT='Wrong purchase value: It should be greater than 0';var ERROR_URL_TEXT='Wrong url: It should starts with https://';var ERROR_ADDRESS_TEXT='Wrong address: It should starts with 0x';var ERROR_CONTRACT_TEXT='Error with contract connection';
+var validateTokenId=function validateTokenId(tokenId){return tokenId!==undefined&&tokenId>=0;};var validateUrl=function validateUrl(url){return url.startsWith('https://');};var validateAddress=function validateAddress(url){return url.startsWith('0x');};var ERROR_TOKEN_ID_TEXT='Wrong tokenId: It should be >= 0';var ERROR_PRICE_TEXT='Wrong price: It should be >= 0';var ERROR_PURCHASE_VALUE_TEXT='Wrong purchase value: It should be greater than 0';var ERROR_URL_TEXT='Wrong url: It should starts with https://';var ERROR_ADDRESS_TEXT='Wrong address: It should starts with 0x';var ERROR_CONTRACT_TEXT='Error with contract connection';
 // EXTERNAL MODULE: ./src/components/Input/Input.css
 var Input_Input = __webpack_require__(474);
 
 // CONCATENATED MODULE: ./src/components/Input/Input.tsx
 var Input_Input_Input=function Input(_ref){var title=_ref.title,onChange=_ref.onChange,value=_ref.value,type=_ref.type;return/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"Input",children:[/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"Input__title",children:title}),/*#__PURE__*/Object(jsx_runtime["jsx"])("input",{className:"Input__input",value:value,onChange:onChange,type:type})]});};
 // CONCATENATED MODULE: ./src/components/FormMint/FormMint.tsx
-var FormMint_FormMint=function FormMint(_ref){var contractMain=_ref.contractMain,setErrors=_ref.setErrors,setIsDone=_ref.setIsDone,currentAccount=_ref.currentAccount,tokenId=_ref.tokenId,onSuccess=_ref.onSuccess;var _useState=Object(react["useState"])(''),_useState2=_slicedToArray(_useState,2),url=_useState2[0],setUrl=_useState2[1];var _useState3=Object(react["useState"])(false),_useState4=_slicedToArray(_useState3,2),isInProgress=_useState4[0],setIsInProgress=_useState4[1];var handleChangeUrl=function handleChangeUrl(e){return setUrl(e.target.value);};var handleSubmitMint=/*#__PURE__*/function(){var _ref2=_asyncToGenerator(/*#__PURE__*/regenerator_default.a.mark(function _callee(){var isValidUrl,isValidTokenId;return regenerator_default.a.wrap(function _callee$(_context){while(1){switch(_context.prev=_context.next){case 0:_context.prev=0;setErrors([]);setIsDone(false);setIsInProgress(true);isValidUrl=validateUrl(url);isValidTokenId=validateTokenId(tokenId);if(!isValidUrl){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_URL_TEXT]);});}if(!isValidTokenId){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_TOKEN_ID_TEXT]);});}if(!currentAccount){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_CONTRACT_TEXT]);});}if(!(currentAccount&&isValidTokenId&&isValidUrl&&contractMain)){_context.next=15;break;}_context.next=12;return contractMain.methods.mintAndApprove(currentAccount,tokenId,url,CONTRACT_ADDRESS_SELL).send({from:currentAccount});case 12:if(onSuccess){onSuccess();}setIsInProgress(false);setIsDone(true);case 15:_context.next=21;break;case 17:_context.prev=17;_context.t0=_context["catch"](0);setIsInProgress(false);setErrors([_context.t0.message]);case 21:case"end":return _context.stop();}}},_callee,null,[[0,17]]);}));return function handleSubmitMint(){return _ref2.apply(this,arguments);};}();return/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"Form",children:[/*#__PURE__*/Object(jsx_runtime["jsx"])(Input_Input_Input,{title:"Url",value:url,type:"text",onChange:handleChangeUrl}),/*#__PURE__*/Object(jsx_runtime["jsx"])(Button_Button_Button,{onClick:handleSubmitMint,text:isInProgress?'Pending...':'Mint',disabled:!url||isInProgress})]});};
+var FormMint_FormMint=function FormMint(_ref){var contractMain=_ref.contractMain,setErrors=_ref.setErrors,setIsDone=_ref.setIsDone,currentAccount=_ref.currentAccount,tokenId=_ref.tokenId,onSuccess=_ref.onSuccess,currentTokenUrl=_ref.currentTokenUrl;var _useState=Object(react["useState"])(''),_useState2=_slicedToArray(_useState,2),url=_useState2[0],setUrl=_useState2[1];var _useState3=Object(react["useState"])(false),_useState4=_slicedToArray(_useState3,2),isInProgress=_useState4[0],setIsInProgress=_useState4[1];var handleChangeUrl=function handleChangeUrl(e){return setUrl(e.target.value);};var handleSubmitMint=/*#__PURE__*/function(){var _ref2=_asyncToGenerator(/*#__PURE__*/regenerator_default.a.mark(function _callee(newUrl){var isValidTokenId;return regenerator_default.a.wrap(function _callee$(_context){while(1){switch(_context.prev=_context.next){case 0:_context.prev=0;setErrors([]);setIsDone(false);isValidTokenId=validateTokenId(tokenId);if(!isValidTokenId){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_TOKEN_ID_TEXT]);});}if(!currentAccount){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_CONTRACT_TEXT]);});}if(!(currentAccount&&isValidTokenId&&contractMain&&(newUrl!==null&&newUrl!==void 0?newUrl:url))){_context.next=13;break;}setIsInProgress(true);_context.next=10;return contractMain.methods.mintAndApprove(currentAccount,tokenId,newUrl!==null&&newUrl!==void 0?newUrl:url,CONTRACT_ADDRESS_SELL).send({from:currentAccount});case 10:if(onSuccess){onSuccess();}setIsInProgress(false);setIsDone(true);case 13:_context.next=19;break;case 15:_context.prev=15;_context.t0=_context["catch"](0);setIsInProgress(false);setErrors([_context.t0.message]);case 19:case"end":return _context.stop();}}},_callee,null,[[0,15]]);}));return function handleSubmitMint(_x){return _ref2.apply(this,arguments);};}();Object(react["useEffect"])(function(){if(currentTokenUrl){setUrl(currentTokenUrl);handleSubmitMint(currentTokenUrl);}},[currentTokenUrl]);return/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"Form",children:[/*#__PURE__*/Object(jsx_runtime["jsx"])(Input_Input_Input,{title:"Url",value:url,type:"text",onChange:handleChangeUrl}),/*#__PURE__*/Object(jsx_runtime["jsx"])(Button_Button_Button,{onClick:function onClick(){return handleSubmitMint();},text:isInProgress?'Pending...':'Mint',disabled:!url||isInProgress})]});};
 // CONCATENATED MODULE: ./src/components/FormPurchase/FormPurchase.tsx
-var FormPurchase_FormPurchase=function FormPurchase(_ref){var contractSell=_ref.contractSell,tokenId=_ref.tokenId,setErrors=_ref.setErrors,setIsDone=_ref.setIsDone,currentAccount=_ref.currentAccount;var _useState=Object(react["useState"])(undefined),_useState2=_slicedToArray(_useState,2),purchaseValue=_useState2[0],setPurchaseValue=_useState2[1];var handleChangePurchaseValue=function handleChangePurchaseValue(e){return setPurchaseValue(+e.target.value||undefined);};var handlePurchase=/*#__PURE__*/function(){var _ref2=_asyncToGenerator(/*#__PURE__*/regenerator_default.a.mark(function _callee(){var isValidTokenId,isValidPurchaseValue;return regenerator_default.a.wrap(function _callee$(_context){while(1){switch(_context.prev=_context.next){case 0:_context.prev=0;setErrors([]);setIsDone(false);isValidTokenId=validateTokenId(tokenId);isValidPurchaseValue=validateTokenId(purchaseValue);if(!isValidTokenId){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_TOKEN_ID_TEXT]);});}if(!isValidPurchaseValue){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_PURCHASE_VALUE_TEXT]);});}if(!(currentAccount&&isValidTokenId&&isValidPurchaseValue&&contractSell)){_context.next=11;break;}_context.next=10;return contractSell.methods.purchaseToken(tokenId).send({from:currentAccount,value:lib_default.a.utils.toWei("".concat(purchaseValue))});case 10:setIsDone(true);case 11:_context.next=16;break;case 13:_context.prev=13;_context.t0=_context["catch"](0);setErrors([_context.t0.message]);case 16:case"end":return _context.stop();}}},_callee,null,[[0,13]]);}));return function handlePurchase(){return _ref2.apply(this,arguments);};}();return/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"Form",children:[/*#__PURE__*/Object(jsx_runtime["jsx"])(Input_Input_Input,{title:"Value (ETH)",value:purchaseValue,type:"number",onChange:handleChangePurchaseValue}),/*#__PURE__*/Object(jsx_runtime["jsx"])(Button_Button_Button,{onClick:handlePurchase,text:"Purchase",disabled:!purchaseValue})]});};
+var FormPurchase_FormPurchase=function FormPurchase(_ref){var contractSell=_ref.contractSell,tokenId=_ref.tokenId,setErrors=_ref.setErrors,setIsDone=_ref.setIsDone,currentAccount=_ref.currentAccount;var _useState=Object(react["useState"])(undefined),_useState2=_slicedToArray(_useState,2),purchaseValue=_useState2[0],setPurchaseValue=_useState2[1];var _useState3=Object(react["useState"])(false),_useState4=_slicedToArray(_useState3,2),isPriceInstalled=_useState4[0],setIsPriceInstalled=_useState4[1];var handleChangePurchaseValue=function handleChangePurchaseValue(e){return setPurchaseValue(+e.target.value||undefined);};var handlePurchase=/*#__PURE__*/function(){var _ref2=_asyncToGenerator(/*#__PURE__*/regenerator_default.a.mark(function _callee(){var isValidTokenId,isValidPurchaseValue;return regenerator_default.a.wrap(function _callee$(_context){while(1){switch(_context.prev=_context.next){case 0:_context.prev=0;setErrors([]);setIsDone(false);isValidTokenId=validateTokenId(tokenId);isValidPurchaseValue=validateTokenId(purchaseValue);if(!isValidTokenId){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_TOKEN_ID_TEXT]);});}if(!isValidPurchaseValue){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_PURCHASE_VALUE_TEXT]);});}if(!(currentAccount&&isValidTokenId&&isValidPurchaseValue&&contractSell)){_context.next=11;break;}_context.next=10;return contractSell.methods.purchaseToken(tokenId).send({from:currentAccount,value:lib_default.a.utils.toWei("".concat(purchaseValue))});case 10:setIsDone(true);case 11:_context.next=16;break;case 13:_context.prev=13;_context.t0=_context["catch"](0);setErrors([_context.t0.message]);case 16:case"end":return _context.stop();}}},_callee,null,[[0,13]]);}));return function handlePurchase(){return _ref2.apply(this,arguments);};}();Object(react["useEffect"])(function(){try{contractSell===null||contractSell===void 0?void 0:contractSell.methods.nft_prices(tokenId).call().then(function(res){if(res>0){setIsPriceInstalled(true);}else{setIsPriceInstalled(false);}});}catch(e){setErrors([e.message]);}},[tokenId]);return/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"Form",children:[/*#__PURE__*/Object(jsx_runtime["jsx"])(Input_Input_Input,{title:"Value (ETH)",value:purchaseValue,type:"number",onChange:handleChangePurchaseValue}),/*#__PURE__*/Object(jsx_runtime["jsx"])(Button_Button_Button,{onClick:handlePurchase,text:"Purchase",disabled:!purchaseValue||!isPriceInstalled}),!isPriceInstalled&&/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"Form__text",children:"This item not for sale"})]});};
 // CONCATENATED MODULE: ./src/components/FormUrl/FormUrl.tsx
-var FormUrl_FormUrl=function FormUrl(_ref){var contractMain=_ref.contractMain,setErrors=_ref.setErrors,setIsDone=_ref.setIsDone,currentAccount=_ref.currentAccount,tokenId=_ref.tokenId;var _useState=Object(react["useState"])(tokenId),_useState2=_slicedToArray(_useState,2),tokenIdInput=_useState2[0],setTokenId=_useState2[1];var _useState3=Object(react["useState"])(''),_useState4=_slicedToArray(_useState3,2),url=_useState4[0],setUrl=_useState4[1];var _useState5=Object(react["useState"])(false),_useState6=_slicedToArray(_useState5,2),showText=_useState6[0],setShowText=_useState6[1];var handleChangeTokenId=function handleChangeTokenId(e){return setTokenId(+e.target.value||undefined);};var handleGetUrl=/*#__PURE__*/function(){var _ref2=_asyncToGenerator(/*#__PURE__*/regenerator_default.a.mark(function _callee(){var isValidTokenId;return regenerator_default.a.wrap(function _callee$(_context){while(1){switch(_context.prev=_context.next){case 0:_context.prev=0;setUrl('');setShowText(false);setErrors([]);setIsDone(false);isValidTokenId=validateTokenId(tokenIdInput);if(!isValidTokenId){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_TOKEN_ID_TEXT]);});}if(!(currentAccount&&isValidTokenId&&contractMain)){_context.next=14;break;}_context.t0=setUrl;_context.next=11;return contractMain.methods.tokenURI(tokenIdInput).call();case 11:_context.t1=_context.sent;(0,_context.t0)(_context.t1);setIsDone(true);case 14:_context.next=22;break;case 16:_context.prev=16;_context.t2=_context["catch"](0);setUrl('');setShowText(false);setErrors([_context.t2.message]);setIsDone(false);case 22:case"end":return _context.stop();}}},_callee,null,[[0,16]]);}));return function handleGetUrl(){return _ref2.apply(this,arguments);};}();return/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"Form",children:[/*#__PURE__*/Object(jsx_runtime["jsx"])(Input_Input_Input,{title:"TokenId",value:tokenIdInput,type:"number",onChange:handleChangeTokenId}),/*#__PURE__*/Object(jsx_runtime["jsx"])(Button_Button_Button,{onClick:handleGetUrl,text:"Get URL",disabled:!tokenIdInput}),url&&(showText?/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"Form__result-text",children:url}):/*#__PURE__*/Object(jsx_runtime["jsx"])("img",{className:"Form__image-preview",src:url,alt:url,onError:function onError(){return setShowText(true);}}))]});};
+var FormUrl_FormUrl=function FormUrl(_ref){var contractMain=_ref.contractMain,setErrors=_ref.setErrors,tokenId=_ref.tokenId;var _useState=Object(react["useState"])(''),_useState2=_slicedToArray(_useState,2),url=_useState2[0],setUrl=_useState2[1];var _useState3=Object(react["useState"])(false),_useState4=_slicedToArray(_useState3,2),showText=_useState4[0],setShowText=_useState4[1];Object(react["useEffect"])(function(){try{if(contractMain){contractMain.methods.tokenURI(tokenId).call().then(function(res){return setUrl(res);});}}catch(e){setErrors([e.message]);}},[contractMain,tokenId]);return/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"Form",children:[/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"App__title-text",children:"Image in token:"}),url&&(showText?/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"Form__result-text",children:url}):/*#__PURE__*/Object(jsx_runtime["jsx"])("img",{className:"Form__image-preview",src:url,alt:url,onError:function onError(){return setShowText(true);}}))]});};
 // CONCATENATED MODULE: ./src/components/FormSetPrice/FormSetPrice.tsx
-var FormSetPrice_FormSetPrice=function FormSetPrice(_ref){var contractMain=_ref.contractMain,contractSell=_ref.contractSell,setErrors=_ref.setErrors,setIsDone=_ref.setIsDone,currentAccount=_ref.currentAccount,tokenId=_ref.tokenId,onSuccess=_ref.onSuccess;var _useState=Object(react["useState"])(undefined),_useState2=_slicedToArray(_useState,2),price=_useState2[0],setPrice=_useState2[1];var _useState3=Object(react["useState"])(false),_useState4=_slicedToArray(_useState3,2),isOwner=_useState4[0],setIsOwner=_useState4[1];var handleChangePrice=function handleChangePrice(e){return setPrice(+e.target.value||undefined);};var handleSetPrice=/*#__PURE__*/function(){var _ref2=_asyncToGenerator(/*#__PURE__*/regenerator_default.a.mark(function _callee(){var isValidTokenId,isValidPrice;return regenerator_default.a.wrap(function _callee$(_context){while(1){switch(_context.prev=_context.next){case 0:_context.prev=0;setErrors([]);setIsDone(false);isValidTokenId=validateTokenId(tokenId);isValidPrice=validateTokenId(price);if(!isValidPrice){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_PRICE_TEXT]);});}if(!isValidTokenId){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_TOKEN_ID_TEXT]);});}if(!currentAccount){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_CONTRACT_TEXT]);});}if(!(currentAccount&&isValidTokenId&&contractSell)){_context.next=13;break;}_context.next=11;return contractSell.methods.setCurrentPrice(tokenId,lib_default.a.utils.toWei("".concat(price))).send({from:currentAccount});case 11:if(onSuccess){onSuccess();}setIsDone(true);case 13:_context.next=18;break;case 15:_context.prev=15;_context.t0=_context["catch"](0);setErrors([_context.t0.message]);case 18:case"end":return _context.stop();}}},_callee,null,[[0,15]]);}));return function handleSetPrice(){return _ref2.apply(this,arguments);};}();Object(react["useEffect"])(function(){contractMain===null||contractMain===void 0?void 0:contractMain.methods.ownerOf(tokenId).call().then(function(owner){if(owner.toLowerCase()===currentAccount.toLowerCase()){setIsOwner(true);}else{setIsOwner(false);}});},[currentAccount,tokenId,contractMain]);return/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"Form",children:[/*#__PURE__*/Object(jsx_runtime["jsx"])(Input_Input_Input,{title:"Price (ETH)",value:price,type:"number",onChange:handleChangePrice}),/*#__PURE__*/Object(jsx_runtime["jsx"])(Button_Button_Button,{onClick:handleSetPrice,text:"Set price",disabled:!price||!isOwner}),!isOwner&&/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"App__title-text",children:"You are not the owner of this NFT"})]});};
+var FormSetPrice_FormSetPrice=function FormSetPrice(_ref){var isOwner=_ref.isOwner,contractSell=_ref.contractSell,setErrors=_ref.setErrors,setIsDone=_ref.setIsDone,currentAccount=_ref.currentAccount,tokenId=_ref.tokenId,onSuccess=_ref.onSuccess;var _useState=Object(react["useState"])(undefined),_useState2=_slicedToArray(_useState,2),price=_useState2[0],setPrice=_useState2[1];var handleChangePrice=function handleChangePrice(e){return setPrice(e.target.value===''?undefined:+e.target.value);};var handleSetPrice=/*#__PURE__*/function(){var _ref2=_asyncToGenerator(/*#__PURE__*/regenerator_default.a.mark(function _callee(){var isValidTokenId,isValidPrice;return regenerator_default.a.wrap(function _callee$(_context){while(1){switch(_context.prev=_context.next){case 0:_context.prev=0;setErrors([]);setIsDone(false);isValidTokenId=validateTokenId(tokenId);isValidPrice=validateTokenId(price);if(!isValidPrice){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_PRICE_TEXT]);});}if(!isValidTokenId){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_TOKEN_ID_TEXT]);});}if(!currentAccount){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_CONTRACT_TEXT]);});}if(!(currentAccount&&isValidTokenId&&contractSell)){_context.next=13;break;}_context.next=11;return contractSell.methods.setCurrentPrice(tokenId,lib_default.a.utils.toWei("".concat(price))).send({from:currentAccount});case 11:if(onSuccess){onSuccess();}setIsDone(true);case 13:_context.next=18;break;case 15:_context.prev=15;_context.t0=_context["catch"](0);setErrors([_context.t0.message]);case 18:case"end":return _context.stop();}}},_callee,null,[[0,15]]);}));return function handleSetPrice(){return _ref2.apply(this,arguments);};}();return/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"Form",children:[/*#__PURE__*/Object(jsx_runtime["jsx"])(Input_Input_Input,{title:"Price (ETH)",value:price,type:"number",onChange:handleChangePrice}),/*#__PURE__*/Object(jsx_runtime["jsx"])(Button_Button_Button,{onClick:handleSetPrice,text:"Set price",disabled:price===undefined||!isOwner}),!isOwner&&/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"App__title-text",children:"You are not the owner of this NFT"})]});};
 // CONCATENATED MODULE: ./src/components/FormsContainer/FormsContainer.tsx
-var getStepName=function getStepName(step){switch(step){case 1:return'Step 1: Mint NFT token';case 2:return'Step 2: Set Price for created NFT Token';default:return'';}};var FormsContainer_FormsContainer_FormsContainer=function FormsContainer(_ref){var currentPage=_ref.currentPage,onChangeCurrentPage=_ref.onChangeCurrentPage,formProps=_objectWithoutProperties(_ref,["currentPage","onChangeCurrentPage"]);var contractMain=formProps.contractMain,tokenId=formProps.tokenId;var _useState=Object(react["useState"])(1),_useState2=_slicedToArray(_useState,2),step=_useState2[0],setStep=_useState2[1];var handleMintSuccess=function handleMintSuccess(){return setStep(2);};var handleSetPriceSuccess=function handleSetPriceSuccess(){return setStep(3);};Object(react["useEffect"])(function(){contractMain===null||contractMain===void 0?void 0:contractMain.methods.tokenURI(tokenId).call().then(function(url){if(url){setStep(2);}});},[tokenId,contractMain]);switch(currentPage){case'add':return/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{style:{textAlign:'left'},children:[/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"App__title-text",children:getStepName(step)}),step===1&&/*#__PURE__*/Object(jsx_runtime["jsx"])(FormMint_FormMint,_objectSpread2(_objectSpread2({},formProps),{},{onSuccess:handleMintSuccess})),step===2&&/*#__PURE__*/Object(jsx_runtime["jsx"])(FormSetPrice_FormSetPrice,_objectSpread2(_objectSpread2({},formProps),{},{onSuccess:handleSetPriceSuccess})),/*#__PURE__*/Object(jsx_runtime["jsx"])(Button_Button_Button,{onClick:function onClick(){return onChangeCurrentPage('view');},text:"Go to view page"})]});case'view':return/*#__PURE__*/Object(jsx_runtime["jsxs"])(jsx_runtime["Fragment"],{children:[/*#__PURE__*/Object(jsx_runtime["jsx"])(FormPurchase_FormPurchase,_objectSpread2({},formProps)),/*#__PURE__*/Object(jsx_runtime["jsx"])(FormUrl_FormUrl,_objectSpread2({},formProps))]});default:return null;}};
+var getStepName=function getStepName(step){switch(step){case 1:return'Step 1: Mint NFT token';case 2:return'Step 2: Set Price for created NFT Token';default:return'';}};var FormsContainer_FormsContainer_FormsContainer=function FormsContainer(_ref){var currentPage=_ref.currentPage,onChangeCurrentPage=_ref.onChangeCurrentPage,formProps=_objectWithoutProperties(_ref,["currentPage","onChangeCurrentPage"]);var contractMain=formProps.contractMain,tokenId=formProps.tokenId,currentAccount=formProps.currentAccount;var _useState=Object(react["useState"])(1),_useState2=_slicedToArray(_useState,2),step=_useState2[0],setStep=_useState2[1];var _useState3=Object(react["useState"])(false),_useState4=_slicedToArray(_useState3,2),isOwner=_useState4[0],setIsOwner=_useState4[1];var handleMintSuccess=function handleMintSuccess(){return setStep(2);};var handleSetPriceSuccess=function handleSetPriceSuccess(){return setStep(3);};Object(react["useEffect"])(function(){contractMain===null||contractMain===void 0?void 0:contractMain.methods.tokenURI(tokenId).call().then(function(url){if(url){setStep(2);}});},[tokenId,contractMain]);Object(react["useEffect"])(function(){contractMain===null||contractMain===void 0?void 0:contractMain.methods.ownerOf(tokenId).call().then(function(owner){if(owner.toLowerCase()===currentAccount.toLowerCase()){setIsOwner(true);}else{setIsOwner(false);}});},[currentAccount,tokenId,contractMain]);switch(currentPage){case'add':return/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{style:{textAlign:'left'},children:[/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"App__title-text",children:getStepName(step)}),step===1&&/*#__PURE__*/Object(jsx_runtime["jsx"])(FormMint_FormMint,_objectSpread2(_objectSpread2({},formProps),{},{onSuccess:handleMintSuccess})),step===2&&/*#__PURE__*/Object(jsx_runtime["jsx"])(FormSetPrice_FormSetPrice,_objectSpread2(_objectSpread2({},formProps),{},{onSuccess:handleSetPriceSuccess,isOwner:isOwner})),/*#__PURE__*/Object(jsx_runtime["jsx"])(Button_Button_Button,{onClick:function onClick(){return onChangeCurrentPage('view');},text:"Go to view page"})]});case'view':return/*#__PURE__*/Object(jsx_runtime["jsxs"])(jsx_runtime["Fragment"],{children:[/*#__PURE__*/Object(jsx_runtime["jsx"])(FormPurchase_FormPurchase,_objectSpread2({},formProps)),isOwner&&/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{children:[/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"Form__title",children:"Set item price in ETH, set 0 if you don't want to sell this item"}),/*#__PURE__*/Object(jsx_runtime["jsx"])(FormSetPrice_FormSetPrice,_objectSpread2(_objectSpread2({},formProps),{},{isOwner:isOwner}))]}),/*#__PURE__*/Object(jsx_runtime["jsx"])(FormUrl_FormUrl,_objectSpread2({},formProps))]});default:return null;}};
 // CONCATENATED MODULE: ./src/components/App/App.tsx
-var web3=new lib_default.a(lib_default.a.givenProvider);var NETWORK_TYPE_INTERVAL=2000;var App_App_App=function App(){var _useState=Object(react["useState"])(false),_useState2=_slicedToArray(_useState,2),isWalletConnected=_useState2[0],setIsWalletConnected=_useState2[1];var _useState3=Object(react["useState"])('Please connect MetaMask'),_useState4=_slicedToArray(_useState3,2),walletError=_useState4[0],setWalletError=_useState4[1];var _useState5=Object(react["useState"])(undefined),_useState6=_slicedToArray(_useState5,2),currentNetworkType=_useState6[0],setCurrentNetworkType=_useState6[1];var _useState7=Object(react["useState"])('main'),_useState8=_slicedToArray(_useState7,2),networkType=_useState8[0],setNetworkType=_useState8[1];var _useState9=Object(react["useState"])(undefined),_useState10=_slicedToArray(_useState9,2),tokenId=_useState10[0],setTokenId=_useState10[1];var _useState11=Object(react["useState"])(''),_useState12=_slicedToArray(_useState11,2),currentPage=_useState12[0],setCurrentPage=_useState12[1];var _useState13=Object(react["useState"])(undefined),_useState14=_slicedToArray(_useState13,2),currentAccount=_useState14[0],setCurrentAccount=_useState14[1];var getCurrentNetworkType=function getCurrentNetworkType(){return web3.eth.net.getNetworkType().then(function(v){return setCurrentNetworkType(v);});};// @ts-ignore
+var web3=new lib_default.a(lib_default.a.givenProvider);var NETWORK_TYPE_INTERVAL=2000;var App_App_App=function App(){var _useState=Object(react["useState"])(false),_useState2=_slicedToArray(_useState,2),isWalletConnected=_useState2[0],setIsWalletConnected=_useState2[1];var _useState3=Object(react["useState"])('Please connect MetaMask'),_useState4=_slicedToArray(_useState3,2),walletError=_useState4[0],setWalletError=_useState4[1];var _useState5=Object(react["useState"])(undefined),_useState6=_slicedToArray(_useState5,2),currentNetworkType=_useState6[0],setCurrentNetworkType=_useState6[1];var _useState7=Object(react["useState"])('main'),_useState8=_slicedToArray(_useState7,2),networkType=_useState8[0],setNetworkType=_useState8[1];var _useState9=Object(react["useState"])(undefined),_useState10=_slicedToArray(_useState9,2),tokenId=_useState10[0],setTokenId=_useState10[1];var _useState11=Object(react["useState"])(''),_useState12=_slicedToArray(_useState11,2),currentPage=_useState12[0],setCurrentPage=_useState12[1];var _useState13=Object(react["useState"])(undefined),_useState14=_slicedToArray(_useState13,2),currentAccount=_useState14[0],setCurrentAccount=_useState14[1];var _useState15=Object(react["useState"])(''),_useState16=_slicedToArray(_useState15,2),currentTokenUrl=_useState16[0],setCurrentTokenUrl=_useState16[1];var getCurrentNetworkType=function getCurrentNetworkType(){return web3.eth.net.getNetworkType().then(function(v){return setCurrentNetworkType(v);});};// @ts-ignore
 var getCurrentAccount=function getCurrentAccount(){var _web3$eth$accounts$cu,_web3$eth$accounts$cu2;return setCurrentAccount((_web3$eth$accounts$cu=web3.eth.accounts.currentProvider)===null||_web3$eth$accounts$cu===void 0?void 0:(_web3$eth$accounts$cu2=_web3$eth$accounts$cu.selectedAddress)===null||_web3$eth$accounts$cu2===void 0?void 0:_web3$eth$accounts$cu2.toLowerCase());};// @ts-ignore
-window.init=function(_ref){var tokenId=_ref.tokenId,networkType=_ref.networkType,page=_ref.page;if(tokenId){setTokenId(tokenId);}if(networkType){setNetworkType(networkType);}if(page){setCurrentPage(page);}};var connectWallet=function connectWallet(){try{// @ts-ignore
+window.init=function(_ref){var tokenId=_ref.tokenId,networkType=_ref.networkType,page=_ref.page,newUrl=_ref.newUrl;if(tokenId){setTokenId(tokenId);}if(networkType){setNetworkType(networkType);}if(page){setCurrentPage(page);}if(newUrl){setCurrentTokenUrl(newUrl);}};var connectWallet=function connectWallet(){try{// @ts-ignore
 if(window.ethereum){// @ts-ignore
 window.ethereum.enable().then(function(){return setIsWalletConnected(true);}).catch(function(){return setIsWalletConnected(false);});// @ts-ignore
 }else if(window.web3){web3=new lib_default.a(web3.currentProvider);}else{setWalletError('Please install MetaMask');setIsWalletConnected(false);}}catch(e){setIsWalletConnected(false);}};Object(react["useEffect"])(function(){connectWallet();getCurrentAccount();setInterval(getCurrentAccount,NETWORK_TYPE_INTERVAL);getCurrentNetworkType();setInterval(getCurrentNetworkType,NETWORK_TYPE_INTERVAL);// @ts-ignore
 if(window.nftConfig){// @ts-ignore
 window.init(window.nftConfig);}},[]);// @ts-ignore
 var contractMain=new web3.eth.Contract(mintNFT,CONTRACT_ADDRESS_MAIN);// @ts-ignore
-var contractSell=new web3.eth.Contract(sellNFT_CryptoArteSales,CONTRACT_ADDRESS_SELL);var _useState15=Object(react["useState"])([]),_useState16=_slicedToArray(_useState15,2),errors=_useState16[0],setErrors=_useState16[1];var _useState17=Object(react["useState"])(false),_useState18=_slicedToArray(_useState17,2),isDone=_useState18[0],setIsDone=_useState18[1];var handleChangeCurrentPage=function handleChangeCurrentPage(page){setCurrentPage(page);setIsDone(false);setErrors([]);};return/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"App",children:[networkType!==currentNetworkType&&/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"App__title-text",children:["Please change ",/*#__PURE__*/Object(jsx_runtime["jsx"])("b",{children:currentNetworkType})," network type to ",/*#__PURE__*/Object(jsx_runtime["jsx"])("b",{children:networkType})]}),networkType===currentNetworkType&&/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"App__content",children:[!isWalletConnected&&/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"Form App__center-form",children:[/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"App__title-text",children:walletError}),/*#__PURE__*/Object(jsx_runtime["jsx"])(Button_Button_Button,{onClick:connectWallet,text:"Connect"})]}),/*#__PURE__*/Object(jsx_runtime["jsx"])(FormsContainer_FormsContainer_FormsContainer,{contractMain:contractMain,contractSell:contractSell,tokenId:tokenId,currentAccount:currentAccount,setErrors:setErrors,setIsDone:setIsDone,currentPage:currentPage,onChangeCurrentPage:handleChangeCurrentPage})]}),!!errors.length&&/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"App__errors",children:errors.map(function(error){return/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"App__errors__error",children:error},error);})}),isDone&&/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"App__done",children:"DONE"})]});};
+var contractSell=new web3.eth.Contract(sellNFT_CryptoArteSales,CONTRACT_ADDRESS_SELL);var _useState17=Object(react["useState"])([]),_useState18=_slicedToArray(_useState17,2),errors=_useState18[0],setErrors=_useState18[1];var _useState19=Object(react["useState"])(false),_useState20=_slicedToArray(_useState19,2),isDone=_useState20[0],setIsDone=_useState20[1];var handleChangeCurrentPage=function handleChangeCurrentPage(page){setCurrentPage(page);setIsDone(false);setErrors([]);};return/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"App",children:[networkType!==currentNetworkType&&/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"App__title-text",children:["Please change ",/*#__PURE__*/Object(jsx_runtime["jsx"])("b",{children:currentNetworkType})," network type to ",/*#__PURE__*/Object(jsx_runtime["jsx"])("b",{children:networkType})]}),networkType===currentNetworkType&&/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"App__content",children:[!isWalletConnected&&/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"Form App__center-form",children:[/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"App__title-text",children:walletError}),/*#__PURE__*/Object(jsx_runtime["jsx"])(Button_Button_Button,{onClick:connectWallet,text:"Connect"})]}),/*#__PURE__*/Object(jsx_runtime["jsx"])(FormsContainer_FormsContainer_FormsContainer,{contractMain:contractMain,contractSell:contractSell,tokenId:tokenId,currentAccount:currentAccount,setErrors:setErrors,setIsDone:setIsDone,currentPage:currentPage,currentTokenUrl:currentTokenUrl,onChangeCurrentPage:handleChangeCurrentPage})]}),!!errors.length&&/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"App__errors",children:errors.map(function(error){return/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"App__errors__error",children:error},error);})}),isDone&&/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"App__done",children:"DONE"})]});};
 // CONCATENATED MODULE: ./src/index.tsx
 react_dom_default.a.render(/*#__PURE__*/Object(jsx_runtime["jsx"])(react_default.a.StrictMode,{children:/*#__PURE__*/Object(jsx_runtime["jsx"])(App_App_App,{})}),document.getElementById('root'));
 
@@ -101048,7 +101048,7 @@ var bignumbers = __webpack_require__(478);
 var keccak256_lib_esm = __webpack_require__(17);
 
 // EXTERNAL MODULE: ./node_modules/@ethersproject/properties/lib.esm/index.js + 1 modules
-var properties_lib_esm = __webpack_require__(9);
+var properties_lib_esm = __webpack_require__(10);
 
 // EXTERNAL MODULE: ./node_modules/@ethersproject/rlp/lib.esm/index.js + 1 modules
 var rlp_lib_esm = __webpack_require__(35);

@@ -1,5 +1,4 @@
 .App {
-  text-align: center;
   color: #282c34;
 }
 
@@ -24,13 +23,14 @@
   padding-top: 80px;
   color: #009933;
   text-align: left;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: bold;
 }
 
 .App__title-text {
   padding-bottom: 16px;
-  font-size: 20px;
+  font-size: 16px;
+  color: rgb(122, 122, 122);
   text-align: center;
   word-break: break-all;
 }
