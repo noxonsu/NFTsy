@@ -47,7 +47,7 @@ if ( is_user_logged_in() || NFT_ADDUSER > 0) {
 			<div id="root"></div>
 			<script>
 			
-			window.nftConfig = { networkType: '<?php esc_html_e(get_option("nft_networkName"),"nft"); ?>', page: "add", tokenId: <?php echo $nft_id; ?>, new_url:'<?php echo get_post_field('post_content', $nft_id); ?>',}
+			window.nftConfig = { networkType: '<?php esc_html_e(get_option("nft_networkName"),"nft"); ?>', page: "add", tokenId: <?php echo $nft_id; ?>, newUrl:'<?php echo get_post_field('post_content', $nft_id); ?>',}
 			</script>
 			<?php
 		
