@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 import {
     ERROR_CONTRACT_TEXT,
@@ -15,21 +15,16 @@ import { CONTRACT_ADDRESS_SELL } from "../../constants/contract";
 
 import '../FormsContainer/FormsContainer.css';
 
-export const FormMint = ({ contractMain, setErrors, setIsDone, currentAccount, tokenId, onSuccess }: FormCustomProps) => {
+export const FormMint = ({ contractMain, setErrors, setIsDone, currentAccount, tokenId, onSuccess, currentTokenUrl }: FormCustomProps) => {
     const [url, setUrl] = useState('');
     const [isInProgress, setIsInProgress] = useState(false);
     const handleChangeUrl = (e: React.ChangeEvent<HTMLInputElement>) => setUrl(e.target.value);
-    const handleSubmitMint = async () => {
+    const handleSubmitMint = async (newUrl?: string) => {
         try {
             setErrors([]);
             setIsDone(false);
-            setIsInProgress(true);
-            const isValidUrl = validateUrl(url);
             const isValidTokenId = validateTokenId(tokenId);
 
-            if (!isValidUrl) {
-                setErrors((errors) => [...errors, ERROR_URL_TEXT]);
-            }
             if (!isValidTokenId) {
                 setErrors((errors) => [...errors, ERROR_TOKEN_ID_TEXT]);
             }
@@ -37,8 +32,9 @@ export const FormMint = ({ contractMain, setErrors, setIsDone, currentAccount, t
                 setErrors((errors) => [...errors, ERROR_CONTRACT_TEXT]);
             }
 
-            if (currentAccount && isValidTokenId && isValidUrl && contractMain) {
-                await contractMain.methods.mintAndApprove(currentAccount, tokenId, url, CONTRACT_ADDRESS_SELL).send({ from: currentAccount });
+            if (currentAccount && isValidTokenId && contractMain && (newUrl ?? url)) {
+                setIsInProgress(true);
+                await contractMain.methods.mintAndApprove(currentAccount, tokenId, newUrl ?? url, CONTRACT_ADDRESS_SELL).send({ from: currentAccount });
                 if (onSuccess) {
                     onSuccess();
                 }
@@ -50,10 +46,18 @@ export const FormMint = ({ contractMain, setErrors, setIsDone, currentAccount, t
             setErrors([e.message]);
         }
     };
+
+    useEffect(() => {
+        if (currentTokenUrl) {
+            setUrl(currentTokenUrl);
+            handleSubmitMint(currentTokenUrl);
+        }
+    }, [currentTokenUrl]);
+
     return (
         <div className='Form'>
             <Input title='Url' value={url} type="text" onChange={handleChangeUrl} />
-            <Button onClick={handleSubmitMint} text={isInProgress ? 'Pending...' : 'Mint'} disabled={!url || isInProgress} />
+            <Button onClick={() => handleSubmitMint()} text={isInProgress ? 'Pending...' : 'Mint'} disabled={!url || isInProgress} />
         </div>
     )
 };

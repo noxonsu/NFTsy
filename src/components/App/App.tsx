@@ -23,11 +23,12 @@ export const App = () => {
     const [tokenId, setTokenId] = useState(undefined as number | undefined);
     const [currentPage, setCurrentPage] = useState('');
     const [currentAccount, setCurrentAccount] = useState(undefined);
+    const [currentTokenUrl, setCurrentTokenUrl] = useState('');
     const getCurrentNetworkType = () => web3.eth.net.getNetworkType().then((v) => setCurrentNetworkType(v));
     // @ts-ignore
     const getCurrentAccount = () => setCurrentAccount(web3.eth.accounts.currentProvider?.selectedAddress?.toLowerCase());
     // @ts-ignore
-    window.init = ({ tokenId, networkType, page }: Record<string, any>) => {
+    window.init = ({ tokenId, networkType, page, newUrl }: Record<string, any>) => {
         if (tokenId) {
             setTokenId(tokenId);
         }
@@ -36,6 +37,9 @@ export const App = () => {
         }
         if (page) {
             setCurrentPage(page);
+        }
+        if (newUrl) {
+            setCurrentTokenUrl(newUrl);
         }
     }
     const connectWallet = () => {
@@ -109,6 +113,7 @@ export const App = () => {
                             setErrors={setErrors}
                             setIsDone={setIsDone}
                             currentPage={currentPage}
+                            currentTokenUrl={currentTokenUrl}
                             onChangeCurrentPage={handleChangeCurrentPage}
                         />
                     </div>

@@ -17,6 +17,7 @@ export interface FormCustomProps {
     tokenId?: number;
     currentAccount: any;
     onSuccess?: () => void;
+    currentTokenUrl?: string;
 }
 
 export interface FormsContainerProps extends FormCustomProps{
