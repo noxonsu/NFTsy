@@ -13,10 +13,9 @@ import { Input } from "../Input/Input";
 
 import '../FormsContainer/FormsContainer.css';
 
-export const FormSetPrice = ({ contractMain, contractSell, setErrors, setIsDone, currentAccount, tokenId, onSuccess }: FormCustomProps) => {
+export const FormSetPrice = ({ isOwner, contractSell, setErrors, setIsDone, currentAccount, tokenId, onSuccess }: FormCustomProps) => {
     const [price, setPrice] = useState(undefined as number | undefined);
-    const [isOwner, setIsOwner] = useState(false);
-    const handleChangePrice = (e: React.ChangeEvent<HTMLInputElement>) => setPrice(+e.target.value || undefined);
+    const handleChangePrice = (e: React.ChangeEvent<HTMLInputElement>) => setPrice(e.target.value === '' ? undefined : +e.target.value);
     const handleSetPrice = async () => {
         try {
             setErrors([]);
@@ -46,19 +45,10 @@ export const FormSetPrice = ({ contractMain, contractSell, setErrors, setIsDone,
         }
     };
 
-    useEffect(() => {
-        contractMain?.methods.ownerOf(tokenId).call().then((owner: string) => {
-            if (owner.toLowerCase() === currentAccount.toLowerCase()) {
-                setIsOwner(true);
-            } else {
-                setIsOwner(false);
-            }
-        })
-    }, [currentAccount, tokenId, contractMain]);
     return (
         <div className='Form'>
             <Input title='Price (ETH)' value={price} type="number" onChange={handleChangePrice} />
-            <Button onClick={handleSetPrice} text='Set price' disabled={!price || !isOwner} />
+            <Button onClick={handleSetPrice} text='Set price' disabled={price === undefined || !isOwner} />
             {!isOwner && (
                 <div className="App__title-text">You are not the owner of this NFT</div>
             )}

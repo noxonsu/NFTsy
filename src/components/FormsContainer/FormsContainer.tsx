@@ -18,6 +18,7 @@ export interface FormCustomProps {
     currentAccount: any;
     onSuccess?: () => void;
     currentTokenUrl?: string;
+    isOwner?: boolean;
 }
 
 export interface FormsContainerProps extends FormCustomProps{
@@ -37,8 +38,9 @@ const getStepName = (step: number) => {
 }
 
 export const FormsContainer = ({ currentPage, onChangeCurrentPage, ...formProps}: FormsContainerProps) => {
-    const { contractMain, tokenId } = formProps;
+    const { contractMain, tokenId, currentAccount } = formProps;
     const [step, setStep] = useState(1);
+    const [isOwner, setIsOwner] = useState(false);
     const handleMintSuccess = () => setStep(2);
     const handleSetPriceSuccess = () => setStep(3);
 
@@ -50,6 +52,16 @@ export const FormsContainer = ({ currentPage, onChangeCurrentPage, ...formProps}
         })
     }, [tokenId, contractMain]);
 
+    useEffect(() => {
+        contractMain?.methods.ownerOf(tokenId).call().then((owner: string) => {
+            if (owner.toLowerCase() === currentAccount.toLowerCase()) {
+                setIsOwner(true);
+            } else {
+                setIsOwner(false);
+            }
+        })
+    }, [currentAccount, tokenId, contractMain]);
+
     switch (currentPage) {
         case 'add':
             return (
@@ -59,7 +71,7 @@ export const FormsContainer = ({ currentPage, onChangeCurrentPage, ...formProps}
                         step === 1 && <FormMint {...formProps} onSuccess={handleMintSuccess} />
                     }
                     {
-                        step === 2 && <FormSetPrice {...formProps} onSuccess={handleSetPriceSuccess}/>
+                        step === 2 && <FormSetPrice {...formProps} onSuccess={handleSetPriceSuccess} isOwner={isOwner} />
                     }
                     <Button onClick={() => onChangeCurrentPage('view')} text='Go to view page' />
                 </div>
@@ -69,6 +81,12 @@ export const FormsContainer = ({ currentPage, onChangeCurrentPage, ...formProps}
                 <>
                     <FormPurchase {...formProps} />
                     <FormUrl {...formProps} />
+                    {isOwner && (
+                        <div>
+                            <div className='App__title-text'>Set item price in ETH, set 0 if you don't want to sell this item</div>
+                            <FormSetPrice {...formProps} isOwner={isOwner} />
+                        </div>
+                    )}
                 </>
             );
         default:
