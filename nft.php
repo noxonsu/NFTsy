@@ -6,7 +6,7 @@ Author: NoxonThemes
 Requires PHP: 7.1
 Text Domain: nft
 Domain Path: /lang
-Version: 1.0.12
+Version: 1.0.13
  */
 /* Define Plugin Constants */
 defined( 'ABSPATH' ) || exit;

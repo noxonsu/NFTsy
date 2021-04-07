@@ -17,11 +17,13 @@ import '../FormsContainer/FormsContainer.css';
 
 export const FormMint = ({ contractMain, setErrors, setIsDone, currentAccount, tokenId, onSuccess }: FormCustomProps) => {
     const [url, setUrl] = useState('');
+    const [isInProgress, setIsInProgress] = useState(false);
     const handleChangeUrl = (e: React.ChangeEvent<HTMLInputElement>) => setUrl(e.target.value);
     const handleSubmitMint = async () => {
         try {
             setErrors([]);
             setIsDone(false);
+            setIsInProgress(true);
             const isValidUrl = validateUrl(url);
             const isValidTokenId = validateTokenId(tokenId);
 
@@ -40,16 +42,18 @@ export const FormMint = ({ contractMain, setErrors, setIsDone, currentAccount, t
                 if (onSuccess) {
                     onSuccess();
                 }
+                setIsInProgress(false);
                 setIsDone(true);
             }
         } catch (e) {
+            setIsInProgress(false);
             setErrors([e.message]);
         }
     };
     return (
         <div className='Form'>
             <Input title='Url' value={url} type="text" onChange={handleChangeUrl} />
-            <Button onClick={handleSubmitMint} text='Mint' disabled={!url} />
+            <Button onClick={handleSubmitMint} text={isInProgress ? 'Pending...' : 'Mint'} disabled={!url || isInProgress} />
         </div>
     )
 };

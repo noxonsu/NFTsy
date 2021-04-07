@@ -11,6 +11,7 @@ import {Button} from "../Button/Button";
 
 import '../FormsContainer/FormsContainer.css';
 import {Input} from "../Input/Input";
+import Web3 from "web3";
 
 export const FormPurchase = ({ contractSell, tokenId, setErrors, setIsDone, currentAccount }: FormCustomProps) => {
     const [purchaseValue, setPurchaseValue] = useState(undefined as number | undefined);
@@ -30,7 +31,10 @@ export const FormPurchase = ({ contractSell, tokenId, setErrors, setIsDone, curr
             }
 
             if (currentAccount && isValidTokenId && isValidPurchaseValue && contractSell) {
-                await contractSell.methods.purchaseToken(tokenId).send({ from: currentAccount, value: purchaseValue });
+                await contractSell.methods.purchaseToken(tokenId).send({
+                    from: currentAccount,
+                    value: Web3.utils.toWei(`${purchaseValue}`)
+                });
                 setIsDone(true);
             }
         } catch (e) {
@@ -40,7 +44,7 @@ export const FormPurchase = ({ contractSell, tokenId, setErrors, setIsDone, curr
 
     return (
         <div className='Form'>
-            <Input title='Value (Gwei)' value={purchaseValue} type="number" onChange={handleChangePurchaseValue} />
+            <Input title='Value (ETH)' value={purchaseValue} type="number" onChange={handleChangePurchaseValue} />
             <Button onClick={handlePurchase} text='Purchase' disabled={!purchaseValue} />
         </div>
     )

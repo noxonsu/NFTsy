@@ -4023,7 +4023,7 @@ function joinSignature(signature) {
     return res._forceRed(this);
   };
 })( false || module, this);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(30)(module)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(31)(module)))
 
 /***/ }),
 /* 2 */
@@ -6681,6 +6681,17 @@ var lib_esm_Description = function Description(info) {
 
 /***/ }),
 /* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+if (true) {
+  module.exports = __webpack_require__(203);
+} else {}
+
+/***/ }),
+/* 11 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -6891,17 +6902,6 @@ process.chdir = function (dir) {
 process.umask = function () {
   return 0;
 };
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-if (true) {
-  module.exports = __webpack_require__(203);
-} else {}
 
 /***/ }),
 /* 12 */
@@ -8806,7 +8806,7 @@ module.exports = __webpack_require__(260);
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
   }
 })();
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(12), __webpack_require__(30)(module)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(12), __webpack_require__(31)(module)))
 
 /***/ }),
 /* 16 */
@@ -9273,7 +9273,7 @@ function keccak256(data) {
 
 var hash = exports;
 hash.utils = __webpack_require__(22);
-hash.common = __webpack_require__(50);
+hash.common = __webpack_require__(51);
 hash.sha = __webpack_require__(264);
 hash.ripemd = __webpack_require__(268);
 hash.hmac = __webpack_require__(269); // Proxy hash functions to the main object
@@ -10714,7 +10714,7 @@ function randomBytes(size, cb) {
 
   return bytes;
 }
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(12), __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(12), __webpack_require__(11)))
 
 /***/ }),
 /* 26 */
@@ -10772,7 +10772,7 @@ function nextTick(fn, arg1, arg2, arg3) {
       });
   }
 }
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11)))
 
 /***/ }),
 /* 27 */
@@ -10896,6 +10896,95 @@ module.exports = CipherBase;
 
 /***/ }),
 /* 28 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/*
+    This file is part of web3.js.
+
+    web3.js is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Lesser General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    web3.js is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public License
+    along with web3.js.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+/**
+ * @file index.js
+ * @authors:
+ *   Fabian Vogelsteller <fabian@ethereum.org>
+ *   Gav Wood <gav@parity.io>
+ *   Jeffrey Wilcke <jeffrey.wilcke@ethereum.org>
+ *   Marek Kotewicz <marek@parity.io>
+ *   Marian Oancea <marian@ethereum.org>
+ * @date 2017
+ */
+
+
+var version = __webpack_require__(208).version;
+
+var core = __webpack_require__(30);
+
+var Eth = __webpack_require__(270);
+
+var Net = __webpack_require__(62);
+
+var Personal = __webpack_require__(136);
+
+var Shh = __webpack_require__(451);
+
+var Bzz = __webpack_require__(452);
+
+var utils = __webpack_require__(16);
+
+var Web3 = function Web3() {
+  var _this = this; // sets _requestmanager etc
+
+
+  core.packageInit(this, arguments);
+  this.version = version;
+  this.utils = utils;
+  this.eth = new Eth(this);
+  this.shh = new Shh(this);
+  this.bzz = new Bzz(this); // overwrite package setProvider
+
+  var setProvider = this.setProvider;
+
+  this.setProvider = function (provider, net) {
+    /*jshint unused: false */
+    setProvider.apply(_this, arguments);
+
+    _this.eth.setRequestManager(_this._requestManager);
+
+    _this.shh.setRequestManager(_this._requestManager);
+
+    _this.bzz.setProvider(provider);
+
+    return true;
+  };
+};
+
+Web3.version = version;
+Web3.utils = utils;
+Web3.modules = {
+  Eth: Eth,
+  Net: Net,
+  Personal: Personal,
+  Shh: Shh,
+  Bzz: Bzz
+};
+core.addProviders(Web3);
+module.exports = Web3;
+
+/***/ }),
+/* 29 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10909,13 +10998,13 @@ __webpack_require__.d(__webpack_exports__, "a", function() { return /* binding *
 var lib_esm = __webpack_require__(0);
 
 // EXTERNAL MODULE: ./node_modules/@ethersproject/bignumber/lib.esm/bignumber.js + 1 modules
-var bignumber = __webpack_require__(48);
+var bignumber = __webpack_require__(49);
 
 // EXTERNAL MODULE: ./node_modules/@ethersproject/keccak256/lib.esm/index.js
 var keccak256_lib_esm = __webpack_require__(17);
 
 // EXTERNAL MODULE: ./node_modules/@ethersproject/rlp/lib.esm/index.js + 1 modules
-var rlp_lib_esm = __webpack_require__(34);
+var rlp_lib_esm = __webpack_require__(35);
 
 // EXTERNAL MODULE: ./node_modules/@ethersproject/logger/lib.esm/index.js + 1 modules
 var logger_lib_esm = __webpack_require__(5);
@@ -11090,7 +11179,7 @@ function getCreate2Address(from, salt, initCodeHash) {
 }
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -11180,7 +11269,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports) {
 
 module.exports = function (module) {
@@ -11209,7 +11298,7 @@ module.exports = function (module) {
 };
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11250,9 +11339,9 @@ var formatters = __webpack_require__(13).formatters;
 
 var utils = __webpack_require__(16);
 
-var promiEvent = __webpack_require__(59);
+var promiEvent = __webpack_require__(60);
 
-var Subscriptions = __webpack_require__(60).subscriptions;
+var Subscriptions = __webpack_require__(61).subscriptions;
 
 var EthersTransactionUtils = __webpack_require__(476);
 
@@ -12153,7 +12242,7 @@ Method.prototype.request = function () {
 module.exports = Method;
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var unsupportedIterableToArray = __webpack_require__(75);
@@ -12218,7 +12307,7 @@ function _createForOfIteratorHelper(o, allowArrayLike) {
 module.exports = _createForOfIteratorHelper;
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12352,7 +12441,7 @@ Duplex.prototype._destroy = function (err, cb) {
 };
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12540,8 +12629,8 @@ function decode(data) {
 }
 
 /***/ }),
-/* 35 */,
-/* 36 */
+/* 36 */,
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12642,7 +12731,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 };
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12776,7 +12865,7 @@ Duplex.prototype._destroy = function (err, cb) {
 };
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports) {
 
 function _classCallCheck(instance, Constructor) {
@@ -12788,7 +12877,7 @@ function _classCallCheck(instance, Constructor) {
 module.exports = _classCallCheck;
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports) {
 
 function _defineProperties(target, props) {
@@ -12810,7 +12899,7 @@ function _createClass(Constructor, protoProps, staticProps) {
 module.exports = _createClass;
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12849,7 +12938,7 @@ module.exports = function createHash(alg) {
 };
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12984,7 +13073,7 @@ createErrorType('ERR_STREAM_UNSHIFT_AFTER_END_EVENT', 'stream.unshift() after en
 module.exports.codes = codes;
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13127,10 +13216,10 @@ Object.defineProperty(Duplex.prototype, 'destroyed', {
     this._writableState.destroyed = value;
   }
 });
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11)))
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Buffer = __webpack_require__(8).Buffer; // prototype class for hash functions
@@ -13215,7 +13304,7 @@ Hash.prototype._update = function () {
 module.exports = Hash;
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13350,7 +13439,7 @@ createErrorType('ERR_STREAM_UNSHIFT_AFTER_END_EVENT', 'stream.unshift() after en
 module.exports.codes = codes;
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13493,10 +13582,10 @@ Object.defineProperty(Duplex.prototype, 'destroyed', {
     this._writableState.destroyed = value;
   }
 });
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11)))
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13513,13 +13602,13 @@ elliptic.ec = __webpack_require__(385);
 elliptic.eddsa = __webpack_require__(389);
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -13959,7 +14048,7 @@ function _base16To36(value) {
 }
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14694,7 +14783,7 @@ Url.prototype.parseHost = function () {
 };
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14792,7 +14881,7 @@ BlockHash.prototype._pad = function pad() {
 };
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = {
@@ -14802,7 +14891,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var arrayWithHoles = __webpack_require__(289);
@@ -14820,13 +14909,13 @@ function _slicedToArray(arr, i) {
 module.exports = _slicedToArray;
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module) {
 
 module.exports = JSON.parse("{\"identity\":0,\"ip4\":4,\"tcp\":6,\"sha1\":17,\"sha2-256\":18,\"sha2-512\":19,\"sha3-512\":20,\"sha3-384\":21,\"sha3-256\":22,\"sha3-224\":23,\"shake-128\":24,\"shake-256\":25,\"keccak-224\":26,\"keccak-256\":27,\"keccak-384\":28,\"keccak-512\":29,\"blake3\":30,\"dccp\":33,\"murmur3-128\":34,\"murmur3-32\":35,\"ip6\":41,\"ip6zone\":42,\"path\":47,\"multicodec\":48,\"multihash\":49,\"multiaddr\":50,\"multibase\":51,\"dns\":53,\"dns4\":54,\"dns6\":55,\"dnsaddr\":56,\"protobuf\":80,\"cbor\":81,\"raw\":85,\"dbl-sha2-256\":86,\"rlp\":96,\"bencode\":99,\"dag-pb\":112,\"dag-cbor\":113,\"libp2p-key\":114,\"git-raw\":120,\"torrent-info\":123,\"torrent-file\":124,\"leofcoin-block\":129,\"leofcoin-tx\":130,\"leofcoin-pr\":131,\"sctp\":132,\"dag-jose\":133,\"dag-cose\":134,\"eth-block\":144,\"eth-block-list\":145,\"eth-tx-trie\":146,\"eth-tx\":147,\"eth-tx-receipt-trie\":148,\"eth-tx-receipt\":149,\"eth-state-trie\":150,\"eth-account-snapshot\":151,\"eth-storage-trie\":152,\"bitcoin-block\":176,\"bitcoin-tx\":177,\"bitcoin-witness-commitment\":178,\"zcash-block\":192,\"zcash-tx\":193,\"stellar-block\":208,\"stellar-tx\":209,\"md4\":212,\"md5\":213,\"bmt\":214,\"decred-block\":224,\"decred-tx\":225,\"ipld-ns\":226,\"ipfs-ns\":227,\"swarm-ns\":228,\"ipns-ns\":229,\"zeronet\":230,\"secp256k1-pub\":231,\"bls12_381-g1-pub\":234,\"bls12_381-g2-pub\":235,\"x25519-pub\":236,\"ed25519-pub\":237,\"dash-block\":240,\"dash-tx\":241,\"swarm-manifest\":250,\"swarm-feed\":251,\"udp\":273,\"p2p-webrtc-star\":275,\"p2p-webrtc-direct\":276,\"p2p-stardust\":277,\"p2p-circuit\":290,\"dag-json\":297,\"udt\":301,\"utp\":302,\"unix\":400,\"p2p\":421,\"ipfs\":421,\"https\":443,\"onion\":444,\"onion3\":445,\"garlic64\":446,\"garlic32\":447,\"tls\":448,\"quic\":460,\"ws\":477,\"wss\":478,\"p2p-websocket-star\":479,\"http\":480,\"json\":512,\"messagepack\":513,\"libp2p-peer-record\":769,\"sha2-256-trunc254-padded\":4114,\"ripemd-128\":4178,\"ripemd-160\":4179,\"ripemd-256\":4180,\"ripemd-320\":4181,\"x11\":4352,\"sm3-256\":21325,\"blake2b-8\":45569,\"blake2b-16\":45570,\"blake2b-24\":45571,\"blake2b-32\":45572,\"blake2b-40\":45573,\"blake2b-48\":45574,\"blake2b-56\":45575,\"blake2b-64\":45576,\"blake2b-72\":45577,\"blake2b-80\":45578,\"blake2b-88\":45579,\"blake2b-96\":45580,\"blake2b-104\":45581,\"blake2b-112\":45582,\"blake2b-120\":45583,\"blake2b-128\":45584,\"blake2b-136\":45585,\"blake2b-144\":45586,\"blake2b-152\":45587,\"blake2b-160\":45588,\"blake2b-168\":45589,\"blake2b-176\":45590,\"blake2b-184\":45591,\"blake2b-192\":45592,\"blake2b-200\":45593,\"blake2b-208\":45594,\"blake2b-216\":45595,\"blake2b-224\":45596,\"blake2b-232\":45597,\"blake2b-240\":45598,\"blake2b-248\":45599,\"blake2b-256\":45600,\"blake2b-264\":45601,\"blake2b-272\":45602,\"blake2b-280\":45603,\"blake2b-288\":45604,\"blake2b-296\":45605,\"blake2b-304\":45606,\"blake2b-312\":45607,\"blake2b-320\":45608,\"blake2b-328\":45609,\"blake2b-336\":45610,\"blake2b-344\":45611,\"blake2b-352\":45612,\"blake2b-360\":45613,\"blake2b-368\":45614,\"blake2b-376\":45615,\"blake2b-384\":45616,\"blake2b-392\":45617,\"blake2b-400\":45618,\"blake2b-408\":45619,\"blake2b-416\":45620,\"blake2b-424\":45621,\"blake2b-432\":45622,\"blake2b-440\":45623,\"blake2b-448\":45624,\"blake2b-456\":45625,\"blake2b-464\":45626,\"blake2b-472\":45627,\"blake2b-480\":45628,\"blake2b-488\":45629,\"blake2b-496\":45630,\"blake2b-504\":45631,\"blake2b-512\":45632,\"blake2s-8\":45633,\"blake2s-16\":45634,\"blake2s-24\":45635,\"blake2s-32\":45636,\"blake2s-40\":45637,\"blake2s-48\":45638,\"blake2s-56\":45639,\"blake2s-64\":45640,\"blake2s-72\":45641,\"blake2s-80\":45642,\"blake2s-88\":45643,\"blake2s-96\":45644,\"blake2s-104\":45645,\"blake2s-112\":45646,\"blake2s-120\":45647,\"blake2s-128\":45648,\"blake2s-136\":45649,\"blake2s-144\":45650,\"blake2s-152\":45651,\"blake2s-160\":45652,\"blake2s-168\":45653,\"blake2s-176\":45654,\"blake2s-184\":45655,\"blake2s-192\":45656,\"blake2s-200\":45657,\"blake2s-208\":45658,\"blake2s-216\":45659,\"blake2s-224\":45660,\"blake2s-232\":45661,\"blake2s-240\":45662,\"blake2s-248\":45663,\"blake2s-256\":45664,\"skein256-8\":45825,\"skein256-16\":45826,\"skein256-24\":45827,\"skein256-32\":45828,\"skein256-40\":45829,\"skein256-48\":45830,\"skein256-56\":45831,\"skein256-64\":45832,\"skein256-72\":45833,\"skein256-80\":45834,\"skein256-88\":45835,\"skein256-96\":45836,\"skein256-104\":45837,\"skein256-112\":45838,\"skein256-120\":45839,\"skein256-128\":45840,\"skein256-136\":45841,\"skein256-144\":45842,\"skein256-152\":45843,\"skein256-160\":45844,\"skein256-168\":45845,\"skein256-176\":45846,\"skein256-184\":45847,\"skein256-192\":45848,\"skein256-200\":45849,\"skein256-208\":45850,\"skein256-216\":45851,\"skein256-224\":45852,\"skein256-232\":45853,\"skein256-240\":45854,\"skein256-248\":45855,\"skein256-256\":45856,\"skein512-8\":45857,\"skein512-16\":45858,\"skein512-24\":45859,\"skein512-32\":45860,\"skein512-40\":45861,\"skein512-48\":45862,\"skein512-56\":45863,\"skein512-64\":45864,\"skein512-72\":45865,\"skein512-80\":45866,\"skein512-88\":45867,\"skein512-96\":45868,\"skein512-104\":45869,\"skein512-112\":45870,\"skein512-120\":45871,\"skein512-128\":45872,\"skein512-136\":45873,\"skein512-144\":45874,\"skein512-152\":45875,\"skein512-160\":45876,\"skein512-168\":45877,\"skein512-176\":45878,\"skein512-184\":45879,\"skein512-192\":45880,\"skein512-200\":45881,\"skein512-208\":45882,\"skein512-216\":45883,\"skein512-224\":45884,\"skein512-232\":45885,\"skein512-240\":45886,\"skein512-248\":45887,\"skein512-256\":45888,\"skein512-264\":45889,\"skein512-272\":45890,\"skein512-280\":45891,\"skein512-288\":45892,\"skein512-296\":45893,\"skein512-304\":45894,\"skein512-312\":45895,\"skein512-320\":45896,\"skein512-328\":45897,\"skein512-336\":45898,\"skein512-344\":45899,\"skein512-352\":45900,\"skein512-360\":45901,\"skein512-368\":45902,\"skein512-376\":45903,\"skein512-384\":45904,\"skein512-392\":45905,\"skein512-400\":45906,\"skein512-408\":45907,\"skein512-416\":45908,\"skein512-424\":45909,\"skein512-432\":45910,\"skein512-440\":45911,\"skein512-448\":45912,\"skein512-456\":45913,\"skein512-464\":45914,\"skein512-472\":45915,\"skein512-480\":45916,\"skein512-488\":45917,\"skein512-496\":45918,\"skein512-504\":45919,\"skein512-512\":45920,\"skein1024-8\":45921,\"skein1024-16\":45922,\"skein1024-24\":45923,\"skein1024-32\":45924,\"skein1024-40\":45925,\"skein1024-48\":45926,\"skein1024-56\":45927,\"skein1024-64\":45928,\"skein1024-72\":45929,\"skein1024-80\":45930,\"skein1024-88\":45931,\"skein1024-96\":45932,\"skein1024-104\":45933,\"skein1024-112\":45934,\"skein1024-120\":45935,\"skein1024-128\":45936,\"skein1024-136\":45937,\"skein1024-144\":45938,\"skein1024-152\":45939,\"skein1024-160\":45940,\"skein1024-168\":45941,\"skein1024-176\":45942,\"skein1024-184\":45943,\"skein1024-192\":45944,\"skein1024-200\":45945,\"skein1024-208\":45946,\"skein1024-216\":45947,\"skein1024-224\":45948,\"skein1024-232\":45949,\"skein1024-240\":45950,\"skein1024-248\":45951,\"skein1024-256\":45952,\"skein1024-264\":45953,\"skein1024-272\":45954,\"skein1024-280\":45955,\"skein1024-288\":45956,\"skein1024-296\":45957,\"skein1024-304\":45958,\"skein1024-312\":45959,\"skein1024-320\":45960,\"skein1024-328\":45961,\"skein1024-336\":45962,\"skein1024-344\":45963,\"skein1024-352\":45964,\"skein1024-360\":45965,\"skein1024-368\":45966,\"skein1024-376\":45967,\"skein1024-384\":45968,\"skein1024-392\":45969,\"skein1024-400\":45970,\"skein1024-408\":45971,\"skein1024-416\":45972,\"skein1024-424\":45973,\"skein1024-432\":45974,\"skein1024-440\":45975,\"skein1024-448\":45976,\"skein1024-456\":45977,\"skein1024-464\":45978,\"skein1024-472\":45979,\"skein1024-480\":45980,\"skein1024-488\":45981,\"skein1024-496\":45982,\"skein1024-504\":45983,\"skein1024-512\":45984,\"skein1024-520\":45985,\"skein1024-528\":45986,\"skein1024-536\":45987,\"skein1024-544\":45988,\"skein1024-552\":45989,\"skein1024-560\":45990,\"skein1024-568\":45991,\"skein1024-576\":45992,\"skein1024-584\":45993,\"skein1024-592\":45994,\"skein1024-600\":45995,\"skein1024-608\":45996,\"skein1024-616\":45997,\"skein1024-624\":45998,\"skein1024-632\":45999,\"skein1024-640\":46000,\"skein1024-648\":46001,\"skein1024-656\":46002,\"skein1024-664\":46003,\"skein1024-672\":46004,\"skein1024-680\":46005,\"skein1024-688\":46006,\"skein1024-696\":46007,\"skein1024-704\":46008,\"skein1024-712\":46009,\"skein1024-720\":46010,\"skein1024-728\":46011,\"skein1024-736\":46012,\"skein1024-744\":46013,\"skein1024-752\":46014,\"skein1024-760\":46015,\"skein1024-768\":46016,\"skein1024-776\":46017,\"skein1024-784\":46018,\"skein1024-792\":46019,\"skein1024-800\":46020,\"skein1024-808\":46021,\"skein1024-816\":46022,\"skein1024-824\":46023,\"skein1024-832\":46024,\"skein1024-840\":46025,\"skein1024-848\":46026,\"skein1024-856\":46027,\"skein1024-864\":46028,\"skein1024-872\":46029,\"skein1024-880\":46030,\"skein1024-888\":46031,\"skein1024-896\":46032,\"skein1024-904\":46033,\"skein1024-912\":46034,\"skein1024-920\":46035,\"skein1024-928\":46036,\"skein1024-936\":46037,\"skein1024-944\":46038,\"skein1024-952\":46039,\"skein1024-960\":46040,\"skein1024-968\":46041,\"skein1024-976\":46042,\"skein1024-984\":46043,\"skein1024-992\":46044,\"skein1024-1000\":46045,\"skein1024-1008\":46046,\"skein1024-1016\":46047,\"skein1024-1024\":46048,\"poseidon-bls12_381-a2-fc1\":46081,\"poseidon-bls12_381-a2-fc1-sc\":46082,\"zeroxcert-imprint-256\":52753,\"fil-commitment-unsealed\":61697,\"fil-commitment-sealed\":61698,\"holochain-adr-v0\":8417572,\"holochain-adr-v1\":8483108,\"holochain-key-v0\":9728292,\"holochain-key-v1\":9793828,\"holochain-sig-v0\":10645796,\"holochain-sig-v1\":10711332}");
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {module.exports = function xor(a, b) {
@@ -14842,7 +14931,7 @@ module.exports = JSON.parse("{\"identity\":0,\"ip4\":4,\"tcp\":6,\"sha1\":17,\"s
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2).Buffer))
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14974,7 +15063,7 @@ EncoderBuffer.prototype.join = function join(out, offset) {
 };
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15216,7 +15305,7 @@ module.exports = {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2).Buffer))
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15227,7 +15316,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.baToJSON = exports.addHexPrefix = exports.toUnsigned = exports.fromSigned = exports.bufferToHex = exports.bufferToInt = exports.toBuffer = exports.stripZeros = exports.unpad = exports.setLengthRight = exports.setLength = exports.setLengthLeft = exports.zeros = void 0;
 
-var ethjsUtil = __webpack_require__(56);
+var ethjsUtil = __webpack_require__(57);
 
 var BN = __webpack_require__(1);
 /**
@@ -15410,7 +15499,7 @@ exports.baToJSON = function (ba) {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2).Buffer))
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {/**
@@ -15484,7 +15573,7 @@ function config(name) {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(12)))
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15564,7 +15653,7 @@ PromiEvent.resolve = function (value) {
 module.exports = PromiEvent;
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15640,7 +15729,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15668,9 +15757,9 @@ module.exports = {
  */
 
 
-var core = __webpack_require__(29);
+var core = __webpack_require__(30);
 
-var Method = __webpack_require__(31);
+var Method = __webpack_require__(32);
 
 var utils = __webpack_require__(16);
 
@@ -15703,20 +15792,20 @@ core.addProviders(Net);
 module.exports = Net;
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module) {
 
 module.exports = JSON.parse("{\"identity\":0,\"ip4\":4,\"tcp\":6,\"sha1\":17,\"sha2-256\":18,\"sha2-512\":19,\"sha3-512\":20,\"sha3-384\":21,\"sha3-256\":22,\"sha3-224\":23,\"shake-128\":24,\"shake-256\":25,\"keccak-224\":26,\"keccak-256\":27,\"keccak-384\":28,\"keccak-512\":29,\"dccp\":33,\"murmur3-128\":34,\"murmur3-32\":35,\"ip6\":41,\"ip6zone\":42,\"path\":47,\"multicodec\":48,\"multihash\":49,\"multiaddr\":50,\"multibase\":51,\"dns\":53,\"dns4\":54,\"dns6\":55,\"dnsaddr\":56,\"protobuf\":80,\"cbor\":81,\"raw\":85,\"dbl-sha2-256\":86,\"rlp\":96,\"bencode\":99,\"dag-pb\":112,\"dag-cbor\":113,\"libp2p-key\":114,\"git-raw\":120,\"torrent-info\":123,\"torrent-file\":124,\"leofcoin-block\":129,\"leofcoin-tx\":130,\"leofcoin-pr\":131,\"sctp\":132,\"eth-block\":144,\"eth-block-list\":145,\"eth-tx-trie\":146,\"eth-tx\":147,\"eth-tx-receipt-trie\":148,\"eth-tx-receipt\":149,\"eth-state-trie\":150,\"eth-account-snapshot\":151,\"eth-storage-trie\":152,\"bitcoin-block\":176,\"bitcoin-tx\":177,\"zcash-block\":192,\"zcash-tx\":193,\"stellar-block\":208,\"stellar-tx\":209,\"md4\":212,\"md5\":213,\"bmt\":214,\"decred-block\":224,\"decred-tx\":225,\"ipld-ns\":226,\"ipfs-ns\":227,\"swarm-ns\":228,\"ipns-ns\":229,\"zeronet\":230,\"ed25519-pub\":237,\"dash-block\":240,\"dash-tx\":241,\"swarm-manifest\":250,\"swarm-feed\":251,\"udp\":273,\"p2p-webrtc-star\":275,\"p2p-webrtc-direct\":276,\"p2p-stardust\":277,\"p2p-circuit\":290,\"dag-json\":297,\"udt\":301,\"utp\":302,\"unix\":400,\"p2p\":421,\"ipfs\":421,\"https\":443,\"onion\":444,\"onion3\":445,\"garlic64\":446,\"garlic32\":447,\"tls\":448,\"quic\":460,\"ws\":477,\"wss\":478,\"p2p-websocket-star\":479,\"http\":480,\"json\":512,\"messagepack\":513,\"x11\":4352,\"blake2b-8\":45569,\"blake2b-16\":45570,\"blake2b-24\":45571,\"blake2b-32\":45572,\"blake2b-40\":45573,\"blake2b-48\":45574,\"blake2b-56\":45575,\"blake2b-64\":45576,\"blake2b-72\":45577,\"blake2b-80\":45578,\"blake2b-88\":45579,\"blake2b-96\":45580,\"blake2b-104\":45581,\"blake2b-112\":45582,\"blake2b-120\":45583,\"blake2b-128\":45584,\"blake2b-136\":45585,\"blake2b-144\":45586,\"blake2b-152\":45587,\"blake2b-160\":45588,\"blake2b-168\":45589,\"blake2b-176\":45590,\"blake2b-184\":45591,\"blake2b-192\":45592,\"blake2b-200\":45593,\"blake2b-208\":45594,\"blake2b-216\":45595,\"blake2b-224\":45596,\"blake2b-232\":45597,\"blake2b-240\":45598,\"blake2b-248\":45599,\"blake2b-256\":45600,\"blake2b-264\":45601,\"blake2b-272\":45602,\"blake2b-280\":45603,\"blake2b-288\":45604,\"blake2b-296\":45605,\"blake2b-304\":45606,\"blake2b-312\":45607,\"blake2b-320\":45608,\"blake2b-328\":45609,\"blake2b-336\":45610,\"blake2b-344\":45611,\"blake2b-352\":45612,\"blake2b-360\":45613,\"blake2b-368\":45614,\"blake2b-376\":45615,\"blake2b-384\":45616,\"blake2b-392\":45617,\"blake2b-400\":45618,\"blake2b-408\":45619,\"blake2b-416\":45620,\"blake2b-424\":45621,\"blake2b-432\":45622,\"blake2b-440\":45623,\"blake2b-448\":45624,\"blake2b-456\":45625,\"blake2b-464\":45626,\"blake2b-472\":45627,\"blake2b-480\":45628,\"blake2b-488\":45629,\"blake2b-496\":45630,\"blake2b-504\":45631,\"blake2b-512\":45632,\"blake2s-8\":45633,\"blake2s-16\":45634,\"blake2s-24\":45635,\"blake2s-32\":45636,\"blake2s-40\":45637,\"blake2s-48\":45638,\"blake2s-56\":45639,\"blake2s-64\":45640,\"blake2s-72\":45641,\"blake2s-80\":45642,\"blake2s-88\":45643,\"blake2s-96\":45644,\"blake2s-104\":45645,\"blake2s-112\":45646,\"blake2s-120\":45647,\"blake2s-128\":45648,\"blake2s-136\":45649,\"blake2s-144\":45650,\"blake2s-152\":45651,\"blake2s-160\":45652,\"blake2s-168\":45653,\"blake2s-176\":45654,\"blake2s-184\":45655,\"blake2s-192\":45656,\"blake2s-200\":45657,\"blake2s-208\":45658,\"blake2s-216\":45659,\"blake2s-224\":45660,\"blake2s-232\":45661,\"blake2s-240\":45662,\"blake2s-248\":45663,\"blake2s-256\":45664,\"skein256-8\":45825,\"skein256-16\":45826,\"skein256-24\":45827,\"skein256-32\":45828,\"skein256-40\":45829,\"skein256-48\":45830,\"skein256-56\":45831,\"skein256-64\":45832,\"skein256-72\":45833,\"skein256-80\":45834,\"skein256-88\":45835,\"skein256-96\":45836,\"skein256-104\":45837,\"skein256-112\":45838,\"skein256-120\":45839,\"skein256-128\":45840,\"skein256-136\":45841,\"skein256-144\":45842,\"skein256-152\":45843,\"skein256-160\":45844,\"skein256-168\":45845,\"skein256-176\":45846,\"skein256-184\":45847,\"skein256-192\":45848,\"skein256-200\":45849,\"skein256-208\":45850,\"skein256-216\":45851,\"skein256-224\":45852,\"skein256-232\":45853,\"skein256-240\":45854,\"skein256-248\":45855,\"skein256-256\":45856,\"skein512-8\":45857,\"skein512-16\":45858,\"skein512-24\":45859,\"skein512-32\":45860,\"skein512-40\":45861,\"skein512-48\":45862,\"skein512-56\":45863,\"skein512-64\":45864,\"skein512-72\":45865,\"skein512-80\":45866,\"skein512-88\":45867,\"skein512-96\":45868,\"skein512-104\":45869,\"skein512-112\":45870,\"skein512-120\":45871,\"skein512-128\":45872,\"skein512-136\":45873,\"skein512-144\":45874,\"skein512-152\":45875,\"skein512-160\":45876,\"skein512-168\":45877,\"skein512-176\":45878,\"skein512-184\":45879,\"skein512-192\":45880,\"skein512-200\":45881,\"skein512-208\":45882,\"skein512-216\":45883,\"skein512-224\":45884,\"skein512-232\":45885,\"skein512-240\":45886,\"skein512-248\":45887,\"skein512-256\":45888,\"skein512-264\":45889,\"skein512-272\":45890,\"skein512-280\":45891,\"skein512-288\":45892,\"skein512-296\":45893,\"skein512-304\":45894,\"skein512-312\":45895,\"skein512-320\":45896,\"skein512-328\":45897,\"skein512-336\":45898,\"skein512-344\":45899,\"skein512-352\":45900,\"skein512-360\":45901,\"skein512-368\":45902,\"skein512-376\":45903,\"skein512-384\":45904,\"skein512-392\":45905,\"skein512-400\":45906,\"skein512-408\":45907,\"skein512-416\":45908,\"skein512-424\":45909,\"skein512-432\":45910,\"skein512-440\":45911,\"skein512-448\":45912,\"skein512-456\":45913,\"skein512-464\":45914,\"skein512-472\":45915,\"skein512-480\":45916,\"skein512-488\":45917,\"skein512-496\":45918,\"skein512-504\":45919,\"skein512-512\":45920,\"skein1024-8\":45921,\"skein1024-16\":45922,\"skein1024-24\":45923,\"skein1024-32\":45924,\"skein1024-40\":45925,\"skein1024-48\":45926,\"skein1024-56\":45927,\"skein1024-64\":45928,\"skein1024-72\":45929,\"skein1024-80\":45930,\"skein1024-88\":45931,\"skein1024-96\":45932,\"skein1024-104\":45933,\"skein1024-112\":45934,\"skein1024-120\":45935,\"skein1024-128\":45936,\"skein1024-136\":45937,\"skein1024-144\":45938,\"skein1024-152\":45939,\"skein1024-160\":45940,\"skein1024-168\":45941,\"skein1024-176\":45942,\"skein1024-184\":45943,\"skein1024-192\":45944,\"skein1024-200\":45945,\"skein1024-208\":45946,\"skein1024-216\":45947,\"skein1024-224\":45948,\"skein1024-232\":45949,\"skein1024-240\":45950,\"skein1024-248\":45951,\"skein1024-256\":45952,\"skein1024-264\":45953,\"skein1024-272\":45954,\"skein1024-280\":45955,\"skein1024-288\":45956,\"skein1024-296\":45957,\"skein1024-304\":45958,\"skein1024-312\":45959,\"skein1024-320\":45960,\"skein1024-328\":45961,\"skein1024-336\":45962,\"skein1024-344\":45963,\"skein1024-352\":45964,\"skein1024-360\":45965,\"skein1024-368\":45966,\"skein1024-376\":45967,\"skein1024-384\":45968,\"skein1024-392\":45969,\"skein1024-400\":45970,\"skein1024-408\":45971,\"skein1024-416\":45972,\"skein1024-424\":45973,\"skein1024-432\":45974,\"skein1024-440\":45975,\"skein1024-448\":45976,\"skein1024-456\":45977,\"skein1024-464\":45978,\"skein1024-472\":45979,\"skein1024-480\":45980,\"skein1024-488\":45981,\"skein1024-496\":45982,\"skein1024-504\":45983,\"skein1024-512\":45984,\"skein1024-520\":45985,\"skein1024-528\":45986,\"skein1024-536\":45987,\"skein1024-544\":45988,\"skein1024-552\":45989,\"skein1024-560\":45990,\"skein1024-568\":45991,\"skein1024-576\":45992,\"skein1024-584\":45993,\"skein1024-592\":45994,\"skein1024-600\":45995,\"skein1024-608\":45996,\"skein1024-616\":45997,\"skein1024-624\":45998,\"skein1024-632\":45999,\"skein1024-640\":46000,\"skein1024-648\":46001,\"skein1024-656\":46002,\"skein1024-664\":46003,\"skein1024-672\":46004,\"skein1024-680\":46005,\"skein1024-688\":46006,\"skein1024-696\":46007,\"skein1024-704\":46008,\"skein1024-712\":46009,\"skein1024-720\":46010,\"skein1024-728\":46011,\"skein1024-736\":46012,\"skein1024-744\":46013,\"skein1024-752\":46014,\"skein1024-760\":46015,\"skein1024-768\":46016,\"skein1024-776\":46017,\"skein1024-784\":46018,\"skein1024-792\":46019,\"skein1024-800\":46020,\"skein1024-808\":46021,\"skein1024-816\":46022,\"skein1024-824\":46023,\"skein1024-832\":46024,\"skein1024-840\":46025,\"skein1024-848\":46026,\"skein1024-856\":46027,\"skein1024-864\":46028,\"skein1024-872\":46029,\"skein1024-880\":46030,\"skein1024-888\":46031,\"skein1024-896\":46032,\"skein1024-904\":46033,\"skein1024-912\":46034,\"skein1024-920\":46035,\"skein1024-928\":46036,\"skein1024-936\":46037,\"skein1024-944\":46038,\"skein1024-952\":46039,\"skein1024-960\":46040,\"skein1024-968\":46041,\"skein1024-976\":46042,\"skein1024-984\":46043,\"skein1024-992\":46044,\"skein1024-1000\":46045,\"skein1024-1008\":46046,\"skein1024-1016\":46047,\"skein1024-1024\":46048,\"holochain-adr-v0\":8417572,\"holochain-adr-v1\":8483108,\"holochain-key-v0\":9728292,\"holochain-key-v1\":9793828,\"holochain-sig-v0\":10645796,\"holochain-sig-v1\":10711332}");
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 exports.randomBytes = exports.rng = exports.pseudoRandomBytes = exports.prng = __webpack_require__(25);
-exports.createHash = exports.Hash = __webpack_require__(40);
+exports.createHash = exports.Hash = __webpack_require__(41);
 exports.createHmac = exports.Hmac = __webpack_require__(150);
 
 var algos = __webpack_require__(347);
@@ -15808,7 +15897,7 @@ exports.constants = {
 };
 
 /***/ }),
-/* 64 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // based on the aes implimentation in triple sec
@@ -16024,7 +16113,7 @@ AES.prototype.scrub = function () {
 module.exports.AES = AES;
 
 /***/ }),
-/* 65 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Buffer = __webpack_require__(8).Buffer;
@@ -16079,7 +16168,7 @@ function EVP_BytesToKey(password, salt, keyBits, ivLen) {
 module.exports = EVP_BytesToKey;
 
 /***/ }),
-/* 66 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16450,7 +16539,7 @@ BasePoint.prototype.dblp = function dblp(k) {
 };
 
 /***/ }),
-/* 67 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var asn1 = __webpack_require__(393);
@@ -16594,95 +16683,6 @@ function decrypt(data, password) {
 }
 
 /***/ }),
-/* 68 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/*
-    This file is part of web3.js.
-
-    web3.js is free software: you can redistribute it and/or modify
-    it under the terms of the GNU Lesser General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    web3.js is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU Lesser General Public License for more details.
-
-    You should have received a copy of the GNU Lesser General Public License
-    along with web3.js.  If not, see <http://www.gnu.org/licenses/>.
-*/
-
-/**
- * @file index.js
- * @authors:
- *   Fabian Vogelsteller <fabian@ethereum.org>
- *   Gav Wood <gav@parity.io>
- *   Jeffrey Wilcke <jeffrey.wilcke@ethereum.org>
- *   Marek Kotewicz <marek@parity.io>
- *   Marian Oancea <marian@ethereum.org>
- * @date 2017
- */
-
-
-var version = __webpack_require__(208).version;
-
-var core = __webpack_require__(29);
-
-var Eth = __webpack_require__(270);
-
-var Net = __webpack_require__(61);
-
-var Personal = __webpack_require__(136);
-
-var Shh = __webpack_require__(451);
-
-var Bzz = __webpack_require__(452);
-
-var utils = __webpack_require__(16);
-
-var Web3 = function Web3() {
-  var _this = this; // sets _requestmanager etc
-
-
-  core.packageInit(this, arguments);
-  this.version = version;
-  this.utils = utils;
-  this.eth = new Eth(this);
-  this.shh = new Shh(this);
-  this.bzz = new Bzz(this); // overwrite package setProvider
-
-  var setProvider = this.setProvider;
-
-  this.setProvider = function (provider, net) {
-    /*jshint unused: false */
-    setProvider.apply(_this, arguments);
-
-    _this.eth.setRequestManager(_this._requestManager);
-
-    _this.shh.setRequestManager(_this._requestManager);
-
-    _this.bzz.setProvider(provider);
-
-    return true;
-  };
-};
-
-Web3.version = version;
-Web3.utils = utils;
-Web3.modules = {
-  Eth: Eth,
-  Net: Net,
-  Personal: Personal,
-  Shh: Shh,
-  Bzz: Bzz
-};
-core.addProviders(Web3);
-module.exports = Web3;
-
-/***/ }),
 /* 69 */
 /***/ (function(module, exports) {
 
@@ -16704,7 +16704,7 @@ var extend = __webpack_require__(119);
 
 var statusCodes = __webpack_require__(251);
 
-var url = __webpack_require__(49);
+var url = __webpack_require__(50);
 
 var http = exports;
 
@@ -17026,7 +17026,7 @@ var _require = __webpack_require__(2),
 
 var multibase = __webpack_require__(294);
 
-var varint = __webpack_require__(51);
+var varint = __webpack_require__(52);
 
 var cs = __webpack_require__(300);
 
@@ -17317,7 +17317,7 @@ var at = function at(bytes, index) {
 
 var random = function random(bytes) {
   var rnd;
-  if (typeof window !== "undefined" && window.crypto && window.crypto.getRandomValues) rnd = window.crypto.getRandomValues(new Uint8Array(bytes));else if (true) rnd = __webpack_require__(63).randomBytes(bytes);else {}
+  if (typeof window !== "undefined" && window.crypto && window.crypto.getRandomValues) rnd = window.crypto.getRandomValues(new Uint8Array(bytes));else if (true) rnd = __webpack_require__(64).randomBytes(bytes);else {}
   var hex = "0x";
 
   for (var i = 0; i < bytes; ++i) {
@@ -17693,7 +17693,7 @@ module.exports = MD5;
 // permission from the author, Mathias Buus (@mafintosh).
 
 
-var ERR_STREAM_PREMATURE_CLOSE = __webpack_require__(41).codes.ERR_STREAM_PREMATURE_CLOSE;
+var ERR_STREAM_PREMATURE_CLOSE = __webpack_require__(42).codes.ERR_STREAM_PREMATURE_CLOSE;
 
 function once(callback) {
   var called = false;
@@ -18087,7 +18087,7 @@ exports = module.exports = __webpack_require__(146);
 exports.Stream = exports;
 exports.Readable = exports;
 exports.Writable = __webpack_require__(87);
-exports.Duplex = __webpack_require__(33);
+exports.Duplex = __webpack_require__(34);
 exports.Transform = __webpack_require__(149);
 exports.PassThrough = __webpack_require__(341);
 
@@ -18245,7 +18245,7 @@ util.inherits = __webpack_require__(4);
 /*<replacement>*/
 
 var internalUtil = {
-  deprecate: __webpack_require__(58)
+  deprecate: __webpack_require__(59)
 };
 /*</replacement>*/
 
@@ -18278,7 +18278,7 @@ util.inherits(Writable, Stream);
 function nop() {}
 
 function WritableState(options, stream) {
-  Duplex = Duplex || __webpack_require__(33);
+  Duplex = Duplex || __webpack_require__(34);
   options = options || {}; // Duplex streams are both readable and writable, but share
   // the same options object.
   // However, some cases require setting options to different
@@ -18405,7 +18405,7 @@ if (typeof Symbol === 'function' && Symbol.hasInstance && typeof Function.protot
 }
 
 function Writable(options) {
-  Duplex = Duplex || __webpack_require__(33); // Writable ctor is applied to Duplexes, too.
+  Duplex = Duplex || __webpack_require__(34); // Writable ctor is applied to Duplexes, too.
   // `realHasInstance` is necessary because using plain `instanceof`
   // would return false, as no `_writableState` property is attached.
   // Trying to use the custom `instanceof` for Writable here will also break the
@@ -18845,7 +18845,7 @@ Writable.prototype._destroy = function (err, cb) {
   this.end();
   cb(err);
 };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10), __webpack_require__(72).setImmediate, __webpack_require__(12)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11), __webpack_require__(72).setImmediate, __webpack_require__(12)))
 
 /***/ }),
 /* 88 */
@@ -19101,7 +19101,7 @@ if (typeof self === 'object') {
 // permission from the author, Mathias Buus (@mafintosh).
 
 
-var ERR_STREAM_PREMATURE_CLOSE = __webpack_require__(44).codes.ERR_STREAM_PREMATURE_CLOSE;
+var ERR_STREAM_PREMATURE_CLOSE = __webpack_require__(45).codes.ERR_STREAM_PREMATURE_CLOSE;
 
 function once(callback) {
   var called = false;
@@ -19491,7 +19491,7 @@ if (!safer.constants) {
 }
 
 module.exports = safer;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11)))
 
 /***/ }),
 /* 96 */
@@ -19502,9 +19502,9 @@ module.exports = safer;
 
 var Reporter = __webpack_require__(97).Reporter;
 
-var EncoderBuffer = __webpack_require__(55).EncoderBuffer;
+var EncoderBuffer = __webpack_require__(56).EncoderBuffer;
 
-var DecoderBuffer = __webpack_require__(55).DecoderBuffer;
+var DecoderBuffer = __webpack_require__(56).DecoderBuffer;
 
 var assert = __webpack_require__(19); // Supported tags
 
@@ -20849,13 +20849,13 @@ var _a = __webpack_require__(422),
     k256 = _a.keccak256,
     keccak512 = _a.keccak512;
 
-var createHash = __webpack_require__(40);
+var createHash = __webpack_require__(41);
 
-var ethjsUtil = __webpack_require__(56);
+var ethjsUtil = __webpack_require__(57);
 
 var rlp = __webpack_require__(100);
 
-var bytes_1 = __webpack_require__(57);
+var bytes_1 = __webpack_require__(58);
 /**
  * Creates Keccak hash of the input
  * @param a The input data (Buffer|Array|String|Number) If the string is a 0x-prefixed hex value
@@ -21674,7 +21674,7 @@ function callbackify(original) {
 }
 
 exports.callbackify = callbackify;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11)))
 
 /***/ }),
 /* 103 */
@@ -23276,7 +23276,7 @@ module.exports = Jsonrpc;
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
   } else {}
 })(this);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(30)(module), __webpack_require__(12)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(31)(module), __webpack_require__(12)))
 
 /***/ }),
 /* 111 */
@@ -23599,7 +23599,7 @@ IncomingMessage.prototype._onXHRProgress = function () {
     self.push(null);
   }
 };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10), __webpack_require__(12), __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11), __webpack_require__(12), __webpack_require__(2).Buffer))
 
 /***/ }),
 /* 113 */
@@ -23609,7 +23609,7 @@ exports = module.exports = __webpack_require__(114);
 exports.Stream = exports;
 exports.Readable = exports;
 exports.Writable = __webpack_require__(117);
-exports.Duplex = __webpack_require__(37);
+exports.Duplex = __webpack_require__(38);
 exports.Transform = __webpack_require__(118);
 exports.PassThrough = __webpack_require__(249);
 
@@ -23730,7 +23730,7 @@ function prependListener(emitter, event, fn) {
 }
 
 function ReadableState(options, stream) {
-  Duplex = Duplex || __webpack_require__(37);
+  Duplex = Duplex || __webpack_require__(38);
   options = options || {}; // Duplex streams are both readable and writable, but share
   // the same options object.
   // However, some cases require setting options to different
@@ -23793,7 +23793,7 @@ function ReadableState(options, stream) {
 }
 
 function Readable(options) {
-  Duplex = Duplex || __webpack_require__(37);
+  Duplex = Duplex || __webpack_require__(38);
   if (!(this instanceof Readable)) return new Readable(options);
   this._readableState = new ReadableState(options, this); // legacy
 
@@ -24657,7 +24657,7 @@ function indexOf(xs, x) {
 
   return -1;
 }
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(12), __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(12), __webpack_require__(11)))
 
 /***/ }),
 /* 115 */
@@ -24826,7 +24826,7 @@ util.inherits = __webpack_require__(4);
 /*<replacement>*/
 
 var internalUtil = {
-  deprecate: __webpack_require__(58)
+  deprecate: __webpack_require__(59)
 };
 /*</replacement>*/
 
@@ -24859,7 +24859,7 @@ util.inherits(Writable, Stream);
 function nop() {}
 
 function WritableState(options, stream) {
-  Duplex = Duplex || __webpack_require__(37);
+  Duplex = Duplex || __webpack_require__(38);
   options = options || {}; // Duplex streams are both readable and writable, but share
   // the same options object.
   // However, some cases require setting options to different
@@ -24986,7 +24986,7 @@ if (typeof Symbol === 'function' && Symbol.hasInstance && typeof Function.protot
 }
 
 function Writable(options) {
-  Duplex = Duplex || __webpack_require__(37); // Writable ctor is applied to Duplexes, too.
+  Duplex = Duplex || __webpack_require__(38); // Writable ctor is applied to Duplexes, too.
   // `realHasInstance` is necessary because using plain `instanceof`
   // would return false, as no `_writableState` property is attached.
   // Trying to use the custom `instanceof` for Writable here will also break the
@@ -25426,7 +25426,7 @@ Writable.prototype._destroy = function (err, cb) {
   this.end();
   cb(err);
 };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10), __webpack_require__(72).setImmediate, __webpack_require__(12)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11), __webpack_require__(72).setImmediate, __webpack_require__(12)))
 
 /***/ }),
 /* 118 */
@@ -25498,7 +25498,7 @@ Writable.prototype._destroy = function (err, cb) {
 
 module.exports = Transform;
 
-var Duplex = __webpack_require__(37);
+var Duplex = __webpack_require__(38);
 /*<replacement>*/
 
 
@@ -25667,7 +25667,7 @@ function extend() {
 
 var http = __webpack_require__(70);
 
-var url = __webpack_require__(49);
+var url = __webpack_require__(50);
 
 var https = module.exports;
 
@@ -25771,7 +25771,7 @@ exports.g1_256 = g1_256;
 
 var utils = __webpack_require__(22);
 
-var common = __webpack_require__(50);
+var common = __webpack_require__(51);
 
 var shaCommon = __webpack_require__(121);
 
@@ -25861,7 +25861,7 @@ SHA256.prototype._digest = function digest(enc) {
 
 var utils = __webpack_require__(22);
 
-var common = __webpack_require__(50);
+var common = __webpack_require__(51);
 
 var assert = __webpack_require__(19);
 
@@ -26188,19 +26188,19 @@ module.exports = config;
 
 var _ = __webpack_require__(15);
 
-var core = __webpack_require__(29);
+var core = __webpack_require__(30);
 
-var Method = __webpack_require__(31);
+var Method = __webpack_require__(32);
 
 var utils = __webpack_require__(16);
 
-var Subscription = __webpack_require__(60).subscription;
+var Subscription = __webpack_require__(61).subscription;
 
 var formatters = __webpack_require__(13).formatters;
 
 var errors = __webpack_require__(13).errors;
 
-var promiEvent = __webpack_require__(59);
+var promiEvent = __webpack_require__(60);
 
 var abi = __webpack_require__(126);
 /**
@@ -27611,7 +27611,7 @@ exports.normalize = normalize;
 "use strict";
 /* WEBPACK VAR INJECTION */(function(Buffer) {
 
-var varint = __webpack_require__(51);
+var varint = __webpack_require__(52);
 
 module.exports = {
   numberToBuffer: numberToBuffer,
@@ -27671,9 +27671,9 @@ module.exports = _arrayLikeToArray;
 "use strict";
 
 
-var _classCallCheck = __webpack_require__(38);
+var _classCallCheck = __webpack_require__(39);
 
-var _createClass = __webpack_require__(39);
+var _createClass = __webpack_require__(40);
 
 var _require = __webpack_require__(2),
     Buffer = _require.Buffer;
@@ -27684,7 +27684,7 @@ var multibase = __webpack_require__(301);
 
 var multicodec = __webpack_require__(307);
 
-var codecs = __webpack_require__(53);
+var codecs = __webpack_require__(54);
 
 var CIDUtil = __webpack_require__(312);
 
@@ -28233,7 +28233,7 @@ module.exports = base;
 "use strict";
 
 
-var varint = __webpack_require__(51);
+var varint = __webpack_require__(52);
 
 var _require = __webpack_require__(2),
     Buffer = _require.Buffer;
@@ -28349,13 +28349,13 @@ module.exports = _assertThisInitialized;
  */
 
 
-var core = __webpack_require__(29);
+var core = __webpack_require__(30);
 
-var Method = __webpack_require__(31);
+var Method = __webpack_require__(32);
 
 var utils = __webpack_require__(16);
 
-var Net = __webpack_require__(61);
+var Net = __webpack_require__(62);
 
 var formatters = __webpack_require__(13).formatters;
 
@@ -28653,7 +28653,7 @@ var destroyImpl = __webpack_require__(140);
 var _require = __webpack_require__(141),
     getHighWaterMark = _require.getHighWaterMark;
 
-var _require$codes = __webpack_require__(41).codes,
+var _require$codes = __webpack_require__(42).codes,
     ERR_INVALID_ARG_TYPE = _require$codes.ERR_INVALID_ARG_TYPE,
     ERR_STREAM_PUSH_AFTER_EOF = _require$codes.ERR_STREAM_PUSH_AFTER_EOF,
     ERR_METHOD_NOT_IMPLEMENTED = _require$codes.ERR_METHOD_NOT_IMPLEMENTED,
@@ -28681,7 +28681,7 @@ function prependListener(emitter, event, fn) {
 }
 
 function ReadableState(options, stream, isDuplex) {
-  Duplex = Duplex || __webpack_require__(42);
+  Duplex = Duplex || __webpack_require__(43);
   options = options || {}; // Duplex streams are both readable and writable, but share
   // the same options object.
   // However, some cases require setting options to different
@@ -28744,7 +28744,7 @@ function ReadableState(options, stream, isDuplex) {
 }
 
 function Readable(options) {
-  Duplex = Duplex || __webpack_require__(42);
+  Duplex = Duplex || __webpack_require__(43);
   if (!(this instanceof Readable)) return new Readable(options); // Checking for a Stream.Duplex instance is faster here instead of inside
   // the ReadableState constructor, at least with V8 6.5
 
@@ -29699,7 +29699,7 @@ function indexOf(xs, x) {
 
   return -1;
 }
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(12), __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(12), __webpack_require__(11)))
 
 /***/ }),
 /* 139 */
@@ -29817,7 +29817,7 @@ module.exports = {
   undestroy: undestroy,
   errorOrDestroy: errorOrDestroy
 };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11)))
 
 /***/ }),
 /* 141 */
@@ -29826,7 +29826,7 @@ module.exports = {
 "use strict";
 
 
-var ERR_INVALID_OPT_VALUE = __webpack_require__(41).codes.ERR_INVALID_OPT_VALUE;
+var ERR_INVALID_OPT_VALUE = __webpack_require__(42).codes.ERR_INVALID_OPT_VALUE;
 
 function highWaterMarkFrom(options, isDuplex, duplexKey) {
   return options.highWaterMark != null ? options.highWaterMark : isDuplex ? options[duplexKey] : null;
@@ -29916,7 +29916,7 @@ Writable.WritableState = WritableState;
 /*<replacement>*/
 
 var internalUtil = {
-  deprecate: __webpack_require__(58)
+  deprecate: __webpack_require__(59)
 };
 /*</replacement>*/
 
@@ -29943,7 +29943,7 @@ var destroyImpl = __webpack_require__(140);
 var _require = __webpack_require__(141),
     getHighWaterMark = _require.getHighWaterMark;
 
-var _require$codes = __webpack_require__(41).codes,
+var _require$codes = __webpack_require__(42).codes,
     ERR_INVALID_ARG_TYPE = _require$codes.ERR_INVALID_ARG_TYPE,
     ERR_METHOD_NOT_IMPLEMENTED = _require$codes.ERR_METHOD_NOT_IMPLEMENTED,
     ERR_MULTIPLE_CALLBACK = _require$codes.ERR_MULTIPLE_CALLBACK,
@@ -29960,7 +29960,7 @@ __webpack_require__(4)(Writable, Stream);
 function nop() {}
 
 function WritableState(options, stream, isDuplex) {
-  Duplex = Duplex || __webpack_require__(42);
+  Duplex = Duplex || __webpack_require__(43);
   options = options || {}; // Duplex streams are both readable and writable, but share
   // the same options object.
   // However, some cases require setting options to different
@@ -30086,7 +30086,7 @@ if (typeof Symbol === 'function' && Symbol.hasInstance && typeof Function.protot
 }
 
 function Writable(options) {
-  Duplex = Duplex || __webpack_require__(42); // Writable ctor is applied to Duplexes, too.
+  Duplex = Duplex || __webpack_require__(43); // Writable ctor is applied to Duplexes, too.
   // `realHasInstance` is necessary because using plain `instanceof`
   // would return false, as no `_writableState` property is attached.
   // Trying to use the custom `instanceof` for Writable here will also break the
@@ -30554,7 +30554,7 @@ Writable.prototype._undestroy = destroyImpl.undestroy;
 Writable.prototype._destroy = function (err, cb) {
   cb(err);
 };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(12), __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(12), __webpack_require__(11)))
 
 /***/ }),
 /* 143 */
@@ -30626,13 +30626,13 @@ Writable.prototype._destroy = function (err, cb) {
 
 module.exports = Transform;
 
-var _require$codes = __webpack_require__(41).codes,
+var _require$codes = __webpack_require__(42).codes,
     ERR_METHOD_NOT_IMPLEMENTED = _require$codes.ERR_METHOD_NOT_IMPLEMENTED,
     ERR_MULTIPLE_CALLBACK = _require$codes.ERR_MULTIPLE_CALLBACK,
     ERR_TRANSFORM_ALREADY_TRANSFORMING = _require$codes.ERR_TRANSFORM_ALREADY_TRANSFORMING,
     ERR_TRANSFORM_WITH_LENGTH_0 = _require$codes.ERR_TRANSFORM_WITH_LENGTH_0;
 
-var Duplex = __webpack_require__(42);
+var Duplex = __webpack_require__(43);
 
 __webpack_require__(4)(Transform, Duplex);
 
@@ -30776,7 +30776,7 @@ function done(stream, er, data) {
  */
 var inherits = __webpack_require__(4);
 
-var Hash = __webpack_require__(43);
+var Hash = __webpack_require__(44);
 
 var Buffer = __webpack_require__(8).Buffer;
 
@@ -30891,7 +30891,7 @@ module.exports = Sha256;
 
 var inherits = __webpack_require__(4);
 
-var Hash = __webpack_require__(43);
+var Hash = __webpack_require__(44);
 
 var Buffer = __webpack_require__(8).Buffer;
 
@@ -31209,7 +31209,7 @@ function prependListener(emitter, event, fn) {
 }
 
 function ReadableState(options, stream) {
-  Duplex = Duplex || __webpack_require__(33);
+  Duplex = Duplex || __webpack_require__(34);
   options = options || {}; // Duplex streams are both readable and writable, but share
   // the same options object.
   // However, some cases require setting options to different
@@ -31272,7 +31272,7 @@ function ReadableState(options, stream) {
 }
 
 function Readable(options) {
-  Duplex = Duplex || __webpack_require__(33);
+  Duplex = Duplex || __webpack_require__(34);
   if (!(this instanceof Readable)) return new Readable(options);
   this._readableState = new ReadableState(options, this); // legacy
 
@@ -32136,7 +32136,7 @@ function indexOf(xs, x) {
 
   return -1;
 }
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(12), __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(12), __webpack_require__(11)))
 
 /***/ }),
 /* 147 */
@@ -32295,7 +32295,7 @@ module.exports = {
 
 module.exports = Transform;
 
-var Duplex = __webpack_require__(33);
+var Duplex = __webpack_require__(34);
 /*<replacement>*/
 
 
@@ -32581,7 +32581,7 @@ if (process.browser) {
 }
 
 module.exports = defaultEncoding;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11)))
 
 /***/ }),
 /* 156 */
@@ -33076,7 +33076,7 @@ DES.prototype._decrypt = function _decrypt(state, lStart, rStart, out, off) {
 /* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var xor = __webpack_require__(54);
+var xor = __webpack_require__(55);
 
 var Buffer = __webpack_require__(8).Buffer;
 
@@ -33148,7 +33148,7 @@ module.exports = JSON.parse("{\"aes-128-ecb\":{\"cipher\":\"AES\",\"key\":128,\"
 /* 163 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var aes = __webpack_require__(64);
+var aes = __webpack_require__(65);
 
 var Buffer = __webpack_require__(8).Buffer;
 
@@ -33158,7 +33158,7 @@ var inherits = __webpack_require__(4);
 
 var GHASH = __webpack_require__(361);
 
-var xor = __webpack_require__(54);
+var xor = __webpack_require__(55);
 
 var incr32 = __webpack_require__(161);
 
@@ -33281,7 +33281,7 @@ module.exports = StreamCipher;
 /* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var aes = __webpack_require__(64);
+var aes = __webpack_require__(65);
 
 var Buffer = __webpack_require__(8).Buffer;
 
@@ -33617,7 +33617,7 @@ var destroyImpl = __webpack_require__(169);
 var _require = __webpack_require__(170),
     getHighWaterMark = _require.getHighWaterMark;
 
-var _require$codes = __webpack_require__(44).codes,
+var _require$codes = __webpack_require__(45).codes,
     ERR_INVALID_ARG_TYPE = _require$codes.ERR_INVALID_ARG_TYPE,
     ERR_STREAM_PUSH_AFTER_EOF = _require$codes.ERR_STREAM_PUSH_AFTER_EOF,
     ERR_METHOD_NOT_IMPLEMENTED = _require$codes.ERR_METHOD_NOT_IMPLEMENTED,
@@ -33645,7 +33645,7 @@ function prependListener(emitter, event, fn) {
 }
 
 function ReadableState(options, stream, isDuplex) {
-  Duplex = Duplex || __webpack_require__(45);
+  Duplex = Duplex || __webpack_require__(46);
   options = options || {}; // Duplex streams are both readable and writable, but share
   // the same options object.
   // However, some cases require setting options to different
@@ -33708,7 +33708,7 @@ function ReadableState(options, stream, isDuplex) {
 }
 
 function Readable(options) {
-  Duplex = Duplex || __webpack_require__(45);
+  Duplex = Duplex || __webpack_require__(46);
   if (!(this instanceof Readable)) return new Readable(options); // Checking for a Stream.Duplex instance is faster here instead of inside
   // the ReadableState constructor, at least with V8 6.5
 
@@ -34663,7 +34663,7 @@ function indexOf(xs, x) {
 
   return -1;
 }
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(12), __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(12), __webpack_require__(11)))
 
 /***/ }),
 /* 168 */
@@ -34781,7 +34781,7 @@ module.exports = {
   undestroy: undestroy,
   errorOrDestroy: errorOrDestroy
 };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11)))
 
 /***/ }),
 /* 170 */
@@ -34790,7 +34790,7 @@ module.exports = {
 "use strict";
 
 
-var ERR_INVALID_OPT_VALUE = __webpack_require__(44).codes.ERR_INVALID_OPT_VALUE;
+var ERR_INVALID_OPT_VALUE = __webpack_require__(45).codes.ERR_INVALID_OPT_VALUE;
 
 function highWaterMarkFrom(options, isDuplex, duplexKey) {
   return options.highWaterMark != null ? options.highWaterMark : isDuplex ? options[duplexKey] : null;
@@ -34880,7 +34880,7 @@ Writable.WritableState = WritableState;
 /*<replacement>*/
 
 var internalUtil = {
-  deprecate: __webpack_require__(58)
+  deprecate: __webpack_require__(59)
 };
 /*</replacement>*/
 
@@ -34907,7 +34907,7 @@ var destroyImpl = __webpack_require__(169);
 var _require = __webpack_require__(170),
     getHighWaterMark = _require.getHighWaterMark;
 
-var _require$codes = __webpack_require__(44).codes,
+var _require$codes = __webpack_require__(45).codes,
     ERR_INVALID_ARG_TYPE = _require$codes.ERR_INVALID_ARG_TYPE,
     ERR_METHOD_NOT_IMPLEMENTED = _require$codes.ERR_METHOD_NOT_IMPLEMENTED,
     ERR_MULTIPLE_CALLBACK = _require$codes.ERR_MULTIPLE_CALLBACK,
@@ -34924,7 +34924,7 @@ __webpack_require__(4)(Writable, Stream);
 function nop() {}
 
 function WritableState(options, stream, isDuplex) {
-  Duplex = Duplex || __webpack_require__(45);
+  Duplex = Duplex || __webpack_require__(46);
   options = options || {}; // Duplex streams are both readable and writable, but share
   // the same options object.
   // However, some cases require setting options to different
@@ -35050,7 +35050,7 @@ if (typeof Symbol === 'function' && Symbol.hasInstance && typeof Function.protot
 }
 
 function Writable(options) {
-  Duplex = Duplex || __webpack_require__(45); // Writable ctor is applied to Duplexes, too.
+  Duplex = Duplex || __webpack_require__(46); // Writable ctor is applied to Duplexes, too.
   // `realHasInstance` is necessary because using plain `instanceof`
   // would return false, as no `_writableState` property is attached.
   // Trying to use the custom `instanceof` for Writable here will also break the
@@ -35518,7 +35518,7 @@ Writable.prototype._undestroy = destroyImpl.undestroy;
 Writable.prototype._destroy = function (err, cb) {
   cb(err);
 };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(12), __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(12), __webpack_require__(11)))
 
 /***/ }),
 /* 172 */
@@ -35590,13 +35590,13 @@ Writable.prototype._destroy = function (err, cb) {
 
 module.exports = Transform;
 
-var _require$codes = __webpack_require__(44).codes,
+var _require$codes = __webpack_require__(45).codes,
     ERR_METHOD_NOT_IMPLEMENTED = _require$codes.ERR_METHOD_NOT_IMPLEMENTED,
     ERR_MULTIPLE_CALLBACK = _require$codes.ERR_MULTIPLE_CALLBACK,
     ERR_TRANSFORM_ALREADY_TRANSFORMING = _require$codes.ERR_TRANSFORM_ALREADY_TRANSFORMING,
     ERR_TRANSFORM_WITH_LENGTH_0 = _require$codes.ERR_TRANSFORM_WITH_LENGTH_0;
 
-var Duplex = __webpack_require__(45);
+var Duplex = __webpack_require__(46);
 
 __webpack_require__(4)(Transform, Duplex);
 
@@ -35800,7 +35800,7 @@ utils.encode = function encode(arr, enc) {
 
 
 var curve = exports;
-curve.base = __webpack_require__(66);
+curve.base = __webpack_require__(67);
 curve.short = __webpack_require__(381);
 curve.mont = __webpack_require__(382);
 curve.edwards = __webpack_require__(383);
@@ -39398,7 +39398,7 @@ curve.edwards = __webpack_require__(383);
     return res._forceRed(this);
   };
 })( false || module, this);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(30)(module)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(31)(module)))
 
 /***/ }),
 /* 176 */
@@ -39714,7 +39714,7 @@ var inherits = __webpack_require__(4);
 
 var bignum = __webpack_require__(1);
 
-var DecoderBuffer = __webpack_require__(55).DecoderBuffer;
+var DecoderBuffer = __webpack_require__(56).DecoderBuffer;
 
 var Node = __webpack_require__(96); // Import DER constants
 
@@ -40004,7 +40004,7 @@ module.exports = JSON.parse("{\"1.3.132.0.10\":\"secp256k1\",\"1.3.132.0.33\":\"
 /* 182 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var createHash = __webpack_require__(40);
+var createHash = __webpack_require__(41);
 
 var Buffer = __webpack_require__(8).Buffer;
 
@@ -41013,7 +41013,7 @@ var secp256k1 = __webpack_require__(99);
 
 exports.secp256k1 = secp256k1;
 
-var ethjsUtil = __webpack_require__(56);
+var ethjsUtil = __webpack_require__(57);
 
 var BN = __webpack_require__(1);
 
@@ -41051,7 +41051,7 @@ __exportStar(__webpack_require__(430), exports);
  */
 
 
-__exportStar(__webpack_require__(57), exports);
+__exportStar(__webpack_require__(58), exports);
 /**
  * Function for definining properties on an object
  */
@@ -41072,7 +41072,7 @@ module.exports = __webpack_require__(415)(__webpack_require__(416));
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global) {
 
-var objectAssign = __webpack_require__(36); // compare and isBuffer taken from https://github.com/feross/buffer/blob/680e9e5e488f22aac27599a57dc844a6315928dd/index.js
+var objectAssign = __webpack_require__(37); // compare and isBuffer taken from https://github.com/feross/buffer/blob/680e9e5e488f22aac27599a57dc844a6315928dd/index.js
 // original notice:
 
 /*!
@@ -42082,7 +42082,7 @@ var at = function at(bytes, index) {
 
 var random = function random(bytes) {
   var rnd = void 0;
-  if (typeof window !== "undefined" && window.crypto && window.crypto.getRandomValues) rnd = window.crypto.getRandomValues(new Uint8Array(bytes));else if (true) rnd = __webpack_require__(63).randomBytes(bytes);else {}
+  if (typeof window !== "undefined" && window.crypto && window.crypto.getRandomValues) rnd = window.crypto.getRandomValues(new Uint8Array(bytes));else if (true) rnd = __webpack_require__(64).randomBytes(bytes);else {}
   var hex = "0x";
 
   for (var i = 0; i < bytes; ++i) {
@@ -42420,7 +42420,7 @@ var classCallCheck = __webpack_require__(6);
 var createClass = __webpack_require__(7);
 
 // EXTERNAL MODULE: ./node_modules/@ethersproject/bignumber/lib.esm/bignumber.js + 1 modules
-var bignumber = __webpack_require__(48);
+var bignumber = __webpack_require__(49);
 
 // EXTERNAL MODULE: ./node_modules/@ethersproject/properties/lib.esm/index.js + 1 modules
 var lib_esm = __webpack_require__(9);
@@ -43729,7 +43729,7 @@ var abstract_coder_Reader = /*#__PURE__*/function () {
   return Reader;
 }();
 // EXTERNAL MODULE: ./node_modules/@ethersproject/address/lib.esm/index.js + 1 modules
-var address_lib_esm = __webpack_require__(28);
+var address_lib_esm = __webpack_require__(29);
 
 // CONCATENATED MODULE: ./node_modules/@ethersproject/abi/lib.esm/coders/address.js
 
@@ -46138,7 +46138,7 @@ if (true) {
     }
   }
 })();
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10), __webpack_require__(12)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11), __webpack_require__(12)))
 
 /***/ }),
 /* 198 */
@@ -48402,7 +48402,7 @@ module.exports = JSON.parse("[{\"constant\":false,\"inputs\":[],\"name\":\"unpau
  */
 
 
-var l = __webpack_require__(36),
+var l = __webpack_require__(37),
     n = 60103,
     p = 60106;
 
@@ -48826,8 +48826,8 @@ exports.version = "17.0.1";
 */
 
 
-var aa = __webpack_require__(11),
-    m = __webpack_require__(36),
+var aa = __webpack_require__(10),
+    m = __webpack_require__(37),
     r = __webpack_require__(205);
 
 function y(a) {
@@ -61644,7 +61644,7 @@ module.exports = {
     return res._forceRed(this);
   };
 })( false || module, this);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(30)(module)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(31)(module)))
 
 /***/ }),
 /* 217 */
@@ -65325,7 +65325,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
     return res._forceRed(this);
   };
 })( false || module, this);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(30)(module)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(31)(module)))
 
 /***/ }),
 /* 220 */
@@ -67010,7 +67010,7 @@ function addSlice(array) {
     }
   }
 })();
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10), __webpack_require__(12)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11), __webpack_require__(12)))
 
 /***/ }),
 /* 226 */
@@ -68269,7 +68269,7 @@ if (isNode || isRN) {
     return Buffer.from(str).toString('base64');
   };
 
-  var url = __webpack_require__(49);
+  var url = __webpack_require__(50);
 
   if (url.URL) {
     // Use the new Node 6+ API for parsing URLs that supports username/password
@@ -68280,7 +68280,7 @@ if (isNode || isRN) {
     };
   } else {
     // Web3 supports Node.js 5, so fall back to the legacy URL API if necessary
-    helpers = __webpack_require__(49).parse;
+    helpers = __webpack_require__(50).parse;
   }
 } else {
   _btoa = btoa.bind(window);
@@ -68294,7 +68294,7 @@ module.exports = {
   parseURL: helpers,
   btoa: _btoa
 };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10), __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11), __webpack_require__(2).Buffer))
 
 /***/ }),
 /* 233 */
@@ -68863,7 +68863,7 @@ var https = __webpack_require__(120);
 
 var os = __webpack_require__(252);
 
-var url = __webpack_require__(49);
+var url = __webpack_require__(50);
 
 var progress_event_1 = __webpack_require__(253);
 
@@ -69453,7 +69453,7 @@ exports.XMLHttpRequest = XMLHttpRequest;
 XMLHttpRequest.prototype.nodejsHttpAgent = http.globalAgent;
 XMLHttpRequest.prototype.nodejsHttpsAgent = https.globalAgent;
 XMLHttpRequest.prototype.nodejsBaseUrl = null;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10), __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11), __webpack_require__(2).Buffer))
 
 /***/ }),
 /* 244 */
@@ -69758,7 +69758,7 @@ ClientRequest.prototype.setSocketKeepAlive = function () {}; // Taken from http:
 
 
 var unsafeHeaders = ['accept-charset', 'accept-encoding', 'access-control-request-headers', 'access-control-request-method', 'connection', 'content-length', 'cookie', 'cookie2', 'date', 'dnt', 'expect', 'host', 'keep-alive', 'origin', 'referer', 'te', 'trailer', 'transfer-encoding', 'upgrade', 'via'];
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2).Buffer, __webpack_require__(12), __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2).Buffer, __webpack_require__(12), __webpack_require__(11)))
 
 /***/ }),
 /* 245 */
@@ -70080,7 +70080,7 @@ if (util && util.inspect && util.inspect.custom) {
   attachTo.setImmediate = setImmediate;
   attachTo.clearImmediate = clearImmediate;
 })(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(12), __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(12), __webpack_require__(11)))
 
 /***/ }),
 /* 249 */
@@ -74860,7 +74860,7 @@ module.exports = IpcProvider;
 
 var formatters = __webpack_require__(13).formatters;
 
-var Method = __webpack_require__(31);
+var Method = __webpack_require__(32);
 
 var utils = __webpack_require__(16);
 
@@ -76688,7 +76688,7 @@ exports.sha512 = __webpack_require__(123);
 
 var utils = __webpack_require__(22);
 
-var common = __webpack_require__(50);
+var common = __webpack_require__(51);
 
 var shaCommon = __webpack_require__(121);
 
@@ -76817,7 +76817,7 @@ SHA384.prototype._digest = function digest(enc) {
 
 var utils = __webpack_require__(22);
 
-var common = __webpack_require__(50);
+var common = __webpack_require__(51);
 
 var rotl32 = utils.rotl32;
 var sum32 = utils.sum32;
@@ -76982,17 +76982,17 @@ Hmac.prototype.digest = function digest(enc) {
 
 var _ = __webpack_require__(15);
 
-var core = __webpack_require__(29);
+var core = __webpack_require__(30);
 
 var helpers = __webpack_require__(13);
 
-var Subscriptions = __webpack_require__(60).subscriptions;
+var Subscriptions = __webpack_require__(61).subscriptions;
 
-var Method = __webpack_require__(31);
+var Method = __webpack_require__(32);
 
 var utils = __webpack_require__(16);
 
-var Net = __webpack_require__(61);
+var Net = __webpack_require__(62);
 
 var ENS = __webpack_require__(271);
 
@@ -78241,7 +78241,7 @@ var Contract = __webpack_require__(125);
 
 var namehash = __webpack_require__(127);
 
-var PromiEvent = __webpack_require__(59);
+var PromiEvent = __webpack_require__(60);
 
 var formatters = __webpack_require__(13).formatters;
 
@@ -79307,7 +79307,7 @@ module.exports = Registry;
     }
   }
 })();
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10), __webpack_require__(12)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11), __webpack_require__(12)))
 
 /***/ }),
 /* 275 */
@@ -80094,7 +80094,7 @@ var _regeneratorRuntime = __webpack_require__(14);
 
 var _asyncToGenerator = __webpack_require__(74);
 
-var PromiEvent = __webpack_require__(59);
+var PromiEvent = __webpack_require__(60);
 
 var namehash = __webpack_require__(127);
 
@@ -80621,7 +80621,7 @@ module.exports = {
  */
 
 
-var varint = __webpack_require__(51);
+var varint = __webpack_require__(52);
 
 var intTable = __webpack_require__(286);
 
@@ -80839,7 +80839,7 @@ module.exports = function (value) {
 "use strict";
 
 
-var baseTable = __webpack_require__(62); // map for hexString -> codecName
+var baseTable = __webpack_require__(63); // map for hexString -> codecName
 
 
 var nameTable = new Map();
@@ -80858,7 +80858,7 @@ module.exports = Object.freeze(nameTable);
 "use strict";
 
 
-var baseTable = __webpack_require__(62);
+var baseTable = __webpack_require__(63);
 
 var varintEncode = __webpack_require__(128).varintEncode; // map for codecName -> codeVarintBuffer
 
@@ -80879,9 +80879,9 @@ module.exports = Object.freeze(varintTable);
 "use strict";
 
 
-var _slicedToArray = __webpack_require__(52);
+var _slicedToArray = __webpack_require__(53);
 
-var table = __webpack_require__(62); // map for codecConstant -> code
+var table = __webpack_require__(63); // map for codecConstant -> code
 
 
 var constants = {};
@@ -80956,9 +80956,9 @@ module.exports = _nonIterableRest;
 "use strict";
 
 
-var _slicedToArray = __webpack_require__(52);
+var _slicedToArray = __webpack_require__(53);
 
-var table = __webpack_require__(62); // map for code -> print friendly name
+var table = __webpack_require__(63); // map for code -> print friendly name
 
 
 var tableByCode = {};
@@ -81284,9 +81284,9 @@ module.exports = {
 "use strict";
 
 
-var _classCallCheck = __webpack_require__(38);
+var _classCallCheck = __webpack_require__(39);
 
-var _createClass = __webpack_require__(39);
+var _createClass = __webpack_require__(40);
 
 var Base = /*#__PURE__*/function () {
   function Base(name, code, implementation, alphabet) {
@@ -81330,7 +81330,7 @@ module.exports = Base;
 "use strict";
 
 
-var _createForOfIteratorHelper = __webpack_require__(32);
+var _createForOfIteratorHelper = __webpack_require__(33);
 
 var _require = __webpack_require__(2),
     Buffer = _require.Buffer;
@@ -81374,7 +81374,7 @@ module.exports = function base16(alphabet) {
 "use strict";
 
 
-var _createForOfIteratorHelper = __webpack_require__(32);
+var _createForOfIteratorHelper = __webpack_require__(33);
 
 function _decode(input, alphabet) {
   input = input.replace(new RegExp('=', 'g'), '');
@@ -81472,7 +81472,7 @@ module.exports = function base32(alphabet) {
 "use strict";
 
 
-var _createForOfIteratorHelper = __webpack_require__(32);
+var _createForOfIteratorHelper = __webpack_require__(33);
 
 var _require = __webpack_require__(2),
     Buffer = _require.Buffer;
@@ -82745,9 +82745,9 @@ module.exports = {
 "use strict";
 
 
-var _classCallCheck = __webpack_require__(38);
+var _classCallCheck = __webpack_require__(39);
 
-var _createClass = __webpack_require__(39);
+var _createClass = __webpack_require__(40);
 
 var Base = /*#__PURE__*/function () {
   function Base(name, code, implementation, alphabet) {
@@ -82791,7 +82791,7 @@ module.exports = Base;
 "use strict";
 
 
-var _createForOfIteratorHelper = __webpack_require__(32);
+var _createForOfIteratorHelper = __webpack_require__(33);
 
 var _require = __webpack_require__(2),
     Buffer = _require.Buffer;
@@ -82835,7 +82835,7 @@ module.exports = function base16(alphabet) {
 "use strict";
 
 
-var _createForOfIteratorHelper = __webpack_require__(32);
+var _createForOfIteratorHelper = __webpack_require__(33);
 
 function _decode(input, alphabet) {
   input = input.replace(new RegExp('=', 'g'), '');
@@ -82933,7 +82933,7 @@ module.exports = function base32(alphabet) {
 "use strict";
 
 
-var _createForOfIteratorHelper = __webpack_require__(32);
+var _createForOfIteratorHelper = __webpack_require__(33);
 
 var _require = __webpack_require__(2),
     Buffer = _require.Buffer;
@@ -83012,7 +83012,7 @@ module.exports = function base64(alphabet) {
 var _require = __webpack_require__(2),
     Buffer = _require.Buffer;
 
-var varint = __webpack_require__(51);
+var varint = __webpack_require__(52);
 
 var intTable = __webpack_require__(308);
 
@@ -83150,7 +83150,7 @@ exports.print = __webpack_require__(311);
 "use strict";
 
 
-var baseTable = __webpack_require__(53); // map for hexString -> codecName
+var baseTable = __webpack_require__(54); // map for hexString -> codecName
 
 
 var nameTable = new Map();
@@ -83169,7 +83169,7 @@ module.exports = Object.freeze(nameTable);
 "use strict";
 
 
-var baseTable = __webpack_require__(53);
+var baseTable = __webpack_require__(54);
 
 var varintEncode = __webpack_require__(132).varintEncode; // map for codecName -> codeVarintBuffer
 
@@ -83190,9 +83190,9 @@ module.exports = Object.freeze(varintTable);
 "use strict";
 
 
-var _slicedToArray = __webpack_require__(52);
+var _slicedToArray = __webpack_require__(53);
 
-var table = __webpack_require__(53); // map for codecConstant -> code
+var table = __webpack_require__(54); // map for codecConstant -> code
 
 
 var constants = {};
@@ -83214,9 +83214,9 @@ module.exports = Object.freeze(constants);
 "use strict";
 
 
-var _slicedToArray = __webpack_require__(52);
+var _slicedToArray = __webpack_require__(53);
 
-var table = __webpack_require__(53); // map for code -> print friendly name
+var table = __webpack_require__(54); // map for code -> print friendly name
 
 
 var tableByCode = {};
@@ -83306,9 +83306,9 @@ var _construct = __webpack_require__(314);
 
 var _defineProperty = __webpack_require__(103);
 
-var _classCallCheck = __webpack_require__(38);
+var _classCallCheck = __webpack_require__(39);
 
-var _createClass = __webpack_require__(39);
+var _createClass = __webpack_require__(40);
 
 var _assertThisInitialized = __webpack_require__(135);
 
@@ -83560,9 +83560,9 @@ var _toConsumableArray = __webpack_require__(320);
 
 var _ = __webpack_require__(15);
 
-var core = __webpack_require__(29);
+var core = __webpack_require__(30);
 
-var Method = __webpack_require__(31);
+var Method = __webpack_require__(32);
 
 var Account = __webpack_require__(324);
 
@@ -83574,7 +83574,7 @@ var RLP = __webpack_require__(185); // jshint ignore:line
 var Bytes = __webpack_require__(79); // jshint ignore:line
 
 
-var cryp = typeof global === 'undefined' ? __webpack_require__(63) : __webpack_require__(63);
+var cryp = typeof global === 'undefined' ? __webpack_require__(64) : __webpack_require__(64);
 
 var scrypt = __webpack_require__(409);
 
@@ -84189,13 +84189,13 @@ module.exports = _nonIterableSpread;
 /* 324 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Buffer) {var _slicedToArray = __webpack_require__(52);
+/* WEBPACK VAR INJECTION */(function(Buffer) {var _slicedToArray = __webpack_require__(53);
 
 var Bytes = __webpack_require__(79);
 
 var Nat = __webpack_require__(408);
 
-var elliptic = __webpack_require__(46);
+var elliptic = __webpack_require__(47);
 
 var rlp = __webpack_require__(185);
 
@@ -84348,7 +84348,7 @@ exports = module.exports = __webpack_require__(138);
 exports.Stream = exports;
 exports.Readable = exports;
 exports.Writable = __webpack_require__(142);
-exports.Duplex = __webpack_require__(42);
+exports.Duplex = __webpack_require__(43);
 exports.Transform = __webpack_require__(143);
 exports.PassThrough = __webpack_require__(332);
 exports.finished = __webpack_require__(81);
@@ -84864,7 +84864,7 @@ var createReadableStreamAsyncIterator = function createReadableStreamAsyncIterat
 };
 
 module.exports = createReadableStreamAsyncIterator;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11)))
 
 /***/ }),
 /* 331 */
@@ -84939,7 +84939,7 @@ function once(callback) {
   };
 }
 
-var _require$codes = __webpack_require__(41).codes,
+var _require$codes = __webpack_require__(42).codes,
     ERR_MISSING_ARGS = _require$codes.ERR_MISSING_ARGS,
     ERR_STREAM_DESTROYED = _require$codes.ERR_STREAM_DESTROYED;
 
@@ -85035,7 +85035,7 @@ module.exports = pipeline;
  */
 var inherits = __webpack_require__(4);
 
-var Hash = __webpack_require__(43);
+var Hash = __webpack_require__(44);
 
 var Buffer = __webpack_require__(8).Buffer;
 
@@ -85132,7 +85132,7 @@ module.exports = Sha;
  */
 var inherits = __webpack_require__(4);
 
-var Hash = __webpack_require__(43);
+var Hash = __webpack_require__(44);
 
 var Buffer = __webpack_require__(8).Buffer;
 
@@ -85234,7 +85234,7 @@ var inherits = __webpack_require__(4);
 
 var Sha256 = __webpack_require__(144);
 
-var Hash = __webpack_require__(43);
+var Hash = __webpack_require__(44);
 
 var Buffer = __webpack_require__(8).Buffer;
 
@@ -85283,7 +85283,7 @@ var inherits = __webpack_require__(4);
 
 var SHA512 = __webpack_require__(145);
 
-var Hash = __webpack_require__(43);
+var Hash = __webpack_require__(44);
 
 var Buffer = __webpack_require__(8).Buffer;
 
@@ -85512,7 +85512,7 @@ module.exports = __webpack_require__(87);
 /* 343 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(33);
+module.exports = __webpack_require__(34);
 
 /***/ }),
 /* 344 */
@@ -85702,7 +85702,7 @@ module.exports = function (password, salt, iterations, keylen, digest, callback)
     return sync(password, salt, iterations, keylen, digest);
   }), callback);
 };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(12), __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(12), __webpack_require__(11)))
 
 /***/ }),
 /* 349 */
@@ -85716,7 +85716,7 @@ var aesModes = __webpack_require__(90);
 
 var desModes = __webpack_require__(363);
 
-var ebtk = __webpack_require__(65);
+var ebtk = __webpack_require__(66);
 
 function createCipher(suite, password) {
   suite = suite.toLowerCase();
@@ -86033,9 +86033,9 @@ var StreamCipher = __webpack_require__(164);
 
 var Transform = __webpack_require__(27);
 
-var aes = __webpack_require__(64);
+var aes = __webpack_require__(65);
 
-var ebtk = __webpack_require__(65);
+var ebtk = __webpack_require__(66);
 
 var inherits = __webpack_require__(4);
 
@@ -86163,7 +86163,7 @@ exports.decrypt = function (self, block) {
 /* 356 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var xor = __webpack_require__(54);
+var xor = __webpack_require__(55);
 
 exports.encrypt = function (self, block) {
   var data = xor(block, self._prev);
@@ -86186,7 +86186,7 @@ exports.decrypt = function (self, block) {
 
 var Buffer = __webpack_require__(8).Buffer;
 
-var xor = __webpack_require__(54);
+var xor = __webpack_require__(55);
 
 function encryptStart(self, data, decrypt) {
   var len = data.length;
@@ -86298,7 +86298,7 @@ exports.encrypt = function (self, chunk, decrypt) {
 /* 360 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Buffer) {var xor = __webpack_require__(54);
+/* WEBPACK VAR INJECTION */(function(Buffer) {var xor = __webpack_require__(55);
 
 function getBlock(self) {
   self._prev = self._cipher.encryptBlock(self._prev);
@@ -86426,9 +86426,9 @@ var StreamCipher = __webpack_require__(164);
 
 var Transform = __webpack_require__(27);
 
-var aes = __webpack_require__(64);
+var aes = __webpack_require__(65);
 
-var ebtk = __webpack_require__(65);
+var ebtk = __webpack_require__(66);
 
 var inherits = __webpack_require__(4);
 
@@ -86848,7 +86848,7 @@ function formatReturnValue(bn, enc) {
 
 var Buffer = __webpack_require__(8).Buffer;
 
-var createHash = __webpack_require__(40);
+var createHash = __webpack_require__(41);
 
 var stream = __webpack_require__(369);
 
@@ -86957,7 +86957,7 @@ exports = module.exports = __webpack_require__(167);
 exports.Stream = exports;
 exports.Readable = exports;
 exports.Writable = __webpack_require__(171);
-exports.Duplex = __webpack_require__(45);
+exports.Duplex = __webpack_require__(46);
 exports.Transform = __webpack_require__(172);
 exports.PassThrough = __webpack_require__(375);
 exports.finished = __webpack_require__(92);
@@ -87473,7 +87473,7 @@ var createReadableStreamAsyncIterator = function createReadableStreamAsyncIterat
 };
 
 module.exports = createReadableStreamAsyncIterator;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11)))
 
 /***/ }),
 /* 374 */
@@ -87548,7 +87548,7 @@ function once(callback) {
   };
 }
 
-var _require$codes = __webpack_require__(44).codes,
+var _require$codes = __webpack_require__(45).codes,
     ERR_MISSING_ARGS = _require$codes.ERR_MISSING_ARGS,
     ERR_STREAM_DESTROYED = _require$codes.ERR_STREAM_DESTROYED;
 
@@ -87642,11 +87642,11 @@ var createHmac = __webpack_require__(150);
 
 var crt = __webpack_require__(93);
 
-var EC = __webpack_require__(46).ec;
+var EC = __webpack_require__(47).ec;
 
 var BN = __webpack_require__(175);
 
-var parseKeys = __webpack_require__(67);
+var parseKeys = __webpack_require__(68);
 
 var curves = __webpack_require__(181);
 
@@ -91393,7 +91393,7 @@ module.exports.makeKey = makeKey;
     return res._forceRed(this);
   };
 })( false || module, this);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(30)(module)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(31)(module)))
 
 /***/ }),
 /* 379 */
@@ -91420,7 +91420,7 @@ var BN = __webpack_require__(1);
 
 var inherits = __webpack_require__(4);
 
-var Base = __webpack_require__(66);
+var Base = __webpack_require__(67);
 
 var assert = utils.assert;
 
@@ -92261,7 +92261,7 @@ var BN = __webpack_require__(1);
 
 var inherits = __webpack_require__(4);
 
-var Base = __webpack_require__(66);
+var Base = __webpack_require__(67);
 
 var utils = __webpack_require__(20);
 
@@ -92446,7 +92446,7 @@ var BN = __webpack_require__(1);
 
 var inherits = __webpack_require__(4);
 
-var Base = __webpack_require__(66);
+var Base = __webpack_require__(67);
 
 var assert = utils.assert;
 
@@ -93968,8 +93968,8 @@ PEMDecoder.prototype.decode = function decode(data, options) {
 
 var base = exports;
 base.Reporter = __webpack_require__(97).Reporter;
-base.DecoderBuffer = __webpack_require__(55).DecoderBuffer;
-base.EncoderBuffer = __webpack_require__(55).EncoderBuffer;
+base.DecoderBuffer = __webpack_require__(56).DecoderBuffer;
+base.EncoderBuffer = __webpack_require__(56).EncoderBuffer;
 base.Node = __webpack_require__(96);
 
 /***/ }),
@@ -94060,7 +94060,7 @@ var findProc = /Proc-Type: 4,ENCRYPTED[\n\r]+DEK-Info: AES-((?:128)|(?:192)|(?:2
 var startRegex = /^-----BEGIN ((?:.*? KEY)|CERTIFICATE)-----/m;
 var fullRegex = /^-----BEGIN ((?:.*? KEY)|CERTIFICATE)-----([0-9A-z\n\r+/=]+)-----END \1-----$/m;
 
-var evp = __webpack_require__(65);
+var evp = __webpack_require__(66);
 
 var ciphers = __webpack_require__(89);
 
@@ -94102,9 +94102,9 @@ var Buffer = __webpack_require__(8).Buffer;
 
 var BN = __webpack_require__(175);
 
-var EC = __webpack_require__(46).ec;
+var EC = __webpack_require__(47).ec;
 
-var parseKeys = __webpack_require__(67);
+var parseKeys = __webpack_require__(68);
 
 var curves = __webpack_require__(181);
 
@@ -94191,7 +94191,7 @@ module.exports = verify;
 /* 403 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Buffer) {var elliptic = __webpack_require__(46);
+/* WEBPACK VAR INJECTION */(function(Buffer) {var elliptic = __webpack_require__(47);
 
 var BN = __webpack_require__(1);
 
@@ -94353,11 +94353,11 @@ exports.publicDecrypt = function publicDecrypt(key, buf) {
 /* 405 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var parseKeys = __webpack_require__(67);
+var parseKeys = __webpack_require__(68);
 
 var randomBytes = __webpack_require__(25);
 
-var createHash = __webpack_require__(40);
+var createHash = __webpack_require__(41);
 
 var mgf = __webpack_require__(182);
 
@@ -94471,7 +94471,7 @@ function nonZero(len) {
 /* 406 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var parseKeys = __webpack_require__(67);
+var parseKeys = __webpack_require__(68);
 
 var mgf = __webpack_require__(182);
 
@@ -94481,7 +94481,7 @@ var BN = __webpack_require__(1);
 
 var crt = __webpack_require__(93);
 
-var createHash = __webpack_require__(40);
+var createHash = __webpack_require__(41);
 
 var withPublic = __webpack_require__(184);
 
@@ -94733,7 +94733,7 @@ function randomFillSync(buf, offset, size) {
   assertSize(size, offset, buf.length);
   return actualFill(buf, offset, size);
 }
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(12), __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(12), __webpack_require__(11)))
 
 /***/ }),
 /* 408 */
@@ -95713,7 +95713,7 @@ __export(__webpack_require__(191));
 /* 415 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var _createForOfIteratorHelper = __webpack_require__(32);
+var _createForOfIteratorHelper = __webpack_require__(33);
 
 var errors = {
   IMPOSSIBLE_CASE: 'Impossible case. Please create issue.',
@@ -96101,7 +96101,7 @@ module.exports = function (secp256k1) {
 /* 416 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var EC = __webpack_require__(46).ec;
+var EC = __webpack_require__(47).ec;
 
 var ec = new EC('secp256k1');
 var ecparams = ec.curve; // Hack, we can not use bn.js@5, while elliptic uses bn.js@4
@@ -96521,7 +96521,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var BN = __webpack_require__(1);
 
-var EC = __webpack_require__(46).ec;
+var EC = __webpack_require__(47).ec;
 
 var ec = new EC('secp256k1');
 var ecparams = ec.curve;
@@ -96846,13 +96846,13 @@ exports.importPublic = exports.privateToPublic = exports.privateToAddress = expo
 
 var assert = __webpack_require__(192);
 
-var ethjsUtil = __webpack_require__(56);
+var ethjsUtil = __webpack_require__(57);
 
 var secp256k1 = __webpack_require__(99);
 
 var BN = __webpack_require__(1);
 
-var bytes_1 = __webpack_require__(57);
+var bytes_1 = __webpack_require__(58);
 
 var hash_1 = __webpack_require__(101);
 /**
@@ -97169,9 +97169,9 @@ module.exports = function (KeccakState) {
 /* 426 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Buffer) {var _classCallCheck = __webpack_require__(38);
+/* WEBPACK VAR INJECTION */(function(Buffer) {var _classCallCheck = __webpack_require__(39);
 
-var _createClass = __webpack_require__(39);
+var _createClass = __webpack_require__(40);
 
 var _inherits = __webpack_require__(77);
 
@@ -97289,9 +97289,9 @@ module.exports = function (KeccakState) {
 /* 427 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Buffer) {var _classCallCheck = __webpack_require__(38);
+/* WEBPACK VAR INJECTION */(function(Buffer) {var _classCallCheck = __webpack_require__(39);
 
-var _createClass = __webpack_require__(39);
+var _createClass = __webpack_require__(40);
 
 var _inherits = __webpack_require__(77);
 
@@ -97674,7 +97674,7 @@ var secp256k1 = __webpack_require__(99);
 
 var BN = __webpack_require__(1);
 
-var bytes_1 = __webpack_require__(57);
+var bytes_1 = __webpack_require__(58);
 
 var hash_1 = __webpack_require__(101);
 /**
@@ -97821,11 +97821,11 @@ exports.defineProperties = void 0;
 
 var assert = __webpack_require__(192);
 
-var ethjsUtil = __webpack_require__(56);
+var ethjsUtil = __webpack_require__(57);
 
 var rlp = __webpack_require__(100);
 
-var bytes_1 = __webpack_require__(57);
+var bytes_1 = __webpack_require__(58);
 /**
  * Defines properties on a `Object`. It make the assumption that underlying data is binary.
  * @param self the `Object` to define properties on
@@ -98299,14 +98299,14 @@ module.exports = getNetworkType;
  */
 
 
-var core = __webpack_require__(29);
+var core = __webpack_require__(30);
 
-var Subscriptions = __webpack_require__(60).subscriptions;
+var Subscriptions = __webpack_require__(61).subscriptions;
 
-var Method = __webpack_require__(31); // var formatters = require('web3-core-helpers').formatters;
+var Method = __webpack_require__(32); // var formatters = require('web3-core-helpers').formatters;
 
 
-var Net = __webpack_require__(61);
+var Net = __webpack_require__(62);
 
 var Shh = function Shh() {
   console.warn('web3-shh package will be deprecated in version 1.3.5 and will no longer be supported.');
@@ -98605,7 +98605,7 @@ var queryString = __webpack_require__(455);
 
 var setQuery = __webpack_require__(458);
 
-var assign = __webpack_require__(36);
+var assign = __webpack_require__(37);
 
 var ensureHeader = __webpack_require__(459); // this is replaced in the browser
 
@@ -98678,7 +98678,7 @@ function xhrRequest(url, opt, cb) {
 
 var strictUriEncode = __webpack_require__(456);
 
-var objectAssign = __webpack_require__(36);
+var objectAssign = __webpack_require__(37);
 
 var decodeComponent = __webpack_require__(457);
 
@@ -100673,9 +100673,9 @@ module.exports = function (_ref) {
  */
 
 
-__webpack_require__(36);
+__webpack_require__(37);
 
-var f = __webpack_require__(11),
+var f = __webpack_require__(10),
     g = 60103;
 
 exports.Fragment = 60107;
@@ -100739,7 +100739,7 @@ exports.jsxs = q;
 __webpack_require__.r(__webpack_exports__);
 
 // EXTERNAL MODULE: ./node_modules/react/index.js
-var react = __webpack_require__(11);
+var react = __webpack_require__(10);
 var react_default = /*#__PURE__*/__webpack_require__.n(react);
 
 // EXTERNAL MODULE: ./node_modules/react-dom/index.js
@@ -100813,7 +100813,7 @@ function _slicedToArray(arr, i) {
   return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
 }
 // EXTERNAL MODULE: ./node_modules/web3/lib/index.js
-var lib = __webpack_require__(68);
+var lib = __webpack_require__(28);
 var lib_default = /*#__PURE__*/__webpack_require__.n(lib);
 
 // CONCATENATED MODULE: ./src/constants/contract.ts
@@ -100830,7 +100830,7 @@ var sellNFT_CryptoArteSales = __webpack_require__(200);
 var App_App = __webpack_require__(471);
 
 // EXTERNAL MODULE: ./src/components/FormsContainer/FormsContainer.css
-var FormsContainer_FormsContainer = __webpack_require__(47);
+var FormsContainer_FormsContainer = __webpack_require__(48);
 
 // EXTERNAL MODULE: ./src/components/Button/Button.css
 var Button_Button = __webpack_require__(472);
@@ -100995,15 +100995,15 @@ var Input_Input = __webpack_require__(474);
 // CONCATENATED MODULE: ./src/components/Input/Input.tsx
 var Input_Input_Input=function Input(_ref){var title=_ref.title,onChange=_ref.onChange,value=_ref.value,type=_ref.type;return/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"Input",children:[/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"Input__title",children:title}),/*#__PURE__*/Object(jsx_runtime["jsx"])("input",{className:"Input__input",value:value,onChange:onChange,type:type})]});};
 // CONCATENATED MODULE: ./src/components/FormMint/FormMint.tsx
-var FormMint_FormMint=function FormMint(_ref){var contractMain=_ref.contractMain,setErrors=_ref.setErrors,setIsDone=_ref.setIsDone,currentAccount=_ref.currentAccount,tokenId=_ref.tokenId,onSuccess=_ref.onSuccess;var _useState=Object(react["useState"])(''),_useState2=_slicedToArray(_useState,2),url=_useState2[0],setUrl=_useState2[1];var handleChangeUrl=function handleChangeUrl(e){return setUrl(e.target.value);};var handleSubmitMint=/*#__PURE__*/function(){var _ref2=_asyncToGenerator(/*#__PURE__*/regenerator_default.a.mark(function _callee(){var isValidUrl,isValidTokenId;return regenerator_default.a.wrap(function _callee$(_context){while(1){switch(_context.prev=_context.next){case 0:_context.prev=0;setErrors([]);setIsDone(false);isValidUrl=validateUrl(url);isValidTokenId=validateTokenId(tokenId);if(!isValidUrl){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_URL_TEXT]);});}if(!isValidTokenId){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_TOKEN_ID_TEXT]);});}if(!currentAccount){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_CONTRACT_TEXT]);});}if(!(currentAccount&&isValidTokenId&&isValidUrl&&contractMain)){_context.next=13;break;}_context.next=11;return contractMain.methods.mintAndApprove(currentAccount,tokenId,url,CONTRACT_ADDRESS_SELL).send({from:currentAccount});case 11:if(onSuccess){onSuccess();}setIsDone(true);case 13:_context.next=18;break;case 15:_context.prev=15;_context.t0=_context["catch"](0);setErrors([_context.t0.message]);case 18:case"end":return _context.stop();}}},_callee,null,[[0,15]]);}));return function handleSubmitMint(){return _ref2.apply(this,arguments);};}();return/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"Form",children:[/*#__PURE__*/Object(jsx_runtime["jsx"])(Input_Input_Input,{title:"Url",value:url,type:"text",onChange:handleChangeUrl}),/*#__PURE__*/Object(jsx_runtime["jsx"])(Button_Button_Button,{onClick:handleSubmitMint,text:"Mint",disabled:!url})]});};
+var FormMint_FormMint=function FormMint(_ref){var contractMain=_ref.contractMain,setErrors=_ref.setErrors,setIsDone=_ref.setIsDone,currentAccount=_ref.currentAccount,tokenId=_ref.tokenId,onSuccess=_ref.onSuccess;var _useState=Object(react["useState"])(''),_useState2=_slicedToArray(_useState,2),url=_useState2[0],setUrl=_useState2[1];var _useState3=Object(react["useState"])(false),_useState4=_slicedToArray(_useState3,2),isInProgress=_useState4[0],setIsInProgress=_useState4[1];var handleChangeUrl=function handleChangeUrl(e){return setUrl(e.target.value);};var handleSubmitMint=/*#__PURE__*/function(){var _ref2=_asyncToGenerator(/*#__PURE__*/regenerator_default.a.mark(function _callee(){var isValidUrl,isValidTokenId;return regenerator_default.a.wrap(function _callee$(_context){while(1){switch(_context.prev=_context.next){case 0:_context.prev=0;setErrors([]);setIsDone(false);setIsInProgress(true);isValidUrl=validateUrl(url);isValidTokenId=validateTokenId(tokenId);if(!isValidUrl){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_URL_TEXT]);});}if(!isValidTokenId){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_TOKEN_ID_TEXT]);});}if(!currentAccount){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_CONTRACT_TEXT]);});}if(!(currentAccount&&isValidTokenId&&isValidUrl&&contractMain)){_context.next=15;break;}_context.next=12;return contractMain.methods.mintAndApprove(currentAccount,tokenId,url,CONTRACT_ADDRESS_SELL).send({from:currentAccount});case 12:if(onSuccess){onSuccess();}setIsInProgress(false);setIsDone(true);case 15:_context.next=21;break;case 17:_context.prev=17;_context.t0=_context["catch"](0);setIsInProgress(false);setErrors([_context.t0.message]);case 21:case"end":return _context.stop();}}},_callee,null,[[0,17]]);}));return function handleSubmitMint(){return _ref2.apply(this,arguments);};}();return/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"Form",children:[/*#__PURE__*/Object(jsx_runtime["jsx"])(Input_Input_Input,{title:"Url",value:url,type:"text",onChange:handleChangeUrl}),/*#__PURE__*/Object(jsx_runtime["jsx"])(Button_Button_Button,{onClick:handleSubmitMint,text:isInProgress?'Pending...':'Mint',disabled:!url||isInProgress})]});};
 // CONCATENATED MODULE: ./src/components/FormPurchase/FormPurchase.tsx
-var FormPurchase_FormPurchase=function FormPurchase(_ref){var contractSell=_ref.contractSell,tokenId=_ref.tokenId,setErrors=_ref.setErrors,setIsDone=_ref.setIsDone,currentAccount=_ref.currentAccount;var _useState=Object(react["useState"])(undefined),_useState2=_slicedToArray(_useState,2),purchaseValue=_useState2[0],setPurchaseValue=_useState2[1];var handleChangePurchaseValue=function handleChangePurchaseValue(e){return setPurchaseValue(+e.target.value||undefined);};var handlePurchase=/*#__PURE__*/function(){var _ref2=_asyncToGenerator(/*#__PURE__*/regenerator_default.a.mark(function _callee(){var isValidTokenId,isValidPurchaseValue;return regenerator_default.a.wrap(function _callee$(_context){while(1){switch(_context.prev=_context.next){case 0:_context.prev=0;setErrors([]);setIsDone(false);isValidTokenId=validateTokenId(tokenId);isValidPurchaseValue=validateTokenId(purchaseValue);if(!isValidTokenId){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_TOKEN_ID_TEXT]);});}if(!isValidPurchaseValue){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_PURCHASE_VALUE_TEXT]);});}if(!(currentAccount&&isValidTokenId&&isValidPurchaseValue&&contractSell)){_context.next=11;break;}_context.next=10;return contractSell.methods.purchaseToken(tokenId).send({from:currentAccount,value:purchaseValue});case 10:setIsDone(true);case 11:_context.next=16;break;case 13:_context.prev=13;_context.t0=_context["catch"](0);setErrors([_context.t0.message]);case 16:case"end":return _context.stop();}}},_callee,null,[[0,13]]);}));return function handlePurchase(){return _ref2.apply(this,arguments);};}();return/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"Form",children:[/*#__PURE__*/Object(jsx_runtime["jsx"])(Input_Input_Input,{title:"Value (Gwei)",value:purchaseValue,type:"number",onChange:handleChangePurchaseValue}),/*#__PURE__*/Object(jsx_runtime["jsx"])(Button_Button_Button,{onClick:handlePurchase,text:"Purchase",disabled:!purchaseValue})]});};
+var FormPurchase_FormPurchase=function FormPurchase(_ref){var contractSell=_ref.contractSell,tokenId=_ref.tokenId,setErrors=_ref.setErrors,setIsDone=_ref.setIsDone,currentAccount=_ref.currentAccount;var _useState=Object(react["useState"])(undefined),_useState2=_slicedToArray(_useState,2),purchaseValue=_useState2[0],setPurchaseValue=_useState2[1];var handleChangePurchaseValue=function handleChangePurchaseValue(e){return setPurchaseValue(+e.target.value||undefined);};var handlePurchase=/*#__PURE__*/function(){var _ref2=_asyncToGenerator(/*#__PURE__*/regenerator_default.a.mark(function _callee(){var isValidTokenId,isValidPurchaseValue;return regenerator_default.a.wrap(function _callee$(_context){while(1){switch(_context.prev=_context.next){case 0:_context.prev=0;setErrors([]);setIsDone(false);isValidTokenId=validateTokenId(tokenId);isValidPurchaseValue=validateTokenId(purchaseValue);if(!isValidTokenId){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_TOKEN_ID_TEXT]);});}if(!isValidPurchaseValue){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_PURCHASE_VALUE_TEXT]);});}if(!(currentAccount&&isValidTokenId&&isValidPurchaseValue&&contractSell)){_context.next=11;break;}_context.next=10;return contractSell.methods.purchaseToken(tokenId).send({from:currentAccount,value:lib_default.a.utils.toWei("".concat(purchaseValue))});case 10:setIsDone(true);case 11:_context.next=16;break;case 13:_context.prev=13;_context.t0=_context["catch"](0);setErrors([_context.t0.message]);case 16:case"end":return _context.stop();}}},_callee,null,[[0,13]]);}));return function handlePurchase(){return _ref2.apply(this,arguments);};}();return/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"Form",children:[/*#__PURE__*/Object(jsx_runtime["jsx"])(Input_Input_Input,{title:"Value (ETH)",value:purchaseValue,type:"number",onChange:handleChangePurchaseValue}),/*#__PURE__*/Object(jsx_runtime["jsx"])(Button_Button_Button,{onClick:handlePurchase,text:"Purchase",disabled:!purchaseValue})]});};
 // CONCATENATED MODULE: ./src/components/FormUrl/FormUrl.tsx
 var FormUrl_FormUrl=function FormUrl(_ref){var contractMain=_ref.contractMain,setErrors=_ref.setErrors,setIsDone=_ref.setIsDone,currentAccount=_ref.currentAccount,tokenId=_ref.tokenId;var _useState=Object(react["useState"])(tokenId),_useState2=_slicedToArray(_useState,2),tokenIdInput=_useState2[0],setTokenId=_useState2[1];var _useState3=Object(react["useState"])(''),_useState4=_slicedToArray(_useState3,2),url=_useState4[0],setUrl=_useState4[1];var _useState5=Object(react["useState"])(false),_useState6=_slicedToArray(_useState5,2),showText=_useState6[0],setShowText=_useState6[1];var handleChangeTokenId=function handleChangeTokenId(e){return setTokenId(+e.target.value||undefined);};var handleGetUrl=/*#__PURE__*/function(){var _ref2=_asyncToGenerator(/*#__PURE__*/regenerator_default.a.mark(function _callee(){var isValidTokenId;return regenerator_default.a.wrap(function _callee$(_context){while(1){switch(_context.prev=_context.next){case 0:_context.prev=0;setUrl('');setShowText(false);setErrors([]);setIsDone(false);isValidTokenId=validateTokenId(tokenIdInput);if(!isValidTokenId){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_TOKEN_ID_TEXT]);});}if(!(currentAccount&&isValidTokenId&&contractMain)){_context.next=14;break;}_context.t0=setUrl;_context.next=11;return contractMain.methods.tokenURI(tokenIdInput).call();case 11:_context.t1=_context.sent;(0,_context.t0)(_context.t1);setIsDone(true);case 14:_context.next=22;break;case 16:_context.prev=16;_context.t2=_context["catch"](0);setUrl('');setShowText(false);setErrors([_context.t2.message]);setIsDone(false);case 22:case"end":return _context.stop();}}},_callee,null,[[0,16]]);}));return function handleGetUrl(){return _ref2.apply(this,arguments);};}();return/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"Form",children:[/*#__PURE__*/Object(jsx_runtime["jsx"])(Input_Input_Input,{title:"TokenId",value:tokenIdInput,type:"number",onChange:handleChangeTokenId}),/*#__PURE__*/Object(jsx_runtime["jsx"])(Button_Button_Button,{onClick:handleGetUrl,text:"Get URL",disabled:!tokenIdInput}),url&&(showText?/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"Form__result-text",children:url}):/*#__PURE__*/Object(jsx_runtime["jsx"])("img",{className:"Form__image-preview",src:url,alt:url,onError:function onError(){return setShowText(true);}}))]});};
 // CONCATENATED MODULE: ./src/components/FormSetPrice/FormSetPrice.tsx
-var FormSetPrice_FormSetPrice=function FormSetPrice(_ref){var contractSell=_ref.contractSell,setErrors=_ref.setErrors,setIsDone=_ref.setIsDone,currentAccount=_ref.currentAccount,tokenId=_ref.tokenId,onSuccess=_ref.onSuccess;var _useState=Object(react["useState"])(undefined),_useState2=_slicedToArray(_useState,2),price=_useState2[0],setPrice=_useState2[1];var handleChangePrice=function handleChangePrice(e){return setPrice(+e.target.value||undefined);};var handleSetPrice=/*#__PURE__*/function(){var _ref2=_asyncToGenerator(/*#__PURE__*/regenerator_default.a.mark(function _callee(){var isValidTokenId,isValidPrice;return regenerator_default.a.wrap(function _callee$(_context){while(1){switch(_context.prev=_context.next){case 0:_context.prev=0;setErrors([]);setIsDone(false);isValidTokenId=validateTokenId(tokenId);isValidPrice=validateTokenId(price);if(!isValidPrice){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_PRICE_TEXT]);});}if(!isValidTokenId){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_TOKEN_ID_TEXT]);});}if(!currentAccount){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_CONTRACT_TEXT]);});}if(!(currentAccount&&isValidTokenId&&contractSell)){_context.next=13;break;}_context.next=11;return contractSell.methods.setCurrentPrice(tokenId,price).send({from:currentAccount});case 11:if(onSuccess){onSuccess();}setIsDone(true);case 13:_context.next=18;break;case 15:_context.prev=15;_context.t0=_context["catch"](0);setErrors([_context.t0.message]);case 18:case"end":return _context.stop();}}},_callee,null,[[0,15]]);}));return function handleSetPrice(){return _ref2.apply(this,arguments);};}();return/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"Form",children:[/*#__PURE__*/Object(jsx_runtime["jsx"])(Input_Input_Input,{title:"Price",value:price,type:"number",onChange:handleChangePrice}),/*#__PURE__*/Object(jsx_runtime["jsx"])(Button_Button_Button,{onClick:handleSetPrice,text:"Set price",disabled:!price})]});};
+var FormSetPrice_FormSetPrice=function FormSetPrice(_ref){var contractMain=_ref.contractMain,contractSell=_ref.contractSell,setErrors=_ref.setErrors,setIsDone=_ref.setIsDone,currentAccount=_ref.currentAccount,tokenId=_ref.tokenId,onSuccess=_ref.onSuccess;var _useState=Object(react["useState"])(undefined),_useState2=_slicedToArray(_useState,2),price=_useState2[0],setPrice=_useState2[1];var _useState3=Object(react["useState"])(false),_useState4=_slicedToArray(_useState3,2),isOwner=_useState4[0],setIsOwner=_useState4[1];var handleChangePrice=function handleChangePrice(e){return setPrice(+e.target.value||undefined);};var handleSetPrice=/*#__PURE__*/function(){var _ref2=_asyncToGenerator(/*#__PURE__*/regenerator_default.a.mark(function _callee(){var isValidTokenId,isValidPrice;return regenerator_default.a.wrap(function _callee$(_context){while(1){switch(_context.prev=_context.next){case 0:_context.prev=0;setErrors([]);setIsDone(false);isValidTokenId=validateTokenId(tokenId);isValidPrice=validateTokenId(price);if(!isValidPrice){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_PRICE_TEXT]);});}if(!isValidTokenId){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_TOKEN_ID_TEXT]);});}if(!currentAccount){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_CONTRACT_TEXT]);});}if(!(currentAccount&&isValidTokenId&&contractSell)){_context.next=13;break;}_context.next=11;return contractSell.methods.setCurrentPrice(tokenId,lib_default.a.utils.toWei("".concat(price))).send({from:currentAccount});case 11:if(onSuccess){onSuccess();}setIsDone(true);case 13:_context.next=18;break;case 15:_context.prev=15;_context.t0=_context["catch"](0);setErrors([_context.t0.message]);case 18:case"end":return _context.stop();}}},_callee,null,[[0,15]]);}));return function handleSetPrice(){return _ref2.apply(this,arguments);};}();Object(react["useEffect"])(function(){contractMain===null||contractMain===void 0?void 0:contractMain.methods.ownerOf(tokenId).call().then(function(owner){if(owner.toLowerCase()===currentAccount.toLowerCase()){setIsOwner(true);}else{setIsOwner(false);}});},[currentAccount,tokenId,contractMain]);return/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"Form",children:[/*#__PURE__*/Object(jsx_runtime["jsx"])(Input_Input_Input,{title:"Price (ETH)",value:price,type:"number",onChange:handleChangePrice}),/*#__PURE__*/Object(jsx_runtime["jsx"])(Button_Button_Button,{onClick:handleSetPrice,text:"Set price",disabled:!price||!isOwner}),!isOwner&&/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"App__title-text",children:"You are not the owner of this NFT"})]});};
 // CONCATENATED MODULE: ./src/components/FormsContainer/FormsContainer.tsx
-var getStepName=function getStepName(step){switch(step){case 1:return'Step 1: Mint NFT token';case 2:return'Step 2: Set Price for created NFT Token';default:return'';}};var FormsContainer_FormsContainer_FormsContainer=function FormsContainer(_ref){var currentPage=_ref.currentPage,onChangeCurrentPage=_ref.onChangeCurrentPage,formProps=_objectWithoutProperties(_ref,["currentPage","onChangeCurrentPage"]);var _useState=Object(react["useState"])(1),_useState2=_slicedToArray(_useState,2),step=_useState2[0],setStep=_useState2[1];var handleMintSuccess=function handleMintSuccess(){return setStep(2);};var handleSetPriceSuccess=function handleSetPriceSuccess(){return setStep(3);};switch(currentPage){case'add':return/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{style:{textAlign:'left'},children:[/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"App__title-text",children:getStepName(step)}),step===1&&/*#__PURE__*/Object(jsx_runtime["jsx"])(FormMint_FormMint,_objectSpread2(_objectSpread2({},formProps),{},{onSuccess:handleMintSuccess})),step===2&&/*#__PURE__*/Object(jsx_runtime["jsx"])(FormSetPrice_FormSetPrice,_objectSpread2(_objectSpread2({},formProps),{},{onSuccess:handleSetPriceSuccess})),/*#__PURE__*/Object(jsx_runtime["jsx"])(Button_Button_Button,{onClick:function onClick(){return onChangeCurrentPage('view');},text:"Go to view page"})]});case'view':return/*#__PURE__*/Object(jsx_runtime["jsxs"])(jsx_runtime["Fragment"],{children:[/*#__PURE__*/Object(jsx_runtime["jsx"])(FormPurchase_FormPurchase,_objectSpread2({},formProps)),/*#__PURE__*/Object(jsx_runtime["jsx"])(FormUrl_FormUrl,_objectSpread2({},formProps))]});default:return null;}};
+var getStepName=function getStepName(step){switch(step){case 1:return'Step 1: Mint NFT token';case 2:return'Step 2: Set Price for created NFT Token';default:return'';}};var FormsContainer_FormsContainer_FormsContainer=function FormsContainer(_ref){var currentPage=_ref.currentPage,onChangeCurrentPage=_ref.onChangeCurrentPage,formProps=_objectWithoutProperties(_ref,["currentPage","onChangeCurrentPage"]);var contractMain=formProps.contractMain,tokenId=formProps.tokenId;var _useState=Object(react["useState"])(1),_useState2=_slicedToArray(_useState,2),step=_useState2[0],setStep=_useState2[1];var handleMintSuccess=function handleMintSuccess(){return setStep(2);};var handleSetPriceSuccess=function handleSetPriceSuccess(){return setStep(3);};Object(react["useEffect"])(function(){contractMain===null||contractMain===void 0?void 0:contractMain.methods.tokenURI(tokenId).call().then(function(url){if(url){setStep(2);}});},[tokenId,contractMain]);switch(currentPage){case'add':return/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{style:{textAlign:'left'},children:[/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"App__title-text",children:getStepName(step)}),step===1&&/*#__PURE__*/Object(jsx_runtime["jsx"])(FormMint_FormMint,_objectSpread2(_objectSpread2({},formProps),{},{onSuccess:handleMintSuccess})),step===2&&/*#__PURE__*/Object(jsx_runtime["jsx"])(FormSetPrice_FormSetPrice,_objectSpread2(_objectSpread2({},formProps),{},{onSuccess:handleSetPriceSuccess})),/*#__PURE__*/Object(jsx_runtime["jsx"])(Button_Button_Button,{onClick:function onClick(){return onChangeCurrentPage('view');},text:"Go to view page"})]});case'view':return/*#__PURE__*/Object(jsx_runtime["jsxs"])(jsx_runtime["Fragment"],{children:[/*#__PURE__*/Object(jsx_runtime["jsx"])(FormPurchase_FormPurchase,_objectSpread2({},formProps)),/*#__PURE__*/Object(jsx_runtime["jsx"])(FormUrl_FormUrl,_objectSpread2({},formProps))]});default:return null;}};
 // CONCATENATED MODULE: ./src/components/App/App.tsx
 var web3=new lib_default.a(lib_default.a.givenProvider);var NETWORK_TYPE_INTERVAL=2000;var App_App_App=function App(){var _useState=Object(react["useState"])(false),_useState2=_slicedToArray(_useState,2),isWalletConnected=_useState2[0],setIsWalletConnected=_useState2[1];var _useState3=Object(react["useState"])('Please connect MetaMask'),_useState4=_slicedToArray(_useState3,2),walletError=_useState4[0],setWalletError=_useState4[1];var _useState5=Object(react["useState"])(undefined),_useState6=_slicedToArray(_useState5,2),currentNetworkType=_useState6[0],setCurrentNetworkType=_useState6[1];var _useState7=Object(react["useState"])('main'),_useState8=_slicedToArray(_useState7,2),networkType=_useState8[0],setNetworkType=_useState8[1];var _useState9=Object(react["useState"])(undefined),_useState10=_slicedToArray(_useState9,2),tokenId=_useState10[0],setTokenId=_useState10[1];var _useState11=Object(react["useState"])(''),_useState12=_slicedToArray(_useState11,2),currentPage=_useState12[0],setCurrentPage=_useState12[1];var _useState13=Object(react["useState"])(undefined),_useState14=_slicedToArray(_useState13,2),currentAccount=_useState14[0],setCurrentAccount=_useState14[1];var getCurrentNetworkType=function getCurrentNetworkType(){return web3.eth.net.getNetworkType().then(function(v){return setCurrentNetworkType(v);});};// @ts-ignore
 var getCurrentAccount=function getCurrentAccount(){var _web3$eth$accounts$cu,_web3$eth$accounts$cu2;return setCurrentAccount((_web3$eth$accounts$cu=web3.eth.accounts.currentProvider)===null||_web3$eth$accounts$cu===void 0?void 0:(_web3$eth$accounts$cu2=_web3$eth$accounts$cu.selectedAddress)===null||_web3$eth$accounts$cu2===void 0?void 0:_web3$eth$accounts$cu2.toLowerCase());};// @ts-ignore
@@ -101033,10 +101033,10 @@ __webpack_require__.d(__webpack_exports__, "serialize", function() { return /* b
 __webpack_require__.d(__webpack_exports__, "parse", function() { return /* binding */ parse; });
 
 // EXTERNAL MODULE: ./node_modules/@ethersproject/address/lib.esm/index.js + 1 modules
-var lib_esm = __webpack_require__(28);
+var lib_esm = __webpack_require__(29);
 
 // EXTERNAL MODULE: ./node_modules/@ethersproject/bignumber/lib.esm/bignumber.js + 1 modules
-var bignumber = __webpack_require__(48);
+var bignumber = __webpack_require__(49);
 
 // EXTERNAL MODULE: ./node_modules/@ethersproject/bytes/lib.esm/index.js + 1 modules
 var bytes_lib_esm = __webpack_require__(0);
@@ -101051,7 +101051,7 @@ var keccak256_lib_esm = __webpack_require__(17);
 var properties_lib_esm = __webpack_require__(9);
 
 // EXTERNAL MODULE: ./node_modules/@ethersproject/rlp/lib.esm/index.js + 1 modules
-var rlp_lib_esm = __webpack_require__(34);
+var rlp_lib_esm = __webpack_require__(35);
 
 // EXTERNAL MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/classCallCheck.js
 var classCallCheck = __webpack_require__(6);
@@ -101410,7 +101410,7 @@ function parse(rawTransaction) {
 /* unused harmony export Two */
 /* unused harmony export WeiPerEther */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MaxUint256; });
-/* harmony import */ var _ethersproject_bignumber__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(48);
+/* harmony import */ var _ethersproject_bignumber__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(49);
 
 var NegativeOne = /*#__PURE__*/_ethersproject_bignumber__WEBPACK_IMPORTED_MODULE_0__[/* BigNumber */ "a"].from(-1);
 var Zero = /*#__PURE__*/_ethersproject_bignumber__WEBPACK_IMPORTED_MODULE_0__[/* BigNumber */ "a"].from(0);

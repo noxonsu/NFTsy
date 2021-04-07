@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { Contract } from 'web3-eth-contract';
 
 import {FormMint} from "../FormMint/FormMint";
@@ -36,9 +36,18 @@ const getStepName = (step: number) => {
 }
 
 export const FormsContainer = ({ currentPage, onChangeCurrentPage, ...formProps}: FormsContainerProps) => {
+    const { contractMain, tokenId } = formProps;
     const [step, setStep] = useState(1);
     const handleMintSuccess = () => setStep(2);
     const handleSetPriceSuccess = () => setStep(3);
+
+    useEffect(() => {
+        contractMain?.methods.tokenURI(tokenId).call().then((url: string) => {
+            if (url) {
+                setStep(2);
+            }
+        })
+    }, [tokenId, contractMain]);
 
     switch (currentPage) {
         case 'add':
