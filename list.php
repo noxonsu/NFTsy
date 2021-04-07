@@ -1,4 +1,4 @@
-<?php 
+<style></style><?php 
 
 if ( isset( $_GET['token_id']{1} ) ) $nft_id = (int) $_GET['token_id'];
 $nft_current_page  = get_permalink( get_the_ID() );
