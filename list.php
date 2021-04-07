@@ -1,4 +1,37 @@
-<style></style><?php 
+<style>
+img.nft_img {
+    width: 320px;
+}
+
+.nft_item {
+    padding: 16px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 352px;
+    height: fit-content;
+
+    box-shadow: 0px 4px 16px rgb(0 0 0 / 8%), 0px 1px 4px rgb(0 0 0 / 8%);
+    background: #fff;
+    border-radius: 4px;
+}
+
+.elementor-text-editor.elementor-clearfix {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.nft_title {
+    font-size: 16px;
+    padding-bottom: 5px;
+}
+
+.nft_price {
+    font-size: 16px;
+}
+</style><?php
 
 if ( isset( $_GET['token_id']{1} ) ) $nft_id = (int) $_GET['token_id'];
 $nft_current_page  = get_permalink( get_the_ID() );
