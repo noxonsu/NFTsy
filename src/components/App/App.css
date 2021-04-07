@@ -5,6 +5,8 @@
 .App__content {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
 }
 
 .App__errors {

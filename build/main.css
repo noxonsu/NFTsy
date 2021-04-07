@@ -32,6 +32,10 @@ input[type=number] {
   display: flex;
   -webkit-flex-wrap: wrap;
           flex-wrap: wrap;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+          align-items: center;
 }
 
 .App__errors {
@@ -100,7 +104,7 @@ input[type=number] {
     padding-top: 16px;
     font-size: 18px;
     text-align: start;
-    width: 420px;
+    width: 500px;
     word-break: break-all;
 }
 
@@ -109,18 +113,19 @@ input[type=number] {
 }
 
 .Form__image-preview {
-    width: 420px;
+    width: 500px;
 }
 
 .Form__title {
-    width: 450px;
+    color: rgb(122, 122, 122);
+    width: 500px;
     text-align: left;
     padding-bottom: 16px;
     font-size: 16px;
 }
 
 .Form__text {
-    width: 420px;
+    width: 500px;
     text-align: left;
     padding-top: 10px;
     font-size: 16px;
@@ -170,7 +175,7 @@ input[type=number] {
 }
 
 .Input__input {
-    width: 420px;
+    width: 500px !important;
     box-sizing: border-box;
     border: solid 1px #666666;
     border-radius: 3px;

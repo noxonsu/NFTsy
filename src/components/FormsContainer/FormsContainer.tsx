@@ -82,7 +82,6 @@ export const FormsContainer = ({ currentPage, onChangeCurrentPage, ...formProps}
                     <FormPurchase {...formProps} />
                     {isOwner && (
                         <div>
-                            <div className='Form__title'>Set item price in ETH, set 0 if you don't want to sell this item</div>
                             <FormSetPrice {...formProps} isOwner={isOwner} />
                         </div>
                     )}
