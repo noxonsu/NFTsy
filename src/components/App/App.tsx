@@ -58,22 +58,24 @@ export const App = () => {
                 setIsWalletConnected(false);
             }
         } catch (e) {
-            setIsWalletConnected(false)
+            setIsWalletConnected(false);
         }
     }
 
+    useEffect(connectWallet, []);
     useEffect(() => {
-        connectWallet();
-        getCurrentAccount();
-        setInterval(getCurrentAccount, NETWORK_TYPE_INTERVAL);
-        getCurrentNetworkType();
-        setInterval(getCurrentNetworkType, NETWORK_TYPE_INTERVAL);
-        // @ts-ignore
-        if (window.nftConfig) {
+        if (isWalletConnected) {
+            getCurrentAccount();
+            setInterval(getCurrentAccount, NETWORK_TYPE_INTERVAL);
+            getCurrentNetworkType();
+            setInterval(getCurrentNetworkType, NETWORK_TYPE_INTERVAL);
             // @ts-ignore
-            window.init(window.nftConfig);
+            if (window.nftConfig) {
+                // @ts-ignore
+                window.init(window.nftConfig);
+            }
         }
-    }, []);
+    }, [isWalletConnected]);
 
     // @ts-ignore
     const contractMain = new web3.eth.Contract(CONTRACT_MAIN_ABI, CONTRACT_ADDRESS_MAIN);
@@ -87,6 +89,19 @@ export const App = () => {
         setErrors([]);
     }
 
+    if (!isWalletConnected) {
+        return (
+            <div className="App">
+                <div className="App__content">
+                    <div className='Form App__center-form'>
+                        <div className='App__title-text'>{walletError}</div>
+                        <Button onClick={connectWallet} text='Connect' />
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div className="App">
             {
@@ -97,14 +112,6 @@ export const App = () => {
             {
                 networkType === currentNetworkType && (
                     <div className="App__content">
-                        {
-                            !isWalletConnected && (
-                                <div className='Form App__center-form'>
-                                    <div className='App__title-text'>{walletError}</div>
-                                    <Button onClick={connectWallet} text='Connect' />
-                                </div>
-                            )
-                        }
                         <FormsContainer
                             contractMain={contractMain}
                             contractSell={contractSell}

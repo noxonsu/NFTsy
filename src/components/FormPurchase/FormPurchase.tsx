@@ -17,7 +17,6 @@ export const FormPurchase = ({ contractSell, tokenId, setErrors, setIsDone, curr
     const [purchaseValue, setPurchaseValue] = useState(undefined as number | undefined);
     const [isPriceInstalled, setIsPriceInstalled] = useState(false);
     const [isInProgress, setIsInProgress] = useState(false);
-    const handleChangePurchaseValue = (e: React.ChangeEvent<HTMLInputElement>) => setPurchaseValue(+e.target.value || undefined);
     const handlePurchase = async () => {
         try {
             setErrors([]);
@@ -50,6 +49,7 @@ export const FormPurchase = ({ contractSell, tokenId, setErrors, setIsDone, curr
     useEffect(() => {
         try {
             contractSell?.methods.nft_prices(tokenId).call().then((res: number) => {
+                setPurchaseValue(+Web3.utils.fromWei(`${res}`));
                 if (res > 0) {
                     setIsPriceInstalled(true);
                 } else {
@@ -63,8 +63,8 @@ export const FormPurchase = ({ contractSell, tokenId, setErrors, setIsDone, curr
 
     return (
         <div className='Form'>
-            <Input title='Value (ETH)' value={purchaseValue} type="number" onChange={handleChangePurchaseValue} />
-            <Button onClick={handlePurchase} text={isInProgress ? 'Pending...' : 'Purchase'} disabled={!purchaseValue || !isPriceInstalled || isInProgress} />
+            <div className='App__title-text'>Price: {purchaseValue} ETH</div>
+            <Button onClick={handlePurchase} text={isInProgress ? 'Pending...' : 'Purchase'} disabled={!isPriceInstalled || isInProgress} />
             {!isPriceInstalled && <div className='Form__text'>This item not for sale</div>}
         </div>
     )
