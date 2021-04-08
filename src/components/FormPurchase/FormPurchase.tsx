@@ -13,7 +13,11 @@ import '../FormsContainer/FormsContainer.css';
 import {Input} from "../Input/Input";
 import Web3 from "web3";
 
+<<<<<<< HEAD
 export const FormPurchase = ({ contractMain, contractSell, tokenId, setErrors, setIsDone, currentAccount }: FormCustomProps) => {
+=======
+export const FormPurchase = ({ contractMain, contractSell, tokenId, setErrors, setIsDone, currentAccount, title }: FormCustomProps) => {
+>>>>>>> 3cd6104520cd08c9c6f8a1318fbd7e3742172544
     const [purchaseValue, setPurchaseValue] = useState(undefined as number | undefined);
     const [isPriceInstalled, setIsPriceInstalled] = useState(false);
     const [isInProgress, setIsInProgress] = useState(false);
@@ -68,6 +72,14 @@ export const FormPurchase = ({ contractMain, contractSell, tokenId, setErrors, s
 
     return (
         <div className='Form'>
+            {title && <div className='App__title'>{title}</div>}
+            {
+                url && (
+                    showText
+                        ? <div className='Form__result-text'>{url}</div>
+                        : <img className='Form__image-preview' src={url} alt={url} onError={() => setShowText(true)} />
+                )
+            }
             <div className='App__title-text'>Price: {purchaseValue} ETH</div>
             {
                 url && (

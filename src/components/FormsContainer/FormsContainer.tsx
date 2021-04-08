@@ -19,6 +19,7 @@ export interface FormCustomProps {
     onSuccess?: () => void;
     currentTokenUrl?: string;
     isOwner?: boolean;
+    title?: string;
 }
 
 export interface FormsContainerProps extends FormCustomProps{

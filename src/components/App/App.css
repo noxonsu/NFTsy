@@ -30,8 +30,13 @@
   padding-bottom: 16px;
   font-size: 16px;
   color: rgb(122, 122, 122);
-  text-align: center;
-  word-break: break-all;
+  text-align: left;
+}
+
+.App__title {
+  padding-bottom: 16px;
+  font-size: 20px;
+  text-align: left;
 }
 
 .App__center-form {
