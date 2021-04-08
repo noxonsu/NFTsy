@@ -13,10 +13,12 @@ import '../FormsContainer/FormsContainer.css';
 import {Input} from "../Input/Input";
 import Web3 from "web3";
 
-export const FormPurchase = ({ contractSell, tokenId, setErrors, setIsDone, currentAccount }: FormCustomProps) => {
+export const FormPurchase = ({ contractMain, contractSell, tokenId, setErrors, setIsDone, currentAccount }: FormCustomProps) => {
     const [purchaseValue, setPurchaseValue] = useState(undefined as number | undefined);
     const [isPriceInstalled, setIsPriceInstalled] = useState(false);
     const [isInProgress, setIsInProgress] = useState(false);
+    const [url, setUrl] = useState('');
+    const [showText, setShowText] = useState(false);
     const handlePurchase = async () => {
         try {
             setErrors([]);
@@ -56,6 +58,9 @@ export const FormPurchase = ({ contractSell, tokenId, setErrors, setIsDone, curr
                     setIsPriceInstalled(false);
                 }
             });
+            if (contractMain) {
+                contractMain.methods.tokenURI(tokenId).call().then((res: string) => setUrl(res));
+            }
         } catch (e) {
             setErrors([e.message]);
         }
@@ -64,6 +69,13 @@ export const FormPurchase = ({ contractSell, tokenId, setErrors, setIsDone, curr
     return (
         <div className='Form'>
             <div className='App__title-text'>Price: {purchaseValue} ETH</div>
+            {
+                url && (
+                    showText
+                        ? <div className='Form__result-text'>{url}</div>
+                        : <img className='Form__image-preview' src={url} alt={url} onError={() => setShowText(true)} />
+                )
+            }
             <Button onClick={handlePurchase} text={isInProgress ? 'Pending...' : 'Purchase'} disabled={!isPriceInstalled || isInProgress} />
             {!isPriceInstalled && <div className='Form__text'>This item not for sale</div>}
         </div>
