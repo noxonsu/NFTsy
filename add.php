@@ -43,7 +43,6 @@ if ( is_user_logged_in() || NFT_ADDUSER > 0) {
 
 			
 			?>
-			NFT ID: <?php echo $nft_id; ?>
 			<div id="root"></div>
 			<script>
 			
