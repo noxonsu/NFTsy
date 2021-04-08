@@ -84,6 +84,7 @@ input[type=number] {
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
+    box-sizing: border-box;
 
     box-shadow: 0px 4px 16px rgb(0 0 0 / 8%), 0px 1px 4px rgb(0 0 0 / 8%);
     background: #fff;
@@ -106,6 +107,7 @@ input[type=number] {
 
 .Form__image-preview {
     width: 320px;
+    padding-bottom: 16px;
 }
 
 .Form__title {

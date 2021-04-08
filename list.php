@@ -67,7 +67,7 @@ if (!isset($nft_id)) {
                     <img class='nft_img' src="<? echo get_the_content() ?>">
                 </a>
             </div
-			<div class='nft_title'><? echo get_the_title() ?></div> <div class='nft_price' rel="<? echo get_the_id(); ?>"> 1 ETH</div>
+			<div class='nft_title'><? echo get_the_title() ?></div>
 			</div>
 			<?php
 			echo '';
