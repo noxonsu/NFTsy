@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Web3 from 'web3';
 
 import {
@@ -15,6 +15,7 @@ import '../FormsContainer/FormsContainer.css';
 
 export const FormSetPrice = ({ isOwner, contractSell, setErrors, setIsDone, currentAccount, tokenId, onSuccess }: FormCustomProps) => {
     const [price, setPrice] = useState(undefined as number | undefined);
+    const [tokenPrice, setTokenPrice] = useState(undefined as number | undefined);
     const [isInProgress, setIsInProgress] = useState(false);
     const handleChangePrice = (e: React.ChangeEvent<HTMLInputElement>) => setPrice(e.target.value === '' ? undefined : +e.target.value);
     const handleSetPrice = async () => {
@@ -49,13 +50,24 @@ export const FormSetPrice = ({ isOwner, contractSell, setErrors, setIsDone, curr
         }
     };
 
+    useEffect(() => {
+        try {
+            contractSell?.methods.nft_prices(tokenId).call().then((res: number) => {
+                setTokenPrice(+Web3.utils.fromWei(`${res}`));
+            });
+        } catch (e) {
+            setErrors([e.message]);
+        }
+    }, [tokenId]);
+
     return (
         <div className='Form'>
             <div className='Form__title'>Set item price in ETH, set 0 if you don't want to sell this item</div>
+            <div className='Form__title'>Current price: {tokenPrice} ETH</div>
             <Input title='Price (ETH)' value={price} type="number" onChange={handleChangePrice} />
             <Button onClick={handleSetPrice} text={isInProgress ? 'Pending...' : 'Set price'} disabled={price === undefined || !isOwner || isInProgress} />
             {!isOwner && (
-                <div className="App__title-text">You are not the owner of this NFT</div>
+                <div className="Form__text">You are not the owner of this NFT</div>
             )}
         </div>
     )

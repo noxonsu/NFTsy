@@ -125,9 +125,8 @@ input[type=number] {
 }
 
 .Form__text {
-    width: 500px;
     text-align: left;
-    padding-top: 10px;
+    padding-top: 16px;
     font-size: 16px;
     color: rgb(122, 122, 122);
 }
