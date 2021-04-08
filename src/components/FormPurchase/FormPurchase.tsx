@@ -68,8 +68,7 @@ export const FormPurchase = ({ contractMain, contractSell, tokenId, setErrors, s
 
     return (
         <div className='Form'>
-            {title && <div className='App__title-text'>{title}</div>}
-            <div className='App__title-text'>Price: {purchaseValue} ETH</div>
+            {title && <div className='App__title'>{title}</div>}
             {
                 url && (
                     showText
@@ -77,6 +76,7 @@ export const FormPurchase = ({ contractMain, contractSell, tokenId, setErrors, s
                         : <img className='Form__image-preview' src={url} alt={url} onError={() => setShowText(true)} />
                 )
             }
+            <div className='App__title-text'>Price: {purchaseValue} ETH</div>
             <Button onClick={handlePurchase} text={isInProgress ? 'Pending...' : 'Purchase'} disabled={!isPriceInstalled || isInProgress} />
             {!isPriceInstalled && <div className='Form__text'>This item not for sale</div>}
         </div>

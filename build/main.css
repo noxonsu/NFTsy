@@ -62,6 +62,12 @@ input[type=number] {
   text-align: left;
 }
 
+.App__title {
+  padding-bottom: 16px;
+  font-size: 20px;
+  text-align: left;
+}
+
 .App__center-form {
   width: 260px !important;
   -webkit-align-items: center !important;
