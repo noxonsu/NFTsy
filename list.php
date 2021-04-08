@@ -84,12 +84,7 @@ if (!isset($nft_id)) {
 	$query = new WP_Query($args);
 	
 	if ($query->have_posts() ) { $query->the_post();
-	?><div class='nft_item full'>
-			
-		<img class='nft_img' src="<? echo get_the_content() ?>">
-			
-		<div class='nft_title'><? echo get_the_title() ?></div> <div class='nft_price' rel="<? echo get_the_id(); ?>"> <div id='price'>?</div> ETH</div>
-	</div>
+	?>
 	<div id="root"></div>
 	<script>
 	window.nftConfig = { networkType: '<?php esc_html_e(get_option("nft_networkName"),"nft"); ?>', page: 'view', tokenId: <?php echo $nft_id; ?> }
