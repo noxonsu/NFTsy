@@ -6385,6 +6385,17 @@ function _createClass(Constructor, protoProps, staticProps) {
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
+
+
+if (true) {
+  module.exports = __webpack_require__(203);
+} else {}
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
 /*! safe-buffer. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
 
 /* eslint-disable node/no-deprecated-api */
@@ -6457,17 +6468,6 @@ SafeBuffer.allocUnsafeSlow = function (size) {
 
   return buffer.SlowBuffer(size);
 };
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-if (true) {
-  module.exports = __webpack_require__(203);
-} else {}
 
 /***/ }),
 /* 10 */
@@ -10429,7 +10429,7 @@ function eventTargetAgnosticAddListener(emitter, name, listener, flags) {
 
 /*<replacement>*/
 
-var Buffer = __webpack_require__(8).Buffer;
+var Buffer = __webpack_require__(9).Buffer;
 /*</replacement>*/
 
 
@@ -10765,7 +10765,7 @@ function oldBrowser() {
   throw new Error('Secure random number generation is not supported by this browser.\nUse Chrome, Firefox or Internet Explorer 11');
 }
 
-var Buffer = __webpack_require__(8).Buffer;
+var Buffer = __webpack_require__(9).Buffer;
 
 var crypto = global.crypto || global.msCrypto;
 
@@ -10867,7 +10867,7 @@ function nextTick(fn, arg1, arg2, arg3) {
 /* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Buffer = __webpack_require__(8).Buffer;
+var Buffer = __webpack_require__(9).Buffer;
 
 var Transform = __webpack_require__(84).Transform;
 
@@ -13222,7 +13222,7 @@ Object.defineProperty(Duplex.prototype, 'destroyed', {
 /* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Buffer = __webpack_require__(8).Buffer; // prototype class for hash functions
+var Buffer = __webpack_require__(9).Buffer; // prototype class for hash functions
 
 
 function Hash(blockSize, finalSize) {
@@ -15904,7 +15904,7 @@ exports.constants = {
 // https://github.com/keybase/triplesec
 // which is in turn based on the one from crypto-js
 // https://code.google.com/p/crypto-js/
-var Buffer = __webpack_require__(8).Buffer;
+var Buffer = __webpack_require__(9).Buffer;
 
 function asUInt32Array(buf) {
   if (!Buffer.isBuffer(buf)) buf = Buffer.from(buf);
@@ -16116,7 +16116,7 @@ module.exports.AES = AES;
 /* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Buffer = __webpack_require__(8).Buffer;
+var Buffer = __webpack_require__(9).Buffer;
 
 var MD5 = __webpack_require__(80);
 /* eslint-disable camelcase */
@@ -16552,7 +16552,7 @@ var ciphers = __webpack_require__(89);
 
 var compat = __webpack_require__(153);
 
-var Buffer = __webpack_require__(8).Buffer;
+var Buffer = __webpack_require__(9).Buffer;
 
 module.exports = parseKeys;
 
@@ -17537,7 +17537,7 @@ var inherits = __webpack_require__(4);
 
 var HashBase = __webpack_require__(137);
 
-var Buffer = __webpack_require__(8).Buffer;
+var Buffer = __webpack_require__(9).Buffer;
 
 var ARRAY16 = new Array(16);
 
@@ -28036,7 +28036,7 @@ module.exports = _CID;
 // file LICENSE or http://www.opensource.org/licenses/mit-license.php.
 // @ts-ignore
 
-var _Buffer = __webpack_require__(8).Buffer;
+var _Buffer = __webpack_require__(9).Buffer;
 
 function base(ALPHABET) {
   if (ALPHABET.length >= 255) {
@@ -28462,7 +28462,7 @@ module.exports = Personal;
 "use strict";
 
 
-var Buffer = __webpack_require__(8).Buffer;
+var Buffer = __webpack_require__(9).Buffer;
 
 var Transform = __webpack_require__(326).Transform;
 
@@ -30778,7 +30778,7 @@ var inherits = __webpack_require__(4);
 
 var Hash = __webpack_require__(44);
 
-var Buffer = __webpack_require__(8).Buffer;
+var Buffer = __webpack_require__(9).Buffer;
 
 var K = [0x428A2F98, 0x71374491, 0xB5C0FBCF, 0xE9B5DBA5, 0x3956C25B, 0x59F111F1, 0x923F82A4, 0xAB1C5ED5, 0xD807AA98, 0x12835B01, 0x243185BE, 0x550C7DC3, 0x72BE5D74, 0x80DEB1FE, 0x9BDC06A7, 0xC19BF174, 0xE49B69C1, 0xEFBE4786, 0x0FC19DC6, 0x240CA1CC, 0x2DE92C6F, 0x4A7484AA, 0x5CB0A9DC, 0x76F988DA, 0x983E5152, 0xA831C66D, 0xB00327C8, 0xBF597FC7, 0xC6E00BF3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585, 0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
 var W = new Array(64);
@@ -30893,7 +30893,7 @@ var inherits = __webpack_require__(4);
 
 var Hash = __webpack_require__(44);
 
-var Buffer = __webpack_require__(8).Buffer;
+var Buffer = __webpack_require__(9).Buffer;
 
 var K = [0x428a2f98, 0xd728ae22, 0x71374491, 0x23ef65cd, 0xb5c0fbcf, 0xec4d3b2f, 0xe9b5dba5, 0x8189dbbc, 0x3956c25b, 0xf348b538, 0x59f111f1, 0xb605d019, 0x923f82a4, 0xaf194f9b, 0xab1c5ed5, 0xda6d8118, 0xd807aa98, 0xa3030242, 0x12835b01, 0x45706fbe, 0x243185be, 0x4ee4b28c, 0x550c7dc3, 0xd5ffb4e2, 0x72be5d74, 0xf27b896f, 0x80deb1fe, 0x3b1696b1, 0x9bdc06a7, 0x25c71235, 0xc19bf174, 0xcf692694, 0xe49b69c1, 0x9ef14ad2, 0xefbe4786, 0x384f25e3, 0x0fc19dc6, 0x8b8cd5b5, 0x240ca1cc, 0x77ac9c65, 0x2de92c6f, 0x592b0275, 0x4a7484aa, 0x6ea6e483, 0x5cb0a9dc, 0xbd41fbd4, 0x76f988da, 0x831153b5, 0x983e5152, 0xee66dfab, 0xa831c66d, 0x2db43210, 0xb00327c8, 0x98fb213f, 0xbf597fc7, 0xbeef0ee4, 0xc6e00bf3, 0x3da88fc2, 0xd5a79147, 0x930aa725, 0x06ca6351, 0xe003826f, 0x14292967, 0x0a0e6e70, 0x27b70a85, 0x46d22ffc, 0x2e1b2138, 0x5c26c926, 0x4d2c6dfc, 0x5ac42aed, 0x53380d13, 0x9d95b3df, 0x650a7354, 0x8baf63de, 0x766a0abb, 0x3c77b2a8, 0x81c2c92e, 0x47edaee6, 0x92722c85, 0x1482353b, 0xa2bfe8a1, 0x4cf10364, 0xa81a664b, 0xbc423001, 0xc24b8b70, 0xd0f89791, 0xc76c51a3, 0x0654be30, 0xd192e819, 0xd6ef5218, 0xd6990624, 0x5565a910, 0xf40e3585, 0x5771202a, 0x106aa070, 0x32bbd1b8, 0x19a4c116, 0xb8d2d0c8, 0x1e376c08, 0x5141ab53, 0x2748774c, 0xdf8eeb99, 0x34b0bcb5, 0xe19b48a8, 0x391c0cb3, 0xc5c95a63, 0x4ed8aa4a, 0xe3418acb, 0x5b9cca4f, 0x7763e373, 0x682e6ff3, 0xd6b2b8a3, 0x748f82ee, 0x5defb2fc, 0x78a5636f, 0x43172f60, 0x84c87814, 0xa1f0ab72, 0x8cc70208, 0x1a6439ec, 0x90befffa, 0x23631e28, 0xa4506ceb, 0xde82bde9, 0xbef9a3f7, 0xb2c67915, 0xc67178f2, 0xe372532b, 0xca273ece, 0xea26619c, 0xd186b8c7, 0x21c0c207, 0xeada7dd6, 0xcde0eb1e, 0xf57d4f7f, 0xee6ed178, 0x06f067aa, 0x72176fba, 0x0a637dc5, 0xa2c898a6, 0x113f9804, 0xbef90dae, 0x1b710b35, 0x131c471b, 0x28db77f5, 0x23047d84, 0x32caab7b, 0x40c72493, 0x3c9ebe0a, 0x15c9bebc, 0x431d67c4, 0x9c100d4c, 0x4cc5d4be, 0xcb3e42b6, 0x597f299c, 0xfc657e2a, 0x5fcb6fab, 0x3ad6faec, 0x6c44198c, 0x4a475817];
 var W = new Array(160);
@@ -32448,7 +32448,7 @@ var Legacy = __webpack_require__(346);
 
 var Base = __webpack_require__(28);
 
-var Buffer = __webpack_require__(8).Buffer;
+var Buffer = __webpack_require__(9).Buffer;
 
 var md5 = __webpack_require__(151);
 
@@ -32593,7 +32593,7 @@ var RIPEMD160 = __webpack_require__(82);
 
 var sha = __webpack_require__(83);
 
-var Buffer = __webpack_require__(8).Buffer;
+var Buffer = __webpack_require__(9).Buffer;
 
 var checkParameters = __webpack_require__(154);
 
@@ -32702,7 +32702,7 @@ module.exports = pbkdf2;
 /* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Buffer = __webpack_require__(8).Buffer;
+var Buffer = __webpack_require__(9).Buffer;
 
 module.exports = function (thing, encoding, name) {
   if (Buffer.isBuffer(thing)) {
@@ -33078,7 +33078,7 @@ DES.prototype._decrypt = function _decrypt(state, lStart, rStart, out, off) {
 
 var xor = __webpack_require__(54);
 
-var Buffer = __webpack_require__(8).Buffer;
+var Buffer = __webpack_require__(9).Buffer;
 
 var incr32 = __webpack_require__(161);
 
@@ -33150,7 +33150,7 @@ module.exports = JSON.parse("{\"aes-128-ecb\":{\"cipher\":\"AES\",\"key\":128,\"
 
 var aes = __webpack_require__(65);
 
-var Buffer = __webpack_require__(8).Buffer;
+var Buffer = __webpack_require__(9).Buffer;
 
 var Transform = __webpack_require__(28);
 
@@ -33283,7 +33283,7 @@ module.exports = StreamCipher;
 
 var aes = __webpack_require__(65);
 
-var Buffer = __webpack_require__(8).Buffer;
+var Buffer = __webpack_require__(9).Buffer;
 
 var Transform = __webpack_require__(28);
 
@@ -40006,7 +40006,7 @@ module.exports = JSON.parse("{\"1.3.132.0.10\":\"secp256k1\",\"1.3.132.0.33\":\"
 
 var createHash = __webpack_require__(41);
 
-var Buffer = __webpack_require__(8).Buffer;
+var Buffer = __webpack_require__(9).Buffer;
 
 module.exports = function (seed, len) {
   var t = Buffer.alloc(0);
@@ -40048,7 +40048,7 @@ module.exports = function xor(a, b) {
 
 var BN = __webpack_require__(1);
 
-var Buffer = __webpack_require__(8).Buffer;
+var Buffer = __webpack_require__(9).Buffer;
 
 function withPublic(paddedMsg, key) {
   return Buffer.from(paddedMsg.toRed(BN.mont(key.modulus)).redPow(new BN(key.publicExponent)).fromRed().toArray());
@@ -48826,7 +48826,7 @@ exports.version = "17.0.1";
 */
 
 
-var aa = __webpack_require__(9),
+var aa = __webpack_require__(8),
     m = __webpack_require__(37),
     r = __webpack_require__(205);
 
@@ -85037,7 +85037,7 @@ var inherits = __webpack_require__(4);
 
 var Hash = __webpack_require__(44);
 
-var Buffer = __webpack_require__(8).Buffer;
+var Buffer = __webpack_require__(9).Buffer;
 
 var K = [0x5a827999, 0x6ed9eba1, 0x8f1bbcdc | 0, 0xca62c1d6 | 0];
 var W = new Array(80);
@@ -85134,7 +85134,7 @@ var inherits = __webpack_require__(4);
 
 var Hash = __webpack_require__(44);
 
-var Buffer = __webpack_require__(8).Buffer;
+var Buffer = __webpack_require__(9).Buffer;
 
 var K = [0x5a827999, 0x6ed9eba1, 0x8f1bbcdc | 0, 0xca62c1d6 | 0];
 var W = new Array(80);
@@ -85236,7 +85236,7 @@ var Sha256 = __webpack_require__(144);
 
 var Hash = __webpack_require__(44);
 
-var Buffer = __webpack_require__(8).Buffer;
+var Buffer = __webpack_require__(9).Buffer;
 
 var W = new Array(64);
 
@@ -85285,7 +85285,7 @@ var SHA512 = __webpack_require__(145);
 
 var Hash = __webpack_require__(44);
 
-var Buffer = __webpack_require__(8).Buffer;
+var Buffer = __webpack_require__(9).Buffer;
 
 var W = new Array(160);
 
@@ -85535,7 +85535,7 @@ module.exports = __webpack_require__(85).PassThrough;
 
 var inherits = __webpack_require__(4);
 
-var Buffer = __webpack_require__(8).Buffer;
+var Buffer = __webpack_require__(9).Buffer;
 
 var Base = __webpack_require__(28);
 
@@ -85593,7 +85593,7 @@ module.exports = __webpack_require__(152);
 /* 348 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global, process) {var Buffer = __webpack_require__(8).Buffer;
+/* WEBPACK VAR INJECTION */(function(global, process) {var Buffer = __webpack_require__(9).Buffer;
 
 var checkParameters = __webpack_require__(154);
 
@@ -85797,7 +85797,7 @@ var des = __webpack_require__(351);
 
 var inherits = __webpack_require__(4);
 
-var Buffer = __webpack_require__(8).Buffer;
+var Buffer = __webpack_require__(9).Buffer;
 
 var modes = {
   'des-ede3-cbc': des.CBC.instantiate(des.EDE),
@@ -86027,7 +86027,7 @@ var MODES = __webpack_require__(90);
 
 var AuthCipher = __webpack_require__(163);
 
-var Buffer = __webpack_require__(8).Buffer;
+var Buffer = __webpack_require__(9).Buffer;
 
 var StreamCipher = __webpack_require__(164);
 
@@ -86184,7 +86184,7 @@ exports.decrypt = function (self, block) {
 /* 357 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Buffer = __webpack_require__(8).Buffer;
+var Buffer = __webpack_require__(9).Buffer;
 
 var xor = __webpack_require__(54);
 
@@ -86223,7 +86223,7 @@ exports.encrypt = function (self, data, decrypt) {
 /* 358 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Buffer = __webpack_require__(8).Buffer;
+var Buffer = __webpack_require__(9).Buffer;
 
 function encryptByte(self, byteParam, decrypt) {
   var pad = self._cipher.encryptBlock(self._prev);
@@ -86249,7 +86249,7 @@ exports.encrypt = function (self, chunk, decrypt) {
 /* 359 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Buffer = __webpack_require__(8).Buffer;
+var Buffer = __webpack_require__(9).Buffer;
 
 function encryptByte(self, byteParam, decrypt) {
   var pad;
@@ -86321,7 +86321,7 @@ exports.encrypt = function (self, chunk) {
 /* 361 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Buffer = __webpack_require__(8).Buffer;
+var Buffer = __webpack_require__(9).Buffer;
 
 var ZEROES = Buffer.alloc(16, 0);
 
@@ -86418,7 +86418,7 @@ module.exports = GHASH;
 
 var AuthCipher = __webpack_require__(163);
 
-var Buffer = __webpack_require__(8).Buffer;
+var Buffer = __webpack_require__(9).Buffer;
 
 var MODES = __webpack_require__(90);
 
@@ -86846,7 +86846,7 @@ function formatReturnValue(bn, enc) {
 /* 368 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Buffer = __webpack_require__(8).Buffer;
+var Buffer = __webpack_require__(9).Buffer;
 
 var createHash = __webpack_require__(41);
 
@@ -87636,7 +87636,7 @@ module.exports = pipeline;
 /***/ (function(module, exports, __webpack_require__) {
 
 // much of this based on https://github.com/indutny/self-signed/blob/gh-pages/lib/rsa.js
-var Buffer = __webpack_require__(8).Buffer;
+var Buffer = __webpack_require__(9).Buffer;
 
 var createHmac = __webpack_require__(150);
 
@@ -94064,7 +94064,7 @@ var evp = __webpack_require__(66);
 
 var ciphers = __webpack_require__(89);
 
-var Buffer = __webpack_require__(8).Buffer;
+var Buffer = __webpack_require__(9).Buffer;
 
 module.exports = function (okey, password) {
   var key = okey.toString();
@@ -94098,7 +94098,7 @@ module.exports = function (okey, password) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // much of this based on https://github.com/indutny/self-signed/blob/gh-pages/lib/rsa.js
-var Buffer = __webpack_require__(8).Buffer;
+var Buffer = __webpack_require__(9).Buffer;
 
 var BN = __webpack_require__(175);
 
@@ -94369,7 +94369,7 @@ var withPublic = __webpack_require__(184);
 
 var crt = __webpack_require__(93);
 
-var Buffer = __webpack_require__(8).Buffer;
+var Buffer = __webpack_require__(9).Buffer;
 
 module.exports = function publicEncrypt(publicKey, msg, reverse) {
   var padding;
@@ -94485,7 +94485,7 @@ var createHash = __webpack_require__(41);
 
 var withPublic = __webpack_require__(184);
 
-var Buffer = __webpack_require__(8).Buffer;
+var Buffer = __webpack_require__(9).Buffer;
 
 module.exports = function privateDecrypt(privateKey, enc, reverse) {
   var padding;
@@ -94618,7 +94618,7 @@ function oldBrowser() {
   throw new Error('secure random number generation not supported by this browser\nuse chrome, FireFox or Internet Explorer 11');
 }
 
-var safeBuffer = __webpack_require__(8);
+var safeBuffer = __webpack_require__(9);
 
 var randombytes = __webpack_require__(26);
 
@@ -100675,7 +100675,7 @@ module.exports = function (_ref) {
 
 __webpack_require__(37);
 
-var f = __webpack_require__(9),
+var f = __webpack_require__(8),
     g = 60103;
 
 exports.Fragment = 60107;
@@ -100739,7 +100739,7 @@ exports.jsxs = q;
 __webpack_require__.r(__webpack_exports__);
 
 // EXTERNAL MODULE: ./node_modules/react/index.js
-var react = __webpack_require__(9);
+var react = __webpack_require__(8);
 var react_default = /*#__PURE__*/__webpack_require__.n(react);
 
 // EXTERNAL MODULE: ./node_modules/react-dom/index.js
@@ -100997,22 +100997,22 @@ var Input_Input_Input=function Input(_ref){var title=_ref.title,onChange=_ref.on
 // CONCATENATED MODULE: ./src/components/FormMint/FormMint.tsx
 var FormMint_FormMint=function FormMint(_ref){var contractMain=_ref.contractMain,setErrors=_ref.setErrors,setIsDone=_ref.setIsDone,currentAccount=_ref.currentAccount,tokenId=_ref.tokenId,onSuccess=_ref.onSuccess,currentTokenUrl=_ref.currentTokenUrl;var _useState=Object(react["useState"])(''),_useState2=_slicedToArray(_useState,2),url=_useState2[0],setUrl=_useState2[1];var _useState3=Object(react["useState"])(false),_useState4=_slicedToArray(_useState3,2),isInProgress=_useState4[0],setIsInProgress=_useState4[1];var handleChangeUrl=function handleChangeUrl(e){return setUrl(e.target.value);};var handleSubmitMint=/*#__PURE__*/function(){var _ref2=_asyncToGenerator(/*#__PURE__*/regenerator_default.a.mark(function _callee(newUrl){var isValidTokenId;return regenerator_default.a.wrap(function _callee$(_context){while(1){switch(_context.prev=_context.next){case 0:_context.prev=0;setErrors([]);setIsDone(false);isValidTokenId=validateTokenId(tokenId);if(!isValidTokenId){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_TOKEN_ID_TEXT]);});}if(!currentAccount){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_CONTRACT_TEXT]);});}if(!(currentAccount&&isValidTokenId&&contractMain&&(newUrl!==null&&newUrl!==void 0?newUrl:url))){_context.next=13;break;}setIsInProgress(true);_context.next=10;return contractMain.methods.mintAndApprove(currentAccount,tokenId,newUrl!==null&&newUrl!==void 0?newUrl:url,CONTRACT_ADDRESS_SELL).send({from:currentAccount});case 10:if(onSuccess){onSuccess();}setIsInProgress(false);setIsDone(true);case 13:_context.next=19;break;case 15:_context.prev=15;_context.t0=_context["catch"](0);setIsInProgress(false);setErrors([_context.t0.message]);case 19:case"end":return _context.stop();}}},_callee,null,[[0,15]]);}));return function handleSubmitMint(_x){return _ref2.apply(this,arguments);};}();Object(react["useEffect"])(function(){if(currentTokenUrl){setUrl(currentTokenUrl);handleSubmitMint(currentTokenUrl);}},[currentTokenUrl]);return/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"Form",children:[/*#__PURE__*/Object(jsx_runtime["jsx"])(Input_Input_Input,{title:"Url",value:url,type:"text",onChange:handleChangeUrl}),/*#__PURE__*/Object(jsx_runtime["jsx"])(Button_Button_Button,{onClick:function onClick(){return handleSubmitMint();},text:isInProgress?'Pending...':'Mint',disabled:!url||isInProgress})]});};
 // CONCATENATED MODULE: ./src/components/FormPurchase/FormPurchase.tsx
-var FormPurchase_FormPurchase=function FormPurchase(_ref){var contractMain=_ref.contractMain,contractSell=_ref.contractSell,tokenId=_ref.tokenId,setErrors=_ref.setErrors,setIsDone=_ref.setIsDone,currentAccount=_ref.currentAccount;var _useState=Object(react["useState"])(undefined),_useState2=_slicedToArray(_useState,2),purchaseValue=_useState2[0],setPurchaseValue=_useState2[1];var _useState3=Object(react["useState"])(false),_useState4=_slicedToArray(_useState3,2),isPriceInstalled=_useState4[0],setIsPriceInstalled=_useState4[1];var _useState5=Object(react["useState"])(false),_useState6=_slicedToArray(_useState5,2),isInProgress=_useState6[0],setIsInProgress=_useState6[1];var _useState7=Object(react["useState"])(''),_useState8=_slicedToArray(_useState7,2),url=_useState8[0],setUrl=_useState8[1];var _useState9=Object(react["useState"])(false),_useState10=_slicedToArray(_useState9,2),showText=_useState10[0],setShowText=_useState10[1];var handlePurchase=/*#__PURE__*/function(){var _ref2=_asyncToGenerator(/*#__PURE__*/regenerator_default.a.mark(function _callee(){var isValidTokenId,isValidPurchaseValue;return regenerator_default.a.wrap(function _callee$(_context){while(1){switch(_context.prev=_context.next){case 0:_context.prev=0;setErrors([]);setIsDone(false);isValidTokenId=validateTokenId(tokenId);isValidPurchaseValue=validateTokenId(purchaseValue);if(!isValidTokenId){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_TOKEN_ID_TEXT]);});}if(!isValidPurchaseValue){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_PURCHASE_VALUE_TEXT]);});}if(!(currentAccount&&isValidTokenId&&isValidPurchaseValue&&contractSell)){_context.next=13;break;}setIsInProgress(true);_context.next=11;return contractSell.methods.purchaseToken(tokenId).send({from:currentAccount,value:lib_default.a.utils.toWei("".concat(purchaseValue))});case 11:setIsInProgress(false);setIsDone(true);case 13:_context.next=19;break;case 15:_context.prev=15;_context.t0=_context["catch"](0);setIsInProgress(false);setErrors([_context.t0.message]);case 19:case"end":return _context.stop();}}},_callee,null,[[0,15]]);}));return function handlePurchase(){return _ref2.apply(this,arguments);};}();Object(react["useEffect"])(function(){try{contractSell===null||contractSell===void 0?void 0:contractSell.methods.nft_prices(tokenId).call().then(function(res){setPurchaseValue(+lib_default.a.utils.fromWei("".concat(res)));if(res>0){setIsPriceInstalled(true);}else{setIsPriceInstalled(false);}});if(contractMain){contractMain.methods.tokenURI(tokenId).call().then(function(res){return setUrl(res);});}}catch(e){setErrors([e.message]);}},[tokenId]);return/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"Form",children:[/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"App__title-text",children:["Price: ",purchaseValue," ETH"]}),url&&(showText?/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"Form__result-text",children:url}):/*#__PURE__*/Object(jsx_runtime["jsx"])("img",{className:"Form__image-preview",src:url,alt:url,onError:function onError(){return setShowText(true);}})),/*#__PURE__*/Object(jsx_runtime["jsx"])(Button_Button_Button,{onClick:handlePurchase,text:isInProgress?'Pending...':'Purchase',disabled:!isPriceInstalled||isInProgress}),!isPriceInstalled&&/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"Form__text",children:"This item not for sale"})]});};
+var FormPurchase_FormPurchase=function FormPurchase(_ref){var contractMain=_ref.contractMain,contractSell=_ref.contractSell,tokenId=_ref.tokenId,setErrors=_ref.setErrors,setIsDone=_ref.setIsDone,currentAccount=_ref.currentAccount,title=_ref.title;var _useState=Object(react["useState"])(undefined),_useState2=_slicedToArray(_useState,2),purchaseValue=_useState2[0],setPurchaseValue=_useState2[1];var _useState3=Object(react["useState"])(false),_useState4=_slicedToArray(_useState3,2),isPriceInstalled=_useState4[0],setIsPriceInstalled=_useState4[1];var _useState5=Object(react["useState"])(false),_useState6=_slicedToArray(_useState5,2),isInProgress=_useState6[0],setIsInProgress=_useState6[1];var _useState7=Object(react["useState"])(''),_useState8=_slicedToArray(_useState7,2),url=_useState8[0],setUrl=_useState8[1];var _useState9=Object(react["useState"])(false),_useState10=_slicedToArray(_useState9,2),showText=_useState10[0],setShowText=_useState10[1];var handlePurchase=/*#__PURE__*/function(){var _ref2=_asyncToGenerator(/*#__PURE__*/regenerator_default.a.mark(function _callee(){var isValidTokenId,isValidPurchaseValue;return regenerator_default.a.wrap(function _callee$(_context){while(1){switch(_context.prev=_context.next){case 0:_context.prev=0;setErrors([]);setIsDone(false);isValidTokenId=validateTokenId(tokenId);isValidPurchaseValue=validateTokenId(purchaseValue);if(!isValidTokenId){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_TOKEN_ID_TEXT]);});}if(!isValidPurchaseValue){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_PURCHASE_VALUE_TEXT]);});}if(!(currentAccount&&isValidTokenId&&isValidPurchaseValue&&contractSell)){_context.next=13;break;}setIsInProgress(true);_context.next=11;return contractSell.methods.purchaseToken(tokenId).send({from:currentAccount,value:lib_default.a.utils.toWei("".concat(purchaseValue))});case 11:setIsInProgress(false);setIsDone(true);case 13:_context.next=19;break;case 15:_context.prev=15;_context.t0=_context["catch"](0);setIsInProgress(false);setErrors([_context.t0.message]);case 19:case"end":return _context.stop();}}},_callee,null,[[0,15]]);}));return function handlePurchase(){return _ref2.apply(this,arguments);};}();Object(react["useEffect"])(function(){try{contractSell===null||contractSell===void 0?void 0:contractSell.methods.nft_prices(tokenId).call().then(function(res){setPurchaseValue(+lib_default.a.utils.fromWei("".concat(res)));if(res>0){setIsPriceInstalled(true);}else{setIsPriceInstalled(false);}});if(contractMain){contractMain.methods.tokenURI(tokenId).call().then(function(res){return setUrl(res);});}}catch(e){setErrors([e.message]);}},[tokenId]);return/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"Form",children:[title&&/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"App__title-text",children:title}),/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"App__title-text",children:["Price: ",purchaseValue," ETH"]}),url&&(showText?/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"Form__result-text",children:url}):/*#__PURE__*/Object(jsx_runtime["jsx"])("img",{className:"Form__image-preview",src:url,alt:url,onError:function onError(){return setShowText(true);}})),/*#__PURE__*/Object(jsx_runtime["jsx"])(Button_Button_Button,{onClick:handlePurchase,text:isInProgress?'Pending...':'Purchase',disabled:!isPriceInstalled||isInProgress}),!isPriceInstalled&&/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"Form__text",children:"This item not for sale"})]});};
 // CONCATENATED MODULE: ./src/components/FormSetPrice/FormSetPrice.tsx
 var FormSetPrice_FormSetPrice=function FormSetPrice(_ref){var isOwner=_ref.isOwner,contractSell=_ref.contractSell,setErrors=_ref.setErrors,setIsDone=_ref.setIsDone,currentAccount=_ref.currentAccount,tokenId=_ref.tokenId,onSuccess=_ref.onSuccess;var _useState=Object(react["useState"])(undefined),_useState2=_slicedToArray(_useState,2),price=_useState2[0],setPrice=_useState2[1];var _useState3=Object(react["useState"])(undefined),_useState4=_slicedToArray(_useState3,2),tokenPrice=_useState4[0],setTokenPrice=_useState4[1];var _useState5=Object(react["useState"])(false),_useState6=_slicedToArray(_useState5,2),isInProgress=_useState6[0],setIsInProgress=_useState6[1];var handleChangePrice=function handleChangePrice(e){return setPrice(e.target.value===''?undefined:+e.target.value);};var handleSetPrice=/*#__PURE__*/function(){var _ref2=_asyncToGenerator(/*#__PURE__*/regenerator_default.a.mark(function _callee(){var isValidTokenId,isValidPrice;return regenerator_default.a.wrap(function _callee$(_context){while(1){switch(_context.prev=_context.next){case 0:_context.prev=0;setErrors([]);setIsDone(false);isValidTokenId=validateTokenId(tokenId);isValidPrice=validateTokenId(price);if(!isValidPrice){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_PRICE_TEXT]);});}if(!isValidTokenId){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_TOKEN_ID_TEXT]);});}if(!currentAccount){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_CONTRACT_TEXT]);});}if(!(currentAccount&&isValidTokenId&&contractSell)){_context.next=15;break;}setIsInProgress(true);_context.next=12;return contractSell.methods.setCurrentPrice(tokenId,lib_default.a.utils.toWei("".concat(price))).send({from:currentAccount});case 12:setIsInProgress(false);if(onSuccess){onSuccess();}setIsDone(true);case 15:_context.next=21;break;case 17:_context.prev=17;_context.t0=_context["catch"](0);setIsInProgress(false);setErrors([_context.t0.message]);case 21:case"end":return _context.stop();}}},_callee,null,[[0,17]]);}));return function handleSetPrice(){return _ref2.apply(this,arguments);};}();Object(react["useEffect"])(function(){try{contractSell===null||contractSell===void 0?void 0:contractSell.methods.nft_prices(tokenId).call().then(function(res){setTokenPrice(+lib_default.a.utils.fromWei("".concat(res)));});}catch(e){setErrors([e.message]);}},[tokenId]);return/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"Form",children:[/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"Form__title",children:"Set item price in ETH, set 0 if you don't want to sell this item"}),/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"Form__title",children:["Current price: ",tokenPrice," ETH"]}),/*#__PURE__*/Object(jsx_runtime["jsx"])(Input_Input_Input,{title:"Price (ETH)",value:price,type:"number",onChange:handleChangePrice}),/*#__PURE__*/Object(jsx_runtime["jsx"])(Button_Button_Button,{onClick:handleSetPrice,text:isInProgress?'Pending...':'Set price',disabled:price===undefined||!isOwner||isInProgress}),!isOwner&&/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"Form__text",children:"You are not the owner of this NFT"})]});};
 // CONCATENATED MODULE: ./src/components/FormsContainer/FormsContainer.tsx
 var getStepName=function getStepName(step){switch(step){case 1:return'Step 1: Mint NFT token';case 2:return'Step 2: Set Price for created NFT Token';default:return'';}};var FormsContainer_FormsContainer_FormsContainer=function FormsContainer(_ref){var currentPage=_ref.currentPage,onChangeCurrentPage=_ref.onChangeCurrentPage,formProps=_objectWithoutProperties(_ref,["currentPage","onChangeCurrentPage"]);var contractMain=formProps.contractMain,tokenId=formProps.tokenId,currentAccount=formProps.currentAccount;var _useState=Object(react["useState"])(1),_useState2=_slicedToArray(_useState,2),step=_useState2[0],setStep=_useState2[1];var _useState3=Object(react["useState"])(false),_useState4=_slicedToArray(_useState3,2),isOwner=_useState4[0],setIsOwner=_useState4[1];var handleMintSuccess=function handleMintSuccess(){return setStep(2);};var handleSetPriceSuccess=function handleSetPriceSuccess(){return setStep(3);};Object(react["useEffect"])(function(){contractMain===null||contractMain===void 0?void 0:contractMain.methods.tokenURI(tokenId).call().then(function(url){if(url){setStep(2);}});},[tokenId,contractMain]);Object(react["useEffect"])(function(){contractMain===null||contractMain===void 0?void 0:contractMain.methods.ownerOf(tokenId).call().then(function(owner){if(owner.toLowerCase()===currentAccount.toLowerCase()){setIsOwner(true);}else{setIsOwner(false);}});},[currentAccount,tokenId,contractMain]);switch(currentPage){case'add':return/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{style:{textAlign:'left'},children:[/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"App__title-text",children:getStepName(step)}),step===1&&/*#__PURE__*/Object(jsx_runtime["jsx"])(FormMint_FormMint,_objectSpread2(_objectSpread2({},formProps),{},{onSuccess:handleMintSuccess})),step===2&&/*#__PURE__*/Object(jsx_runtime["jsx"])(FormSetPrice_FormSetPrice,_objectSpread2(_objectSpread2({},formProps),{},{onSuccess:handleSetPriceSuccess,isOwner:isOwner})),/*#__PURE__*/Object(jsx_runtime["jsx"])(Button_Button_Button,{onClick:function onClick(){return onChangeCurrentPage('view');},text:"Go to view page"})]});case'view':return/*#__PURE__*/Object(jsx_runtime["jsxs"])(jsx_runtime["Fragment"],{children:[/*#__PURE__*/Object(jsx_runtime["jsx"])(FormPurchase_FormPurchase,_objectSpread2({},formProps)),isOwner&&/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{children:/*#__PURE__*/Object(jsx_runtime["jsx"])(FormSetPrice_FormSetPrice,_objectSpread2(_objectSpread2({},formProps),{},{isOwner:isOwner}))})]});default:return null;}};
 // CONCATENATED MODULE: ./src/components/App/App.tsx
-var web3=new lib_default.a(lib_default.a.givenProvider);var NETWORK_TYPE_INTERVAL=2000;var App_App_App=function App(){var _useState=Object(react["useState"])(false),_useState2=_slicedToArray(_useState,2),isWalletConnected=_useState2[0],setIsWalletConnected=_useState2[1];var _useState3=Object(react["useState"])('Please connect MetaMask'),_useState4=_slicedToArray(_useState3,2),walletError=_useState4[0],setWalletError=_useState4[1];var _useState5=Object(react["useState"])(undefined),_useState6=_slicedToArray(_useState5,2),currentNetworkType=_useState6[0],setCurrentNetworkType=_useState6[1];var _useState7=Object(react["useState"])('main'),_useState8=_slicedToArray(_useState7,2),networkType=_useState8[0],setNetworkType=_useState8[1];var _useState9=Object(react["useState"])(undefined),_useState10=_slicedToArray(_useState9,2),tokenId=_useState10[0],setTokenId=_useState10[1];var _useState11=Object(react["useState"])(''),_useState12=_slicedToArray(_useState11,2),currentPage=_useState12[0],setCurrentPage=_useState12[1];var _useState13=Object(react["useState"])(undefined),_useState14=_slicedToArray(_useState13,2),currentAccount=_useState14[0],setCurrentAccount=_useState14[1];var _useState15=Object(react["useState"])(''),_useState16=_slicedToArray(_useState15,2),currentTokenUrl=_useState16[0],setCurrentTokenUrl=_useState16[1];var getCurrentNetworkType=function getCurrentNetworkType(){return web3.eth.net.getNetworkType().then(function(v){return setCurrentNetworkType(v);});};// @ts-ignore
+var web3=new lib_default.a(lib_default.a.givenProvider);var NETWORK_TYPE_INTERVAL=2000;var App_App_App=function App(){var _useState=Object(react["useState"])(false),_useState2=_slicedToArray(_useState,2),isWalletConnected=_useState2[0],setIsWalletConnected=_useState2[1];var _useState3=Object(react["useState"])('Please connect MetaMask'),_useState4=_slicedToArray(_useState3,2),walletError=_useState4[0],setWalletError=_useState4[1];var _useState5=Object(react["useState"])(undefined),_useState6=_slicedToArray(_useState5,2),currentNetworkType=_useState6[0],setCurrentNetworkType=_useState6[1];var _useState7=Object(react["useState"])('main'),_useState8=_slicedToArray(_useState7,2),networkType=_useState8[0],setNetworkType=_useState8[1];var _useState9=Object(react["useState"])(undefined),_useState10=_slicedToArray(_useState9,2),tokenId=_useState10[0],setTokenId=_useState10[1];var _useState11=Object(react["useState"])(''),_useState12=_slicedToArray(_useState11,2),currentPage=_useState12[0],setCurrentPage=_useState12[1];var _useState13=Object(react["useState"])(undefined),_useState14=_slicedToArray(_useState13,2),currentAccount=_useState14[0],setCurrentAccount=_useState14[1];var _useState15=Object(react["useState"])(''),_useState16=_slicedToArray(_useState15,2),currentTokenUrl=_useState16[0],setCurrentTokenUrl=_useState16[1];var _useState17=Object(react["useState"])(''),_useState18=_slicedToArray(_useState17,2),currentTitle=_useState18[0],setCurrentTitle=_useState18[1];var getCurrentNetworkType=function getCurrentNetworkType(){return web3.eth.net.getNetworkType().then(function(v){return setCurrentNetworkType(v);});};// @ts-ignore
 var getCurrentAccount=function getCurrentAccount(){var _web3$eth$accounts$cu,_web3$eth$accounts$cu2;return setCurrentAccount((_web3$eth$accounts$cu=web3.eth.accounts.currentProvider)===null||_web3$eth$accounts$cu===void 0?void 0:(_web3$eth$accounts$cu2=_web3$eth$accounts$cu.selectedAddress)===null||_web3$eth$accounts$cu2===void 0?void 0:_web3$eth$accounts$cu2.toLowerCase());};// @ts-ignore
-window.init=function(_ref){var tokenId=_ref.tokenId,networkType=_ref.networkType,page=_ref.page,newUrl=_ref.newUrl;if(tokenId){setTokenId(tokenId);}if(networkType){setNetworkType(networkType);}if(page){setCurrentPage(page);}if(newUrl){setCurrentTokenUrl(newUrl);}};var connectWallet=function connectWallet(){try{// @ts-ignore
+window.init=function(_ref){var tokenId=_ref.tokenId,networkType=_ref.networkType,page=_ref.page,newUrl=_ref.newUrl,title=_ref.title;if(tokenId){setTokenId(tokenId);}if(networkType){setNetworkType(networkType);}if(page){setCurrentPage(page);}if(newUrl){setCurrentTokenUrl(newUrl);}if(title){setCurrentTitle(title);}};var connectWallet=function connectWallet(){try{// @ts-ignore
 if(window.ethereum){// @ts-ignore
 window.ethereum.enable().then(function(){return setIsWalletConnected(true);}).catch(function(){return setIsWalletConnected(false);});// @ts-ignore
 }else if(window.web3){web3=new lib_default.a(web3.currentProvider);}else{setWalletError('Please install MetaMask');setIsWalletConnected(false);}}catch(e){setIsWalletConnected(false);}};Object(react["useEffect"])(connectWallet,[]);Object(react["useEffect"])(function(){if(isWalletConnected){getCurrentAccount();setInterval(getCurrentAccount,NETWORK_TYPE_INTERVAL);getCurrentNetworkType();setInterval(getCurrentNetworkType,NETWORK_TYPE_INTERVAL);// @ts-ignore
 if(window.nftConfig){// @ts-ignore
 window.init(window.nftConfig);}}},[isWalletConnected]);// @ts-ignore
 var contractMain=new web3.eth.Contract(mintNFT,CONTRACT_ADDRESS_MAIN);// @ts-ignore
-var contractSell=new web3.eth.Contract(sellNFT_CryptoArteSales,CONTRACT_ADDRESS_SELL);var _useState17=Object(react["useState"])([]),_useState18=_slicedToArray(_useState17,2),errors=_useState18[0],setErrors=_useState18[1];var _useState19=Object(react["useState"])(false),_useState20=_slicedToArray(_useState19,2),isDone=_useState20[0],setIsDone=_useState20[1];var handleChangeCurrentPage=function handleChangeCurrentPage(page){setCurrentPage(page);setIsDone(false);setErrors([]);};if(!isWalletConnected){return/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"App",children:/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"App__content",children:/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"Form App__center-form",children:[/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"App__title-text",children:walletError}),/*#__PURE__*/Object(jsx_runtime["jsx"])(Button_Button_Button,{onClick:connectWallet,text:"Connect"})]})})});}return/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"App",children:[networkType!==currentNetworkType&&/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"App__title-text",children:["Please change ",/*#__PURE__*/Object(jsx_runtime["jsx"])("b",{children:currentNetworkType})," network type to ",/*#__PURE__*/Object(jsx_runtime["jsx"])("b",{children:networkType})]}),networkType===currentNetworkType&&/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"App__content",children:/*#__PURE__*/Object(jsx_runtime["jsx"])(FormsContainer_FormsContainer_FormsContainer,{contractMain:contractMain,contractSell:contractSell,tokenId:tokenId,currentAccount:currentAccount,setErrors:setErrors,setIsDone:setIsDone,currentPage:currentPage,currentTokenUrl:currentTokenUrl,onChangeCurrentPage:handleChangeCurrentPage})}),!!errors.length&&/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"App__errors",children:errors.map(function(error){return/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"App__errors__error",children:error},error);})}),isDone&&/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"App__done",children:"DONE"})]});};
+var contractSell=new web3.eth.Contract(sellNFT_CryptoArteSales,CONTRACT_ADDRESS_SELL);var _useState19=Object(react["useState"])([]),_useState20=_slicedToArray(_useState19,2),errors=_useState20[0],setErrors=_useState20[1];var _useState21=Object(react["useState"])(false),_useState22=_slicedToArray(_useState21,2),isDone=_useState22[0],setIsDone=_useState22[1];var handleChangeCurrentPage=function handleChangeCurrentPage(page){setCurrentPage(page);setIsDone(false);setErrors([]);};if(!isWalletConnected){return/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"App",children:/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"App__content",children:/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"Form App__center-form",children:[/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"App__title-text",children:walletError}),/*#__PURE__*/Object(jsx_runtime["jsx"])(Button_Button_Button,{onClick:connectWallet,text:"Connect"})]})})});}return/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"App",children:[networkType!==currentNetworkType&&/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"App__title-text",children:["Please change ",/*#__PURE__*/Object(jsx_runtime["jsx"])("b",{children:currentNetworkType})," network type to ",/*#__PURE__*/Object(jsx_runtime["jsx"])("b",{children:networkType})]}),networkType===currentNetworkType&&/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"App__content",children:/*#__PURE__*/Object(jsx_runtime["jsx"])(FormsContainer_FormsContainer_FormsContainer,{contractMain:contractMain,contractSell:contractSell,tokenId:tokenId,currentAccount:currentAccount,setErrors:setErrors,setIsDone:setIsDone,currentPage:currentPage,currentTokenUrl:currentTokenUrl,onChangeCurrentPage:handleChangeCurrentPage,title:currentTitle})}),!!errors.length&&/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"App__errors",children:errors.map(function(error){return/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"App__errors__error",children:error},error);})}),isDone&&/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"App__done",children:"DONE"})]});};
 // CONCATENATED MODULE: ./src/index.tsx
 react_dom_default.a.render(/*#__PURE__*/Object(jsx_runtime["jsx"])(react_default.a.StrictMode,{children:/*#__PURE__*/Object(jsx_runtime["jsx"])(App_App_App,{})}),document.getElementById('root'));
 

@@ -87,7 +87,7 @@ if (!isset($nft_id)) {
 	?>
 	<div id="root"></div>
 	<script>
-	window.nftConfig = { networkType: '<?php esc_html_e(get_option("nft_networkName"),"nft"); ?>', page: 'view', tokenId: <?php echo $nft_id; ?> }
+	window.nftConfig = { networkType: '<?php esc_html_e(get_option("nft_networkName"),"nft"); ?>', page: 'view', tokenId: <?php echo $nft_id; ?>, title: <?php echo get_the_title(); ?> }
 	</script><?
 	} else {
 		?>Not found<?
