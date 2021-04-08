@@ -3,6 +3,10 @@ img.nft_img {
     width: 320px;
 }
 
+.full img.nft_img  {
+    width: 400px;
+}
+
 .nft_item {
     padding: 16px;
     margin-right: 20px;
@@ -17,7 +21,9 @@ img.nft_img {
     background: #fff;
     border-radius: 4px;
 }
-
+.nft_item.full {
+	width:100%;
+}
 .elementor-text-editor.elementor-clearfix {
     display: flex;
     flex-wrap: wrap;
@@ -61,11 +67,27 @@ if (!isset($nft_id)) {
 		wp_reset_postdata();
 	endif;
 } else {
-	?>THIS IS VIEW NFT ID: <?php echo $nft_id; ?>
+	
+	$args = array(
+        'p' => $nft_id,
+		'post_type'=> 'nft'
+    );
+	$query = new WP_Query($args);
+	
+	if ($query->have_posts() ) { $query->the_post();
+	?><div class='nft_item full'>
+			
+		<img class='nft_img' src="<? echo get_the_content() ?>">
+			
+		<div class='nft_title'><? echo get_the_title() ?></div> <div class='nft_price' rel="<? echo get_the_id(); ?>"> <div id='price'>?</div> ETH</div>
+	</div>
 	<div id="root"></div>
 	<script>
 	window.nftConfig = { networkType: '<?php esc_html_e(get_option("nft_networkName"),"nft"); ?>', page: 'view', tokenId: <?php echo $nft_id; ?> }
 	</script><?
+	} else {
+		?>Not found<?
+	}
 }
 
 ?>
