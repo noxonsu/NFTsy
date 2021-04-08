@@ -1,10 +1,15 @@
 <style>
 img.nft_img {
-    width: 320px;
+    max-width: 320px;
+    max-height: 320px;
 }
 
-.full img.nft_img  {
-    width: 400px;
+.nftitem_container {
+    width: 320px;
+    height: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .nft_item {
@@ -21,9 +26,6 @@ img.nft_img {
     background: #fff;
     border-radius: 4px;
 }
-.nft_item.full {
-	width:100%;
-}
 .elementor-text-editor.elementor-clearfix {
     display: flex;
     flex-wrap: wrap;
@@ -32,6 +34,11 @@ img.nft_img {
 .nft_title {
     font-size: 16px;
     padding-bottom: 5px;
+    height: 29px;
+    width: 320px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .nft_price {
@@ -55,9 +62,11 @@ if (!isset($nft_id)) {
 			$nft_link = get_the_title();
 			?>
 			<div class='nft_item'>
-			<a class="nftitem" href='<? echo $nft_link_id ?>'>
-				<img class='nft_img' src="<? echo get_the_content() ?>">
-			</a>
+			<div class='nftitem_container'>
+                <a class="nftitem" href='<? echo $nft_link_id ?>'>
+                    <img class='nft_img' src="<? echo get_the_content() ?>">
+                </a>
+            </div
 			<div class='nft_title'><? echo get_the_title() ?></div> <div class='nft_price' rel="<? echo get_the_id(); ?>"> 1 ETH</div>
 			</div>
 			<?php

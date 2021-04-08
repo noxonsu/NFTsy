@@ -30,12 +30,6 @@ input[type=number] {
 .App__content {
   display: -webkit-flex;
   display: flex;
-  -webkit-flex-wrap: wrap;
-          flex-wrap: wrap;
-  -webkit-flex-direction: column;
-          flex-direction: column;
-  -webkit-align-items: center;
-          align-items: center;
 }
 
 .App__errors {
@@ -78,17 +72,15 @@ input[type=number] {
 }
 .Form {
     padding: 16px;
-    margin-right: 40px;
-    margin-bottom: 40px;
+    margin-right: 20px;
+    margin-bottom: 20px;
     display: -webkit-flex;
     display: flex;
     -webkit-flex-direction: column;
             flex-direction: column;
     -webkit-align-items: flex-start;
             align-items: flex-start;
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
+    width: 352px !important;
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
@@ -104,7 +96,7 @@ input[type=number] {
     padding-top: 16px;
     font-size: 18px;
     text-align: start;
-    width: 500px;
+    width: 320px;
     word-break: break-all;
 }
 
@@ -113,12 +105,12 @@ input[type=number] {
 }
 
 .Form__image-preview {
-    width: 500px;
+    width: 320px;
 }
 
 .Form__title {
     color: rgb(122, 122, 122);
-    width: 500px;
+    width: 320px;
     text-align: left;
     padding-bottom: 16px;
     font-size: 16px;
@@ -174,7 +166,7 @@ input[type=number] {
 }
 
 .Input__input {
-    width: 500px !important;
+    width: 320px !important;
     box-sizing: border-box;
     border: solid 1px #666666;
     border-radius: 3px;
