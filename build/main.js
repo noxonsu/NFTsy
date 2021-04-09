@@ -4030,6 +4030,17 @@ function joinSignature(signature) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+if (true) {
+  module.exports = __webpack_require__(473);
+} else {}
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function(global) {/*!
  * The buffer module from node.js, for the browser.
  *
@@ -5886,17 +5897,6 @@ function isnan(val) {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(12)))
 
 /***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-if (true) {
-  module.exports = __webpack_require__(473);
-} else {}
-
-/***/ }),
 /* 4 */
 /***/ (function(module, exports) {
 
@@ -6399,7 +6399,7 @@ if (true) {
 /*! safe-buffer. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
 
 /* eslint-disable node/no-deprecated-api */
-var buffer = __webpack_require__(2);
+var buffer = __webpack_require__(3);
 
 var Buffer = buffer.Buffer; // alternative to using Object.keys for old browsers
 
@@ -9533,7 +9533,7 @@ exports.isBuffer = Buffer.isBuffer;
 function objectToString(o) {
   return Object.prototype.toString.call(o);
 }
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(3).Buffer))
 
 /***/ }),
 /* 22 */
@@ -14922,7 +14922,7 @@ module.exports = JSON.parse("{\"identity\":0,\"ip4\":4,\"tcp\":6,\"sha1\":17,\"s
 
   return buffer;
 };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(3).Buffer))
 
 /***/ }),
 /* 55 */
@@ -15296,7 +15296,7 @@ module.exports = {
   getKeys: getKeys,
   isHexString: isHexString
 };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(3).Buffer))
 
 /***/ }),
 /* 57 */
@@ -15490,7 +15490,7 @@ exports.baToJSON = function (ba) {
     return array;
   }
 };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(3).Buffer))
 
 /***/ }),
 /* 58 */
@@ -16752,7 +16752,7 @@ http.METHODS = ['CHECKOUT', 'CONNECT', 'COPY', 'DELETE', 'GET', 'HEAD', 'LOCK', 
 /***/ (function(module, exports, __webpack_require__) {
 
 /* eslint-disable node/no-deprecated-api */
-var buffer = __webpack_require__(2);
+var buffer = __webpack_require__(3);
 
 var Buffer = buffer.Buffer; // alternative to using Object.keys for old browsers
 
@@ -17021,7 +17021,7 @@ module.exports = _unsupportedIterableToArray;
  */
 
 
-var _require = __webpack_require__(2),
+var _require = __webpack_require__(3),
     Buffer = _require.Buffer;
 
 var multibase = __webpack_require__(294);
@@ -17801,7 +17801,7 @@ module.exports = eos;
 "use strict";
 
 
-var Buffer = __webpack_require__(2).Buffer;
+var Buffer = __webpack_require__(3).Buffer;
 
 var inherits = __webpack_require__(4);
 
@@ -18096,7 +18096,7 @@ exports.PassThrough = __webpack_require__(341);
 /***/ (function(module, exports, __webpack_require__) {
 
 /* eslint-disable node/no-deprecated-api */
-var buffer = __webpack_require__(2);
+var buffer = __webpack_require__(3);
 
 var Buffer = buffer.Buffer; // alternative to using Object.keys for old browsers
 
@@ -19247,7 +19247,7 @@ function crt(msg, priv) {
 
 crt.getr = getr;
 module.exports = crt;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(3).Buffer))
 
 /***/ }),
 /* 94 */
@@ -19412,7 +19412,7 @@ defineCurve('secp256k1', {
 /* WEBPACK VAR INJECTION */(function(process) {/* eslint-disable node/no-deprecated-api */
 
 
-var buffer = __webpack_require__(2);
+var buffer = __webpack_require__(3);
 
 var Buffer = buffer.Buffer;
 var safer = {};
@@ -20536,7 +20536,7 @@ exports.ecdhUnsafe = function (publicKey, privateKey, compressed) {
 
   return Buffer.from(secp256k1v3.ecdhUnsafe(Uint8Array.from(publicKey), Uint8Array.from(privateKey), compressed));
 };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(3).Buffer))
 
 /***/ }),
 /* 100 */
@@ -20829,7 +20829,7 @@ function toBuffer(v) {
 
   return v;
 }
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(3).Buffer))
 
 /***/ }),
 /* 101 */
@@ -20949,7 +20949,7 @@ exports.ripemd160 = function (a, padded) {
 exports.rlphash = function (a) {
   return exports.keccak(rlp.encode(a));
 };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(3).Buffer))
 
 /***/ }),
 /* 102 */
@@ -22349,7 +22349,7 @@ module.exports = {
   sha3: sha3,
   sha3Raw: sha3Raw
 };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(3).Buffer))
 
 /***/ }),
 /* 108 */
@@ -23599,7 +23599,7 @@ IncomingMessage.prototype._onXHRProgress = function () {
     self.push(null);
   }
 };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11), __webpack_require__(12), __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11), __webpack_require__(12), __webpack_require__(3).Buffer))
 
 /***/ }),
 /* 113 */
@@ -27145,7 +27145,7 @@ module.exports = Contract;
  * @author Fabian Vogelsteller <fabian@frozeman.de>
  * @date 2018
  */
-var Buffer = __webpack_require__(2).Buffer;
+var Buffer = __webpack_require__(3).Buffer;
 
 var _ = __webpack_require__(14);
 
@@ -27602,7 +27602,7 @@ function normalize(name) {
 
 exports.hash = namehash;
 exports.normalize = normalize;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(3).Buffer))
 
 /***/ }),
 /* 128 */
@@ -27646,7 +27646,7 @@ function varintBufferDecode(input) {
 function varintEncode(num) {
   return Buffer.from(varint.encode(num));
 }
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(3).Buffer))
 
 /***/ }),
 /* 129 */
@@ -27675,7 +27675,7 @@ var _classCallCheck = __webpack_require__(39);
 
 var _createClass = __webpack_require__(40);
 
-var _require = __webpack_require__(2),
+var _require = __webpack_require__(3),
     Buffer = _require.Buffer;
 
 var mh = __webpack_require__(76);
@@ -28235,7 +28235,7 @@ module.exports = base;
 
 var varint = __webpack_require__(51);
 
-var _require = __webpack_require__(2),
+var _require = __webpack_require__(3),
     Buffer = _require.Buffer;
 
 module.exports = {
@@ -28620,7 +28620,7 @@ var Stream = __webpack_require__(139);
 /*</replacement>*/
 
 
-var Buffer = __webpack_require__(2).Buffer;
+var Buffer = __webpack_require__(3).Buffer;
 
 var OurUint8Array = global.Uint8Array || function () {};
 
@@ -29926,7 +29926,7 @@ var Stream = __webpack_require__(139);
 /*</replacement>*/
 
 
-var Buffer = __webpack_require__(2).Buffer;
+var Buffer = __webpack_require__(3).Buffer;
 
 var OurUint8Array = global.Uint8Array || function () {};
 
@@ -33584,7 +33584,7 @@ var Stream = __webpack_require__(168);
 /*</replacement>*/
 
 
-var Buffer = __webpack_require__(2).Buffer;
+var Buffer = __webpack_require__(3).Buffer;
 
 var OurUint8Array = global.Uint8Array || function () {};
 
@@ -34890,7 +34890,7 @@ var Stream = __webpack_require__(168);
 /*</replacement>*/
 
 
-var Buffer = __webpack_require__(2).Buffer;
+var Buffer = __webpack_require__(3).Buffer;
 
 var OurUint8Array = global.Uint8Array || function () {};
 
@@ -40587,7 +40587,7 @@ var ethereumjs_util_1 = __webpack_require__(190);
 
 var ethereumjs_common_1 = __webpack_require__(193);
 
-var buffer_1 = __webpack_require__(2); // secp256k1n/2
+var buffer_1 = __webpack_require__(3); // secp256k1n/2
 
 
 var N_DIV_2 = new ethereumjs_util_1.BN('7fffffffffffffffffffffffffffffff5d576e7357a4501ddfe92f46681b20a0', 16);
@@ -58240,7 +58240,7 @@ module.exports = {
   var Buffer;
 
   try {
-    Buffer = __webpack_require__(2).Buffer;
+    Buffer = __webpack_require__(3).Buffer;
   } catch (e) {}
 
   BN.isBN = function isBN(num) {
@@ -61921,7 +61921,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   var Buffer;
 
   try {
-    Buffer = __webpack_require__(2).Buffer;
+    Buffer = __webpack_require__(3).Buffer;
   } catch (e) {}
 
   BN.isBN = function isBN(num) {
@@ -68294,7 +68294,7 @@ module.exports = {
   parseURL: helpers,
   btoa: _btoa
 };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11), __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11), __webpack_require__(3).Buffer))
 
 /***/ }),
 /* 233 */
@@ -69453,7 +69453,7 @@ exports.XMLHttpRequest = XMLHttpRequest;
 XMLHttpRequest.prototype.nodejsHttpAgent = http.globalAgent;
 XMLHttpRequest.prototype.nodejsHttpsAgent = https.globalAgent;
 XMLHttpRequest.prototype.nodejsBaseUrl = null;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11), __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11), __webpack_require__(3).Buffer))
 
 /***/ }),
 /* 244 */
@@ -69758,7 +69758,7 @@ ClientRequest.prototype.setSocketKeepAlive = function () {}; // Taken from http:
 
 
 var unsafeHeaders = ['accept-charset', 'accept-encoding', 'access-control-request-headers', 'access-control-request-method', 'connection', 'content-length', 'cookie', 'cookie2', 'date', 'dnt', 'expect', 'host', 'keep-alive', 'origin', 'referer', 'te', 'trailer', 'transfer-encoding', 'upgrade', 'via'];
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2).Buffer, __webpack_require__(12), __webpack_require__(11)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(3).Buffer, __webpack_require__(12), __webpack_require__(11)))
 
 /***/ }),
 /* 245 */
@@ -70137,7 +70137,7 @@ PassThrough.prototype._transform = function (chunk, encoding, cb) {
 /* 250 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Buffer = __webpack_require__(2).Buffer;
+var Buffer = __webpack_require__(3).Buffer;
 
 module.exports = function (buf) {
   // If the buffer is backed by a Uint8Array, a faster version will work
@@ -70536,7 +70536,7 @@ function (_super) {
 }(xml_http_request_event_target_1.XMLHttpRequestEventTarget);
 
 exports.XMLHttpRequestUpload = XMLHttpRequestUpload;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(3).Buffer))
 
 /***/ }),
 /* 256 */
@@ -80751,7 +80751,7 @@ var constants = __webpack_require__(288);
 Object.assign(exports, constants); // Human friendly names for printing, e.g. in error messages
 
 exports.print = __webpack_require__(292);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(3).Buffer))
 
 /***/ }),
 /* 283 */
@@ -81101,7 +81101,7 @@ var profiles = {
 };
 exports.hexStringToBuffer = hexStringToBuffer;
 exports.profiles = profiles;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(3).Buffer))
 
 /***/ }),
 /* 294 */
@@ -81114,7 +81114,7 @@ exports.profiles = profiles;
  */
 
 
-var _require = __webpack_require__(2),
+var _require = __webpack_require__(3),
     Buffer = _require.Buffer;
 
 var constants = __webpack_require__(295);
@@ -81332,7 +81332,7 @@ module.exports = Base;
 
 var _createForOfIteratorHelper = __webpack_require__(33);
 
-var _require = __webpack_require__(2),
+var _require = __webpack_require__(3),
     Buffer = _require.Buffer;
 
 module.exports = function base16(alphabet) {
@@ -81474,7 +81474,7 @@ module.exports = function base32(alphabet) {
 
 var _createForOfIteratorHelper = __webpack_require__(33);
 
-var _require = __webpack_require__(2),
+var _require = __webpack_require__(3),
     Buffer = _require.Buffer;
 
 module.exports = function base64(alphabet) {
@@ -82574,7 +82574,7 @@ exports.defaultLengths = Object.freeze({
  */
 
 
-var _require = __webpack_require__(2),
+var _require = __webpack_require__(3),
     Buffer = _require.Buffer;
 
 var constants = __webpack_require__(302);
@@ -82793,7 +82793,7 @@ module.exports = Base;
 
 var _createForOfIteratorHelper = __webpack_require__(33);
 
-var _require = __webpack_require__(2),
+var _require = __webpack_require__(3),
     Buffer = _require.Buffer;
 
 module.exports = function base16(alphabet) {
@@ -82935,7 +82935,7 @@ module.exports = function base32(alphabet) {
 
 var _createForOfIteratorHelper = __webpack_require__(33);
 
-var _require = __webpack_require__(2),
+var _require = __webpack_require__(3),
     Buffer = _require.Buffer;
 
 module.exports = function base64(alphabet) {
@@ -83009,7 +83009,7 @@ module.exports = function base64(alphabet) {
  */
 
 
-var _require = __webpack_require__(2),
+var _require = __webpack_require__(3),
     Buffer = _require.Buffer;
 
 var varint = __webpack_require__(51);
@@ -83240,7 +83240,7 @@ module.exports = Object.freeze(tableByCode);
 
 var mh = __webpack_require__(76);
 
-var _require = __webpack_require__(2),
+var _require = __webpack_require__(3),
     Buffer = _require.Buffer;
 
 var CIDUtil = {
@@ -84133,7 +84133,7 @@ function storageAvailable(type) {
 }
 
 module.exports = Accounts;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(12), __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(12), __webpack_require__(3).Buffer))
 
 /***/ }),
 /* 320 */
@@ -84284,7 +84284,7 @@ module.exports = {
   encodeSignature: encodeSignature,
   decodeSignature: decodeSignature
 };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(3).Buffer))
 
 /***/ }),
 /* 325 */
@@ -84438,7 +84438,7 @@ function _createClass(Constructor, protoProps, staticProps) {
   return Constructor;
 }
 
-var _require = __webpack_require__(2),
+var _require = __webpack_require__(3),
     Buffer = _require.Buffer;
 
 var _require2 = __webpack_require__(329),
@@ -86315,7 +86315,7 @@ exports.encrypt = function (self, chunk) {
   self._cache = self._cache.slice(chunk.length);
   return xor(chunk, pad);
 };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(3).Buffer))
 
 /***/ }),
 /* 361 */
@@ -86629,7 +86629,7 @@ function createDiffieHellman(prime, enc, generator, genc) {
 
 exports.DiffieHellmanGroup = exports.createDiffieHellmanGroup = exports.getDiffieHellman = getDiffieHellman;
 exports.createDiffieHellman = exports.DiffieHellman = createDiffieHellman;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(3).Buffer))
 
 /***/ }),
 /* 365 */
@@ -86840,7 +86840,7 @@ function formatReturnValue(bn, enc) {
     return buf.toString(enc);
   }
 }
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(3).Buffer))
 
 /***/ }),
 /* 368 */
@@ -87047,7 +87047,7 @@ function _createClass(Constructor, protoProps, staticProps) {
   return Constructor;
 }
 
-var _require = __webpack_require__(2),
+var _require = __webpack_require__(3),
     Buffer = _require.Buffer;
 
 var _require2 = __webpack_require__(372),
@@ -94332,7 +94332,7 @@ function formatReturnValue(bn, enc, len) {
     return buf.toString(enc);
   }
 }
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(3).Buffer))
 
 /***/ }),
 /* 404 */
@@ -96599,7 +96599,7 @@ var toPublicKey = function toPublicKey(x, y, compressed) {
 
   return publicKey;
 };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(3).Buffer))
 
 /***/ }),
 /* 419 */
@@ -96774,7 +96774,7 @@ exports.signatureImportLax = function (signature) {
     s: s
   };
 };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(3).Buffer))
 
 /***/ }),
 /* 420 */
@@ -96830,7 +96830,7 @@ exports.KECCAK256_RLP_S = '56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622
  */
 
 exports.KECCAK256_RLP = Buffer.from(exports.KECCAK256_RLP_S, 'hex');
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(3).Buffer))
 
 /***/ }),
 /* 421 */
@@ -97056,7 +97056,7 @@ exports.importPublic = function (publicKey) {
 
   return publicKey;
 };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(3).Buffer))
 
 /***/ }),
 /* 422 */
@@ -97106,7 +97106,7 @@ function createHashFunction(hashConstructor) {
 }
 
 exports.createHashFunction = createHashFunction;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(3).Buffer))
 
 /***/ }),
 /* 424 */
@@ -97283,7 +97283,7 @@ module.exports = function (KeccakState) {
     return Keccak;
   }(Transform);
 };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(3).Buffer))
 
 /***/ }),
 /* 427 */
@@ -97394,7 +97394,7 @@ module.exports = function (KeccakState) {
     return Shake;
   }(Transform);
 };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(3).Buffer))
 
 /***/ }),
 /* 428 */
@@ -97469,7 +97469,7 @@ Keccak.prototype.copy = function (dest) {
 };
 
 module.exports = Keccak;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(3).Buffer))
 
 /***/ }),
 /* 429 */
@@ -97805,7 +97805,7 @@ function calculateSigRecovery(v, chainId) {
 function isValidSigRecovery(recovery) {
   return recovery === 0 || recovery === 1;
 }
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(3).Buffer))
 
 /***/ }),
 /* 431 */
@@ -97940,7 +97940,7 @@ exports.defineProperties = function (self, fields, data) {
     }
   }
 };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(3).Buffer))
 
 /***/ }),
 /* 432 */
@@ -98110,7 +98110,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var ethereumjs_util_1 = __webpack_require__(190);
 
-var buffer_1 = __webpack_require__(2);
+var buffer_1 = __webpack_require__(3);
 
 var transaction_1 = __webpack_require__(189);
 /**
@@ -100836,10 +100836,10 @@ var FormsContainer_FormsContainer = __webpack_require__(58);
 var Button_Button = __webpack_require__(472);
 
 // EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
-var jsx_runtime = __webpack_require__(3);
+var jsx_runtime = __webpack_require__(2);
 
 // CONCATENATED MODULE: ./src/components/Button/Button.tsx
-var Button_Button_Button=function Button(_ref){var onClick=_ref.onClick,disabled=_ref.disabled,text=_ref.text;return/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"Button ".concat(disabled?'Button--disabled':''),onClick:disabled?function(){return null;}:onClick,children:text});};
+var Button_Button_Button=function Button(_ref){var onClick=_ref.onClick,disabled=_ref.disabled,text=_ref.text,fontSize=_ref.fontSize;return/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"Button ".concat(disabled?'Button--disabled':''),onClick:disabled?function(){return null;}:onClick,style:{fontSize:fontSize},children:text});};
 // CONCATENATED MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/defineProperty.js
 function _defineProperty(obj, key, value) {
   if (key in obj) {
@@ -100997,7 +100997,7 @@ var Input_Input_Input=function Input(_ref){var title=_ref.title,onChange=_ref.on
 // CONCATENATED MODULE: ./src/components/FormMint/FormMint.tsx
 var FormMint_FormMint=function FormMint(_ref){var contractMain=_ref.contractMain,setErrors=_ref.setErrors,setIsDone=_ref.setIsDone,currentAccount=_ref.currentAccount,tokenId=_ref.tokenId,onSuccess=_ref.onSuccess,currentTokenUrl=_ref.currentTokenUrl;var _useState=Object(react["useState"])(''),_useState2=_slicedToArray(_useState,2),url=_useState2[0],setUrl=_useState2[1];var _useState3=Object(react["useState"])(false),_useState4=_slicedToArray(_useState3,2),isInProgress=_useState4[0],setIsInProgress=_useState4[1];var handleChangeUrl=function handleChangeUrl(e){return setUrl(e.target.value);};var handleSubmitMint=/*#__PURE__*/function(){var _ref2=_asyncToGenerator(/*#__PURE__*/regenerator_default.a.mark(function _callee(newUrl){var isValidTokenId;return regenerator_default.a.wrap(function _callee$(_context){while(1){switch(_context.prev=_context.next){case 0:_context.prev=0;setErrors([]);setIsDone(false);isValidTokenId=validateTokenId(tokenId);if(!isValidTokenId){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_TOKEN_ID_TEXT]);});}if(!currentAccount){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_CONTRACT_TEXT]);});}if(!(currentAccount&&isValidTokenId&&contractMain&&(newUrl!==null&&newUrl!==void 0?newUrl:url))){_context.next=13;break;}setIsInProgress(true);_context.next=10;return contractMain.methods.mintAndApprove(currentAccount,tokenId,newUrl!==null&&newUrl!==void 0?newUrl:url,CONTRACT_ADDRESS_SELL).send({from:currentAccount});case 10:if(onSuccess){onSuccess();}setIsInProgress(false);setIsDone(true);case 13:_context.next=19;break;case 15:_context.prev=15;_context.t0=_context["catch"](0);setIsInProgress(false);setErrors([_context.t0.message]);case 19:case"end":return _context.stop();}}},_callee,null,[[0,15]]);}));return function handleSubmitMint(_x){return _ref2.apply(this,arguments);};}();Object(react["useEffect"])(function(){if(currentTokenUrl){setUrl(currentTokenUrl);handleSubmitMint(currentTokenUrl);}},[currentTokenUrl]);return/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"Form",children:[/*#__PURE__*/Object(jsx_runtime["jsx"])(Input_Input_Input,{title:"Url",value:url,type:"text",onChange:handleChangeUrl}),/*#__PURE__*/Object(jsx_runtime["jsx"])(Button_Button_Button,{onClick:function onClick(){return handleSubmitMint();},text:isInProgress?'Pending...':'Mint',disabled:!url||isInProgress})]});};
 // CONCATENATED MODULE: ./src/components/FormPurchase/FormPurchase.tsx
-var FormPurchase_FormPurchase=function FormPurchase(_ref){var contractMain=_ref.contractMain,contractSell=_ref.contractSell,tokenId=_ref.tokenId,setErrors=_ref.setErrors,setIsDone=_ref.setIsDone,currentAccount=_ref.currentAccount,title=_ref.title;var _useState=Object(react["useState"])(undefined),_useState2=_slicedToArray(_useState,2),purchaseValue=_useState2[0],setPurchaseValue=_useState2[1];var _useState3=Object(react["useState"])(false),_useState4=_slicedToArray(_useState3,2),isPriceInstalled=_useState4[0],setIsPriceInstalled=_useState4[1];var _useState5=Object(react["useState"])(false),_useState6=_slicedToArray(_useState5,2),isInProgress=_useState6[0],setIsInProgress=_useState6[1];var _useState7=Object(react["useState"])(''),_useState8=_slicedToArray(_useState7,2),url=_useState8[0],setUrl=_useState8[1];var _useState9=Object(react["useState"])(false),_useState10=_slicedToArray(_useState9,2),showText=_useState10[0],setShowText=_useState10[1];var handlePurchase=/*#__PURE__*/function(){var _ref2=_asyncToGenerator(/*#__PURE__*/regenerator_default.a.mark(function _callee(){var isValidTokenId,isValidPurchaseValue;return regenerator_default.a.wrap(function _callee$(_context){while(1){switch(_context.prev=_context.next){case 0:_context.prev=0;setErrors([]);setIsDone(false);isValidTokenId=validateTokenId(tokenId);isValidPurchaseValue=validateTokenId(purchaseValue);if(!isValidTokenId){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_TOKEN_ID_TEXT]);});}if(!isValidPurchaseValue){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_PURCHASE_VALUE_TEXT]);});}if(!(currentAccount&&isValidTokenId&&isValidPurchaseValue&&contractSell)){_context.next=13;break;}setIsInProgress(true);_context.next=11;return contractSell.methods.purchaseToken(tokenId).send({from:currentAccount,value:lib_default.a.utils.toWei("".concat(purchaseValue))});case 11:setIsInProgress(false);setIsDone(true);case 13:_context.next=19;break;case 15:_context.prev=15;_context.t0=_context["catch"](0);setIsInProgress(false);setErrors([_context.t0.message]);case 19:case"end":return _context.stop();}}},_callee,null,[[0,15]]);}));return function handlePurchase(){return _ref2.apply(this,arguments);};}();Object(react["useEffect"])(function(){try{contractSell===null||contractSell===void 0?void 0:contractSell.methods.nft_prices(tokenId).call().then(function(res){setPurchaseValue(+lib_default.a.utils.fromWei("".concat(res)));if(res>0){setIsPriceInstalled(true);}else{setIsPriceInstalled(false);}});if(contractMain){contractMain.methods.tokenURI(tokenId).call().then(function(res){return setUrl(res);});}}catch(e){setErrors([e.message]);}},[tokenId]);return/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"Form",children:[title&&/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"App__title",children:title}),url&&(showText?/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"Form__result-text",children:url}):/*#__PURE__*/Object(jsx_runtime["jsx"])("img",{className:"Form__image-preview",src:url,alt:url,onError:function onError(){return setShowText(true);}})),/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"App__title-text",children:["Price: ",purchaseValue," ETH"]}),/*#__PURE__*/Object(jsx_runtime["jsx"])(Button_Button_Button,{onClick:handlePurchase,text:isInProgress?'Pending...':'Purchase',disabled:!isPriceInstalled||isInProgress}),!isPriceInstalled&&/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"Form__text",children:"This item not for sale"})]});};
+var FormPurchase_FormPurchase=function FormPurchase(_ref){var contractMain=_ref.contractMain,contractSell=_ref.contractSell,tokenId=_ref.tokenId,setErrors=_ref.setErrors,setIsDone=_ref.setIsDone,currentAccount=_ref.currentAccount,title=_ref.title;var _useState=Object(react["useState"])(undefined),_useState2=_slicedToArray(_useState,2),purchaseValue=_useState2[0],setPurchaseValue=_useState2[1];var _useState3=Object(react["useState"])(false),_useState4=_slicedToArray(_useState3,2),isPriceInstalled=_useState4[0],setIsPriceInstalled=_useState4[1];var _useState5=Object(react["useState"])(false),_useState6=_slicedToArray(_useState5,2),isInProgress=_useState6[0],setIsInProgress=_useState6[1];var _useState7=Object(react["useState"])(''),_useState8=_slicedToArray(_useState7,2),url=_useState8[0],setUrl=_useState8[1];var _useState9=Object(react["useState"])(false),_useState10=_slicedToArray(_useState9,2),showText=_useState10[0],setShowText=_useState10[1];var handlePurchase=/*#__PURE__*/function(){var _ref2=_asyncToGenerator(/*#__PURE__*/regenerator_default.a.mark(function _callee(){var isValidTokenId,isValidPurchaseValue;return regenerator_default.a.wrap(function _callee$(_context){while(1){switch(_context.prev=_context.next){case 0:_context.prev=0;setErrors([]);setIsDone(false);isValidTokenId=validateTokenId(tokenId);isValidPurchaseValue=validateTokenId(purchaseValue);if(!isValidTokenId){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_TOKEN_ID_TEXT]);});}if(!isValidPurchaseValue){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_PURCHASE_VALUE_TEXT]);});}if(!(currentAccount&&isValidTokenId&&isValidPurchaseValue&&contractSell)){_context.next=13;break;}setIsInProgress(true);_context.next=11;return contractSell.methods.purchaseToken(tokenId).send({from:currentAccount,value:lib_default.a.utils.toWei("".concat(purchaseValue))});case 11:setIsInProgress(false);setIsDone(true);case 13:_context.next=19;break;case 15:_context.prev=15;_context.t0=_context["catch"](0);setIsInProgress(false);setErrors([_context.t0.message]);case 19:case"end":return _context.stop();}}},_callee,null,[[0,15]]);}));return function handlePurchase(){return _ref2.apply(this,arguments);};}();Object(react["useEffect"])(function(){try{contractSell===null||contractSell===void 0?void 0:contractSell.methods.nft_prices(tokenId).call().then(function(res){setPurchaseValue(+lib_default.a.utils.fromWei("".concat(res)));if(res>0){setIsPriceInstalled(true);}else{setIsPriceInstalled(false);}});if(contractMain){contractMain.methods.tokenURI(tokenId).call().then(function(res){return setUrl(res);});}}catch(e){setErrors([e.message]);}},[tokenId]);return/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"Form Form-extended",children:/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"Form__container",children:[/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"Form__image",children:url&&(showText?/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"Form__result-text",children:url}):/*#__PURE__*/Object(jsx_runtime["jsx"])("img",{className:"Form__image-preview",src:url,alt:url,onError:function onError(){return setShowText(true);}}))}),/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"Form__info",children:[title&&/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"Form__info__title",children:title}),/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{children:[/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"Form__price",children:[purchaseValue," ",/*#__PURE__*/Object(jsx_runtime["jsx"])("span",{className:"Form__price__currency",children:"ETH"})]}),!isPriceInstalled&&/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"Form__info__warning",children:"This item not for sale"}),/*#__PURE__*/Object(jsx_runtime["jsx"])(Button_Button_Button,{fontSize:20,onClick:handlePurchase,text:isInProgress?'Pending...':'Purchase',disabled:!isPriceInstalled||isInProgress})]})]})]})});};
 // CONCATENATED MODULE: ./src/components/FormSetPrice/FormSetPrice.tsx
 var FormSetPrice_FormSetPrice=function FormSetPrice(_ref){var isOwner=_ref.isOwner,contractSell=_ref.contractSell,setErrors=_ref.setErrors,setIsDone=_ref.setIsDone,currentAccount=_ref.currentAccount,tokenId=_ref.tokenId,onSuccess=_ref.onSuccess;var _useState=Object(react["useState"])(undefined),_useState2=_slicedToArray(_useState,2),price=_useState2[0],setPrice=_useState2[1];var _useState3=Object(react["useState"])(undefined),_useState4=_slicedToArray(_useState3,2),tokenPrice=_useState4[0],setTokenPrice=_useState4[1];var _useState5=Object(react["useState"])(false),_useState6=_slicedToArray(_useState5,2),isInProgress=_useState6[0],setIsInProgress=_useState6[1];var handleChangePrice=function handleChangePrice(e){return setPrice(e.target.value===''?undefined:+e.target.value);};var handleSetPrice=/*#__PURE__*/function(){var _ref2=_asyncToGenerator(/*#__PURE__*/regenerator_default.a.mark(function _callee(){var isValidTokenId,isValidPrice;return regenerator_default.a.wrap(function _callee$(_context){while(1){switch(_context.prev=_context.next){case 0:_context.prev=0;setErrors([]);setIsDone(false);isValidTokenId=validateTokenId(tokenId);isValidPrice=validateTokenId(price);if(!isValidPrice){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_PRICE_TEXT]);});}if(!isValidTokenId){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_TOKEN_ID_TEXT]);});}if(!currentAccount){setErrors(function(errors){return[].concat(_toConsumableArray(errors),[ERROR_CONTRACT_TEXT]);});}if(!(currentAccount&&isValidTokenId&&contractSell)){_context.next=15;break;}setIsInProgress(true);_context.next=12;return contractSell.methods.setCurrentPrice(tokenId,lib_default.a.utils.toWei("".concat(price))).send({from:currentAccount});case 12:setIsInProgress(false);if(onSuccess){onSuccess();}setIsDone(true);case 15:_context.next=21;break;case 17:_context.prev=17;_context.t0=_context["catch"](0);setIsInProgress(false);setErrors([_context.t0.message]);case 21:case"end":return _context.stop();}}},_callee,null,[[0,17]]);}));return function handleSetPrice(){return _ref2.apply(this,arguments);};}();Object(react["useEffect"])(function(){try{contractSell===null||contractSell===void 0?void 0:contractSell.methods.nft_prices(tokenId).call().then(function(res){setTokenPrice(+lib_default.a.utils.fromWei("".concat(res)));});}catch(e){setErrors([e.message]);}},[tokenId]);return/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"Form",children:[/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"Form__title",children:"Set item price in ETH, set 0 if you don't want to sell this item"}),/*#__PURE__*/Object(jsx_runtime["jsxs"])("div",{className:"Form__title",children:["Current price: ",tokenPrice," ETH"]}),/*#__PURE__*/Object(jsx_runtime["jsx"])(Input_Input_Input,{title:"Price (ETH)",value:price,type:"number",onChange:handleChangePrice}),/*#__PURE__*/Object(jsx_runtime["jsx"])(Button_Button_Button,{onClick:handleSetPrice,text:isInProgress?'Pending...':'Set price',disabled:price===undefined||!isOwner||isInProgress}),!isOwner&&/*#__PURE__*/Object(jsx_runtime["jsx"])("div",{className:"Form__text",children:"You are not the owner of this NFT"})]});};
 // CONCATENATED MODULE: ./src/components/FormsContainer/FormsContainer.tsx

@@ -10,7 +10,6 @@ import {FormCustomProps} from "../FormsContainer/FormsContainer";
 import {Button} from "../Button/Button";
 
 import '../FormsContainer/FormsContainer.css';
-import {Input} from "../Input/Input";
 import Web3 from "web3";
 
 export const FormPurchase = ({ contractMain, contractSell, tokenId, setErrors, setIsDone, currentAccount, title }: FormCustomProps) => {
@@ -67,18 +66,26 @@ export const FormPurchase = ({ contractMain, contractSell, tokenId, setErrors, s
     }, [tokenId]);
 
     return (
-        <div className='Form'>
-            {title && <div className='App__title'>{title}</div>}
-            {
-                url && (
-                    showText
-                        ? <div className='Form__result-text'>{url}</div>
-                        : <img className='Form__image-preview' src={url} alt={url} onError={() => setShowText(true)} />
-                )
-            }
-            <div className='App__title-text'>Price: {purchaseValue} ETH</div>
-            <Button onClick={handlePurchase} text={isInProgress ? 'Pending...' : 'Purchase'} disabled={!isPriceInstalled || isInProgress} />
-            {!isPriceInstalled && <div className='Form__text'>This item not for sale</div>}
+        <div className='Form Form-extended'>
+            <div className='Form__container'>
+                <div className='Form__image'>
+                    {
+                        url && (
+                            showText
+                                ? <div className='Form__result-text'>{url}</div>
+                                : <img className='Form__image-preview' src={url} alt={url} onError={() => setShowText(true)} />
+                        )
+                    }
+                </div>
+                <div className='Form__info'>
+                    {title && <div className='Form__info__title'>{title}</div>}
+                    <div>
+                        <div className='Form__price'>{purchaseValue} <span className='Form__price__currency'>ETH</span></div>
+                        {!isPriceInstalled && <div className='Form__info__warning'>This item not for sale</div>}
+                        <Button fontSize={20} onClick={handlePurchase} text={isInProgress ? 'Pending...' : 'Purchase'} disabled={!isPriceInstalled || isInProgress} />
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

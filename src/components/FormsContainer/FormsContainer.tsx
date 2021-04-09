@@ -3,7 +3,6 @@ import { Contract } from 'web3-eth-contract';
 
 import {FormMint} from "../FormMint/FormMint";
 import {FormPurchase} from "../FormPurchase/FormPurchase";
-import {FormUrl} from "../FormUrl/FormUrl";
 
 import './FormsContainer.css';
 import {Button} from "../Button/Button";

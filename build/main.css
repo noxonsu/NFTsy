@@ -59,13 +59,7 @@ input[type=number] {
   padding-bottom: 16px;
   font-size: 16px;
   color: rgb(122, 122, 122);
-  text-align: left;
-}
-
-.App__title {
-  padding-bottom: 16px;
-  font-size: 20px;
-  text-align: left;
+  text-align: center;
 }
 
 .App__center-form {
@@ -98,6 +92,22 @@ input[type=number] {
     transition: all 1s ease;
 }
 
+.Form.Form-extended {
+    width: -webkit-fit-content !important;
+    width: -moz-fit-content !important;
+    width: fit-content !important;
+    padding: 8px 16px !important;
+    margin-right: 40px;
+    margin-bottom: 40px;
+}
+
+.Form__container {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+            align-items: center;
+}
+
 .Form__result-text {
     padding-top: 16px;
     font-size: 18px;
@@ -112,7 +122,6 @@ input[type=number] {
 
 .Form__image-preview {
     width: 320px;
-    padding-bottom: 16px;
 }
 
 .Form__title {
@@ -128,6 +137,52 @@ input[type=number] {
     padding-top: 16px;
     font-size: 16px;
     color: rgb(122, 122, 122);
+}
+
+.Form__image {
+    width: 320px;
+    height: 320px;
+    padding-right: 36px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+            justify-content: center;
+    -webkit-align-items: center;
+            align-items: center;
+}
+
+.Form__price {
+    font-size: 28px;
+    font-family: 'Manrope', sans-serif;
+    padding-bottom: 16px;
+}
+
+.Form__price__currency {
+    color: rgb(122, 122, 122);
+}
+
+.Form__info {
+    width: 280px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+            flex-direction: column;
+    -webkit-justify-content: space-around;
+            justify-content: space-around;
+    min-height: 320px;
+}
+.Form__info__title {
+    padding-bottom: 16px;
+    font-size: 28px;
+    text-align: left;
+    font-family: 'Manrope', sans-serif;
+}
+.Form__info__warning {
+    text-align: left;
+    padding-bottom: 16px;
+    font-size: 16px;
+    color: rgb(122, 122, 122);
+    font-family: 'Manrope', sans-serif;
 }
 .Button {
     cursor: pointer;

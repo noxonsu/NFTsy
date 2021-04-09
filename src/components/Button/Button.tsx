@@ -6,9 +6,14 @@ interface ButtonProps {
     onClick: () => void;
     disabled?: boolean;
     text: string;
+    fontSize?: number;
 }
-export const Button = ({ onClick, disabled, text }: ButtonProps) => (
-    <div className={`Button ${disabled ? 'Button--disabled' : ''}`} onClick={disabled ? () => null : onClick}>
+export const Button = ({ onClick, disabled, text, fontSize }: ButtonProps) => (
+    <div
+        className={`Button ${disabled ? 'Button--disabled' : ''}`}
+        onClick={disabled ? () => null : onClick}
+        style={{ fontSize }}
+    >
         {text}
     </div>
 )
