@@ -82,7 +82,7 @@ export const FormsContainer = ({ currentPage, onChangeCurrentPage, ...formProps}
                 <>
                     <FormPurchase {...formProps} isOwner={isOwner} onEdit={() => setIsFormPriceOpened(true)} />
                     {isOwner && isFormPriceOpened && (
-                        <div>
+                        <div style={{ paddingTop: '65px' }}>
                             <FormSetPrice {...formProps} isOwner={isOwner} />
                         </div>
                     )}
