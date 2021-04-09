@@ -96,7 +96,8 @@ input[type=number] {
     width: -webkit-fit-content !important;
     width: -moz-fit-content !important;
     width: fit-content !important;
-    padding: 8px 16px !important;
+    padding: 0 !important;
+    box-shadow: none !important;
     margin-right: 40px;
     margin-bottom: 40px;
 }
@@ -121,7 +122,7 @@ input[type=number] {
 }
 
 .Form__image-preview {
-    width: 320px;
+    width: 400px;
 }
 
 .Form__title {
@@ -140,8 +141,8 @@ input[type=number] {
 }
 
 .Form__image {
-    width: 320px;
-    height: 320px;
+    width: 400px;
+    height: 400px;
     padding-right: 36px;
     display: -webkit-flex;
     display: flex;

@@ -32,8 +32,9 @@ img.nft_img {
 }
 
 .nft_title {
-    font-size: 16px;
-    padding-bottom: 5px;
+    font-size: 20px;
+    color: rgba(0,0,0,0.94);
+    padding-top: 16px;
     height: 29px;
     width: 320px;
     text-overflow: ellipsis;
@@ -62,12 +63,12 @@ if (!isset($nft_id)) {
 			$nft_link = get_the_title();
 			?>
 			<div class='nft_item'>
-			<div class='nftitem_container'>
                 <a class="nftitem" href='<? echo $nft_link_id ?>'>
-                    <img class='nft_img' src="<? echo get_the_content() ?>">
-                </a>
-            </div
-			<div class='nft_title'><? echo get_the_title() ?></div>
+                    <div class='nftitem_container'>
+                        <img class='nft_img' src="<? echo get_the_content() ?>">
+                    </div>
+			        <div class='nft_title'><? echo get_the_title() ?></div>
+			     </a>
 			</div>
 			<?php
 			echo '';

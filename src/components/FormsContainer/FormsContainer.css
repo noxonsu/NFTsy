@@ -18,7 +18,8 @@
 
 .Form.Form-extended {
     width: fit-content !important;
-    padding: 8px 16px !important;
+    padding: 0 !important;
+    box-shadow: none !important;
     margin-right: 40px;
     margin-bottom: 40px;
 }
@@ -41,7 +42,7 @@
 }
 
 .Form__image-preview {
-    width: 320px;
+    width: 400px;
 }
 
 .Form__title {
@@ -60,8 +61,8 @@
 }
 
 .Form__image {
-    width: 320px;
-    height: 320px;
+    width: 400px;
+    height: 400px;
     padding-right: 36px;
     display: flex;
     justify-content: center;
