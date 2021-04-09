@@ -18,10 +18,11 @@
 
 .Form.Form-extended {
     width: fit-content !important;
+    height: 400px !important;
     padding: 0 !important;
     box-shadow: none !important;
-    margin-right: 40px;
-    margin-bottom: 40px;
+    margin-right: 50px;
+    margin-bottom: 50px;
 }
 
 .Form__container {
@@ -63,7 +64,7 @@
 .Form__image {
     width: 400px;
     height: 400px;
-    padding-right: 36px;
+    margin-right: 36px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -73,14 +74,40 @@
     font-size: 28px;
     font-family: 'Manrope', sans-serif;
     padding-bottom: 16px;
+    padding-top: 16px;
+    display: flex;
+    align-items: center;
 }
-
+.Form__price__value {
+    max-width: 240px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
 .Form__price__currency {
     color: rgb(122, 122, 122);
 }
+.Form__price__edit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    border: 1px solid rgb(122, 122, 122);
+    border-radius: 3px;
+    height: 16px;
+    padding: 1px;
+    cursor: pointer;
+    margin-left: 15px;
+}
+.Form__price__edit:hover {
+    background: rgba(0,0,0,0.12);
+}
+.Form__price__edit:active {
+    background: rgba(0,0,0,0.2);
+}
 
 .Form__info {
-    width: 280px;
+    width: 340px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;

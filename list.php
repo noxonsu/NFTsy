@@ -35,7 +35,7 @@ img.nft_img {
     font-size: 20px;
     color: rgba(0,0,0,0.94);
     padding-top: 16px;
-    height: 29px;
+    height: 46px;
     width: 320px;
     text-overflow: ellipsis;
     overflow: hidden;

@@ -41,6 +41,7 @@ export const FormsContainer = ({ currentPage, onChangeCurrentPage, ...formProps}
     const { contractMain, tokenId, currentAccount } = formProps;
     const [step, setStep] = useState(1);
     const [isOwner, setIsOwner] = useState(false);
+    const [isFormPriceOpened, setIsFormPriceOpened] = useState(false);
     const handleMintSuccess = () => setStep(2);
     const handleSetPriceSuccess = () => setStep(3);
 
@@ -79,8 +80,8 @@ export const FormsContainer = ({ currentPage, onChangeCurrentPage, ...formProps}
         case 'view':
             return (
                 <>
-                    <FormPurchase {...formProps} />
-                    {isOwner && (
+                    <FormPurchase {...formProps} isOwner={isOwner} onEdit={() => setIsFormPriceOpened(true)} />
+                    {isOwner && isFormPriceOpened && (
                         <div>
                             <FormSetPrice {...formProps} isOwner={isOwner} />
                         </div>

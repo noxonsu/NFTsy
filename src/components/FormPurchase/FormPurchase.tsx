@@ -12,7 +12,10 @@ import {Button} from "../Button/Button";
 import '../FormsContainer/FormsContainer.css';
 import Web3 from "web3";
 
-export const FormPurchase = ({ contractMain, contractSell, tokenId, setErrors, setIsDone, currentAccount, title }: FormCustomProps) => {
+interface FormPurchaseProps extends FormCustomProps {
+    onEdit: () => void;
+}
+export const FormPurchase = ({ contractMain, contractSell, tokenId, setErrors, setIsDone, currentAccount, title, onEdit, isOwner }: FormPurchaseProps) => {
     const [purchaseValue, setPurchaseValue] = useState(undefined as number | undefined);
     const [isPriceInstalled, setIsPriceInstalled] = useState(false);
     const [isInProgress, setIsInProgress] = useState(false);
@@ -80,7 +83,11 @@ export const FormPurchase = ({ contractMain, contractSell, tokenId, setErrors, s
                 <div className='Form__info'>
                     {title && <div className='Form__info__title'>{title}</div>}
                     <div>
-                        <div className='Form__price'>{purchaseValue} <span className='Form__price__currency'>ETH</span></div>
+                        <div className='Form__price'>
+                            <div className='Form__price__value'>{purchaseValue}</div>
+                            <div className='Form__price__currency'>&nbsp;ETH</div>
+                            {isOwner && <div className='Form__price__edit' onClick={onEdit}>edit</div>}
+                        </div>
                         {!isPriceInstalled && <div className='Form__info__warning'>This item not for sale</div>}
                         <Button fontSize={20} onClick={handlePurchase} text={isInProgress ? 'Pending...' : 'Purchase'} disabled={!isPriceInstalled || isInProgress} />
                     </div>
