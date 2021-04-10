@@ -1,5 +1,14 @@
 img.nft_img {
+    max-width: 320px;
+    max-height: 320px;
+}
+
+.nftitem_container {
     width: 320px;
+    height: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .nft_item {
@@ -16,15 +25,20 @@ img.nft_img {
     background: #fff;
     border-radius: 4px;
 }
-
 .elementor-text-editor.elementor-clearfix {
     display: flex;
     flex-wrap: wrap;
 }
 
 .nft_title {
-    font-size: 16px;
-    padding-bottom: 5px;
+    font-size: 20px;
+    color: rgba(0,0,0,0.94);
+    padding-top: 16px;
+    height: 46px;
+    width: 320px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .nft_price {
