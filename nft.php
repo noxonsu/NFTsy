@@ -29,11 +29,14 @@ function nft_load_scripts($hook) {
 
     $my_js_ver  = date("ymd-Gis", filemtime( plugin_dir_path( __FILE__ ) . 'build/main.css' ));
     $my_css_ver  = date("ymd-Gis", filemtime( plugin_dir_path( __FILE__ ) . 'build/main.js' ));
+    $my_css_ver2  = date("ymd-Gis", filemtime( plugin_dir_path( __FILE__ ) . 'build/list.css' ));
 
 	wp_enqueue_script( 'nft-js', plugins_url( 'build/main.js', __FILE__ ), array(), $my_js_ver , true);
 
 	wp_register_style( 'nft-css',    plugins_url( 'build/main.css',    __FILE__ ), false,   $my_css_ver );
+	wp_register_style( 'nft-css2',    plugins_url( 'build/list.css',    __FILE__ ), false,   $my_css_ver2 );
 	wp_enqueue_style ( 'nft-css' );
+	wp_enqueue_style ( 'nft-css2' );
 }
 
 add_action('wp_enqueue_scripts', 'nft_load_scripts');
