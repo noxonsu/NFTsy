@@ -51,14 +51,14 @@ if ( is_user_logged_in() || NFT_ADDUSER > 0) {
 			<?php
 		
 		} else {
-			echo esc_html__( 'Provide image URL of new NFT', 'nft' );
+			
 			?>
 			<form action="" method="post">
-			  Url:
+			  <?php echo esc_html__( 'Provide image URL of new NFT', 'nft' );?>:
 			  <input type="text" required name="nft_new_url" value="https://"> 
-			  Description (optional):
+			  <Br><Br><?php echo esc_html__( 'Description:', 'nft' );?>:
 			  <input type="text" name="nft_new_text" value="">
-			  <input type="submit" value="Submit">
+			  <Br><Br><input type="submit" value="Submit">
 			</form>
 			<?php
 			
