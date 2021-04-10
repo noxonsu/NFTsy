@@ -1,51 +1,4 @@
-<style>
-img.nft_img {
-    max-width: 320px;
-    max-height: 320px;
-}
-
-.nftitem_container {
-    width: 320px;
-    height: 320px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.nft_item {
-    padding: 16px;
-    margin-right: 20px;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 352px;
-    height: fit-content;
-
-    box-shadow: 0px 4px 16px rgb(0 0 0 / 8%), 0px 1px 4px rgb(0 0 0 / 8%);
-    background: #fff;
-    border-radius: 4px;
-}
-.elementor-text-editor.elementor-clearfix {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.nft_title {
-    font-size: 20px;
-    color: rgba(0,0,0,0.94);
-    padding-top: 16px;
-    height: 46px;
-    width: 320px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-}
-
-.nft_price {
-    font-size: 16px;
-}
-</style><?php
+<?php
 
 if ( isset( $_GET['token_id']{1} ) ) $nft_id = (int) $_GET['token_id'];
 $nft_current_page  = get_permalink( get_the_ID() );
@@ -91,7 +44,7 @@ if (!isset($nft_id)) {
 	window.nftConfig = { networkType: '<?php esc_html_e(get_option("nft_networkName"),"nft"); ?>', page: 'view', tokenId: <?php echo $nft_id; ?>, title: "<?php echo get_the_title(); ?>" }
 	</script><?
 	} else {
-		?>Not found<?
+	 esc_html_e("Not found","nft");
 	}
 }
 
