@@ -79,14 +79,14 @@ export const FormsContainer = ({ currentPage, onChangeCurrentPage, ...formProps}
             );
         case 'view':
             return (
-                <>
+                <div style={{ margin: '0 auto'}}>
                     <FormPurchase {...formProps} isOwner={isOwner} onEdit={() => setIsFormPriceOpened(true)} />
                     {isOwner && isFormPriceOpened && (
-                        <div style={{ paddingTop: '65px' }}>
+                        <div className="Form__setPrice" style={{ paddingTop: '65px' }}>
                             <FormSetPrice {...formProps} isOwner={isOwner} />
                         </div>
                     )}
-                </>
+                </div>
             );
         default:
             return null;

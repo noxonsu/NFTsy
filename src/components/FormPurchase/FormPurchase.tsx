@@ -71,6 +71,7 @@ export const FormPurchase = ({ contractMain, contractSell, tokenId, setErrors, s
     return (
         <div className='Form Form-extended'>
             <div className='Form__container'>
+                {title && <div className='Form__info__title'>{title}</div>}
                 <div className='Form__image'>
                     {
                         url && (
@@ -81,16 +82,13 @@ export const FormPurchase = ({ contractMain, contractSell, tokenId, setErrors, s
                     }
                 </div>
                 <div className='Form__info'>
-                    {title && <div className='Form__info__title'>{title}</div>}
-                    <div>
-                        <div className='Form__price'>
-                            <div className='Form__price__value'>{purchaseValue}</div>
-                            <div className='Form__price__currency'>&nbsp;ETH</div>
-                            {isOwner && <div className='Form__price__edit' onClick={onEdit}>edit</div>}
-                        </div>
-                        {!isPriceInstalled && <div className='Form__info__warning'>This item not for sale</div>}
-                        <Button fontSize={20} onClick={handlePurchase} text={isInProgress ? 'Pending...' : 'Purchase'} disabled={!isPriceInstalled || isInProgress} />
+                    <div className='Form__price'>
+                        <div className='Form__price__value'>{purchaseValue}</div>
+                        <div className='Form__price__currency'>&nbsp;ETH</div>
+                        {isOwner && <div className='Form__price__edit' onClick={onEdit}>edit</div>}
                     </div>
+                    {!isPriceInstalled && <div className='Form__info__warning'>This item not for sale</div>}
+                    <Button width={340} fontSize={24} onClick={handlePurchase} text={isInProgress ? 'Pending...' : 'Purchase'} disabled={!isPriceInstalled || isInProgress} />
                 </div>
             </div>
         </div>

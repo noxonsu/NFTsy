@@ -7,12 +7,13 @@ interface ButtonProps {
     disabled?: boolean;
     text: string;
     fontSize?: number;
+    width?: number;
 }
-export const Button = ({ onClick, disabled, text, fontSize }: ButtonProps) => (
+export const Button = ({ onClick, disabled, text, fontSize, width }: ButtonProps) => (
     <div
         className={`Button ${disabled ? 'Button--disabled' : ''}`}
         onClick={disabled ? () => null : onClick}
-        style={{ fontSize }}
+        style={{ fontSize: `${fontSize}px`, width: `${width}px` }}
     >
         {text}
     </div>

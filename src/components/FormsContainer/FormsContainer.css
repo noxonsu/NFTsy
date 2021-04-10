@@ -17,17 +17,16 @@
 }
 
 .Form.Form-extended {
-    width: fit-content !important;
-    height: 400px !important;
+    width: 1000px !important;
+    height: fit-content !important;
     padding: 0 !important;
     box-shadow: none !important;
-    margin-right: 50px;
-    margin-bottom: 50px;
+    margin: 0 auto;
 }
 
 .Form__container {
     display: flex;
-    align-items: center;
+    flex-direction: column;
 }
 
 .Form__result-text {
@@ -43,7 +42,7 @@
 }
 
 .Form__image-preview {
-    width: 400px;
+    width: 1000px;
 }
 
 .Form__title {
@@ -62,24 +61,23 @@
 }
 
 .Form__image {
-    width: 400px;
-    height: 400px;
-    margin-right: 36px;
+    width: 1000px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .Form__price {
-    font-size: 28px;
+    font-size: 38px;
     font-family: 'Manrope', sans-serif;
-    padding-bottom: 16px;
-    padding-top: 16px;
+    padding-bottom: 32px;
+    padding-top: 32px;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 .Form__price__value {
-    max-width: 240px;
+    max-width: 300px;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
@@ -107,16 +105,14 @@
 }
 
 .Form__info {
-    width: 340px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    min-height: 320px;
+    width: fit-content;
+    margin: 0 auto;
 }
 .Form__info__title {
-    padding-bottom: 16px;
-    font-size: 28px;
-    text-align: left;
+    padding-top: 16px;
+    padding-bottom: 32px;
+    font-size: 42px;
+    text-align: center;
     font-family: 'Manrope', sans-serif;
 }
 .Form__info__warning {
@@ -125,4 +121,14 @@
     font-size: 16px;
     color: rgb(122, 122, 122);
     font-family: 'Manrope', sans-serif;
+}
+
+.Form__setPrice {
+    padding-top: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.Form__setPrice .Form {
+    margin: 0 !important;
 }
