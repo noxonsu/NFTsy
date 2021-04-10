@@ -42,7 +42,8 @@
 }
 
 .Form__image-preview {
-    width: 1000px;
+    max-width: 1000px;
+    max-height: 750px;
 }
 
 .Form__title {
@@ -109,7 +110,6 @@
     margin: 0 auto;
 }
 .Form__info__title {
-    padding-top: 16px;
     padding-bottom: 32px;
     font-size: 42px;
     text-align: center;
