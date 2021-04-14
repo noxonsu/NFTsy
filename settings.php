@@ -45,7 +45,7 @@
     <h2>test</h2>
     <?php esc_html_e('First of all please','nft'); ?> <a href="update-core.php?force-check=1"><?php esc_html_e('check for updates','nft'); ?></a>. <?php esc_html_e('How to use? Just enter [nft] shortcode in your page or post and fill this form:','nft'); ?><Br>
     <br><br>
-    <h2><?php esc_html_e('Staking settings', 'nft'); ?></h2>
+    <h2><?php esc_html_e('General settings', 'nft'); ?></h2>
     <div class="welcome-panel-column-container nft-panel-tab panel-tab-active" id="nft-tab-1">
       <div class="nft-shortcode-panel-row">
         <form action="#" method="post" class="wp-nft-widget-form">
@@ -84,6 +84,8 @@
                        class="button button-primary mcwallet-add-token"
                        value="<?php esc_attr_e('Save', 'nft'); ?>">
                 <span class="spinner"></span>
+		<br>
+		 <?php esc_html_e('Add [nft_add_shortcode] to a page where to show "add" form. Add [nft_view_shortcode] to a page where to show the catalog', 'nft'); ?>      
               </td>
             </tr>
             </tbody>
