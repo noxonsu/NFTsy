@@ -44,7 +44,7 @@
   <div class="welcome-panel">
     <h2>test</h2>
     <?php esc_html_e('First of all please','nft'); ?> <a href="update-core.php?force-check=1"><?php esc_html_e('check for updates','nft'); ?></a>. 
-	  <?php esc_html_e('How to use? Add [nft_add_shortcode] to a page where to show "add" form. Add [nft_view_shortcode] to a page where to show the catalog:','nft'); ?><Br>
+	  <?php esc_html_e('How to use? Add [nft_addform] to a page where to show "add" form. Add [nft_view_shortcode] to a page where to show the catalog:','nft'); ?><Br>
     <br><br>
     <h2><?php esc_html_e('General settings', 'nft'); ?></h2>
     <div class="welcome-panel-column-container nft-panel-tab panel-tab-active" id="nft-tab-1">
