@@ -88,6 +88,12 @@ export const FormsContainer = ({ currentPage, onChangeCurrentPage, ...formProps}
                     )}
                 </div>
             );
+        case 'buyButton':
+            return (
+                <div style={{ margin: '0 auto'}}>
+                    <FormPurchase {...formProps} isOwner={isOwner} onlyButton />
+                </div>
+            );
         default:
             return null;
     }

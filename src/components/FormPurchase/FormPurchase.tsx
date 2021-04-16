@@ -13,9 +13,10 @@ import '../FormsContainer/FormsContainer.css';
 import Web3 from "web3";
 
 interface FormPurchaseProps extends FormCustomProps {
-    onEdit: () => void;
+    onEdit?: () => void;
+    onlyButton?: boolean;
 }
-export const FormPurchase = ({ contractMain, contractSell, tokenId, setErrors, setIsDone, currentAccount, title, onEdit, isOwner }: FormPurchaseProps) => {
+export const FormPurchase = ({ contractMain, contractSell, tokenId, setErrors, setIsDone, currentAccount, title, onEdit, isOwner, onlyButton }: FormPurchaseProps) => {
     const [purchaseValue, setPurchaseValue] = useState(undefined as number | undefined);
     const [isPriceInstalled, setIsPriceInstalled] = useState(false);
     const [isInProgress, setIsInProgress] = useState(false);
@@ -67,6 +68,16 @@ export const FormPurchase = ({ contractMain, contractSell, tokenId, setErrors, s
             setErrors([e.message]);
         }
     }, [tokenId]);
+
+    if (onlyButton) {
+        return (
+            <div className='Form Form-extended' style={{ alignItems: 'center' }}>
+                <div className='Form__container'>
+                    <Button width={340} fontSize={24} onClick={handlePurchase} text={isInProgress ? 'Pending...' : 'Purchase'} disabled={!isPriceInstalled || isInProgress} />
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className='Form Form-extended'>
