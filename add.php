@@ -53,12 +53,12 @@ if ( is_user_logged_in() || NFT_ADDUSER > 0) {
 		} else {
 			
 			?>
-			<form action="" method="post">
+			<form action="" onsubmit="if(document.querySelector('#nft_new_url').value.match(/\.(jpeg|jpg|gif|png)$/) == null) { alert('<?php echo esc_html__( 'Only image please', 'nft' );?>'); return false } else {return true}" method="post">
 			  <?php echo esc_html__( 'Provide image URL of new NFT', 'nft' );?>:
-			  <input type="text" required name="nft_new_url" value="https://"> 
+			  <input type="text" required id='nft_new_url' name="nft_new_url" value="https://"> 
 			  <Br><Br><?php echo esc_html__( 'Description', 'nft' );?>:
-			  <input type="text" name="nft_new_text" value="">
-			  <Br><Br><input type="submit" value="Submit">
+			  <input type="text"  name="nft_new_text" value="">
+			  <Br><Br><input type="submit" onclick="" value="Submit">
 			</form>
 			<?php
 			
