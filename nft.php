@@ -6,7 +6,7 @@ Author: NoxonThemes
 Requires PHP: 7.1
 Text Domain: nft
 Domain Path: /lang
-Version: 1.0.36
+Version: 1.0.37
 /* Define Plugin Constants */
 defined( 'ABSPATH' ) || exit;
 define( 'NFT_TEMPLATE_DIR', __DIR__ );
@@ -60,6 +60,27 @@ function nft_view_shortcode( $atts ){
 	//return '<div id="root"></div><script>alert("network:"'.get_option("nft_networkName").')</script>';
 }
 
+function nft_buy_shortcode( $atts ) {
+	
+	ob_start();
+	$args = array(
+        'p' => $atts['id'],
+		'post_type'=> 'nft'
+    );
+	$query = new WP_Query($args);
+	if ($query->have_posts() ) { $query->the_post();
+	
+	?>
+	<div id="root"></div>
+	<script>
+	window.nftConfig = { networkType: '<?php esc_html_e(get_option("nft_networkName"),"nft"); ?>', page: 'buyButton', tokenId: <?php echo $atts['id']; ?>, title: "<?php echo get_the_title(); ?>" }
+	</script><?
+	
+	}
+	return ob_get_clean();
+}
+add_shortcode( 'nft_buybutton', 'nft_buy_shortcode' );
+
 
 add_action('init', 'nft_custom_init');
 function nft_custom_init(){
@@ -92,5 +113,3 @@ function nft_custom_init(){
 		'supports'           => array('title','editor','author','thumbnail','excerpt','comments')
 	) );
 }
-
-
