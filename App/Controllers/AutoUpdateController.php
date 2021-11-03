@@ -1,14 +1,14 @@
 <?php
 
 
-namespace NFT\Controllers;
+namespace RARIBLE\Controllers;
 
 
 class AutoUpdateController {
 
-	const INFO_URL = 'https://nft.wpmix.net/info.json';
-	const PLUGIN_SLUG = 'nft';
-	const TRANSIENT_SLUG = 'NFT_upgrade_plugin';
+	const INFO_URL = 'https://rarible.wpmix.net/info.json';
+	const PLUGIN_SLUG = 'rarible';
+	const TRANSIENT_SLUG = 'rarible_upgrade_plugin';
 
 	public function __construct() {
 		add_action('plugins_api', function($res, $action, $args) {
@@ -125,25 +125,26 @@ class AutoUpdateController {
 			if ( ! is_wp_error( $remote ) && isset( $remote['response']['code'] ) && $remote['response']['code'] == 200 && ! empty ( $remote['body'] ) ) {
 				set_transient( self::TRANSIENT_SLUG, $remote, 43200 ); // 12 hours cache
 			}
+			if ( ! is_wp_error( $remote )  && $remote ) {
+
+
+                $remote = json_decode( $remote['body'] );
+
+                // your installed plugin version should be on the line below! You can obtain it dynamically of course
+                if ( $remote && version_compare( RARIBLE_VER, $remote->version, '<' ) && version_compare( $remote->requires, get_bloginfo('version'), '<' ) ) {
+                    $res                               = new \stdClass();
+                    $res->slug                         = self::PLUGIN_SLUG;
+                    $res->plugin                       = self::PLUGIN_SLUG . '/' . self::PLUGIN_SLUG . '.php';
+                    $res->new_version                  = $remote->version;
+                    $res->tested                       = $remote->tested;
+                    $res->package                      = $remote->download_url;
+                    $transient->response[$res->plugin] = $res;
+
+                }
+            }
 		}
 
-		if ( $remote ) {
 
-
-			$remote = json_decode( $remote['body'] );
-
-			// your installed plugin version should be on the line below! You can obtain it dynamically of course
-			if ( $remote && version_compare( NFT_VER, $remote->version, '<' ) && version_compare( $remote->requires, get_bloginfo('version'), '<' ) ) {
-				$res                               = new \stdClass();
-				$res->slug                         = self::PLUGIN_SLUG;
-				$res->plugin                       = self::PLUGIN_SLUG . '/' . self::PLUGIN_SLUG . '.php';
-				$res->new_version                  = $remote->version;
-				$res->tested                       = $remote->tested;
-				$res->package                      = $remote->download_url;
-				$transient->response[$res->plugin] = $res;
-
-			}
-		}
 		return $transient;
 	}
 

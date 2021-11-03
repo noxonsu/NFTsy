@@ -1,5 +1,5 @@
 <?php
-namespace NFT;
+namespace RARIBLE;
 
 defined( 'ABSPATH' ) || exit;
 
