@@ -5,6 +5,7 @@
 // delete places
 
 
+
 if ( is_user_logged_in() || NFT_ADDUSER > 0) {
 		
 		
