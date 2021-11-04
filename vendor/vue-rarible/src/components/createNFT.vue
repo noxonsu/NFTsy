@@ -150,32 +150,17 @@ export default {
 
   },
   methods: {
+    sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    },
     async lazyMint() {
 
-      console.log('try to mint222')
-
-      /*  let itemData = {
-          'name': 'sdfasfdsdaf',
-          'image': 'https://zooclub.org.ua/uploads/2021/10/26/chesnochnaya-steklyannaya-ulitka4-370x240.jpg',
-          'description': 'sfdghsdfg sdfgsd',
-
-        };
-        let jsonStr = JSON.stringify(itemData);
-        const buf = Buffer.from(jsonStr);
-        const itemHash = await ipfs.add(buf)*/
-      //  const uri = "ipfs/" + itemHash[0].hash
-
-
       const ipfs = create({host: 'ipfs.infura.io', port: 5001, protocol: 'https'});
-
-
-      // const ipfsAPI = require('ipfs-http-client');
-      //const ipfs = new ipfsAPI({host: 'ipfs.infura.io', port: '5001', protocol: 'https' })
       const buffalo = {
-        "description": "it's a snail?",
+        "description": "The painted turtle (Latin Chrysemus picta) belongs to the American freshwater family ...",
         "external_url": "https://zooclub.org.ua",// <-- this can link to a page for the specific file too
-        "image": "https://zooclub.org.ua/uploads/2021/10/26/chesnochnaya-steklyannaya-ulitka4-370x240.jpg",
-        "name": "snail",
+        "image": "https://zooclub.org.ua/uploads/2021/08/09/raspisnaya-cherepaha12-370x240.jpg",
+        "name": "Painted turtle",
         "attributes": [
           {
             "trait_type": "BackgroundColor",
@@ -183,19 +168,31 @@ export default {
           },
           {
             "trait_type": "Eyes",
-            "value": "googly"
+            "value": "turtle"
           },
           {
             "trait_type": "Stamina",
-            "value": 4
+            "value": 77
           }
         ]
       }
-      console.log("Uploading buffalo...")
+      console.log("Uploading image...")
       const uploaded = await ipfs.add(JSON.stringify(buffalo))
 
-      console.log("Minting buffalo with IPFS hash (" + uploaded.path + ")")
+      console.log("Minting  with IPFS hash (" + uploaded.path + ")")
+      const res = await axios.get(`https://ipfs.io/ipfs/${uploaded.path}`)
+      console.log(res)
+      await this.sleep(1000)
+      const res2 = await axios.get(`https://ipfs.io/ipfs/${uploaded.path}`)
+      console.log(res2)
+      console.log('sleep for 30 sec')
+      await this.sleep(1000 * 30)
+      console.log('woke up. start mint')
       const uri = `ipfs/${uploaded.path}`
+      // const uri = `ipfs/QmXAj5y2xNjMQUKsksCLNvhp36V5gXED6SUocWVQ2pu7uw`
+      // const uri = `ipfs/QmTEfxNWAYjW7bqvzxHkrQQEyZ1tipmJhwvfRHQCRs5wMZ`
+      // const uri = `ipfs/QmPK7BnP5SSxBEVFcpH7Vsgz377gCCu2oW2rqJEQYdaf6s`
+      // const uri = `ipfs/Qmb2iVfxSad8wEv3mCMF6aBr8Rh1tM3K3tacHuWqntWTze`
 
       console.log('uri', uri)
 
