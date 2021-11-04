@@ -138,13 +138,10 @@
 </template>
 
 <script>
-import ipfs from "../helpers/ipfs";
 import {mapGetters} from "vuex";
-import { toAddress, toBigNumber } from "@rarible/types";
-import Web3 from "web3";
-import {createRaribleSdk} from "@rarible/protocol-ethereum-sdk";
-import {Web3Ethereum} from "@rarible/web3-ethereum";
-import {mint} from "@rarible/protocol-ethereum-sdk/build/nft/mint";
+import {toAddress} from "@rarible/types";
+import {create} from 'ipfs-http-client'
+
 export default {
   name: "createNFT",
   props: ['sdk'],
@@ -155,21 +152,52 @@ export default {
   methods: {
     async lazyMint() {
 
-      let itemData = {
-        'Name': 'Чесночная стеклянная улитка',
-        'ImageUrl': 'https://zooclub.org.ua/uploads/2021/10/26/chesnochnaya-steklyannaya-ulitka4-370x240.jpg',
-        'CollectionName': 'Anime Character',
-        'TokenType': 'ERC-721',
-        'Description': 'Чесночная стеклянная улитка (лат. Oxychilus alliarius) является одним из 75 видов, относящихся к семейству Стеклянных улиток (Oxychilidae) и обитающих на территории Европы. Этот хищный брюхоногий моллюск получил свое название из-за характерного резкого запаха, который он источает в случае опасности или беспокойства.',
-        'ModelUsed': 'BIG GAN',
-        'Minimum Bid': '0.01 ETH'
+      console.log('try to mint222')
 
-      };
+      /*  let itemData = {
+          'name': 'sdfasfdsdaf',
+          'image': 'https://zooclub.org.ua/uploads/2021/10/26/chesnochnaya-steklyannaya-ulitka4-370x240.jpg',
+          'description': 'sfdghsdfg sdfgsd',
 
-      let jsonStr = JSON.stringify(itemData);
-      const buf = Buffer.from(jsonStr);
-      const itemHash = await ipfs.add(buf)
-      const uri = "ipfs/"+itemHash[0].hash
+        };
+        let jsonStr = JSON.stringify(itemData);
+        const buf = Buffer.from(jsonStr);
+        const itemHash = await ipfs.add(buf)*/
+      //  const uri = "ipfs/" + itemHash[0].hash
+
+
+      const ipfs = create({host: 'ipfs.infura.io', port: 5001, protocol: 'https'});
+
+
+      // const ipfsAPI = require('ipfs-http-client');
+      //const ipfs = new ipfsAPI({host: 'ipfs.infura.io', port: '5001', protocol: 'https' })
+      const buffalo = {
+        "description": "it's a snail?",
+        "external_url": "https://zooclub.org.ua",// <-- this can link to a page for the specific file too
+        "image": "https://zooclub.org.ua/uploads/2021/10/26/chesnochnaya-steklyannaya-ulitka4-370x240.jpg",
+        "name": "snail",
+        "attributes": [
+          {
+            "trait_type": "BackgroundColor",
+            "value": "gray"
+          },
+          {
+            "trait_type": "Eyes",
+            "value": "googly"
+          },
+          {
+            "trait_type": "Stamina",
+            "value": 4
+          }
+        ]
+      }
+      console.log("Uploading buffalo...")
+      const uploaded = await ipfs.add(JSON.stringify(buffalo))
+
+      console.log("Minting buffalo with IPFS hash (" + uploaded.path + ")")
+      const uri = `ipfs/${uploaded.path}`
+
+      console.log('uri', uri)
 
 
       const mintFormInitial = {
@@ -181,26 +209,26 @@ export default {
       }
 
       const nftCollection = await this.getSdk.apis.nftCollection.getNftCollectionById(
-          { collection: mintFormInitial.id })
+          {collection: mintFormInitial.id})
 
       const tx = await this.getSdk.nft.mint({
-        uri: "uri",
-        royalties: [],
+        uri: uri,
         collection: nftCollection,
-      //  creators: [{ account: toAddress(this.getAccounts[0]), value: 10000 }], // creators of token
-
+        creators: [{account: toAddress(this.getAccounts[0]), value: 10000}], // creators of token
+        royalties: [],
+        lazy: true,
       })
       console.log('tx', uri)
       console.log('tx2', tx)
+      console.log({itemId: tx.itemId})
       if (tx) {
 
         // Get minted nft through SDK
 
-        const token = await this.sdk.apis.nftItem.getNftItemById({ itemId: tx.itemId })
+        const token = await this.getSdk.apis.nftItem.getNftItemById({itemId: tx.itemId})
         if (token) {
           console.log(token)
-        }
-        else{
+        } else {
           console.log("access denied")
         }
       }

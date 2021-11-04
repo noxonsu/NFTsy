@@ -26,7 +26,15 @@ import {mapGetters, mapMutations} from "vuex";
 import buttonConnect from "./components/parts/buttonConnect";
 import createNFT from "./components/createNFT";
 import {mint} from "@rarible/protocol-ethereum-sdk/build/nft/mint";
-
+import {
+  Address,
+  Configuration,
+  GatewayControllerApi,
+  NftCollectionControllerApi,
+  NftItemControllerApi,
+  NftLazyMintControllerApi,
+} from "@rarible/ethereum-api-client"
+import {getApiConfig} from "@rarible/protocol-ethereum-sdk/build/config/api-config";
 const NETWORK = "ropsten" // "rinkeby" // "e2e" | "ropsten" | "rinkeby" | "mainnet"
 export default {
   props: ['icon', 'place', 'iconActive'],
@@ -76,28 +84,16 @@ export default {
   mounted() {
     console.log('try to mint')
     setTimeout(() => {
-      /*
-      mint({
-        "collection": {
-          "id": "0x6ede7f3c26975aad32a475e1021d8f6f39c89d82",
-          "type": "ERC721",
-          "supportsLazyMint": true
-        },
-        "uri": "ipfs/QmaC6EAfPcJhyXRTHgkZPKReYdn9VpnJ1CJTWmM8SCZ5po",
-        "supply": "100",
-        "creators": [
-          {
-            "account": "0x2f1489f53f56b2d6d734dd18cdbf0511e14e00f4",
-            "value": 10000
-          }
-        ],
-        "royalties": [],
-        "lazy": true
-      }).then(res => {
-        console.log(222222222222)
-        console.log(res)
-      })
-*/
+      const configuration = new Configuration(getApiConfig(NETWORK))
+      const nftCollectionApi = new NftCollectionControllerApi(configuration)
+      const nftItemApi = new NftItemControllerApi(configuration)
+ nftItemApi.getNftItemById({ itemId: " 0x60f80121c31a0d46b5279700f9df786054aa5ee5:717802" }).then(token => {
+   console.warn(token)
+ })
+    /* this.sdk.apis.nftItem.getNftItemById({ itemId: '0x2b8f301f5a5aa5afd56b416e170324d1818e9cfbc7759f8fe34ec458f078b085' }).then(token => {
+       console.warn(token)
+     })*/
+
     },500)
     console.log(this.getProvider.isMetaMask)
 

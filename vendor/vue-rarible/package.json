@@ -7,12 +7,17 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@rarible/web3-ethereum": "^0.9.8",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "eth-sig-util": "^3.0.1",
+    "ethereumjs-util": "^7.1.3",
     "ipfs-api": "^26.1.2",
+    "ipfs-http-client": "^53.0.1",
     "tslib": "^2.3.1",
     "vue": "^2.6.11",
-    "vuex": "^3.6.2"
+    "vuex": "^3.6.2",
+    "web3": "^1.6.0"
   },
   "devDependencies": {
     "@rarible/protocol-ethereum-sdk": "^0.9.4",
