@@ -2,16 +2,17 @@
   <div class="container">
 
 
-    <div v-if="this.getProvider" class="col-md-3">
-      <button-connect />
-      <h1>Your Account</h1>
-      <p>{{getAccounts[0]}}</p>
-      <div class="alert alert-danger" v-if="this.getProvider.isMetaMask == 'true'">
-        Please install metamask to use the app
-      </div>
-      <div v-else class="alert-success">all ok</div>
+    <div v-if="this.getProvider">
+      <!--      <button-connect />-->
+      <!--      <h1>Your Account</h1>-->
+      <!--      <p>{{getAccounts[0]}}</p>-->
+      <!--      <div class="alert alert-danger" v-if="this.getProvider.isMetaMask == 'true'">-->
+      <!--        Please install metamask to use the app-->
+      <!--      </div>-->
+      <!--      <div v-else class="alert-success">all ok</div>-->
 
-      <create-n-f-t />
+      <!--      <create-n-f-t />-->
+      <create-n-f-t-and-post/>
     </div>
 
 
@@ -25,16 +26,8 @@ import {Web3Ethereum} from "@rarible/web3-ethereum";
 import {mapGetters, mapMutations} from "vuex";
 import buttonConnect from "./components/parts/buttonConnect";
 import createNFT from "./components/createNFT";
-import {mint} from "@rarible/protocol-ethereum-sdk/build/nft/mint";
-import {
-  Address,
-  Configuration,
-  GatewayControllerApi,
-  NftCollectionControllerApi,
-  NftItemControllerApi,
-  NftLazyMintControllerApi,
-} from "@rarible/ethereum-api-client"
-import {getApiConfig} from "@rarible/protocol-ethereum-sdk/build/config/api-config";
+import CreateNFTAndPost from "./components/CreateNFTAndPost";
+
 const NETWORK = "ropsten" // "rinkeby" // "e2e" | "ropsten" | "rinkeby" | "mainnet"
 export default {
   props: ['icon', 'place', 'iconActive'],
@@ -44,7 +37,7 @@ export default {
       sdk: {}
     }
   },
-  components: {buttonConnect, createNFT},
+  components: {buttonConnect, createNFT, CreateNFTAndPost},
   computed: {
     ...mapGetters(['getSdk', 'getProvider', 'getAccounts']),
 
@@ -57,7 +50,6 @@ export default {
   created() {
 
     const {ethereum} = window
-    console.log('8888888888888')
     console.log(ethereum.isMetaMask)
 
     if (ethereum && ethereum.isMetaMask) {
@@ -82,33 +74,31 @@ export default {
     }
   },
   mounted() {
-    console.log('try to mint')
-    setTimeout(() => {
-      const configuration = new Configuration(getApiConfig(NETWORK))
-      const nftCollectionApi = new NftCollectionControllerApi(configuration)
-      const nftItemApi = new NftItemControllerApi(configuration)
- nftItemApi.getNftItemById({ itemId: " 0x60f80121c31a0d46b5279700f9df786054aa5ee5:717802" }).then(token => {
-   console.warn(token)
- })
-    /* this.sdk.apis.nftItem.getNftItemById({ itemId: '0x2b8f301f5a5aa5afd56b416e170324d1818e9cfbc7759f8fe34ec458f078b085' }).then(token => {
-       console.warn(token)
-     })*/
-
-    },500)
-    console.log(this.getProvider.isMetaMask)
+    //    console.log('try to mint')
+    //    setTimeout(() => {
+    //      const configuration = new Configuration(getApiConfig(NETWORK))
+    //      const nftCollectionApi = new NftCollectionControllerApi(configuration)
+    //      const nftItemApi = new NftItemControllerApi(configuration)
+    // nftItemApi.getNftItemById({ itemId: " 0x60f80121c31a0d46b5279700f9df786054aa5ee5:717802" }).then(token => {
+    //   console.warn(token)
+    // })
+    //    /* this.sdk.apis.nftItem.getNftItemById({ itemId: '0x2b8f301f5a5aa5afd56b416e170324d1818e9cfbc7759f8fe34ec458f078b085' }).then(token => {
+    //       console.warn(token)
+    //     })*/
+    //
+    //    },500)
+    //    console.log(this.getProvider.isMetaMask)
 
 
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+
+// scss-docs-start import-stack
+// Configuration
+
+
+
 </style>

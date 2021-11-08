@@ -1,5 +1,5 @@
 module.exports = {
-  //  parallel: 8,
+    //  parallel: 8,
     runtimeCompiler: true,
     productionSourceMap: false,
     publicPath: process.env.NODE_ENV === 'production'
@@ -9,7 +9,7 @@ module.exports = {
     configureWebpack: {
         devServer: {
             contentBase: '/wp-content/themes/Divi-child/assets/vue/',
-            allowedHosts: ['2go24.loc'],
+            allowedHosts: ['rarible-wp'],
             headers: {
                 'Access-Control-Allow-Origin': '*'
             },
@@ -23,9 +23,14 @@ module.exports = {
         },
     },
     css: {
-       extract: {
+        extract: {
             filename: 'css/[name].css',
             chunkFilename: 'css/[name].css'
+        },
+        loaderOptions: {
+
+
+
         }
     },
 };

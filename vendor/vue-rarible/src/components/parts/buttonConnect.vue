@@ -1,5 +1,5 @@
 <template>
-  <button @click="connectWalletHandler" class="btn btn-warning">{{ buttonMessage }}
+  <button @click.prevent="connectWalletHandler"  type="button" class="btn btn-warning">{{ buttonMessage }}
 
     <svg style="width: 25px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
       <path

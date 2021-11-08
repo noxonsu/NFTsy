@@ -181,18 +181,11 @@ export default {
 
       console.log("Minting  with IPFS hash (" + uploaded.path + ")")
       const res = await axios.get(`https://ipfs.io/ipfs/${uploaded.path}`)
-      console.log(res)
-      await this.sleep(1000)
-      const res2 = await axios.get(`https://ipfs.io/ipfs/${uploaded.path}`)
       console.log(res2)
       console.log('sleep for 30 sec')
       await this.sleep(1000 * 30)
       console.log('woke up. start mint')
       const uri = `ipfs/${uploaded.path}`
-      // const uri = `ipfs/QmXAj5y2xNjMQUKsksCLNvhp36V5gXED6SUocWVQ2pu7uw`
-      // const uri = `ipfs/QmTEfxNWAYjW7bqvzxHkrQQEyZ1tipmJhwvfRHQCRs5wMZ`
-      // const uri = `ipfs/QmPK7BnP5SSxBEVFcpH7Vsgz377gCCu2oW2rqJEQYdaf6s`
-      // const uri = `ipfs/Qmb2iVfxSad8wEv3mCMF6aBr8Rh1tM3K3tacHuWqntWTze`
 
       console.log('uri', uri)
 

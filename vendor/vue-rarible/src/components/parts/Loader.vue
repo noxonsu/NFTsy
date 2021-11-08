@@ -1,5 +1,5 @@
 <template>
-  <div class="loader-mask">
+  <div class="loader-mask2">
     <div class="lds-spinner">
       <div></div>
       <div></div>
@@ -59,7 +59,7 @@ export default {
   width: 6px;
   height: 18px;
   border-radius: 20%;
-  background: #fff;
+  background: #e2e2e2;
 }
 .lds-spinner div:nth-child(1) {
   transform: rotate(0deg);
