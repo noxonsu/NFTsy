@@ -21,6 +21,7 @@
     "vue": "^2.6.11",
     "vue-masonry": "^0.13.0",
     "vue-picture-input": "^2.1.6",
+    "vue-router": "^3.5.3",
     "vuex": "^3.6.2",
     "web3": "^1.6.0"
   },

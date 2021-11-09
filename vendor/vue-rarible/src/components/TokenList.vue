@@ -31,8 +31,10 @@
 
               </div>
               <div style="margin-bottom: 50px;">
-                <a href="https://city2.wpmix.net/product/new-years-eve-celebrations/"
-                   class="btn btn--sm press--right"> Buy Token </a>
+                <router-link   class="btn btn&#45;&#45;sm press&#45;&#45;right" :to="{ name: 'tokens.single', params: { id: item.id }}"> Buy Token </router-link>
+
+<!--                <a href="https://city2.wpmix.net/product/new-years-eve-celebrations/"-->
+<!--                   class="btn btn&#45;&#45;sm press&#45;&#45;right"> Buy Token </a>-->
               </div>
 
             </div>

@@ -1,3 +1,3 @@
 <div id="v-app">
-    <Token-List />
+    <Token-Start-Page />
 </div>
