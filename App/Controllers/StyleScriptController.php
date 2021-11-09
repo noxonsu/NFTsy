@@ -39,6 +39,7 @@ class StyleScriptController
             wp_enqueue_style('vue-style-vendor',
                 plugins_url('/vendor/dist', RARIBLE_BASE_FILE).'/css/chunk-vendors.css');
         }
+        wp_enqueue_style( 'fonts-google-Roboto', urldecode( $this->googleFontsUrl( 'Roboto:400,100italic,100,300,300italic,400italic,500,500italic,700,700italic,900,900italic' ) ) );
         $args_obj = array(
             'ajaxurl' => esc_url( site_url() ) . '/wp-admin/admin-ajax.php',
             'site_url' => esc_url( site_url() ),
@@ -51,6 +52,19 @@ class StyleScriptController
     function isDevelopServer(): bool
     {
         return boolval(@fsockopen('localhost', '8080'));
+    }
+    function  googleFontsUrl($fonts_param){
+        $font_url = '';
+        /*
+        Translators: If there are characters in your language that are not supported
+        by chosen font(s), translate this to 'off'. Do not translate into your own language.
+         */
+        if ( 'off' !== esc_html_x( 'on', 'Google font: on or off', 'city2' ) ) {
+            $font_url = add_query_arg( 'family', urlencode( $fonts_param ), "//fonts.googleapis.com/css" );
+        }
+        $font_url = str_replace( '%2B', '+', $font_url );
+
+        return $font_url;
     }
 
 

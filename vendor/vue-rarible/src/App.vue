@@ -12,7 +12,8 @@
       <!--      <div v-else class="alert-success">all ok</div>-->
 
       <!--      <create-n-f-t />-->
-      <create-n-f-t-and-post/>
+<!--      <create-n-f-t-and-post/>-->
+      <token-list />
     </div>
 
 
@@ -27,6 +28,7 @@ import {mapGetters, mapMutations} from "vuex";
 import buttonConnect from "./components/parts/buttonConnect";
 import createNFT from "./components/createNFT";
 import CreateNFTAndPost from "./components/CreateNFTAndPost";
+import TokenList from "./components/TokenList";
 
 const NETWORK = "ropsten" // "rinkeby" // "e2e" | "ropsten" | "rinkeby" | "mainnet"
 export default {
@@ -37,7 +39,7 @@ export default {
       sdk: {}
     }
   },
-  components: {buttonConnect, createNFT, CreateNFTAndPost},
+  components: {buttonConnect, createNFT, CreateNFTAndPost, TokenList},
   computed: {
     ...mapGetters(['getSdk', 'getProvider', 'getAccounts']),
 

@@ -246,7 +246,7 @@ export default {
       const ipfsItem = {
         "description": this.form.description,
         "external_url": "",// <-- this can link to a page for the specific file too
-        "image": "https://zooclub.org.ua/uploads/2021/11/06/karakal22-370x240.jpg", // this.imgLink
+        "image":   this.imgLink , // this.imgLink
         "name": this.form.title,
         //  "attributes": []
       }

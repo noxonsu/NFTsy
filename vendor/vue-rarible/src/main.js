@@ -8,9 +8,14 @@ import Web3 from "web3";
 import {createRaribleSdk} from "@rarible/protocol-ethereum-sdk";
 import {Web3Ethereum} from "@rarible/web3-ethereum";
 import {mapMutations} from "vuex";
+import {VueMasonryPlugin} from 'vue-masonry';
+import TokenList from "./components/TokenList";
+
 window.vueGoogleMap = false
 Vue.component('CreateNFTAndPost', CreateNFTAndPost);
+Vue.component('TokenList', TokenList);
 
+Vue.use(VueMasonryPlugin)
 
 if(document.getElementById('v-app')) {
 
