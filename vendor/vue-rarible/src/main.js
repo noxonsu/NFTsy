@@ -41,7 +41,7 @@ if (document.getElementById('v-app')) {
 
         },
             {
-                path: ":id",
+                path: "/:id",
                 component: TokenSingle,
                 name: 'tokens.single'
 

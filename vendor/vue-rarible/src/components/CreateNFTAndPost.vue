@@ -273,7 +273,11 @@ export default {
                 uri: uri,
                 collection: nftCollection,
                 creators: [{account: toAddress(this.getAccounts[0]), value: 10000}], // creators of token
-                royalties: [],
+                royalties: [
+                  {
+                    account: toAddress(this.getAccounts[0]), value: 1000
+                  }
+                ],
                 lazy: true,
               }).then(tx => {
                 console.log('tx', uri)
