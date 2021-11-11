@@ -47,8 +47,8 @@
             <div class="col-md-12" style="margin-top: 30px">
               <buttonConnect v-if="!getAccounts[0]"/>
 
-              <a @click.prevent="makeOrder" href="https://city2.wpmix.net/product/new-years-eve-celebrations/"
-                 class="btn btn--sm press--right">make order</a>
+              <a @click.prevent="buyOrder"
+                 class="btn btn--sm press--right">Buy an order</a>
 
 
             </div>
@@ -83,6 +83,21 @@ export default {
     }
   },
   methods: {
+    buyOrder() {
+      console.log('try buyOrder')
+      this.getSdk.apis.order.getOrderByHash({hash: '0x549f6ad9ecffd5bc7d0059b80d48ff995049e73bf8d21a1536a0a594aab3bb9f'})
+          .then(order => {
+            console.warn('order', order.type)
+             this.getSdk.order.fill(
+                  {order: order, payouts: [], originFees: [],
+                    amount: 1 }
+              ).then(a => {
+                a.runAll()
+                console.log('token bought');
+              })
+          })
+
+    },
     async makeOrder() {
       const order = await this.getSdk.order.sell({
         maker: toAddress(this.getAccounts[0]),
@@ -106,13 +121,20 @@ export default {
 
     }
   },
-  mounted() {
+  async mounted() {
 
+    console.log('your wallet', this.getAccounts)
     api.get('',
         {params: {action: 'rarible_nft_post', post_id: this.$route.params.id}}
     ).then(res => {
       this.post = res.data
     })
+
+    this.getSdk.apis.order.getOrderByHash({hash: '0x549f6ad9ecffd5bc7d0059b80d48ff995049e73bf8d21a1536a0a594aab3bb9f'}).then(res => {
+      console.warn('getOrderByHash')
+      console.warn(res)
+    })
+
   }
 }
 </script>

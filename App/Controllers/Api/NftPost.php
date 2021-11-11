@@ -23,6 +23,7 @@ class  NftPost extends ApiController
                 true),
             'owner'               => $tx['owner'] ?? '',
             'price'              => get_post_meta($postID, 'price', true),
+            'order_hash'              => get_post_meta($postID, 'order_hash', true),
             'rarible_tx_item_id' => get_post_meta($postID,
                 'rarible_tx_item_id', true),
 

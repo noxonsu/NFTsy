@@ -32,6 +32,8 @@ class  UpdateNftPost extends ApiController
             ($_POST['tx'] ?? ''));
         update_post_meta($this->postId, 'rarible_tx_item_id',
             sanitize_text_field($_POST['tx_item_id'] ?? ''));
+        update_post_meta($this->postId, 'order_hash',
+            sanitize_text_field($_POST['order_hash'] ?? ''));
     }
 
 }

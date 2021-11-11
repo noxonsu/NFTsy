@@ -283,30 +283,53 @@ export default {
                 console.log('tx', uri)
                 console.log('tx2', tx)
                 console.log({itemId: tx.itemId})
-                api.post('?action=rarible_update_nft_post', stringify({
-                  IPFS: uploaded.path,
-                  postId: this.postId,
-                  tx: tx,
-                  tx_item_id: tx.itemId,
 
-                })).then(res => {
-                  console.log('all done')
-                  this.loadText = 'all done, nft token created ' + tx.itemId
-                  this.loader = false
-                  this.form = {
-                    image: null,
-                        title: '',
-                        price: '',
-                        royalties: '',
-                        description: '',
-                        properties: {}
+                this.getSdk.order.sell({
+                  maker: toAddress(this.getAccounts[0]),
+                  makeAssetType: {
+                    assetClass: "ERC721",
+                    contract: '0xb0ea149212eb707a1e5fc1d2d3fd318a8d94cf05',
+                    tokenId: tx.itemId,
+                  },
+                  price: this.price *  1000000000000000000, // "60000000000000000", // 0.06 ETH
+                  takeAssetType: {
+                    assetClass: "ETH",
+                  },
+                  amount: 1,
+                  payouts: [],
+                  originFees: [{
+                    account: this.getAccounts[0],
+                    value: 1,
+                  }],
+                }).then(order => {
+                  api.post('?action=rarible_update_nft_post', stringify({
+                    IPFS: uploaded.path,
+                    postId: this.postId,
+                    tx: tx,
+                    tx_item_id: tx.itemId,
+                    order_hash: order.hash,
 
-                  }
-                  setTimeout(() => {
-                    this.loadText = ''
-                  },3000)
+                  })).then(res => {
+                    console.log('all done')
+                    this.loadText = 'all done, nft token created ' + tx.itemId
+                    this.loader = false
+                    this.form = {
+                      image: null,
+                      title: '',
+                      price: '',
+                      royalties: '',
+                      description: '',
+                      properties: {}
 
+                    }
+                    setTimeout(() => {
+                      this.loadText = ''
+                    },3000)
+
+                  })
                 })
+                console.warn(order)
+
               })
 
             })
