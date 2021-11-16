@@ -49,6 +49,8 @@
 
               <a @click.prevent="buyOrder"
                  class="btn btn--sm press--right">Buy an order</a>
+       <a @click.prevent="makeOrder"
+                 class="btn btn--sm press--right">makeOrder</a>
 
 
             </div>
@@ -124,7 +126,7 @@ export default {
   async mounted() {
 
     console.log('your wallet', this.getAccounts)
-    api.get('',
+    api.get('wp-admin/admin-ajax.php',
         {params: {action: 'rarible_nft_post', post_id: this.$route.params.id}}
     ).then(res => {
       this.post = res.data

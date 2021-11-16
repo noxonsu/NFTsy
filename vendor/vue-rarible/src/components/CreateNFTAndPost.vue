@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row aligncenter">
       <div>
-        <form action="#" method="post" class="b-form-cont " id="add-places-1"
+        <form action="#" method="post" class="b-form-cont " style="position: relative" id="add-places-1"
         >
           <h2 class="b-form-cont__title">Create single collectible</h2>
           <div class="b-form b-form--place container-fluid">
@@ -115,7 +115,7 @@
 
             <div style="color: red; padding: 15px;     word-break: break-all;">{{ loadText }}</div>
 
-            <div class="b-form__row row">
+            <div class="b-form__row row" style="position: relative">
               <div class="col">
                 <buttonConnect v-if="!getAccounts[0]"/>
                 <button v-else :disabled="loader" type="submit" @click.prevent="submit" class="btn save-btn">Save
@@ -124,8 +124,10 @@
 
                 <span class="ajax_saved_text" style="display: none;">saved...</span>
               </div>
-              <div class="col">
-                <Loader v-if="loader" style="float: right;" class="pull-right"></Loader>
+              <div class="col" style="padding: 20px;">
+                <Loader
+                    v-if="loader"
+                    style="float: right; position: static " class="pull-right"></Loader>
 
               </div>
             </div>
@@ -193,6 +195,31 @@ export default {
     sleep(ms) {
       return new Promise(resolve => setTimeout(resolve, ms));
     },
+    submit1() {
+      this.getSdk.order.sell({
+        maker: toAddress(this.getAccounts[0]),
+        makeAssetType: {
+          assetClass: "ERC721",
+          contract: '0xb0ea149212eb707a1e5fc1d2d3fd318a8d94cf05',
+          tokenId: '21294992975815871805933535892073127469301996728786004586751131538920447148064',
+        },
+        price: 0.008 * 1000000000000000000, // "60000000000000000", // 0.06 ETH
+        takeAssetType: {
+          assetClass: "ETH",
+        },
+        amount: 1,
+        payouts: [],
+        originFees: [{
+          account: this.getAccounts[0],
+          value: 1,
+        }],
+      }).then(order => {
+        console.log('order', order)
+      })
+
+      console.log('555555555555555555')
+      return
+    },
     submit() {
 
 
@@ -224,7 +251,7 @@ export default {
       this.loader = true
 
 
-      api.post('?action=rarible_create_nft_post', formData, headers).then(res => {
+      api.post('wp-admin/admin-ajax.php?action=rarible_create_nft_post', formData, headers).then(res => {
 
         console.log(res.data)
         //this.loader = false
@@ -243,10 +270,11 @@ export default {
     },
     makeNftToken() {
 
+      console.log('price', this.form.price)
       const ipfsItem = {
         "description": this.form.description,
         "external_url": "",// <-- this can link to a page for the specific file too
-        "image":   this.imgLink , // this.imgLink
+        "image": this.imgLink, // this.imgLink
         "name": this.form.title,
         //  "attributes": []
       }
@@ -254,12 +282,12 @@ export default {
       ipfs.add(JSON.stringify(ipfsItem)).then(uploaded => {
         const uri = `ipfs/${uploaded.path}`
         console.log('uri', uri)
-        console.log('sleep 30', uri)
+        console.log('sleep 42', uri)
 
         axios.get(`https://ipfs.io/ipfs/${uploaded.path}`).then(() => {
           this.sleep(1000 * 32).then(() => {
             console.log('woke up. start mint')
-
+            this.loadText = 'Start mint...'
             const mintFormInitial = {
               id: "0xB0EA149212Eb707a1E5FC1D2d3fD318a8d94cf05", // default collection on "rinkeby" that supports lazy minting
               type: "ERC721",
@@ -283,52 +311,150 @@ export default {
                 console.log('tx', uri)
                 console.log('tx2', tx)
                 console.log({itemId: tx.itemId})
+                console.log('itemId', tx.itemId)
+                api.post('wp-admin/admin-ajax.php?action=rarible_update_nft_post', stringify({
+                  IPFS: uploaded.path,
+                  postId: this.postId,
+                  tx: tx,
+                  tx_item_id: tx.itemId,
+                  order_hash: ''  //order.hash,
 
-                this.getSdk.order.sell({
-                  maker: toAddress(this.getAccounts[0]),
-                  makeAssetType: {
-                    assetClass: "ERC721",
-                    contract: '0xb0ea149212eb707a1e5fc1d2d3fd318a8d94cf05',
-                    tokenId: tx.itemId,
-                  },
-                  price: this.price *  1000000000000000000, // "60000000000000000", // 0.06 ETH
-                  takeAssetType: {
-                    assetClass: "ETH",
-                  },
-                  amount: 1,
-                  payouts: [],
-                  originFees: [{
-                    account: this.getAccounts[0],
-                    value: 1,
-                  }],
-                }).then(order => {
-                  api.post('?action=rarible_update_nft_post', stringify({
-                    IPFS: uploaded.path,
-                    postId: this.postId,
-                    tx: tx,
-                    tx_item_id: tx.itemId,
-                    order_hash: order.hash,
+                })).then(() => {
+                  this.loadText ='sleep 40s before create order'
 
-                  })).then(res => {
-                    console.log('all done')
-                    this.loadText = 'all done, nft token created ' + tx.itemId
-                    this.loader = false
-                    this.form = {
-                      image: null,
-                      title: '',
-                      price: '',
-                      royalties: '',
-                      description: '',
-                      properties: {}
+                  console.log('sleep 10 before create order')
+                  console.log('tokenId', tx.tokenId)
 
-                    }
-                    setTimeout(() => {
-                      this.loadText = ''
-                    },3000)
+                  this.sleep(1000 * 10).then(() => {
+                    console.log('order make ob', {
+                      maker: toAddress(this.getAccounts[0]),
+                      makeAssetType: {
+                        assetClass: "ERC721",
+                        contract: '0xb0ea149212eb707a1e5fc1d2d3fd318a8d94cf05',
+                        tokenId: tx.tokenId,
+                      },
+                      price: this.form.price * 1000000000000000000, // "60000000000000000", // 0.06 ETH
+                      takeAssetType: {
+                        assetClass: "ETH",
+                      },
+                      amount: 1,
+                      payouts: [],
+                      originFees: [{
+                        account: this.getAccounts[0],
+                        value: 1,
+                      }],
+                    })
 
+                    this.loadText = 'Start make order for token...'
+                    this.getSdk.order.sell({
+                      maker: toAddress(this.getAccounts[0]),
+                      makeAssetType: {
+                        assetClass: "ERC721",
+                        contract: '0xb0ea149212eb707a1e5fc1d2d3fd318a8d94cf05',
+                        tokenId: tx.tokenId,
+                      },
+                      price: this.form.price * 1000000000000000000, // "60000000000000000", // 0.06 ETH
+                      takeAssetType: {
+                        assetClass: "ETH",
+                      },
+                      amount: 1,
+                      payouts: [],
+                      originFees: [{
+                        account: this.getAccounts[0],
+                        value: 1,
+                      }],
+                    }).then(order => {
+                      api.post('wp-admin/admin-ajax.php?action=rarible_update_nft_post', stringify({
+                        IPFS: uploaded.path,
+                        postId: this.postId,
+                        tx: tx,
+                        tx_item_id: tx.itemId,
+                        order_hash: order.hash,
+
+                      })).then(res => {
+                        console.log('all done')
+                        this.loadText = 'all done, nft token created ' + tx.itemId
+                        this.loader = false
+                        this.form = {
+                          image: null,
+                          title: '',
+                          price: '',
+                          royalties: '',
+                          description: '',
+                          properties: {}
+
+                        }
+                        setTimeout(() => {
+                          this.loadText = ''
+                        }, 3000)
+
+                      })
+                    }).catch(e => {
+                      this.loadText = 'Error. order not created'
+                      console.log('Error. order not created')
+                      this.loader = false
+                      setTimeout(() => {
+                        this.loadText = ''
+                      }, 3000)
+                    }).finally(() => {
+                      this.form = {
+                        image: null,
+                        title: '',
+                        price: '',
+                        royalties: '',
+                        description: '',
+                        properties: {}
+
+                      }
+                    })
                   })
                 })
-                console.warn(order)
+
+                /* this.getSdk.order.sell({
+                    maker: toAddress(this.getAccounts[0]),
+                    makeAssetType: {
+                      assetClass: "ERC721",
+                      contract: '0xb0ea149212eb707a1e5fc1d2d3fd318a8d94cf05',
+                      tokenId: tx.itemId,
+                    },
+                    price: this.price *  1000000000000000000, // "60000000000000000", // 0.06 ETH
+                    takeAssetType: {
+                      assetClass: "ETH",
+                    },
+                    amount: 1,
+                    payouts: [],
+                    originFees: [{
+                      account: this.getAccounts[0],
+                      value: 1,
+                    }],
+                  }).then(order => {
+                    api.post('wp-admin/admin-ajax.php?action=rarible_update_nft_post', stringify({
+                      IPFS: uploaded.path,
+                      postId: this.postId,
+                      tx: tx,
+                      tx_item_id: tx.itemId,
+                      order_hash: order.hash,
+
+                    })).then(res => {
+                      console.log('all done')
+                      this.loadText = 'all done, nft token created ' + tx.itemId
+                      this.loader = false
+                      this.form = {
+                        image: null,
+                        title: '',
+                        price: '',
+                        royalties: '',
+                        description: '',
+                        properties: {}
+
+                      }
+                      setTimeout(() => {
+                        this.loadText = ''
+                      },3000)
+
+                    })
+                  })*/
+                //console.warn(order)
 
               })
 

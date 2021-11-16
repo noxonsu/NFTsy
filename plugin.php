@@ -3,7 +3,7 @@
  * Plugin Name: Rarible NFT Marketplace
  * Description: Rarible NFT Marketplace
  * Author:  Victor Lerner
- * Requires PHP: 7.3
+ * Requires PHP: 7.2
  * Text Domain: de-finance
  * Domain Path: /lang
  * Version: 1.0.0

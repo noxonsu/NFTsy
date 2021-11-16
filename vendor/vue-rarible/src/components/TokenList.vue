@@ -70,7 +70,7 @@ export default {
     getItems(){
       if(this.loadingMore) return
       this.loadingMore = true
-      api.get('',
+      api.get('wp-admin/admin-ajax.php',
           { params: { action: 'rarible_list_nft_post', page_number: this.page_number+1} }
       ).then(res => {
         console.log(res.data)

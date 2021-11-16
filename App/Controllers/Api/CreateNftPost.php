@@ -53,7 +53,7 @@ class  CreateNftPost extends ApiController
             $errors['title'] =  esc_html('You must provide a title', 'rarible');
         }
         if ( ! isset($_POST['description'][2])) {
-            $errors[description] =  esc_html('You must provide a description',
+            $errors['description'] =  esc_html('You must provide a description',
                     'rarible');
         }
         if ( ! isset($_POST['price'])) {
