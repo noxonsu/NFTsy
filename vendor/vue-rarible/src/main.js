@@ -26,8 +26,9 @@ Vue.use(VueRouter)
 
 if (document.getElementById('v-app')) {
 
-    const NETWORK = "ropsten" // "rinkeby" // "e2e" | "ropsten" | "rinkeby" | "mainnet"
+    const NETWORK = rarible_obj.networkName // "ropsten" // "rinkeby" // "e2e" | "ropsten" | "rinkeby" | "mainnet"
     Vue.prototype.API_URL = rarible_obj.site_url  // rarible_obj.site_url;
+    Vue.prototype.$networkName = rarible_obj.networkName  // rarible_obj.site_url;
     const router = new VueRouter({
         mode: 'hash',
         routes: [{
@@ -55,6 +56,7 @@ if (document.getElementById('v-app')) {
             ...mapMutations(['setSdk', 'setProvider', 'setAccounts','setNetworkType']),
         },
         created() {
+
 
             const {ethereum} = window
 

@@ -44,6 +44,7 @@ class StyleScriptController
         $args_obj = array(
             'ajaxurl'  => esc_url(site_url()).'/wp-admin/admin-ajax.php',
             'site_url' => esc_url(site_url()),
+            'networkName' => get_option('rarible_nft_networkName','ropsten'),
 
         );
 

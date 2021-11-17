@@ -43,8 +43,9 @@
 <div class="wrap">
     <div class="welcome-panel">
         <h2>test</h2>
-        <?php esc_html_e('First of all please','rarible'); ?> <a href="update-core.php?force-check=1"><?php esc_html_e('check for updates','rarible'); ?></a>.
-        <?php esc_html_e('How to use? Add [nft_addform] to a page where to show "add" form. Add [nft_view_shortcode] to a page where to show the catalog:','rarible'); ?><Br>
+        <?php esc_html_e('First of all please','rarible'); ?>
+        <a href="update-core.php?force-check=1"><?php esc_html_e('check for updates','rarible'); ?></a>.
+        <?php esc_html_e('How to use? Add [rarible_nft_addform] to a page where to show "add" form. Add [rarible_nft_view] to a page where to show the catalog:','rarible'); ?><Br>
         <br><br>
         <h2><?php esc_html_e('General settings', 'rarible'); ?></h2>
         <div class="welcome-panel-column-container nft-panel-tab panel-tab-active" id="nft-tab-1">
@@ -65,10 +66,6 @@
                                             name="rarible_nft_networkName">
                                         <option <?php selected($nft_network,'ropsten' ) ;  ?>>ropsten</option>
                                         <option <?php selected($nft_network,'mainnet' ) ;  ?>  >mainnet</option>
-                                        <option <?php selected($nft_network,'rinkeby' ) ;  ?> >rinkeby</option>
-                                        <option <?php selected($nft_network,'bsc' ) ;  ?> >bsc</option>
-
-                                        <option <?php selected($nft_network,'bsc_test' ) ;  ?> >bsc_test</option>
                                     </select>
                                     <br>
                                     <?php esc_html_e('Ropsten or Mainnet. We recommend to test on testnet with testnet tokens before launch', 'rarible'); ?>

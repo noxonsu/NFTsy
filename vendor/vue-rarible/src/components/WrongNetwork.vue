@@ -1,9 +1,9 @@
 <template>
 
-  <modal v-if="getNetworkType != 'ropsten' && showModal">
+  <modal v-if="getNetworkType != $networkName && showModal">
     <loader style="margin-bottom: 20px;" />
-    <h2>Wrong network</h2>
-    <p>Looks like you connected to unsupported network. Change network to Ropsten </p>
+    <h2>Wrong network </h2>
+    <p>Looks like you connected to unsupported network. Change network to {{$networkName}} </p>
     <button type="button" class="r-btn ">Sign out</button>
 
   </modal>
