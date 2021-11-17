@@ -267,8 +267,8 @@ export default {
         console.log('sleep 42', uri)
 
         axios.get(`https://ipfs.io/ipfs/${uploaded.path}`).then(() => {
-          this.sleep(1000 * 32).then(() => {
-            console.log('woke up. start mint')
+          this.sleep(1000 * 10).then(() => {
+            console.log('woke up. start minting')
             this.loadText = 'Start mint...'
             const mintFormInitial = {
               id: "0xB0EA149212Eb707a1E5FC1D2d3fD318a8d94cf05", // default collection on "rinkeby" that supports lazy minting
@@ -307,7 +307,7 @@ export default {
                   console.log('sleep 10 before create order')
                   console.log('tokenId', tx.tokenId)
 
-                  this.sleep(1000 * 10).then(() => {
+                  this.sleep(1000 * 2).then(() => {
                     console.log('order make ob', {
                       maker: toAddress(this.getAccounts[0]),
                       makeAssetType: {
@@ -346,6 +346,7 @@ export default {
                         value: 1,
                       }],
                     }).then(order => {
+                      console.log('order', order)
                       api.post('wp-admin/admin-ajax.php?action=rarible_update_nft_post', stringify({
                         IPFS: uploaded.path,
                         postId: this.postId,

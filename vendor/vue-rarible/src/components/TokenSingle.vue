@@ -49,8 +49,9 @@
 
               <a @click.prevent="buyOrder"
                  class="btn btn--sm press--right">Buy an order</a>
-       <a @click.prevent="makeOrder"
-                 class="btn btn--sm press--right">makeOrder</a>
+
+<!--       <a @click.prevent="makeOrder"-->
+<!--                 class="btn btn&#45;&#45;sm press&#45;&#45;right">makeOrder</a>-->
 
 
             </div>
@@ -86,10 +87,10 @@ export default {
   },
   methods: {
     buyOrder() {
-      console.log('try buyOrder')
-      this.getSdk.apis.order.getOrderByHash({hash: '0x549f6ad9ecffd5bc7d0059b80d48ff995049e73bf8d21a1536a0a594aab3bb9f'})
+      console.log('try buyOrder ', this.post.order_hash)
+      this.getSdk.apis.order.getOrderByHash({hash: this.post.order_hash})
           .then(order => {
-            console.warn('order', order.type)
+            console.warn('order', order)
              this.getSdk.order.fill(
                   {order: order, payouts: [], originFees: [],
                     amount: 1 }
