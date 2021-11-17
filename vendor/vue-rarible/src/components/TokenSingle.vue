@@ -40,7 +40,7 @@
               <span
                   class="" style="padding-top: 0px; display: block"><a><span
 
-                  v-if="post.price" style=" font-weight: 900; font-size: 32px">{{ post.price }} ETC</span></a>
+                  v-if="post.price" style=" font-weight: 900; font-size: 32px">{{ post.price }} ETH</span></a>
               </span>
             </div>
 
