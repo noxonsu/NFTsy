@@ -6,14 +6,14 @@
         <div v-masonry-tile  class="b-grid-item b-grid-item--masonry item" v-for="item in localItems" >
           <div class="b-event">
             <div class="b-event__img">
-              <a class="b-pop-place__img__img" href="#">
-                <img :src="item.img" class="" alt=""> </a>
+              <router-link class="b-pop-place__img__img" :to="{ name: 'tokens.single', params: { id: item.id }}">
+                <img :src="item.img" class="" alt=""> </router-link>
               <div class="b-events__time"><span v-if="item.price"> {{item.price}}  ETH</span>
               </div>
-              <div class="b-sm-post__date">
-                <div class="b-sm-post__month">Sep</div>
-                <div class="b-sm-post__day">25</div>
-              </div>
+<!--              <div class="b-sm-post__date">-->
+<!--                <div class="b-sm-post__month">Sep</div>-->
+<!--                <div class="b-sm-post__day">25</div>-->
+<!--              </div>-->
               <a href="#" class="noajax b-icon-like  ">
                 <i class="fa fa-heart" aria-hidden="true"></i>
               </a>
@@ -27,7 +27,10 @@
             </div>
             <div class="b-event__desc clearfix">
               <div class="press--left _mod-width">
-                <a href="/" class="b-event__name">{{item.title}}</a>
+                <router-link   class="b-event__name" :to="{ name: 'tokens.single', params: { id: item.id }}">
+                  {{item.title}}
+                </router-link>
+
 
               </div>
               <div style="margin-bottom: 50px;">
