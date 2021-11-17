@@ -1,144 +1,147 @@
 <template>
-  <div class="container">
-    <div class="row aligncenter">
-      <div>
-        <form action="#" method="post" class="b-form-cont " style="position: relative" id="add-places-1"
-        >
-          <h2 class="b-form-cont__title">Create single collectible</h2>
-          <div class="b-form b-form--place container-fluid">
+  <layout-default>
+    <div class="container">
+      <div class="row aligncenter">
+        <div>
+          <form action="#" method="post" class="b-form-cont " style="position: relative" id="add-places-1"
+          >
+            <h2 class="b-form-cont__title">Create single collectible</h2>
+            <div class="b-form b-form--place container-fluid">
 
-            <div class="b-form__row row">
-              <div class="col-md-5">
-                <label class="floating-label">Upload file</label>
+              <div class="b-form__row row">
+                <div class="col-md-5">
+                  <label class="floating-label">Upload file</label>
 
-                <div style="max-width: 300px; max-height: 800px">
-                  <picture-input
-                      style=""
-                      ref="pictureInput"
-                      margin="1"
-                      accept="image/jpeg,image/png"
-                      size="10"
-                      button-class="btn"
-                      :custom-strings="{
+                  <div style="max-width: 300px; max-height: 800px">
+                    <picture-input
+                        style=""
+                        ref="pictureInput"
+                        margin="1"
+                        accept="image/jpeg,image/png"
+                        size="10"
+                        button-class="btn"
+                        :custom-strings="{
         upload: '<h1>Bummer!</h1>',
         drag: 'Drag a image'
       }"
-                      @change="onChange">
-                  </picture-input>
-                </div>
+                        @change="onChange">
+                    </picture-input>
+                  </div>
 
-              </div>
-              <div class="col-md-7">
-                <div class="b-form__row row">
-                  <div class="col-md-12">
-                    <label class="floating-label">Title</label>
-                    <input v-model="form.title"
-                           name="place_title"
-                           class="form-control"
-                           type="text"
-                           placeholder="Enter text"
-                           value="">
+                </div>
+                <div class="col-md-7">
+                  <div class="b-form__row row">
+                    <div class="col-md-12">
+                      <label class="floating-label">Title</label>
+                      <input v-model="form.title"
+                             name="place_title"
+                             class="form-control"
+                             type="text"
+                             placeholder="Enter text"
+                             value="">
+                    </div>
+                  </div>
+                  <div class="b-form__row row">
+                    <div class="col-md-12">
+                      <label class="floating-label">Price</label>
+                      <input required=""
+                             v-model="form.price"
+                             name="place_title"
+                             class="form-control"
+                             type="number"
+                             placeholder="Enter price"
+                             value="">
+                    </div>
+                  </div>
+                  <div class="b-form__row row">
+                    <div class="col-md-12">
+                      <label class="floating-label">Royalties</label>
+                      <input v-model="form.royalties" required=""
+                             class="form-control"
+                             type="number"
+                             placeholder="Enter %"
+                             value="">
+                      <small>Suggested: 0%, 10%, 20%, 30%. Maximum is 50%</small>
+                    </div>
                   </div>
                 </div>
-                <div class="b-form__row row">
-                  <div class="col-md-12">
-                    <label class="floating-label">Price</label>
-                    <input required=""
-                           v-model="form.price"
-                           name="place_title"
-                           class="form-control"
-                           type="number"
-                           placeholder="Enter price"
-                           value="">
-                  </div>
-                </div>
-                <div class="b-form__row row">
-                  <div class="col-md-12">
-                    <label class="floating-label">Royalties</label>
-                    <input v-model="form.royalties" required=""
-                           class="form-control"
-                           type="number"
-                           placeholder="Enter %"
-                           value="">
-                    <small>Suggested: 0%, 10%, 20%, 30%. Maximum is 50%</small>
-                  </div>
+              </div>
+
+
+              <div class="b-form__row row">
+
+              </div>
+              <div class="b-form__row row">
+                <div class="col-md-12">
+                  <label class="floating-label">Description</label>
+                  <textarea v-model="form.description" class="form-control  form-control-textarea"
+                            placeholder="Description"
+                            value=""> </textarea>
+
+
                 </div>
               </div>
-            </div>
-
-
-            <div class="b-form__row row">
-
-            </div>
-            <div class="b-form__row row">
-              <div class="col-md-12">
-                <label class="floating-label">Description</label>
-                <textarea v-model="form.description" class="form-control  form-control-textarea"
-                          placeholder="Description"
-                          value=""> </textarea>
-
+              <div class="b-form__row row">
 
               </div>
-            </div>
-            <div class="b-form__row row">
+              <!--            <div class="b-form__row row">-->
+              <!--              <div class="col-md-12">-->
+              <!--                <label class="floating-label">Properties (Optional)</label>-->
 
-            </div>
-            <!--            <div class="b-form__row row">-->
-            <!--              <div class="col-md-12">-->
-            <!--                <label class="floating-label">Properties (Optional)</label>-->
-
-            <!--                <div class="row">-->
-            <!--                  <div class="col-md-6"><input required=""-->
-            <!--                                               class="form-control"-->
-            <!--                                               type="number"-->
-            <!--                                               placeholder="e.g Size"-->
-            <!--                                               value=""></div>-->
-            <!--                  <div class="col-md-6"><input required=""-->
-            <!--                                               class="form-control"-->
-            <!--                                               type="number"-->
-            <!--                                               placeholder="e.g M"-->
-            <!--                                               value=""></div>-->
-            <!--                </div>-->
+              <!--                <div class="row">-->
+              <!--                  <div class="col-md-6"><input required=""-->
+              <!--                                               class="form-control"-->
+              <!--                                               type="number"-->
+              <!--                                               placeholder="e.g Size"-->
+              <!--                                               value=""></div>-->
+              <!--                  <div class="col-md-6"><input required=""-->
+              <!--                                               class="form-control"-->
+              <!--                                               type="number"-->
+              <!--                                               placeholder="e.g M"-->
+              <!--                                               value=""></div>-->
+              <!--                </div>-->
 
 
-            <!--              </div>-->
-            <!--            </div>-->
+              <!--              </div>-->
+              <!--            </div>-->
 
 
-            <div class="b-form__row row">
-              <div class="col-md-12">
+              <div class="b-form__row row">
+                <div class="col-md-12">
 
-                <div class="alert alert-danger" v-if="errors" v-for="error in errors"> {{ error }}</div>
+                  <div class="alert alert-danger" v-if="errors" v-for="error in errors"> {{ error }}</div>
+                </div>
               </div>
-            </div>
 
 
-            <div style="color: red; padding: 15px;     word-break: break-all;">{{ loadText }}</div>
+              <div style="color: red; padding: 15px;     word-break: break-all;">{{ loadText }}</div>
 
-            <div class="b-form__row row" style="position: relative">
-              <div class="col">
-                <buttonConnect v-if="!getAccounts[0]"/>
-                <button v-else :disabled="loader" type="submit" @click.prevent="submit" class="btn save-btn">Save
-                </button>
+              <div class="b-form__row row" style="position: relative">
+                <div class="col">
+                  <buttonConnect v-if="!getAccounts[0]"/>
+                  <button v-else :disabled="loader" type="submit" @click.prevent="submit" class="btn save-btn">Save
+                  </button>
 
 
-                <span class="ajax_saved_text" style="display: none;">saved...</span>
+                  <span class="ajax_saved_text" style="display: none;">saved...</span>
+                </div>
+                <div class="col" style="padding: 20px;">
+                  <Loader
+                      v-if="loader"
+                      style="float: right; position: static " class="pull-right"></Loader>
+
+                </div>
               </div>
-              <div class="col" style="padding: 20px;">
-                <Loader
-                    v-if="loader"
-                    style="float: right; position: static " class="pull-right"></Loader>
 
-              </div>
+
             </div>
+          </form>
+        </div>
 
-
-          </div>
-        </form>
       </div>
-
     </div>
-  </div>
+  </layout-default>
+
 
 </template>
 
@@ -153,11 +156,14 @@ import {toAddress} from "@rarible/types";
 import {stringify} from "qs";
 import {mapGetters} from "vuex";
 import buttonConnect from "./parts/buttonConnect";
+import Modal from "./parts/Modal";
+import WrongNetwork from "./WrongNetwork";
+import LayoutDefault from "./Layouts/LayoutDefault";
 
 export default {
   name: "CreateNFTAndPost",
   components: {
-    PictureInput, Loader, buttonConnect
+    PictureInput, Loader, buttonConnect, WrongNetwork, LayoutDefault
   },
   computed: {
     ...mapGetters(['getSdk', 'getProvider', 'getAccounts']),
@@ -195,31 +201,7 @@ export default {
     sleep(ms) {
       return new Promise(resolve => setTimeout(resolve, ms));
     },
-    submit1() {
-      this.getSdk.order.sell({
-        maker: toAddress(this.getAccounts[0]),
-        makeAssetType: {
-          assetClass: "ERC721",
-          contract: '0xb0ea149212eb707a1e5fc1d2d3fd318a8d94cf05',
-          tokenId: '21294992975815871805933535892073127469301996728786004586751131538920447148064',
-        },
-        price: 0.008 * 1000000000000000000, // "60000000000000000", // 0.06 ETH
-        takeAssetType: {
-          assetClass: "ETH",
-        },
-        amount: 1,
-        payouts: [],
-        originFees: [{
-          account: this.getAccounts[0],
-          value: 1,
-        }],
-      }).then(order => {
-        console.log('order', order)
-      })
 
-      console.log('555555555555555555')
-      return
-    },
     submit() {
 
 
@@ -320,7 +302,7 @@ export default {
                   order_hash: ''  //order.hash,
 
                 })).then(() => {
-                  this.loadText ='sleep 40s before create order'
+                  this.loadText = 'sleep 40s before create order'
 
                   console.log('sleep 10 before create order')
                   console.log('tokenId', tx.tokenId)
@@ -479,6 +461,7 @@ export default {
   @import '~bootstrap/scss/containers';
   @import '~bootstrap/scss/buttons';
   @import '~bootstrap/scss/bootstrap-reboot';
+
 
   .b-form--place input[type=text], .b-form--place input[type=email], .b-form--place input[type=tel], .b-form--place input[type=search], .b-form--place input[type=time], .b-form--place textarea {
     background: #f7f7f7;

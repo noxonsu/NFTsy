@@ -50,7 +50,7 @@ export default {
 
   },
   created() {
-
+alert('22222222222')
     const {ethereum} = window
     console.log(ethereum.isMetaMask)
 
@@ -60,7 +60,11 @@ export default {
       this.setProvider(ethereum)
       ethereum.on('accountsChanged', (accounts) => {
         this.setAccounts(accounts)
-        console.log('Ethereum  accountsChanged')
+        console.log('accounts',accounts)
+        console.log('Ethereum  accountsChanged1')
+      })
+      ethereum.on('networkChanged', (networkId) => {
+        console.log('Ethereum  networkId',networkId)
       })
 
       const web3 = new Web3(ethereum)
@@ -71,6 +75,23 @@ export default {
         this.setAccounts(e)
         console.log(e)
       })
+      web3.eth.net.getNetworkType().then(e => {
+
+        console.log('getNetworkType', e)
+      })
+
+      setInterval(function () {
+
+        web3.eth.net.getNetworkType().then(e => {
+
+          console.log('getNetworkType', e)
+        })
+
+      }, 1000);
+
+
+
+
     } else {
       alert('Please install MetaMask!')
     }

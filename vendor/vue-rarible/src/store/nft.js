@@ -2,8 +2,8 @@ export default {
     state: {
         accounts: {},
         sdk: {},
-        provider: null
-
+        provider: null,
+        networkType: '',
     },
     mutations: {
 
@@ -15,6 +15,9 @@ export default {
         },
         setProvider(state, payload) {
             state.provider = payload
+        },
+        setNetworkType(state, payload) {
+            state.networkType = payload
         },
     },
     actions: {
@@ -30,6 +33,10 @@ export default {
         },
         getAccounts(state){
             return  state.accounts
-        }
+        },
+        getNetworkType(state){
+            return  state.networkType
+        },
+
     }
 }

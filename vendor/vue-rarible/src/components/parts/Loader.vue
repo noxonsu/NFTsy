@@ -1,21 +1,22 @@
 <template>
-  <div class="loader-mask2">
-    <div class="lds-spinner">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
+<!--  <div class="loader-mask2">-->
+<!--    <div class="lds-spinner">-->
+<!--      <div></div>-->
+<!--      <div></div>-->
+<!--      <div></div>-->
+<!--      <div></div>-->
+<!--      <div></div>-->
+<!--      <div></div>-->
+<!--      <div></div>-->
+<!--      <div></div>-->
+<!--      <div></div>-->
+<!--      <div></div>-->
+<!--      <div></div>-->
+<!--      <div></div>-->
+<!--    </div>-->
+<!--  </div>-->
 
+  <div class="loader-mask3"></div>
 </template>
 
 <script>
@@ -25,6 +26,43 @@ export default {
 </script>
 
 <style scoped>
+
+
+@keyframes slidein {
+  0% {
+    transform: rotate(
+        0deg);
+  }
+  50% {
+    transform: rotate(
+        180deg);
+  }
+
+  100% {
+    transform: rotate(
+        360deg);
+  }
+}
+
+.loader-mask3 {
+  width: 48px;
+  height: 48px;
+  border-radius: 48px;
+  border-width: 3px;
+  position: relative;
+  margin: auto;
+  animation: 0.66s linear 0s infinite normal none running hHrEIg;
+  border-style: solid;
+  border-color: rgb(230, 230, 230) rgb(230, 230, 230) rgb(230, 230, 230) rgb(0, 102, 255);
+  transform: translateZ(0px);
+  user-select: none;
+
+  animation-fill-mode: forwards;
+  animation-duration: 0.8s;
+  animation-name: slidein;
+
+
+}
 
 .loader-mask{
   position: fixed;

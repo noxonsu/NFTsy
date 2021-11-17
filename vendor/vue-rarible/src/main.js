@@ -11,12 +11,14 @@ import TokenList from "./components/TokenList";
 import VueRouter from 'vue-router'
 import TokenStartPage from "./components/TokenStartPage";
 import TokenSingle from "./components/TokenSingle";
+import WrongNetwork from "./components/WrongNetwork";
 
 window.axios = require('axios');
 
 window.vueGoogleMap = false
 Vue.component('CreateNFTAndPost', CreateNFTAndPost);
 Vue.component('TokenList', TokenList);
+Vue.component('WrongNetwork', WrongNetwork);
 Vue.component('TokenStartPage', TokenStartPage);
 
 Vue.use(VueMasonryPlugin)
@@ -32,13 +34,6 @@ if (document.getElementById('v-app')) {
             path: "",
             component: TokenList,
             name: 'tokens',
-            // children: [
-            //     {
-            //         path: ':id',
-            //         name: 'tokens.single',
-            //         component: TokenSingle,
-            //     }]
-
         },
             {
                 path: "/:id",
@@ -52,18 +47,16 @@ if (document.getElementById('v-app')) {
         el: '#v-app',
         router,
         components: {
-            App
+            App, WrongNetwork
         },
+
         store,
         methods: {
-            ...mapMutations(['setSdk', 'setProvider', 'setAccounts']),
-
-
+            ...mapMutations(['setSdk', 'setProvider', 'setAccounts','setNetworkType']),
         },
         created() {
 
             const {ethereum} = window
-            console.log(ethereum.isMetaMask)
 
             if (ethereum && ethereum.isMetaMask) {
                 console.log('Ethereum successfully detected!')
@@ -75,6 +68,14 @@ if (document.getElementById('v-app')) {
                 })
 
                 const web3 = new Web3(ethereum)
+
+                setInterval( () =>{
+                    web3.eth.net.getNetworkType().then(e => {
+                        this.setNetworkType(e)
+                    })
+                }, 1500);
+
+
                 const raribleSdk = createRaribleSdk(new Web3Ethereum({web3}), NETWORK)
                 this.setSdk(raribleSdk)   //
                 this.sdk = raribleSdk
