@@ -117,38 +117,52 @@
                       <small>Suggested: 0%, 10%, 20%, 30%. Maximum is 50%</small>
                     </div>
                   </div>
+                  <div class="b-form__row row">
+                  <div class="col-md-12">
+                    <label class="floating-label">Properties (Optional)</label>
+
+                    <div class="row" v-for="(item , key) in form.properties">
+                      <div class="col-md-5">
+                        <input required="" v-model="item.key"
+                                                   class="form-control"
+                                                   type="text"
+                                                   placeholder="e.g Size"
+                                                   value=""></div>
+                      <div class="col-md-5">
+                        <input  required="" v-model="item.value"
+                                                    class="form-control"
+                                                   type="text"
+                                                   placeholder="e.g M"
+                                                   value="">
+
+
+                      </div>
+                      <div class="col-md-1">
+                        <button :disabled="form.properties.length == 1" type="button" @click="deleteRow(key,item)"
+                                class="btn btn-danger">X
+                        </button>
+                      </div>
+                    </div>
+
+
+                    <br>
+                    <button type="button" @click="addNewRow" class="btn btn-primary " >+</button>
+
+                  </div>
+                </div>
+
+                  <div>
+
+
+
+                </div>
                 </div>
 
               </div>
 
 
-              <div class="b-form__row row">
-
-              </div>
-
-              <div class="b-form__row row">
-
-              </div>
-              <!--            <div class="b-form__row row">-->
-              <!--              <div class="col-md-12">-->
-              <!--                <label class="floating-label">Properties (Optional)</label>-->
-
-              <!--                <div class="row">-->
-              <!--                  <div class="col-md-6"><input required=""-->
-              <!--                                               class="form-control"-->
-              <!--                                               type="number"-->
-              <!--                                               placeholder="e.g Size"-->
-              <!--                                               value=""></div>-->
-              <!--                  <div class="col-md-6"><input required=""-->
-              <!--                                               class="form-control"-->
-              <!--                                               type="number"-->
-              <!--                                               placeholder="e.g M"-->
-              <!--                                               value=""></div>-->
-              <!--                </div>-->
 
 
-              <!--              </div>-->
-              <!--            </div>-->
 
 
               <div class="b-form__row row">
@@ -204,7 +218,7 @@ import buttonConnect from "./parts/buttonConnect";
 import WrongNetwork from "./WrongNetwork";
 import LayoutDefault from "./Layouts/LayoutDefault";
 import Toggle from "./parts/Toggle";
-
+import {convertKeyVale} from "../../../../../../rariblewp/vendor/vue-rarible/src/helpers/utils";
 export default {
   name: "CreateNFTAndPost",
   components: {
@@ -223,7 +237,12 @@ export default {
         price: '',
         royalties: '',
         description: '',
-        properties: {},
+        properties: [
+          {
+            key: null,
+            value: null,
+
+          }],
         putOnMarket: true
 
       },
@@ -235,7 +254,35 @@ export default {
       postId: false
     }
   },
+  mounted: function () {
+    let res = [{"key": "10", "value": "20120120"},
+      {"key": "pppppppppp", "value": "2222222"},
+      {"key": "", "value": ""}
+
+    ]
+
+    console.warn(convertKeyVale(res))
+
+    // res.forEach(element => console.log(element));
+
+  },
   methods: {
+    convertKeyVale(res){
+      return res.filter(({key, value}) => key && key.length > 1 && value && value.length > 1)
+          .map(({key, value}) => ({[key]: value}))
+
+    },
+    deleteRow(index, item){
+      var idx = this.form.properties.indexOf(item)
+      if (idx > -1) {
+        this.form.properties.splice(idx, 1)
+      }
+    },
+    addNewRow(){
+      this.form.properties.push({
+
+      })
+    },
     clearedImage() {
       this.clearImage = false
     },
@@ -303,13 +350,14 @@ export default {
     ,
     async makeNftToken() {
 
-      console.log('price', this.form.price)
       const ipfsItem = {
         "description": this.form.description,
         "external_url": "",// <-- this can link to a page for the specific file too
         "image": this.imgLink, // this.imgLink
         "name": this.form.title,
-        //  "attributes": []
+      }
+      if(convertKeyVale(this.form.properties).length > 0){
+        ipfsItem.attributes = convertKeyVale(this.form.properties)
       }
       const ipfs = create({host: 'ipfs.infura.io', port: 5001, protocol: 'https'});
       let uploaded = await ipfs.add(JSON.stringify(ipfsItem))
