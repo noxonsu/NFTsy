@@ -1,0 +1,191 @@
+
+::v-deep {
+  @import "~bootstrap/scss/functions";
+  @import "~bootstrap/scss/variables";
+  @import "~bootstrap/scss/mixins";
+  @import "~bootstrap/scss/utilities";
+
+  @import '~bootstrap/scss/grid';
+  @import '~bootstrap/scss/containers';
+  @import '~bootstrap/scss/buttons';
+  @import '~bootstrap/scss/bootstrap-reboot';
+
+
+  label {
+    font-weight: 900;
+    color: rgb(4, 4, 5);
+    font-size: 17px;
+    margin-bottom: -10px;
+
+  }
+
+  input.form-control {
+    //border: 1px solid #e2e2e2;
+    border: none;
+    border-bottom: 1px solid rgba(4, 4, 5, 0.07);
+    min-height: 50px;
+    line-height: 50px;
+    width: 100%;
+    padding: 0;
+    font-weight: 300;
+    font-size: 16px;
+    font-family: Roboto-Light;
+    transition-duration: .2s;
+    transition-property: all;
+    color: #0e0f11;
+    background: transparent !important;
+    height: 62px;
+
+  }
+.form-control-textarea {
+  border: none;
+  border-bottom: 1px solid rgba(4, 4, 5, 0.07);
+  padding: 0;
+}
+  input.form-control:active, input.form-control:focus , input.form-control:hover{
+    border-color: rgba(4, 4, 5, 0.25);
+  }
+
+  .form-control-textarea {
+
+    height: auto;
+    min-height: 18px;
+  }
+
+  .save-btn {
+    display: flex;
+    flex-flow: row nowrap;
+    white-space: nowrap;
+    background-color: rgba(4, 4, 5, 0.08);
+    line-height: 48px;
+    height: 48px;
+    padding-left: 26.4px;
+    padding-right: 26.4px;
+    min-width: 192px;
+    border: 1px solid transparent;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    border-radius: 48px;
+    font-size: 16px;
+    font-weight: 900;
+    font-family: inherit;
+    transition: all 0.12s ease-in-out 0s;
+    transform-origin: center center;
+    user-select: none;
+    cursor: pointer;
+
+    border-color: rgb(0, 102, 255);
+    color: rgb(255, 255, 255);
+    background: rgb(0, 102, 255);
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.9);
+      background: rgba(0, 102, 255, 0.95);
+    }
+
+  }
+
+  .b-form--place .b-form__row {
+    padding: 0 15px;
+  }
+
+  .b-form__row {
+    margin-bottom: 30px;
+  }
+
+  .preview-container {
+    padding: 0 !important;
+    margin: 0;
+  }
+
+
+  .b-form--place input[type=text], .b-form--place input[type=email], .b-form--place input[type=tel], .b-form--place input[type=search], .b-form--place input[type=time], .b-form--place textarea {
+
+    height: 62px;
+    font-size: 16px;
+    font-family: Roboto-Light;
+  }
+
+  select:focus, textarea:focus, input[type=text]:focus, input[type=password]:focus, input[type=datetime]:focus, input[type=datetime-local]:focus, input[type=date]:focus, input[type=month]:focus, input[type=time]:focus, input[type=week]:focus, input[type=number]:focus, input[type=email]:focus, input[type=url]:focus, input[type=search]:focus, input[type=tel]:focus, input[type=color]:focus {
+
+    outline: 0 none;
+  }
+
+  .b-form-cont {
+    background: #fff;
+    width: 100%;
+    box-shadow: 0 2px 2px #ddd;
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+
+  }
+
+  .b-form-cont__title {
+    padding: 20px 40px;
+    border-bottom: 1px solid #ececec;
+    margin: 0 0 40px;
+
+  }
+
+  .alert {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+  }
+
+  .alert-danger {
+    color: #fff;;
+    background-color: #de443a;
+    border-color: #de443a;
+  }
+
+  .label-primary {
+    font-family: inherit;
+    font-weight: 900;
+    color: rgb(0, 102, 255);
+    font-weight: bold;
+    vertical-align: inherit;
+    line-height: 20px;
+  }
+
+  .label-primary-desc {
+    font-family: inherit;
+    font-weight: 500;
+    margin-top: 4px;
+    font-size: 14px;
+    color: rgb(128, 128, 128);
+    vertical-align: inherit;
+  }
+
+  .btn-market-put {
+    background: transparent;
+    border: 2px solid rgb(0, 102, 255);
+    border-radius: 16px;
+    transition: all 0.12s ease-in-out 0s;
+    user-select: none;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    display: flex;
+    height: 140px;
+    width: 140px;
+    padding: 0px 20px;
+    color: black;
+    display: block;
+    line-height: 18px;
+  }
+
+  .btn-market-put-btns {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    margin-top: 20px;
+  }
+
+
+}

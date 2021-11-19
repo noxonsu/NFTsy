@@ -9,11 +9,13 @@
             <div class="b-form b-form--place container-fluid">
 
               <div class="b-form__row row">
-                <div class="col-md-5">
+                <div class="col-md-9">
                   <label class="floating-label">Upload file</label>
 
-                  <div style="max-width: 300px; max-height: 800px">
+
+                  <div style="max-width: 300px; max-height: 800px; margin: 0 auto">
                     <picture-input
+                        :removable="true"
                         style=""
                         ref="pictureInput"
                         margin="1"
@@ -24,24 +26,52 @@
         upload: '<h1>Bummer!</h1>',
         drag: 'Drag a image'
       }"
-                        @change="onChange">
+                        :clear="clearImage"
+                        @change="onChange"
+                        @remove="removeImage"
+                        @cleared="clearedImage">
                     </picture-input>
                   </div>
 
-                </div>
-                <div class="col-md-7">
-                  <div class="b-form__row row">
+                  <div  class="b-form__row row">
+
                     <div class="col-md-12">
-                      <label class="floating-label">Title</label>
-                      <input v-model="form.title"
-                             name="place_title"
-                             class="form-control"
-                             type="text"
-                             placeholder="Enter text"
-                             value="">
+
+                      <div style="display: flex; justify-content: space-between; margin-top: 50px;">
+                        <div class="">
+                          <div class="label-primary">Put on marketplace</div>
+                          <div class="label-primary-desc">Enter price to allow users instantly purchase your NFT</div>
+                        </div>
+                        <div class="">
+                          <div style="float: right">
+                            <toggle id="v-t-default" v-model="form.putOnMarket"></toggle>
+                          </div>
+
+                        </div>
+                      </div>
+
+                        <div v-if="form.putOnMarket"  class="btn-market-put-btns" >
+                          <button type="button"
+                                  class="btn-market-put">
+                            <img alt="Fixed price" src="https://ropsten.rarible.com/25d23f2b0f1b54429ce9.svg" loading="lazy"
+                                 class="">
+                            <div class=""><span
+                                class="">Fixed price</span></div>
+                          </button>
+                          <button type="button"
+                                  class="btn-market-put">
+                            <img alt="Open for bids" src="https://ropsten.rarible.com/cec4bdb514ea63a26280.svg" loading="lazy"
+                                 class="">
+                            <div class=""><span
+                                class="">Open for bids</span></div>
+                          </button>
+
+                        </div>
+
+
                     </div>
                   </div>
-                  <div class="b-form__row row">
+                  <div v-if="form.putOnMarket" class="b-form__row row">
                     <div class="col-md-12">
                       <label class="floating-label">Price</label>
                       <input required=""
@@ -51,6 +81,29 @@
                              type="number"
                              placeholder="Enter price"
                              value="">
+                    </div>
+                  </div>
+
+                  <div class="b-form__row row">
+                    <div class="col-md-12">
+                      <label class="floating-label">Name</label>
+                      <input v-model="form.title"
+                             name="place_title"
+                             class="form-control"
+                             type="text"
+                             placeholder="Enter text"
+                             value="">
+                    </div>
+                  </div>
+
+                  <div class="b-form__row row">
+                    <div class="col-md-12">
+                      <label class="floating-label">Description</label>
+                      <textarea v-model="form.description" class="form-control  form-control-textarea"
+                                placeholder="Description"
+                                value=""> </textarea>
+
+
                     </div>
                   </div>
                   <div class="b-form__row row">
@@ -65,22 +118,14 @@
                     </div>
                   </div>
                 </div>
+
               </div>
 
 
               <div class="b-form__row row">
 
               </div>
-              <div class="b-form__row row">
-                <div class="col-md-12">
-                  <label class="floating-label">Description</label>
-                  <textarea v-model="form.description" class="form-control  form-control-textarea"
-                            placeholder="Description"
-                            value=""> </textarea>
 
-
-                </div>
-              </div>
               <div class="b-form__row row">
 
               </div>
@@ -119,7 +164,7 @@
               <div class="b-form__row row" style="position: relative">
                 <div class="col">
                   <buttonConnect v-if="!getAccounts[0]"/>
-                  <button v-else :disabled="loader" type="submit" @click.prevent="submit" class="btn save-btn">Save
+                  <button v-else :disabled="loader" type="submit" @click.prevent="submit" class="btn save-btn">Create item
                   </button>
 
 
@@ -148,7 +193,7 @@
 <script>
 
 
-import PictureInput from 'vue-picture-input'
+import PictureInput from './parts/CustumPictureInput'
 import api from "../api/api";
 import Loader from "./parts/Loader";
 import {create} from "ipfs-http-client";
@@ -156,14 +201,14 @@ import {toAddress} from "@rarible/types";
 import {stringify} from "qs";
 import {mapGetters} from "vuex";
 import buttonConnect from "./parts/buttonConnect";
-import Modal from "./parts/Modal";
 import WrongNetwork from "./WrongNetwork";
 import LayoutDefault from "./Layouts/LayoutDefault";
+import Toggle from "./parts/Toggle";
 
 export default {
   name: "CreateNFTAndPost",
   components: {
-    PictureInput, Loader, buttonConnect, WrongNetwork, LayoutDefault
+    PictureInput, Loader, buttonConnect, WrongNetwork, LayoutDefault, Toggle
   },
   computed: {
     ...mapGetters(['getSdk', 'getProvider', 'getAccounts']),
@@ -172,14 +217,17 @@ export default {
   data() {
     return {
       form: {
+        toggle: false,
         image: null,
         title: '',
         price: '',
         royalties: '',
         description: '',
-        properties: {}
+        properties: {},
+        putOnMarket: true
 
       },
+      clearImage: false,
       errors: false,
       loader: false,
       loadText: '',
@@ -188,8 +236,14 @@ export default {
     }
   },
   methods: {
+    clearedImage() {
+      this.clearImage = false
+    },
+    removeImage() {
+      this.form.image = null
+      this.clearImage = true
+    },
     onChange(image) {
-      console.log('New picture selected!')
       if (image) {
         console.log('Picture loaded.')
         this.form.image = image
@@ -202,16 +256,36 @@ export default {
       return new Promise(resolve => setTimeout(resolve, ms));
     },
 
-    submit() {
-
-
-      let params = new URLSearchParams();
-      params.append('action', 'get_names');
-      params.append('key2', 'value2');
-      let file = this.$refs.pictureInput.file
-      console.warn('222')
-
+    async submit() {
       this.loadText = 'Please wait for the token to be created, it may take about a minute. do not close / reload this tab!'
+      let headers = {};
+      headers['Content-Disposition'] = 'form-data; filename=\'' + fileName + '\'';
+      this.errors = false
+      this.loader = true
+      try {
+        let res = await api.post('wp-admin/admin-ajax.php?action=rarible_create_nft_post', this.makeRequestForPost(), headers)
+        console.log(res.data)
+        this.imgLink = res.data.img
+        this.postId = res.data.ID
+        try {
+          await this.makeNftToken()
+        } catch (error) {
+          this.loadText = error
+          this.loader = false
+        }
+      } catch (error) {
+
+        console.warn(error)
+        console.warn(error.response.data.errors)
+        this.errors = {...error.response.data.errors}
+        this.loader = false
+        this.loadText = ''
+      }
+
+
+    },
+    makeRequestForPost() {
+      let file = this.$refs.pictureInput.file
       let formData = new FormData();
       let fileName = '';
       if (file) {
@@ -219,38 +293,15 @@ export default {
         formData.append('file', file);
         formData.append('file_name', file.name);
       }
-      formData.append('title', this.form.title); //coming from props
-      formData.append('price', this.form.price); //coming from props
-      formData.append('royalties', this.form.royalties); //coming from props
-      formData.append('description', this.form.description); //coming from props
-      formData.append('properties', this.form.properties); //coming from props
+      formData.append('title', this.form.title);
+      formData.append('price', this.form.price);
+      formData.append('royalties', this.form.royalties);
+      formData.append('description', this.form.description);
+      formData.append('properties', this.form.properties);
 
-      let headers = {};
-      headers['Content-Disposition'] = 'form-data; filename=\'' + fileName + '\'';
-
-
-      this.errors = false
-      this.loader = true
-
-
-      api.post('wp-admin/admin-ajax.php?action=rarible_create_nft_post', formData, headers).then(res => {
-
-        console.log(res.data)
-        //this.loader = false
-        this.imgLink = res.data.img
-        this.postId = res.data.ID
-        this.makeNftToken()
-
-
-      }).catch(error => {
-        console.warn(error)
-        console.warn(error.response.data.errors)
-        this.errors = {...error.response.data.errors}
-        this.loader = false
-        this.loadText = ''
-      })
-    },
-    makeNftToken() {
+    }
+    ,
+    async makeNftToken() {
 
       console.log('price', this.form.price)
       const ipfsItem = {
@@ -261,327 +312,101 @@ export default {
         //  "attributes": []
       }
       const ipfs = create({host: 'ipfs.infura.io', port: 5001, protocol: 'https'});
-      ipfs.add(JSON.stringify(ipfsItem)).then(uploaded => {
-        const uri = `ipfs/${uploaded.path}`
-        console.log('uri', uri)
-        console.log('sleep 42', uri)
+      let uploaded = await ipfs.add(JSON.stringify(ipfsItem))
+      const uri = `ipfs/${uploaded.path}`
+      console.log('uri', uri)
+      console.log('check IPS', uri)
+      await axios.get(`https://ipfs.io/ipfs/${uploaded.path}`)
+      await this.sleep(1000 * 5)
+      this.loadText = 'Start minting...'
 
-        axios.get(`https://ipfs.io/ipfs/${uploaded.path}`).then(() => {
-          this.sleep(1000 * 10).then(() => {
-            console.log('woke up. start minting')
-            this.loadText = 'Start mint...'
-            const mintFormInitial = {
-              id: "0xB0EA149212Eb707a1E5FC1D2d3fD318a8d94cf05", // default collection on "rinkeby" that supports lazy minting
-              type: "ERC721",
-              isLazy: true,
-              isLazySupported: true,
-              loading: false,
-            }
-            this.getSdk.apis.nftCollection.getNftCollectionById(
-                {collection: mintFormInitial.id}).then(nftCollection => {
-              this.getSdk.nft.mint({
-                uri: uri,
-                collection: nftCollection,
-                creators: [{account: toAddress(this.getAccounts[0]), value: 10000}], // creators of token
-                royalties: [
-                  {
-                    account: toAddress(this.getAccounts[0]), value: 1000
-                  }
-                ],
-                lazy: true,
-              }).then(tx => {
-                console.log('tx', uri)
-                console.log('tx2', tx)
-                console.log({itemId: tx.itemId})
-                console.log('itemId', tx.itemId)
-                api.post('wp-admin/admin-ajax.php?action=rarible_update_nft_post', stringify({
-                  IPFS: uploaded.path,
-                  postId: this.postId,
-                  tx: tx,
-                  tx_item_id: tx.itemId,
-                  order_hash: ''  //order.hash,
-
-                })).then(() => {
-                  this.loadText = 'sleep 40s before create order'
-
-                  console.log('sleep 10 before create order')
-                  console.log('tokenId', tx.tokenId)
-
-                  this.sleep(1000 * 2).then(() => {
-                    console.log('order make ob', {
-                      maker: toAddress(this.getAccounts[0]),
-                      makeAssetType: {
-                        assetClass: "ERC721",
-                        contract: '0xb0ea149212eb707a1e5fc1d2d3fd318a8d94cf05',
-                        tokenId: tx.tokenId,
-                      },
-                      price: this.form.price * 1000000000000000000, // "60000000000000000", // 0.06 ETH
-                      takeAssetType: {
-                        assetClass: "ETH",
-                      },
-                      amount: 1,
-                      payouts: [],
-                      originFees: [{
-                        account: this.getAccounts[0],
-                        value: 1,
-                      }],
-                    })
-
-                    this.loadText = 'Start make order for token...'
-                    this.getSdk.order.sell({
-                      maker: toAddress(this.getAccounts[0]),
-                      makeAssetType: {
-                        assetClass: "ERC721",
-                        contract: '0xb0ea149212eb707a1e5fc1d2d3fd318a8d94cf05',
-                        tokenId: tx.tokenId,
-                      },
-                      price: this.form.price * 1000000000000000000, // "60000000000000000", // 0.06 ETH
-                      takeAssetType: {
-                        assetClass: "ETH",
-                      },
-                      amount: 1,
-                      payouts: [],
-                      originFees: [{
-                        account: this.getAccounts[0],
-                        value: 1,
-                      }],
-                    }).then(order => {
-                      console.log('order', order)
-                      api.post('wp-admin/admin-ajax.php?action=rarible_update_nft_post', stringify({
-                        IPFS: uploaded.path,
-                        postId: this.postId,
-                        tx: tx,
-                        tx_item_id: tx.itemId,
-                        order_hash: order.hash,
-
-                      })).then(res => {
-                        console.log('all done')
-                        this.loadText = 'all done, nft token created ' + tx.itemId
-                        this.loader = false
-                        this.form = {
-                          image: null,
-                          title: '',
-                          price: '',
-                          royalties: '',
-                          description: '',
-                          properties: {}
-
-                        }
-                        setTimeout(() => {
-                          this.loadText = ''
-                        }, 3000)
-
-                      })
-                    }).catch(e => {
-                      this.loadText = 'Error. order not created'
-                      console.log('Error. order not created')
-                      this.loader = false
-                      setTimeout(() => {
-                        this.loadText = ''
-                      }, 3000)
-                    }).finally(() => {
-                      this.form = {
-                        image: null,
-                        title: '',
-                        price: '',
-                        royalties: '',
-                        description: '',
-                        properties: {}
-
-                      }
-                    })
-                  })
-                })
-
-                /* this.getSdk.order.sell({
-                    maker: toAddress(this.getAccounts[0]),
-                    makeAssetType: {
-                      assetClass: "ERC721",
-                      contract: '0xb0ea149212eb707a1e5fc1d2d3fd318a8d94cf05',
-                      tokenId: tx.itemId,
-                    },
-                    price: this.price *  1000000000000000000, // "60000000000000000", // 0.06 ETH
-                    takeAssetType: {
-                      assetClass: "ETH",
-                    },
-                    amount: 1,
-                    payouts: [],
-                    originFees: [{
-                      account: this.getAccounts[0],
-                      value: 1,
-                    }],
-                  }).then(order => {
-                    api.post('wp-admin/admin-ajax.php?action=rarible_update_nft_post', stringify({
-                      IPFS: uploaded.path,
-                      postId: this.postId,
-                      tx: tx,
-                      tx_item_id: tx.itemId,
-                      order_hash: order.hash,
-
-                    })).then(res => {
-                      console.log('all done')
-                      this.loadText = 'all done, nft token created ' + tx.itemId
-                      this.loader = false
-                      this.form = {
-                        image: null,
-                        title: '',
-                        price: '',
-                        royalties: '',
-                        description: '',
-                        properties: {}
-
-                      }
-                      setTimeout(() => {
-                        this.loadText = ''
-                      },3000)
-
-                    })
-                  })*/
-                //console.warn(order)
-
-              })
-
-            })
-          })
-        })
-
+      const mintFormInitial = {
+        id: "0xB0EA149212Eb707a1E5FC1D2d3fD318a8d94cf05", // default collection on "rinkeby" that supports lazy minting
+        type: "ERC721",
+        isLazy: true,
+        isLazySupported: true,
+        loading: false,
+      }
+      let nftCollection = await this.getSdk.apis.nftCollection.getNftCollectionById(
+          {collection: mintFormInitial.id})
+      let tx = await this.getSdk.nft.mint({
+        uri: uri,
+        collection: nftCollection,
+        creators: [{account: toAddress(this.getAccounts[0]), value: 10000}], // creators of token
+        royalties: [
+          {
+            account: toAddress(this.getAccounts[0]), value: 1000
+          }
+        ],
+        lazy: true,
       })
+      console.log('tx', uri)
+      console.log('tx2', tx)
+      console.log({itemId: tx.itemId})
+      console.log('itemId', tx.itemId)
+      await api.post('wp-admin/admin-ajax.php?action=rarible_update_nft_post', stringify({
+        IPFS: uploaded.path,
+        postId: this.postId,
+        tx: tx,
+        tx_item_id: tx.itemId,
+        order_hash: ''  //order.hash,
+
+      }))
+      await this.makeOrder(tx, uploaded)
+
+
+    },
+    async makeOrder(tx, uploaded) {
+      this.loadText = 'sleep 3s before create order'
+      await this.sleep(1000 * 3)
+      this.loadText = 'Start make order for token...'
+
+      let order = await this.getSdk.order.sell({
+        maker: toAddress(this.getAccounts[0]),
+        makeAssetType: {
+          assetClass: "ERC721",
+          contract: '0xb0ea149212eb707a1e5fc1d2d3fd318a8d94cf05',
+          tokenId: tx.tokenId,
+        },
+        price: this.form.price * 1000000000000000000, // "60000000000000000", // 0.06 ETH
+        takeAssetType: {
+          assetClass: "ETH",
+        },
+        amount: 1,
+        payouts: [],
+        originFees: [{
+          account: this.getAccounts[0],
+          value: 1,
+        }],
+      })
+      console.log('order', order)
+      await api.post('wp-admin/admin-ajax.php?action=rarible_update_nft_post', stringify({
+        IPFS: uploaded.path,
+        postId: this.postId,
+        tx: tx,
+        tx_item_id: tx.itemId,
+        order_hash: order.hash,
+
+      }))
+      console.log('all done')
+      this.loadText = 'all done, nft token created ' + tx.itemId
+      this.loader = false
+      this.form = {
+        image: null,
+        title: '',
+        price: '',
+        royalties: '',
+        description: '',
+        properties: {}
+
+      }
+      this.removeImage()
+      setTimeout(() => {
+        this.loadText = ''
+      }, 3000)
     }
   }
 }
 </script>
 
-<style lang="scss" scoped>
-::v-deep {
-  @import "~bootstrap/scss/functions";
-  @import "~bootstrap/scss/variables";
-  @import "~bootstrap/scss/mixins";
-  @import "~bootstrap/scss/utilities";
-
-  @import '~bootstrap/scss/grid';
-  @import '~bootstrap/scss/containers';
-  @import '~bootstrap/scss/buttons';
-  @import '~bootstrap/scss/bootstrap-reboot';
-
-
-  .b-form--place input[type=text], .b-form--place input[type=email], .b-form--place input[type=tel], .b-form--place input[type=search], .b-form--place input[type=time], .b-form--place textarea {
-    background: #f7f7f7;
-    height: 62px;
-  }
-
-  label {
-    font-weight: 900;
-    color: rgb(4, 4, 5);
-    font-size: 17px;
-    margin-bottom: 10px;
-  }
-
-  .form-control {
-    border: 1px solid #e2e2e2;
-    background: #fff;
-    min-height: 50px;
-    line-height: 50px;
-    width: 100%;
-    padding: 0 15px;
-    font-weight: 300;
-    font-size: 16px;
-    font-family: Roboto-Light;
-    transition-duration: .2s;
-    transition-property: all;
-    color: #0e0f11;
-    background: #f7f7f7;
-    height: 62px;
-
-  }
-
-  .form-control-textarea {
-
-    height: auto;
-    min-height: 180px;
-  }
-
-  .save-btn {
-    display: inline-block;
-    padding: 0 20px;
-    border: 0;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 60px;
-    outline: 0;
-    text-align: center;
-    text-decoration: none;
-    text-transform: uppercase;
-    text-shadow: none;
-    vertical-align: middle;
-    color: #fff;
-    cursor: pointer;
-    background: #de443a;
-    height: 60px;
-    border-radius: 0;
-    letter-spacing: 1.3px;
-    position: relative;
-    box-sizing: border-box;
-    -webkit-transition: all .3s ease;
-    -moz-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    transition: all .3s ease;
-  }
-
-  .b-form--place .b-form__row {
-    padding: 0 15px;
-  }
-
-  .b-form__row {
-    margin-bottom: 30px;
-  }
-
-  .preview-container {
-    padding: 0 !important;
-    margin: 0;
-  }
-
-
-  .b-form--place input[type=text], .b-form--place input[type=email], .b-form--place input[type=tel], .b-form--place input[type=search], .b-form--place input[type=time], .b-form--place textarea {
-    background: #f7f7f7;
-    height: 62px;
-    font-size: 16px;
-    font-family: Roboto-Light;
-  }
-
-  select:focus, textarea:focus, input[type=text]:focus, input[type=password]:focus, input[type=datetime]:focus, input[type=datetime-local]:focus, input[type=date]:focus, input[type=month]:focus, input[type=time]:focus, input[type=week]:focus, input[type=number]:focus, input[type=email]:focus, input[type=url]:focus, input[type=search]:focus, input[type=tel]:focus, input[type=color]:focus {
-    border: 1px solid #de443a;
-    outline: 0 none;
-  }
-
-  .b-form-cont {
-    background: #fff;
-    width: 100%;
-    box-shadow: 0 2px 2px #ddd;
-    margin-bottom: 40px;
-    padding-bottom: 30px;
-
-  }
-
-  .b-form-cont__title {
-    padding: 20px 40px;
-    border-bottom: 1px solid #ececec;
-    margin: 0 0 40px;
-
-  }
-
-  .alert {
-    position: relative;
-    padding: 0.75rem 1.25rem;
-    margin-bottom: 1rem;
-    border: 1px solid transparent;
-    border-radius: 0.25rem;
-  }
-
-  .alert-danger {
-    color: #fff;;
-    background-color: #de443a;
-    border-color: #de443a;
-  }
-}
-</style>
+<style lang="scss" scoped src="./style/CreateNFTAndPost.scss"></style>
