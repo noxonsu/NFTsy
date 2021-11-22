@@ -163,7 +163,8 @@
 
   .btn-market-put {
     background: transparent;
-    border: 2px solid rgb(0, 102, 255);
+    border: 2px solid rgba(4, 4, 5, 0.1);
+
     border-radius: 16px;
     transition: all 0.12s ease-in-out 0s;
     user-select: none;
@@ -178,6 +179,12 @@
     color: black;
     display: block;
     line-height: 18px;
+    &:hover {
+      border-color: rgba(4, 4, 5, 0.2);
+    }
+    &.active {
+      border: 2px solid rgb(0, 102, 255);
+    }
   }
 
   .btn-market-put-btns {

@@ -52,6 +52,8 @@
 
                         <div v-if="form.putOnMarket"  class="btn-market-put-btns" >
                           <button type="button"
+                                  @click="type ='fixedPrice'"
+                                  :class="{active: type == 'fixedPrice'}"
                                   class="btn-market-put">
                             <img alt="Fixed price" src="https://ropsten.rarible.com/25d23f2b0f1b54429ce9.svg" loading="lazy"
                                  class="">
@@ -59,6 +61,8 @@
                                 class="">Fixed price</span></div>
                           </button>
                           <button type="button"
+                                  @click="type ='bid'"
+                                  :class="{active: type == 'bid'}"
                                   class="btn-market-put">
                             <img alt="Open for bids" src="https://ropsten.rarible.com/cec4bdb514ea63a26280.svg" loading="lazy"
                                  class="">
@@ -71,9 +75,27 @@
 
                     </div>
                   </div>
-                  <div v-if="form.putOnMarket" class="b-form__row row">
+                  <div  class="b-form__row row">
+
                     <div class="col-md-12">
-                      <label class="floating-label">Price</label>
+                      <div style="display: flex; justify-content: space-between; margin-top: 50px;">
+                        <div class="">
+                          <div class="label-primary">Free minting</div>
+                          <div class="label-primary-desc">Buyer will pay gas fees for minting</div>
+                        </div>
+                        <div class="">
+                          <div style="float: right">
+                            <toggle id="v-t-default2" v-model="form.lazy"></toggle>
+                          </div>
+
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  <div v-if="form.putOnMarket && type == 'fixedPrice'" class="b-form__row row">
+                    <div class="col-md-12">
+                      <label class="floating-label">Price (ETH)</label>
                       <input required=""
                              v-model="form.price"
                              name="place_title"
@@ -235,7 +257,7 @@ export default {
         image: null,
         title: '',
         price: '',
-        royalties: '',
+        royalties: 0,
         description: '',
         properties: [
           {
@@ -243,9 +265,11 @@ export default {
             value: null,
 
           }],
-        putOnMarket: true
+        putOnMarket: true,
+        lazy: true
 
       },
+      type: 'fixedPrice',
       clearImage: false,
       errors: false,
       loader: false,
@@ -306,7 +330,13 @@ export default {
     async submit() {
       this.loadText = 'Please wait for the token to be created, it may take about a minute. do not close / reload this tab!'
       let headers = {};
+      let fileName = ''
+      let file = this.$refs.pictureInput.file
+      if (file) {
+        fileName = file.name
+      }
       headers['Content-Disposition'] = 'form-data; filename=\'' + fileName + '\'';
+      let formData =
       this.errors = false
       this.loader = true
       try {
@@ -346,8 +376,8 @@ export default {
       formData.append('description', this.form.description);
       formData.append('properties', this.form.properties);
 
-    }
-    ,
+      return  formData
+    },
     async makeNftToken() {
 
       const ipfsItem = {
@@ -383,10 +413,11 @@ export default {
         creators: [{account: toAddress(this.getAccounts[0]), value: 10000}], // creators of token
         royalties: [
           {
-            account: toAddress(this.getAccounts[0]), value: 1000
+            account: toAddress(this.getAccounts[0]),
+            value: this.form.royalties 	* 100 //2000 means 20%.
           }
         ],
-        lazy: true,
+        lazy: this.form.lazy,
       })
       console.log('tx', uri)
       console.log('tx2', tx)
@@ -397,11 +428,35 @@ export default {
         postId: this.postId,
         tx: tx,
         tx_item_id: tx.itemId,
-        order_hash: ''  //order.hash,
+        order_hash: '',  //order.hash,
+        type: this.type
 
       }))
-      await this.makeOrder(tx, uploaded)
+      if(this.type =='fixedPrice') {
+        await this.makeOrder(tx, uploaded)
+      } else {
+        this.allDone(tx)
+      }
 
+
+    },
+    allDone(tx){
+      console.log('all done')
+      this.loadText = 'all done, nft token created ' + tx.itemId
+      this.loader = false
+      this.form = {
+        image: null,
+        title: '',
+        price: '',
+        royalties: '',
+        description: '',
+        properties: {}
+
+      }
+      this.removeImage()
+      setTimeout(() => {
+        this.loadText = ''
+      }, 3000)
 
     },
     async makeOrder(tx, uploaded) {
@@ -436,22 +491,7 @@ export default {
         order_hash: order.hash,
 
       }))
-      console.log('all done')
-      this.loadText = 'all done, nft token created ' + tx.itemId
-      this.loader = false
-      this.form = {
-        image: null,
-        title: '',
-        price: '',
-        royalties: '',
-        description: '',
-        properties: {}
-
-      }
-      this.removeImage()
-      setTimeout(() => {
-        this.loadText = ''
-      }, 3000)
+     this.allDone(tx)
     }
   }
 }

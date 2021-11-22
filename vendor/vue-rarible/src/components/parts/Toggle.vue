@@ -71,7 +71,7 @@ export default {
   left: 4px;
   bottom: 4px;
   border-radius: 12px;
-  background-color: rgba(0, 102, 255, 0.1);
+  background-color: rgb(0, 102, 255);
   -webkit-transition: .4s;
   transition: all 0.12s ease-in-out 0s;
 }
