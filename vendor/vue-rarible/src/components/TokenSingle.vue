@@ -1,9 +1,10 @@
 <template>
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-7" style="align-items: center; ">
       <img :src="post.img" :alt="post.title">
+
     </div>
-    <div class="col-md-4">
+    <div class="col-md-5" style="word-break: break-all">
       <h1 style="font-size: 40px;">{{ post.title }}</h1>
       <div v-html="post.content"></div>
       <div>
@@ -47,11 +48,12 @@
             <div class="col-md-12" style="margin-top: 30px">
               <buttonConnect v-if="!getAccounts[0]"/>
 
+              <single-tabs :post="post" />
               <a @click.prevent="buyOrder"
                  class="btn btn--sm press--right">Buy an order</a>
 
-<!--       <a @click.prevent="makeOrder"-->
-<!--                 class="btn btn&#45;&#45;sm press&#45;&#45;right">makeOrder</a>-->
+              <!--       <a @click.prevent="makeOrder"-->
+              <!--                 class="btn btn&#45;&#45;sm press&#45;&#45;right">makeOrder</a>-->
 
 
             </div>
@@ -69,6 +71,7 @@ import api from "../api/api";
 import {mapGetters} from "vuex";
 import {toAddress} from "@rarible/types";
 import buttonConnect from "./parts/buttonConnect";
+import SingleTabs from "./parts/singleTabs";
 
 export default {
   name: "TokenSingle",
@@ -77,7 +80,7 @@ export default {
 
   },
   components: {
-    buttonConnect
+    buttonConnect, SingleTabs
   },
   data() {
     return {
@@ -91,13 +94,15 @@ export default {
       this.getSdk.apis.order.getOrderByHash({hash: this.post.order_hash})
           .then(order => {
             console.warn('order', order)
-             this.getSdk.order.fill(
-                  {order: order, payouts: [], originFees: [],
-                    amount: 1 }
-              ).then(a => {
-                a.runAll()
-                console.log('token bought');
-              })
+            this.getSdk.order.fill(
+                {
+                  order: order, payouts: [], originFees: [],
+                  amount: 1
+                }
+            ).then(a => {
+              a.runAll()
+              console.log('token bought');
+            })
           })
 
     },
@@ -144,49 +149,45 @@ export default {
 
 <style lang="scss" scoped>
 
-// scss-docs-start import-stack
-// Configuration
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/mixins";
-@import "~bootstrap/scss/utilities";
 
-@import '~bootstrap/scss/grid';
-//@import '~bootstrap/scss/containers';
-//@import '~bootstrap/scss/buttons';
-@import '~bootstrap/scss/bootstrap-reboot';
+  @import "~bootstrap/scss/functions";
+  @import "~bootstrap/scss/variables";
+  @import "~bootstrap/scss/mixins";
+  @import "~bootstrap/scss/utilities";
 
-.btn {
+  @import '~bootstrap/scss/grid';
+  @import '~bootstrap/scss/containers';
+  @import '~bootstrap/scss/buttons';
+  @import '~bootstrap/scss/bootstrap-reboot';
+  ::v-deep {
+  .btn {
 
-}
-
-.btn {
-
-  outline: none;
-  display: inline-block;
-  padding: 0 20px;
-  border: 0;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 60px;
-  outline: 0;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-  text-shadow: none;
-  vertical-align: middle;
-  color: #fff;
-  cursor: pointer;
-  background: #de443a;
-  height: 60px;
-  border-radius: 0;
-  letter-spacing: 1.3px;
-  box-sizing: border-box;
-  -webkit-transition: all .3s ease;
-  -moz-transition: all .3s ease;
-  -o-transition: all .3s ease;
-  -ms-transition: all .3s ease;
-  transition: all .3s ease;
-  text-decoration: none !important;
+    outline: none;
+    display: inline-block;
+    padding: 0 20px;
+    border: 0;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 60px;
+    outline: 0;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-shadow: none;
+    vertical-align: middle;
+    color: #fff;
+    cursor: pointer;
+    background: #de443a;
+    height: 60px;
+    border-radius: 0;
+    letter-spacing: 1.3px;
+    box-sizing: border-box;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    transition: all .3s ease;
+    text-decoration: none !important;
+  }
 }
 </style>

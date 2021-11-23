@@ -1,0 +1,42 @@
+::v-deep {
+  @import "~bootstrap/scss/functions";
+  @import "~bootstrap/scss/variables";
+  @import "~bootstrap/scss/mixins";
+  @import "~bootstrap/scss/utilities";
+
+  @import '~bootstrap/scss/grid';
+  @import '~bootstrap/scss/containers';
+  @import '~bootstrap/scss/buttons';
+  @import '~bootstrap/scss/bootstrap-reboot';
+
+
+  .btn {
+
+    outline: none;
+    display: inline-block;
+    padding: 0 20px;
+    border: 0;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 60px;
+    outline: 0;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-shadow: none;
+    vertical-align: middle;
+    color: #fff;
+    cursor: pointer;
+    background: #de443a;
+    height: 60px;
+    border-radius: 0;
+    letter-spacing: 1.3px;
+    box-sizing: border-box;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    transition: all .3s ease;
+    text-decoration: none !important;
+  }
+}

@@ -10,7 +10,9 @@
   @import '~bootstrap/scss/buttons';
   @import '~bootstrap/scss/bootstrap-reboot';
 
-
+div {
+  font-family: Roboto-Light;
+}
   label {
     font-weight: 900;
     color: rgb(4, 4, 5);

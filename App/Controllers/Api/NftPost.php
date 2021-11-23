@@ -17,7 +17,7 @@ class  NftPost extends ApiController
         $item = [
             'title'              => get_the_title($postID),
             'id'                 => $postID,
-            'img'                => get_the_post_thumbnail_url($postID),
+            'img'                => get_the_post_thumbnail_url($postID, 'rarible-nft-image-370x245-croped'),
             'content'            => apply_filters('the_content', get_post_field('post_content', $postID)),
             'ipfs'               => get_post_meta($postID, 'rarible_IPFS',
                 true),
