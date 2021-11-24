@@ -108,7 +108,7 @@ export default {
   props: ['post'],
   data() {
     return {
-      activeTab: 2,
+      activeTab: 1,
 
     }
   },
