@@ -33,13 +33,13 @@
                     </picture-input>
                   </div>
 
-                  <div  class="b-form__row row">
+                  <div class="b-form__row row">
 
                     <div class="col-md-12">
 
                       <div style="display: flex; justify-content: space-between; margin-top: 50px;">
                         <div class="">
-                          <div class="label-primary">Put on marketplace</div>
+                          <div class=label-primary-my>Put on marketplace</div>
                           <div class="label-primary-desc">Enter price to allow users instantly purchase your NFT</div>
                         </div>
                         <div class="">
@@ -50,37 +50,39 @@
                         </div>
                       </div>
 
-                        <div v-if="form.putOnMarket"  class="btn-market-put-btns" >
-                          <button type="button"
-                                  @click="type ='fixedPrice'"
-                                  :class="{active: type == 'fixedPrice'}"
-                                  class="btn-market-put">
-                            <img alt="Fixed price" src="https://ropsten.rarible.com/25d23f2b0f1b54429ce9.svg" loading="lazy"
-                                 class="">
-                            <div class=""><span
-                                class="">Fixed price</span></div>
-                          </button>
-                          <button type="button"
-                                  @click="type ='bid'"
-                                  :class="{active: type == 'bid'}"
-                                  class="btn-market-put">
-                            <img alt="Open for bids" src="https://ropsten.rarible.com/cec4bdb514ea63a26280.svg" loading="lazy"
-                                 class="">
-                            <div class=""><span
-                                class="">Open for bids</span></div>
-                          </button>
+                      <div v-if="form.putOnMarket" class="btn-market-put-btns">
+                        <button type="button"
+                                @click="type ='fixedPrice'"
+                                :class="{active: type == 'fixedPrice'}"
+                                class="btn-market-put">
+                          <img alt="Fixed price" src="https://ropsten.rarible.com/25d23f2b0f1b54429ce9.svg"
+                               loading="lazy"
+                               class="">
+                          <div class=""><span
+                              class="">Fixed price</span></div>
+                        </button>
+                        <button type="button"
+                                @click="type ='bid'"
+                                :class="{active: type == 'bid'}"
+                                class="btn-market-put">
+                          <img alt="Open for bids" src="https://ropsten.rarible.com/cec4bdb514ea63a26280.svg"
+                               loading="lazy"
+                               class="">
+                          <div class=""><span
+                              class="">Open for bids</span></div>
+                        </button>
 
-                        </div>
+                      </div>
 
 
                     </div>
                   </div>
-                  <div  class="b-form__row row">
+                  <div class="b-form__row row">
 
                     <div class="col-md-12">
                       <div style="display: flex; justify-content: space-between; margin-top: 50px;">
                         <div class="">
-                          <div class="label-primary">Free minting</div>
+                          <div class="label-primary-my">Free minting</div>
                           <div class="label-primary-desc">Buyer will pay gas fees for minting</div>
                         </div>
                         <div class="">
@@ -140,51 +142,46 @@
                     </div>
                   </div>
                   <div class="b-form__row row">
-                  <div class="col-md-12">
-                    <label class="floating-label">Properties (Optional)</label>
+                    <div class="col-md-12">
+                      <label class="floating-label">Properties (Optional)</label>
 
-                    <div class="row" v-for="(item , key) in form.properties">
-                      <div class="col-md-5">
-                        <input required="" v-model="item.key"
-                                                   class="form-control"
-                                                   type="text"
-                                                   placeholder="e.g Size"
-                                                   value=""></div>
-                      <div class="col-md-5">
-                        <input  required="" v-model="item.value"
-                                                    class="form-control"
-                                                   type="text"
-                                                   placeholder="e.g M"
-                                                   value="">
+                      <div class="row" v-for="(item , key) in form.properties">
+                        <div class="col-md-5">
+                          <input required="" v-model="item.trait_type"
+                                 class="form-control"
+                                 type="text"
+                                 placeholder="e.g Size"
+                                 value=""></div>
+                        <div class="col-md-5">
+                          <input required="" v-model="item.value"
+                                 class="form-control"
+                                 type="text"
+                                 placeholder="e.g M"
+                                 value="">
 
 
+                        </div>
+                        <div class="col-md-1">
+                          <button :disabled="form.properties.length == 1" type="button" @click="deleteRow(key,item)"
+                                  class="btn btn-danger">X
+                          </button>
+                        </div>
                       </div>
-                      <div class="col-md-1">
-                        <button :disabled="form.properties.length == 1" type="button" @click="deleteRow(key,item)"
-                                class="btn btn-danger">X
-                        </button>
-                      </div>
+
+
+                      <br>
+                      <button type="button" @click="addNewRow" class="btn btn-primary ">+</button>
+
                     </div>
-
-
-                    <br>
-                    <button type="button" @click="addNewRow" class="btn btn-primary " >+</button>
-
                   </div>
-                </div>
 
                   <div>
 
 
-
-                </div>
+                  </div>
                 </div>
 
               </div>
-
-
-
-
 
 
               <div class="b-form__row row">
@@ -200,7 +197,8 @@
               <div class="b-form__row row" style="position: relative">
                 <div class="col">
                   <buttonConnect v-if="!getAccounts[0]"/>
-                  <button v-else :disabled="loader" type="submit" @click.prevent="submit" class="btn save-btn">Create item
+                  <button v-else :disabled="loader" type="submit" @click.prevent="submit" class="btn save-btn">Create
+                    item
                   </button>
 
 
@@ -240,7 +238,7 @@ import buttonConnect from "./parts/buttonConnect";
 import WrongNetwork from "./WrongNetwork";
 import LayoutDefault from "./Layouts/LayoutDefault";
 import Toggle from "./parts/Toggle";
-import {convertKeyVale} from "../../../../../../rariblewp/vendor/vue-rarible/src/helpers/utils";
+
 export default {
   name: "CreateNFTAndPost",
   components: {
@@ -261,7 +259,7 @@ export default {
         description: '',
         properties: [
           {
-            key: null,
+            trait_type: null,
             value: null,
 
           }],
@@ -285,27 +283,24 @@ export default {
 
     ]
 
-    console.warn(convertKeyVale(res))
 
     // res.forEach(element => console.log(element));
 
   },
   methods: {
-    convertKeyVale(res){
+    convertKeyVale(res) {
       return res.filter(({key, value}) => key && key.length > 1 && value && value.length > 1)
           .map(({key, value}) => ({[key]: value}))
 
     },
-    deleteRow(index, item){
+    deleteRow(index, item) {
       var idx = this.form.properties.indexOf(item)
       if (idx > -1) {
         this.form.properties.splice(idx, 1)
       }
     },
-    addNewRow(){
-      this.form.properties.push({
-
-      })
+    addNewRow() {
+      this.form.properties.push({})
     },
     clearedImage() {
       this.clearImage = false
@@ -337,7 +332,7 @@ export default {
       }
       headers['Content-Disposition'] = 'form-data; filename=\'' + fileName + '\'';
       let formData =
-      this.errors = false
+          this.errors = false
       this.loader = true
       try {
         let res = await api.post('wp-admin/admin-ajax.php?action=rarible_create_nft_post', this.makeRequestForPost(), headers)
@@ -349,10 +344,11 @@ export default {
         } catch (error) {
           this.loadText = error
           this.loader = false
+          console.error(error)
         }
       } catch (error) {
 
-        console.warn(error)
+        console.error(error)
         console.warn(error.response.data.errors)
         this.errors = {...error.response.data.errors}
         this.loader = false
@@ -376,19 +372,28 @@ export default {
       formData.append('description', this.form.description);
       formData.append('properties', this.form.properties);
 
-      return  formData
+      return formData
     },
     async makeNftToken() {
 
       const ipfsItem = {
         "description": this.form.description,
         "external_url": "",// <-- this can link to a page for the specific file too
-        "image": this.imgLink, // this.imgLink
+        //"image": this.imgLink, // this.imgLink
+        "image": "https://zooclub.org.ua/uploads/2021/08/09/raspisnaya-cherepaha12-370x240.jpg",
         "name": this.form.title,
       }
-      if(convertKeyVale(this.form.properties).length > 0){
-        ipfsItem.attributes = convertKeyVale(this.form.properties)
+      // if(convertKeyVale(this.form.properties).length > 0){
+      // ipfsItem.attributes = convertKeyVale(this.form.properties)
+      let filteredItems = this.form.properties.filter(({
+                                                         trait_type,
+                                                         value
+                                                       }) => trait_type.length > 1 && value.length > 1)
+
+      if (filteredItems.length > 0) {
+        ipfsItem.attributes = this.form.properties
       }
+      //}
       const ipfs = create({host: 'ipfs.infura.io', port: 5001, protocol: 'https'});
       let uploaded = await ipfs.add(JSON.stringify(ipfsItem))
       const uri = `ipfs/${uploaded.path}`
@@ -414,7 +419,7 @@ export default {
         royalties: [
           {
             account: toAddress(this.getAccounts[0]),
-            value: this.form.royalties 	* 100 //2000 means 20%.
+            value: this.form.royalties * 100 //2000 means 20%.
           }
         ],
         lazy: this.form.lazy,
@@ -432,7 +437,7 @@ export default {
         type: this.type
 
       }))
-      if(this.type =='fixedPrice') {
+      if (this.type == 'fixedPrice') {
         await this.makeOrder(tx, uploaded)
       } else {
         this.allDone(tx)
@@ -440,7 +445,7 @@ export default {
 
 
     },
-    allDone(tx){
+    allDone(tx) {
       console.log('all done')
       this.loadText = 'all done, nft token created ' + tx.itemId
       this.loader = false
@@ -456,7 +461,7 @@ export default {
       this.removeImage()
       setTimeout(() => {
         this.loadText = ''
-      }, 3000)
+      }, 6000)
 
     },
     async makeOrder(tx, uploaded) {
@@ -491,7 +496,7 @@ export default {
         order_hash: order.hash,
 
       }))
-     this.allDone(tx)
+      this.allDone(tx)
     }
   }
 }

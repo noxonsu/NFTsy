@@ -13,7 +13,9 @@ class  NftPost extends ApiController
 
         $postID = (int) $_GET['post_id'];
 
+
         $tx = get_post_meta($postID,'rarible_tx',1);
+       // dd($tx["item"]["meta"]);
         $item = [
             'title'              => get_the_title($postID),
             'id'                 => $postID,
@@ -26,6 +28,7 @@ class  NftPost extends ApiController
             'order_hash'              => get_post_meta($postID, 'order_hash', true),
             'rarible_tx_item_id' => get_post_meta($postID,
                 'rarible_tx_item_id', true),
+            'properties' => $tx["item"]["meta"]['attributes'] ?? []
 
         ];
 //dd($tx);

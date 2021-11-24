@@ -49,8 +49,13 @@
               <buttonConnect v-if="!getAccounts[0]"/>
 
               <single-tabs :post="post" />
-              <a @click.prevent="buyOrder"
+              <a v-if="type === 'order'" @click.prevent="buyOrder"
                  class="btn btn--sm press--right">Buy an order</a>
+
+              <a @click.prevent="buyOrder" class="btn btn--sm press--right">
+                Place a bid
+              </a>
+
 
               <!--       <a @click.prevent="makeOrder"-->
               <!--                 class="btn btn&#45;&#45;sm press&#45;&#45;right">makeOrder</a>-->
@@ -85,6 +90,7 @@ export default {
   data() {
     return {
       post: {},
+      type: 'bid' // bid order
 
     }
   },
@@ -136,6 +142,7 @@ export default {
         {params: {action: 'rarible_nft_post', post_id: this.$route.params.id}}
     ).then(res => {
       this.post = res.data
+      this.type = this.post.order_hash.length > 1 ? 'order' : 'bid'
     })
 
     this.getSdk.apis.order.getOrderByHash({hash: '0x549f6ad9ecffd5bc7d0059b80d48ff995049e73bf8d21a1536a0a594aab3bb9f'}).then(res => {
@@ -160,34 +167,43 @@ export default {
   @import '~bootstrap/scss/buttons';
   @import '~bootstrap/scss/bootstrap-reboot';
   ::v-deep {
+    * {
+      font-family: Roboto-Light;
+    }
   .btn {
 
     outline: none;
-    display: inline-block;
-    padding: 0 20px;
-    border: 0;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 60px;
-    outline: 0;
-    text-align: center;
-    text-decoration: none;
-    text-transform: uppercase;
-    text-shadow: none;
-    vertical-align: middle;
-    color: #fff;
-    cursor: pointer;
-    background: #de443a;
-    height: 60px;
-    border-radius: 0;
-    letter-spacing: 1.3px;
-    box-sizing: border-box;
-    -webkit-transition: all .3s ease;
-    -moz-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    transition: all .3s ease;
     text-decoration: none !important;
+    display: flex;
+    flex-flow: row nowrap;
+    white-space: nowrap;
+    line-height: 48px;
+    height: 48px;
+    padding-left: 26.4px;
+    padding-right: 26.4px;
+    min-width: 100%;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    border-radius: 48px;
+    font-size: 15px;
+    font-weight: 900;
+    transition: all 0.12s ease-in-out 0s;
+    transform-origin: center center;
+    user-select: none;
+    border-color: rgb(0, 102, 255);
+    color: rgb(255, 255, 255);
+    background: rgb(0, 102, 255);
+    margin-bottom: 10px;
+    &:hover {
+        color: rgba(255, 255, 255, 0.9);
+        background: rgba(0, 102, 255, 0.95);
+
+    }
+    &:active {
+      transform: scale(0.95);
+    }
   }
 }
 </style>
