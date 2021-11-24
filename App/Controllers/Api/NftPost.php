@@ -9,7 +9,7 @@ class  NftPost extends ApiController
 
     public function action()
     {
-        $items = [];
+
 
         $postID = (int) $_GET['post_id'];
 
@@ -31,7 +31,6 @@ class  NftPost extends ApiController
             'properties' => $tx["item"]["meta"]['attributes'] ?? []
 
         ];
-//dd($tx);
 
 
         wp_send_json($item);

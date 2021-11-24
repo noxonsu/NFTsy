@@ -29,6 +29,7 @@ if (document.getElementById('v-app')) {
     const NETWORK = rarible_obj.networkName // "ropsten" // "rinkeby" // "e2e" | "ropsten" | "rinkeby" | "mainnet"
     Vue.prototype.API_URL = rarible_obj.site_url  // rarible_obj.site_url;
     Vue.prototype.$networkName = rarible_obj.networkName  // rarible_obj.site_url;
+    Vue.prototype.$collectionId = rarible_obj.collection  // rarible_obj.site_url;
     const router = new VueRouter({
         mode: 'hash',
         routes: [{

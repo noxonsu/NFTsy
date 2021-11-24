@@ -403,15 +403,9 @@ export default {
       await this.sleep(1000 * 5)
       this.loadText = 'Start minting...'
 
-      const mintFormInitial = {
-        id: "0xB0EA149212Eb707a1E5FC1D2d3fD318a8d94cf05", // default collection on "rinkeby" that supports lazy minting
-        type: "ERC721",
-        isLazy: true,
-        isLazySupported: true,
-        loading: false,
-      }
+
       let nftCollection = await this.getSdk.apis.nftCollection.getNftCollectionById(
-          {collection: mintFormInitial.id})
+          {collection: this.$collectionId})
       let tx = await this.getSdk.nft.mint({
         uri: uri,
         collection: nftCollection,

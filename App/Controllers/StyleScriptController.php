@@ -45,6 +45,7 @@ class StyleScriptController
             'ajaxurl'  => esc_url(site_url()).'/wp-admin/admin-ajax.php',
             'site_url' => esc_url(site_url()),
             'networkName' => get_option('rarible_nft_networkName','ropsten'),
+            'collection' => get_option('rarible_nft_collection','0xB0EA149212Eb707a1E5FC1D2d3fD318a8d94cf05'),
 
         );
 

@@ -42,7 +42,7 @@
 
 <div class="wrap">
     <div class="welcome-panel">
-        <h2>test</h2>
+        <h2><?php esc_html_e('Settings','rarible'); ?></h2>
         <?php esc_html_e('First of all please','rarible'); ?>
         <a href="update-core.php?force-check=1"><?php esc_html_e('check for updates','rarible'); ?></a>.
         <?php esc_html_e('How to use? Add [rarible_nft_addform] to a page where to show "add" form. Add [rarible_nft_view] to a page where to show the catalog:','rarible'); ?><Br>
@@ -69,6 +69,25 @@
                                     </select>
                                     <br>
                                     <?php esc_html_e('Ropsten or Mainnet. We recommend to test on testnet with testnet tokens before launch', 'rarible'); ?>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <label><?php esc_html_e('Collection ', 'rarible'); ?></label>
+                            </th>
+                            <td>
+                                <div class="nft-form-inline"><?php
+                                    $nft_collection = get_option('rarible_nft_collection','0xB0EA149212Eb707a1E5FC1D2d3fD318a8d94cf05');
+                                    ?>
+                                    <input  class="regular-text code" name="rarible_nft_collection" value="<?php  echo  esc_attr($nft_collection); ?>">
+
+                                    <br>
+                                    <?php esc_html_e('Mainnet
+Asset Contract ERC721 0xF6793dA657495ffeFF9Ee6350824910Abc21356C', 'rarible'); ?>
+                                    <br>
+                                    <?php esc_html_e('Ropsten
+Asset Contract ERC721 0xB0EA149212Eb707a1E5FC1D2d3fD318a8d94cf05', 'rarible'); ?>
                                 </div>
                             </td>
                         </tr>

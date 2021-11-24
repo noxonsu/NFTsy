@@ -48,7 +48,10 @@ class MenuPageController extends Controller {
 
 
         if ( ! empty($_POST['rarible_nft_networkName'])) {
-            update_option("rarible_nft_networkName",$_POST['rarible_nft_networkName']);
+            update_option("rarible_nft_networkName", sanitize_text_field( $_POST['rarible_nft_networkName']));
+        }
+        if ( ! empty($_POST['rarible_nft_collection'])) {
+            update_option("rarible_nft_collection", sanitize_text_field($_POST['rarible_nft_collection']));
         }
 
 
