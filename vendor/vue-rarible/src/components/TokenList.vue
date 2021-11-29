@@ -1,29 +1,36 @@
 <template>
-  <div id="content">
-    <div class="b-place-list">
+  <div id="content" >
+    <div class="b-place-list r-place-list">
       <div v-masonry transition-duration="0.3s" item-selector=".item" :origin-top="true" :horizontal-order="false" >
 
         <div v-masonry-tile  class="b-grid-item b-grid-item--masonry item" v-for="item in localItems" >
           <div class="b-event">
-            <div class="b-event__img">
-              <router-link class="b-pop-place__img__img" :to="{ name: 'tokens.single', params: { id: item.id }}">
-                <img :src="item.img" class="" alt=""> </router-link>
-              <div class="b-events__time"><span v-if="item.price"> {{item.price}}  ETH</span>
-              </div>
-<!--              <div class="b-sm-post__date">-->
-<!--                <div class="b-sm-post__month">Sep</div>-->
-<!--                <div class="b-sm-post__day">25</div>-->
-<!--              </div>-->
-              <a href="#" class="noajax b-icon-like  ">
-                <i class="fa fa-heart" aria-hidden="true"></i>
-              </a>
-              <div class="b-event__links">
-                <div class="press--left">
-                </div>
-                <div class="press--right">
 
-                </div>
+            <div class="event-top"><br></div>
+<!--            <div class="b-events__time"><span v-if="item.price"> {{item.price}}  ETH</span>-->
+<!--            </div>-->
+<!--            &lt;!&ndash;              <div class="b-sm-post__date">&ndash;&gt;-->
+<!--            &lt;!&ndash;                <div class="b-sm-post__month">Sep</div>&ndash;&gt;-->
+<!--            &lt;!&ndash;                <div class="b-sm-post__day">25</div>&ndash;&gt;-->
+<!--            &lt;!&ndash;              </div>&ndash;&gt;-->
+<!--            <a href="#" class="noajax b-icon-like  ">-->
+<!--              <i class="fa fa-heart" aria-hidden="true"></i>-->
+<!--            </a>-->
+<!--            <div class="b-event__links">-->
+<!--              <div class="press&#45;&#45;left">-->
+<!--              </div>-->
+<!--              <div class="press&#45;&#45;right">-->
+
+<!--              </div>-->
+<!--            </div>-->
+
+
+            <div class="b-event__img ">
+              <div class="event-img-warp">
+                <router-link class="b-pop-place__img__img" :to="{ name: 'tokens.single', params: { id: item.id }}">
+                  <img :src="item.img" class="" alt=""> </router-link>
               </div>
+
             </div>
             <div class="b-event__desc clearfix">
               <div class="press--left _mod-width">
@@ -33,8 +40,8 @@
 
 
               </div>
-              <div style="margin-bottom: 50px;">
-                <router-link   class="btn btn&#45;&#45;sm press&#45;&#45;right" :to="{ name: 'tokens.single', params: { id: item.id }}"> Buy Token </router-link>
+              <div >
+                <router-link   class="b-t-btn " :to="{ name: 'tokens.single', params: { id: item.id }}"> Buy Token </router-link>
 
 <!--                <a href="https://city2.wpmix.net/product/new-years-eve-celebrations/"-->
 <!--                   class="btn btn&#45;&#45;sm press&#45;&#45;right"> Buy Token </a>-->
@@ -46,8 +53,10 @@
 
       </div>
 
-      <a :disabled="loadingMore" v-if="max_num_pages > page_number" @click.prevent="getItems" href=""
-         class="btn btn--sm press--right">Load more</a>
+      <a :disabled="loadingMore"  @click.prevent="getItems" href=""
+         class="btn btn--sm r-load-more press--right">Load more</a>
+
+
 
     </div>
     </div>
@@ -93,7 +102,10 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+.r-place-list * {
+  font-family: Roboto-Light;
+}
 a:active, a:hover {
   outline: 0;
 }
@@ -108,13 +120,36 @@ a:hover {
   margin-right: 0;
 }
 .b-event {
+  inset: 0px;
+  z-index: 1;
+  height: 100%;
+  position: relative;
+  background: rgb(255, 255, 255);
+  padding: 0px;
+  border-radius: 16px;
+  border: 1px solid rgba(4, 4, 5, 0.1);
+  overflow: hidden;
   max-width: 370px;
   width: 100%;
   box-shadow: 0 2px 2px #ddd;
 }
 .b-grid-item .b-pop-place__img, .b-place-list .b-event__img {
-  height: 199px;
-  background: #0e0f11;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  justify-content: center;
+  margin-left: 12px;
+  margin-right: 12px;
+
+}
+.event-img-warp {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 230px;
 }
 .b-event__desc {
   background-color: #fff;
@@ -132,82 +167,59 @@ a:hover {
   margin-left: 15px;
 }
  .btn {
-  display: inline-block;
-  padding: 0 20px;
-  border: 0;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 60px;
-  outline: 0;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-  text-shadow: none;
-  vertical-align: middle;
-  color: #fff;
-  cursor: pointer;
-  background: #de443a;
-  height: 60px;
-  border-radius: 0;
-  letter-spacing: 1.3px;
-  position: relative;
-  box-sizing: border-box;
-  -webkit-transition: all .3s ease;
-  -moz-transition: all .3s ease;
-  -o-transition: all .3s ease;
-  -ms-transition: all .3s ease;
-  transition: all .3s ease;
+   display: inline-block;
+   padding: 0 20px;
+   border: 0;
+   font-size: 16px;
+   font-weight: 500;
+   line-height: 60px;
+   outline: 0;
+   text-align: center;
+   text-decoration: none;
+   text-transform: uppercase;
+   text-shadow: none;
+   vertical-align: middle;
+   color: #fff;
+   cursor: pointer;
+   background: #de443a;
+   height: 60px;
+   border-radius: 0;
+   letter-spacing: 1.3px;
+   position: relative;
+   box-sizing: border-box;
+   -webkit-transition: all .3s ease;
+   -moz-transition: all .3s ease;
+   -o-transition: all .3s ease;
+   -ms-transition: all .3s ease;
+   transition: all .3s ease;
    float: right;
    text-decoration: none !important;
-}
-.b-pop-place__img__img {
-  transform: scale(1.15);
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: all .4s ease 0s;
-}
-.b-event__img:hover .b-pop-place__img__img {
-  transform: scale(1);
-}
-.b-pop-place__img__img {
-  overflow: hidden;
-}
 
-pop-place__img__img img {
-  max-width: 100%;
-}
+ }
 
-.b-pop-place__img:hover .b-pop-place__img__img, .b-event__img:hover .b-pop-place__img__img {
-  transform: scale(1)
-}
-.b-grid-item .b-pop-place__img, .b-place-list .b-event__img {
-  height: 199px;
-  background: #0e0f11
-}
-.b-event__img {
-  position: relative;
-  overflow: hidden;
-}
- .b-event__img>.b-pop-place__img__img:before, .b-event__img>a:first-child:before, .b-album>a:first-child:before, .b-pop-place__img__img:before, .b-price-card .b-price-card__img:before, .b-sm-post__img-cont a:before {
-  position: absolute;
-  content: '';
-  transition: all .4s ease 0s;
-  left: 0;
-  top: 0;
-  background: rgba(0,0,0,.15);
+
+
+
+
+
+.b-pop-place__img__img {
+  display: flex;
+  flex-flow: column;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
   width: 100%;
   height: 100%;
-  z-index: 111;
+  overflow: hidden;
+  border-radius: 6px;
+  & img {
+    border-radius: 6px;
+    vertical-align: inherit;
+   }
 }
-.b-pop-place__img__img, .b-event__img {
-  position: relative;
-  display: block;
-  z-index: 123;
-}
-.b-grid-item .b-pop-place__img, .b-place-list .b-event__img {
-  height: 199px;
-  background: #0e0f11;
+.event-top {
+  height: 20px;
 }
 .b-grid-item {
   margin: 15px;
@@ -243,7 +255,8 @@ pop-place__img__img img {
 }
 .b-event__name {
   margin: 5px 0;
-  font: 400 18px Roboto-Regular;
+  font: 400 18px Roboto-Bold;
+  font-weight: 900;
   color: #0e0f11;
   line-height: 25px;
   display: block;
@@ -251,5 +264,55 @@ pop-place__img__img img {
 
 }
 
+.b-t-btn {
+  font: 400 18px Roboto-Bold;
+  font-weight: 900;
+  color: rgb(0, 102, 255);
+  vertical-align: inherit;
+  text-decoration: none !important;
+  font-size: 14px;
+}
+.r-load-more {
+  font: 900 18px Roboto-Bold;
+  display: flex;
+  flex-flow: row nowrap;
+  white-space: nowrap;
+  line-height: 48px;
+  height: 48px;
+  padding-left: 26.4px;
+  padding-right: 26.4px;
+  min-width: 192px;
+  border: 1px solid transparent;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  border-radius: 48px;
+  font-size: 15px;
+  font-weight: 900;
+  transition: all 0.12s ease-in-out 0s;
+  transform-origin: center center;
+  user-select: none;
+  cursor: pointer;
+  background: rgb(255, 255, 255);
+  color: rgb(0, 102, 255);
+  position: relative;
+  margin: 4px;
+  width: 100%;
+&:before {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  z-index: -1;
+  margin: -3px;
+  border-radius: inherit;
+  background: linear-gradient(to right, rgb(12, 80, 255) 0%, rgb(12, 80, 255) 24%, rgb(91, 157, 255) 55.73%, rgb(255, 116, 241) 75%, rgb(255, 116, 241) 100%);
+}
+  &:hover {
+    background-color: rgba(4, 4, 5, 0.05);
+    color: rgb(4, 4, 5);
+
+  }
+}
 
 </style>

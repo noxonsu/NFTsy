@@ -30,9 +30,9 @@
             </div>
             <br><br>
             <div class="col-md-4">
-              <span
-                  class=""><a><span style="font-weight: 900; font-size: 30px;"
-                                    class="sc-bdnxRM sc-hKFxyN sc-eCApnc RWHKB">Price:</span></a>
+              <span v-if="type === 'order'"
+                    class=""><a><span style="font-weight: 900; font-size: 30px;"
+                                      class="sc-bdnxRM sc-hKFxyN sc-eCApnc RWHKB">Price:</span></a>
               </span>
             </div>
 
@@ -48,13 +48,13 @@
             <div class="col-md-12" style="margin-top: 30px">
               <buttonConnect v-if="!getAccounts[0]"/>
 
-              <single-tabs :post="post" />
-              <a v-if="type === 'order'" @click.prevent="buyOrder"
-                 class="btn btn--sm press--right">Buy an order</a>
+              <single-tabs :post="post"/>
+              <template v-if="getAccounts[0]">
+                <a v-if="type === 'order'" @click.prevent="buyOrder"
+                   class="btn btn--sm press--right">Buy an order</a>
 
-              <a @click.prevent="buyOrder" class="btn btn--sm press--right">
-                Place a bid
-              </a>
+                <PlaceBid  :post="post"/>
+              </template>
 
 
               <!--       <a @click.prevent="makeOrder"-->
@@ -77,6 +77,7 @@ import {mapGetters} from "vuex";
 import {toAddress} from "@rarible/types";
 import buttonConnect from "./parts/buttonConnect";
 import SingleTabs from "./parts/singleTabs";
+import PlaceBid from "./parts/PlaceBid";
 
 export default {
   name: "TokenSingle",
@@ -85,7 +86,7 @@ export default {
 
   },
   components: {
-    buttonConnect, SingleTabs
+    buttonConnect, SingleTabs, PlaceBid
   },
   data() {
     return {
@@ -137,7 +138,7 @@ export default {
   },
   async mounted() {
 
-    console.log('your wallet', this.getAccounts)
+   console.log('your wallet', this.getAccounts)
     api.get('wp-admin/admin-ajax.php',
         {params: {action: 'rarible_nft_post', post_id: this.$route.params.id}}
     ).then(res => {
@@ -149,6 +150,10 @@ export default {
       console.warn('getOrderByHash')
       console.warn(res)
     })
+    this.getSdk.apis.order.getOrdersAll({}).then(res => {
+      console.warn('getOrdersAll')
+      console.warn(res)
+    })
 
   }
 }
@@ -157,19 +162,21 @@ export default {
 <style lang="scss" scoped>
 
 
-  @import "~bootstrap/scss/functions";
-  @import "~bootstrap/scss/variables";
-  @import "~bootstrap/scss/mixins";
-  @import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/utilities";
 
-  @import '~bootstrap/scss/grid';
-  @import '~bootstrap/scss/containers';
-  @import '~bootstrap/scss/buttons';
-  @import '~bootstrap/scss/bootstrap-reboot';
-  ::v-deep {
-    * {
-      font-family: Roboto-Light;
-    }
+@import '~bootstrap/scss/grid';
+@import '~bootstrap/scss/containers';
+@import '~bootstrap/scss/buttons';
+@import '~bootstrap/scss/bootstrap-reboot';
+
+::v-deep {
+  * {
+    font-family: Roboto-Light;
+  }
+
   .btn {
 
     outline: none;
@@ -196,11 +203,13 @@ export default {
     color: rgb(255, 255, 255);
     background: rgb(0, 102, 255);
     margin-bottom: 10px;
+
     &:hover {
-        color: rgba(255, 255, 255, 0.9);
-        background: rgba(0, 102, 255, 0.95);
+      color: rgba(255, 255, 255, 0.9);
+      background: rgba(0, 102, 255, 0.95);
 
     }
+
     &:active {
       transform: scale(0.95);
     }

@@ -380,7 +380,7 @@ export default {
         "description": this.form.description,
         "external_url": "",// <-- this can link to a page for the specific file too
         //"image": this.imgLink, // this.imgLink
-        "image": "https://zooclub.org.ua/uploads/2021/08/09/raspisnaya-cherepaha12-370x240.jpg",
+        "image": "https://zooclub.org.ua/uploads/2021/11/23/akrida-vengerskaya2.webp",
         "name": this.form.title,
       }
       // if(convertKeyVale(this.form.properties).length > 0){

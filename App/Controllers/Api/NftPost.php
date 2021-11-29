@@ -15,10 +15,10 @@ class  NftPost extends ApiController
 
 
         $tx = get_post_meta($postID,'rarible_tx',1);
-       // dd($tx["item"]["meta"]);
         $item = [
             'title'              => get_the_title($postID),
             'id'                 => $postID,
+            'tokenId'                 => $tx['tokenId'] ?? '',
             'img'                => get_the_post_thumbnail_url($postID, 'rarible-nft-image-370x245-croped'),
             'content'            => apply_filters('the_content', get_post_field('post_content', $postID)),
             'ipfs'               => get_post_meta($postID, 'rarible_IPFS',
@@ -28,7 +28,9 @@ class  NftPost extends ApiController
             'order_hash'              => get_post_meta($postID, 'order_hash', true),
             'rarible_tx_item_id' => get_post_meta($postID,
                 'rarible_tx_item_id', true),
-            'properties' => $tx["item"]["meta"]['attributes'] ?? []
+            'properties' => $tx["item"]["meta"]['attributes'] ?? [],
+            'contract' =>  $tx['item']['contract'] ?? [],
+
 
         ];
 
