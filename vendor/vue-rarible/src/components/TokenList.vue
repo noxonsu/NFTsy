@@ -53,7 +53,7 @@
 
       </div>
 
-      <a :disabled="loadingMore"  @click.prevent="getItems" href=""
+      <a :disabled="loadingMore" v-if="max_num_pages > page_number"  @click.prevent="getItems" href=""
          class="btn btn--sm r-load-more press--right">Load more</a>
 
 

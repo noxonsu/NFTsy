@@ -19,16 +19,16 @@
       >Bids</span>
         <div class="border"></div>
       </button>
-      <button class="tab-button"
-              role="tab"
-              aria-selected="false"
-              type="button"
-              :class="{active: activeTab == 3}"
-              @click.prevent="activeTab = 3"
-      ><span
-      >History</span>
-        <div class="border"></div>
-      </button>
+<!--      <button class="tab-button"-->
+<!--              role="tab"-->
+<!--              aria-selected="false"-->
+<!--              type="button"-->
+<!--              :class="{active: activeTab == 3}"-->
+<!--              @click.prevent="activeTab = 3"-->
+<!--      ><span-->
+<!--      >History</span>-->
+<!--        <div class="border"></div>-->
+<!--      </button>-->
     </div>
     <div>
       <div v-if="activeTab == 1" class="tab-panel tab1">
@@ -46,7 +46,7 @@
             </div>
           </div>
 
-          <div v-if="post.properties">
+          <div v-if="post.properties.length > 0">
             <span class="tab-panel-label">Properties</span>
             <div>
               <div class="properties">
@@ -96,7 +96,7 @@
 
       </div>
       <div v-if="activeTab == 3" class="tab-panel tab1">
-        3
+
       </div>
     </div>
   </div>
