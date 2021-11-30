@@ -66,26 +66,26 @@ export default {
       //
       //
       // const order = await this.getSdk.order.bid(request)
-      //
-      // const order = await this.getSdk.order.bid({
-      //   makeAssetType: {
-      //     // assetClass: "ERC20",
-      //     // contract: toAddress(this.post.owner),
-      //   },
-      //   takeAssetType: {
-      //     assetClass: "ERC721",
-      //     contract: toAddress('0xb0ea149212eb707a1e5fc1d2d3fd318a8d94cf05'),
-      //     tokenId:  this.post.tokenId,
-      //   },
-      //   amount: 1,
-      //   maker:  toAddress(this.getAccounts[0]),
-      //   originFees: [],
-      //   payouts: [],
-      //   price: 0.04 * 1000000000000000000,
-      // })
-
 
       const order = await this.getSdk.order.bid({
+        makeAssetType: {
+           assetClass: "ERC20",
+           contract: toAddress(this.post.owner),
+        },
+        takeAssetType: {
+          assetClass: "ERC721",
+          contract: toAddress('0xb0ea149212eb707a1e5fc1d2d3fd318a8d94cf05'),
+          tokenId:  this.post.tokenId,
+        },
+        amount: 1,
+        maker:  toAddress(this.getAccounts[0]),
+        originFees: [],
+        payouts: [],
+        price: 0.04 * 1000000000000000000,
+      })
+
+
+   /*   const order = await this.getSdk.order.bid({
         maker: toAddress(this.getAccounts[0]),
         takeAssetType: {
           assetClass: "ERC721",
@@ -104,7 +104,7 @@ export default {
         }],
 
 
-      })
+      })*/
       console.warn('order', order)
       this.getSdk.order.fill(
           {

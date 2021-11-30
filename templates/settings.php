@@ -91,6 +91,23 @@ Asset Contract ERC721 0xB0EA149212Eb707a1E5FC1D2d3fD318a8d94cf05', 'rarible'); ?
                                 </div>
                             </td>
                         </tr>
+   </tr>
+                        <tr>
+                            <th scope="row">
+                                <label><?php esc_html_e('Enable Bid ', 'rarible'); ?></label>
+                            </th>
+                            <td>
+                                <div class="nft-form-inline"><?php
+
+                                    $nft_bid = get_option('rarible_nft_bid',0);
+                                    ?>
+                                    <input type="checkbox"  class="regular-text code" name="rarible_nft_bid"
+                                           value="1" <?php checked($nft_bid, 1) ?>>
+
+
+                                </div>
+                            </td>
+                        </tr>
 
 
 

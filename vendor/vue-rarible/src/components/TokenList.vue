@@ -103,9 +103,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.r-place-list * {
-  font-family: Roboto-Light;
-}
+
 a:active, a:hover {
   outline: 0;
 }
@@ -255,7 +253,6 @@ a:hover {
 }
 .b-event__name {
   margin: 5px 0;
-  font: 400 18px Roboto-Bold;
   font-weight: 900;
   color: #0e0f11;
   line-height: 25px;
@@ -265,7 +262,7 @@ a:hover {
 }
 
 .b-t-btn {
-  font: 400 18px Roboto-Bold;
+
   font-weight: 900;
   color: rgb(0, 102, 255);
   vertical-align: inherit;
@@ -273,7 +270,7 @@ a:hover {
   font-size: 14px;
 }
 .r-load-more {
-  font: 900 18px Roboto-Bold;
+
   display: flex;
   flex-flow: row nowrap;
   white-space: nowrap;

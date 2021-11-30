@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <slot ></slot>
-    <WrongNetwork />
+  <div class="r-layout">
+    <slot></slot>
+    <WrongNetwork/>
   </div>
 </template>
 
@@ -11,6 +11,16 @@ export default {
 }
 </script>
 
-<style scoped>
 
+<style lang="scss" scoped>
+
+::v-deep {
+  .r-layout {
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    * {
+      font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+  }
+}
 </style>

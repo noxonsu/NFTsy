@@ -70,7 +70,7 @@ export default {
 }
 
 .modal-container {
-  font-family: Roboto-Light;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   width: 100%;
   max-width: 900px;
   margin: 0px auto;;
@@ -87,6 +87,9 @@ export default {
   animation-fill-mode: forwards;
   animation-duration: 0.3s;
   animation-name: czaBCI;
+  & * {
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
 }
 
 
@@ -169,7 +172,7 @@ export default {
 
 ::v-deep {
   h2 {
-    font-family: Roboto-Light;
+
     font-weight: 900 !important;
     text-align: center;
     font-size: 22px;
@@ -183,8 +186,7 @@ export default {
   }
 
   p {
-    font-family: Roboto-Light;
-    font-weight: inherit;
+
     color: rgb(128, 128, 128);
     text-align: center;
     vertical-align: inherit;
@@ -212,7 +214,6 @@ export default {
     border-radius: 48px;
     font-size: 16px;
     font-weight: 900;
-    font-family: inherit;
     transition: all 0.12s ease-in-out 0s;
     transform-origin: center center;
     user-select: none;

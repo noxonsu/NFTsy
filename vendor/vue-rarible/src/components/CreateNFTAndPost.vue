@@ -10,7 +10,7 @@
 
               <div class="b-form__row row">
                 <div class="col-md-9">
-                  <label class="floating-label">Upload file</label>
+                  <label class="floating-label">Upload file </label>
 
 
                   <div style="max-width: 300px; max-height: 800px; margin: 0 auto">
@@ -50,7 +50,8 @@
                         </div>
                       </div>
 
-                      <div v-if="form.putOnMarket" class="btn-market-put-btns">
+
+                      <div v-if="form.putOnMarket && $enableBid" class="btn-market-put-btns">
                         <button type="button"
                                 @click="type ='fixedPrice'"
                                 :class="{active: type == 'fixedPrice'}"
@@ -379,8 +380,8 @@ export default {
       const ipfsItem = {
         "description": this.form.description,
         "external_url": "",// <-- this can link to a page for the specific file too
-        //"image": this.imgLink, // this.imgLink
-        "image": "https://zooclub.org.ua/uploads/2021/11/23/akrida-vengerskaya2.webp",
+        "image": this.imgLink, // this.imgLink
+        //"image": "https://zooclub.org.ua/uploads/2021/11/19/seraya-myasnaya-muha66-370x240.jpg",
         "name": this.form.title,
       }
       // if(convertKeyVale(this.form.properties).length > 0){

@@ -50,7 +50,7 @@
 
               <single-tabs :post="post"/>
               <template v-if="getAccounts[0]">
-                <a v-if="type === 'order'" @click.prevent="buyOrder"
+                <a v-if="type === 'order' && getAccounts[0] != post.owner" @click.prevent="buyOrder"
                    class="btn btn--sm press--right">Buy an order</a>
 
                 <PlaceBid  :post="post"/>
@@ -173,12 +173,9 @@ export default {
 @import '~bootstrap/scss/bootstrap-reboot';
 
 ::v-deep {
-  * {
-    font-family: Roboto-Light;
-  }
 
   .r-single-token {
-    font-family: Roboto-Light;
+
     font-weight: 400;
     font-size: 16pc;
     color: rgb(4, 4, 5);
@@ -225,7 +222,6 @@ export default {
     font-size: 36px;
     line-height: 1.22;
     font-weight: 900;
-    font-family: Roboto-Bold;
     &:before {
       content: none;
       display: none;
