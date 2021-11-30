@@ -6,7 +6,7 @@
       Place a bid
     </a>
 
-    <a  href="" @click.prevent="makeOrder">App order</a>
+<!--    <a  href="" @click.prevent="makeOrder">App order</a>-->
   </div>
 
 </template>
