@@ -141,6 +141,7 @@
 import {mapGetters} from "vuex";
 import {toAddress} from "@rarible/types";
 import {create} from 'ipfs-http-client'
+import LayoutDefault from "./Layouts/LayoutDefault";
 
 export default {
   name: "createNFT",
@@ -148,6 +149,9 @@ export default {
   computed: {
     ...mapGetters(['getSdk', 'getProvider', 'getAccounts']),
 
+  },
+  components: {
+    LayoutDefault,
   },
   methods: {
     sleep(ms) {

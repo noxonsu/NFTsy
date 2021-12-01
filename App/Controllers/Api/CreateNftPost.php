@@ -8,9 +8,11 @@ class  CreateNftPost extends ApiController
 {
     private $postId;
     private $mediaId = false;
+    private $salt = false;
 
     public function action()
     {
+        $this->salt = md5(time());
         $this->validation();
 
         $this->createPost();
@@ -40,7 +42,8 @@ class  CreateNftPost extends ApiController
             'message' => esc_html('Saved', 'rarible'),
             'ID'      => $this->postId,
             'img' => wp_get_attachment_image_url( $this->mediaId, 'full'),
-            'mediaId' =>  $this->mediaId
+            'mediaId' =>  $this->mediaId,
+            'salt' =>  $this->salt
         );
 
         wp_send_json($return);
@@ -98,6 +101,7 @@ class  CreateNftPost extends ApiController
 
     private function updatePostMeta()
     {
+        update_post_meta($this->postId, '_salt', ($this->salt));
         update_post_meta($this->postId, 'price',
             sanitize_text_field($_POST['price'] ?? 0));
         update_post_meta($this->postId, 'royalties',

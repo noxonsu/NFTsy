@@ -11,6 +11,8 @@ class StyleScriptController
     public function __construct()
     {
         add_action('wp_enqueue_scripts', [$this, 'frontendScriptsStyle'], 500);
+        add_action( 'admin_print_scripts-' . 'nft_page_nft-add', [$this, 'frontendScriptsStyle'] );
+
     }
 
     public function frontendScriptsStyle()

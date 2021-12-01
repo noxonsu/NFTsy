@@ -274,7 +274,8 @@ export default {
       loader: false,
       loadText: '',
       imgLink: false,
-      postId: false
+      postId: false,
+      salt: '',
     }
   },
   mounted: function () {
@@ -340,9 +341,17 @@ export default {
         console.log(res.data)
         this.imgLink = res.data.img
         this.postId = res.data.ID
+        this.salt = res.data.salt
         try {
           await this.makeNftToken()
         } catch (error) {
+
+             api.post('wp-admin/admin-ajax.php?action=rarible_trash_nft_post',  stringify({
+              'postId': this.postId,
+              'salt': this.salt,
+            }))
+
+
           this.loadText = error
           this.loader = false
           console.error(error)

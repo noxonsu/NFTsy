@@ -29,6 +29,21 @@ class MenuPageController extends Controller
             'dashicons-admin-site-alt3',
             81
         );
+       add_submenu_page(
+            'edit.php?post_type=nft', //$parent_slug
+            'Tutorial Subpage Example',  //$page_title
+            esc_html__('NFT Add', 'rarible'),        //$menu_title
+            'manage_options',           //$capability
+            'nft-add',//$menu_slug
+            [$this, 'addNftInAdmin'], //$function,
+
+        );
+    }
+
+    public function addNftInAdmin()
+    {
+
+        echo do_shortcode('[rarible_nft_addform]');
     }
 
     public function page()
@@ -55,11 +70,13 @@ class MenuPageController extends Controller
             }
 
             if ( ! empty($_POST['rarible_nft_bid'])) {
-                update_option("rarible_nft_bid", sanitize_text_field($_POST['rarible_nft_bid']));
+                update_option(
+                    "rarible_nft_bid",
+                    sanitize_text_field($_POST['rarible_nft_bid'])
+                );
             } else {
                 update_option("rarible_nft_bid", 0);
             }
-
         }
 
         if ( ! empty($_POST)) {

@@ -1,30 +1,11 @@
 <template>
   <div id="content" >
-    <div class="b-place-list r-place-list">
-      <div v-masonry transition-duration="0.3s" item-selector=".item" :origin-top="true" :horizontal-order="false" >
+    <div v-if="!loading" class="b-place-list r-place-list">
+      <div  v-masonry transition-duration="0.3s" item-selector=".item" :origin-top="true" :horizontal-order="false" >
 
         <div v-masonry-tile  class="b-grid-item b-grid-item--masonry item" v-for="item in localItems" >
           <div class="b-event">
-
-            <div class="event-top"><br></div>
-<!--            <div class="b-events__time"><span v-if="item.price"> {{item.price}}  ETH</span>-->
-<!--            </div>-->
-<!--            &lt;!&ndash;              <div class="b-sm-post__date">&ndash;&gt;-->
-<!--            &lt;!&ndash;                <div class="b-sm-post__month">Sep</div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                <div class="b-sm-post__day">25</div>&ndash;&gt;-->
-<!--            &lt;!&ndash;              </div>&ndash;&gt;-->
-<!--            <a href="#" class="noajax b-icon-like  ">-->
-<!--              <i class="fa fa-heart" aria-hidden="true"></i>-->
-<!--            </a>-->
-<!--            <div class="b-event__links">-->
-<!--              <div class="press&#45;&#45;left">-->
-<!--              </div>-->
-<!--              <div class="press&#45;&#45;right">-->
-
-<!--              </div>-->
-<!--            </div>-->
-
-
+            <div class="event-top"></div>
             <div class="b-event__img ">
               <div class="event-img-warp">
                 <router-link class="b-pop-place__img__img" :to="{ name: 'tokens.single', params: { id: item.id }}">
@@ -40,13 +21,9 @@
 
 
               </div>
-              <div >
+              <div>
                 <router-link   class="b-t-btn " :to="{ name: 'tokens.single', params: { id: item.id }}"> Buy Token </router-link>
-
-<!--                <a href="https://city2.wpmix.net/product/new-years-eve-celebrations/"-->
-<!--                   class="btn btn&#45;&#45;sm press&#45;&#45;right"> Buy Token </a>-->
               </div>
-
             </div>
           </div>
         </div>
@@ -57,16 +34,23 @@
          class="btn btn--sm r-load-more press--right">Load more</a>
 
 
-
     </div>
+    <div v-if="loading" style="display: flex; align-items: center; justify-content: center; min-height: 400px">
+      <loader  />
+    </div>
+
     </div>
 </template>
 
 <script>
 import api from "../api/api";
+import Loader from "./parts/Loader";
 
 export default {
   name: "TokenList",
+  components: {
+   Loader
+  },
   data() {
     return {
       showFlash: false,
@@ -76,8 +60,10 @@ export default {
       canLoad: true,
       max_num_pages: 1,
       page_number: 0,
+      loading: true
     }
   },
+
   methods: {
     getItems(){
       if(this.loadingMore) return
@@ -93,6 +79,9 @@ export default {
         this.max_num_pages = res.data.max_num_pages
         this.page_number = res.data.page_number
         this.loadingMore = false
+
+      }).finally(() => {
+        this.loading = false
       })
     }
   },
