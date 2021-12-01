@@ -1,12 +1,10 @@
  NFT MARKETPLACE PLUGIN. Demo here <a href="https://nft.wpmix.net">https://nft.wpmix.net</a>. 
 <br><br>
-BETA! only ropsten
-<br><br>
-<strong>What about NFT marketplace?</strong><br>
-Buy Extended liecence and get NFT plugin. Demo <a href="https://nft.wpmix.net/">https://nft.wpmix.net/</a>. 
+This is shop fot your NFT collection. Deploy new collection in the admin panel and start selling your NFTs. Specify "Roalities".
 
 Features
-- Users can add NFTs using MetaMask<br>
+- Lazy mint! Free mintig! You don't pay anything when create NFTs!
+- Users can buy NFTs using MetaMask<br>
 - Set ETH price of NFT<br>
 - Another user can buy NFT paying the price<br>
 - ERC721, collectibles
