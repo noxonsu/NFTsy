@@ -11,7 +11,7 @@
       >Details</span>
         <div class="border"></div>
       </button>
-      <button class="tab-button"
+      <button v-if="$enableBid" class="tab-button"
               :class="{active: activeTab == 2}"
               role="tab" aria-selected="false" type="button"
               @click.prevent="activeTab = 2"
@@ -75,7 +75,7 @@
           </div>
         </div>
       </div>
-      <div v-if="activeTab == 2" class="tab-panel tab1">
+      <div v-if="$enableBid && activeTab == 2" class="tab-panel tab1">
         <div>
           <div>
             <div class="properties" >
@@ -123,8 +123,6 @@ export default {
 <style lang="scss" scoped>
 
 .tab-com {
-  font-family: Roboto-Light;
-
   .bid-time {
 
     font-weight: 500;

@@ -212,7 +212,7 @@ a:hover {
   margin: 15px;
 }
 .b-sm-post__day {
-  font: 300 18px Roboto-Light;
+  font: 300 18px inherit;
   color: #fff;
 }
 .b-sm-post__date {
@@ -227,7 +227,7 @@ a:hover {
   z-index: 11111;
 }
 .b-sm-post__month {
-  font: 300 12px Roboto-Light;
+  font: 300 12px inherit;
   color: #fff;
   text-transform: uppercase;
 }
@@ -237,7 +237,7 @@ a:hover {
   text-transform: uppercase;
   top: 20px;
   left: 80px;
-  font: 300 12px Roboto-Light;
+  font: 300 12px inherit;
   color: white;
 }
 .b-event__name {
