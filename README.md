@@ -5,7 +5,7 @@ What? NFT showcase plugin. Make showcase for your NFT collection on your website
 Features
 - [EXCLUSIVE] Lazy mint! Free mintig! You don't pay anything when create NFTs!
 - Users can buy NFTs using MetaMask<br>
-- Set ETH price of NFT<br>
+- Set price for NFT in ETH or ERC20 tokens<br>
 - Another user can buy NFT paying the price<br>
 - ERC721, collectibles<br>
 - Fully compatiable with another marketplaces, buyers can resell your NFTs on opensea.io, etc...
