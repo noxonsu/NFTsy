@@ -1,7 +1,6 @@
  Demo here <a href="https://nft.wpmix.net">https://nft.wpmix.net</a>. 
 <br><br>
-What? NFT collection creation and selling tool with free minting. 
-For what? Create NFT collection and start selling it on your own website, [b]earn royalities[/b] for every second sale of your NFT on your site or another amrketplace (like opensea.io or rarible.com)
+What? NFT showcase plugin. Make showcase for your NFT collection on your website. Create NFT collection and start selling on your own website, <strong>earn royalities</strong> for every sale of your NFT on your site or another marketplace (like opensea.io or rarible.com)
 
 Features
 - [EXCLUSIVE] Lazy mint! Free mintig! You don't pay anything when create NFTs!
@@ -15,7 +14,7 @@ Features
 Roadmap (features planned but not ready yet)
 - [Work in progress] Auction
 - [Work in progress] History
-- [Work in progress] USer's profile (list of NFTs user own)
+- [Work in progress] User's profile (list of NFTs user own)
 - [Work in progress] Allow every unser to create collection (marketplace mode)
 
 How to install<Br>
