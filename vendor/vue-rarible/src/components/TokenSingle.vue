@@ -10,27 +10,10 @@
           <h1 style="font-size: 40px;" class="r-title">{{ post.title }}</h1>
           <div class="r-content" v-html="post.content"></div>
           <div>
-            <!--        <span style="font-weight: 900; font-size: 30px;"-->
-            <!--        >Owner</span>-->
+
             <div>
               <div class="row">
 
-                <!--            <div class="col-md-3"><a>-->
-                <!--              <div style="width: 40px; height: 40px;">-->
-                <!--                <img alt="Identicon"-->
-                <!--                     src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc0MCcgaGVpZ2h0PSc0MCcgc3R5bGU9J2JhY2tncm91bmQtY29sb3I6cmdiYSgyNDYsMjQ2LDI0NiwxKTsnPjxnIHN0eWxlPSdmaWxsOnJnYmEoMjE3LDM4LDEzOCwxKTsgc3Ryb2tlOnJnYmEoMjE3LDM4LDEzOCwxKTsgc3Ryb2tlLXdpZHRoOjAuMjsnPjxyZWN0ICB4PScxOCcgeT0nMTInIHdpZHRoPSczJyBoZWlnaHQ9JzMnLz48cmVjdCAgeD0nMTgnIHk9JzE1JyB3aWR0aD0nMycgaGVpZ2h0PSczJy8+PHJlY3QgIHg9JzE4JyB5PScyNCcgd2lkdGg9JzMnIGhlaWdodD0nMycvPjxyZWN0ICB4PScxNScgeT0nMTUnIHdpZHRoPSczJyBoZWlnaHQ9JzMnLz48cmVjdCAgeD0nMjEnIHk9JzE1JyB3aWR0aD0nMycgaGVpZ2h0PSczJy8+PHJlY3QgIHg9JzE1JyB5PScyNCcgd2lkdGg9JzMnIGhlaWdodD0nMycvPjxyZWN0ICB4PScyMScgeT0nMjQnIHdpZHRoPSczJyBoZWlnaHQ9JzMnLz48cmVjdCAgeD0nMTInIHk9JzE1JyB3aWR0aD0nMycgaGVpZ2h0PSczJy8+PHJlY3QgIHg9JzI0JyB5PScxNScgd2lkdGg9JzMnIGhlaWdodD0nMycvPjxyZWN0ICB4PScxMicgeT0nMjQnIHdpZHRoPSczJyBoZWlnaHQ9JzMnLz48cmVjdCAgeD0nMjQnIHk9JzI0JyB3aWR0aD0nMycgaGVpZ2h0PSczJy8+PC9nPjwvc3ZnPg=="-->
-                <!--                ></div>-->
-
-                <!--            </a>-->
-                <!--            </div>-->
-                <!--            <div class="col-md-8">-->
-                <!--              <span-->
-                <!--                  class=""><a><span-->
-
-                <!--                  :title="post.owner" class="sc-bdnxRM sc-hKFxyN sc-eCApnc RWHKB">{{ post.owner }}</span></a>-->
-                <!--              </span>-->
-                <!--            </div>-->
-                <!--            <br><br>-->
 
                 <template v-if="post.price && post.order_hash.length > 1">
                   <div class="col-md-4">
@@ -64,13 +47,13 @@
                     <a v-if="post.order_hash && post.order_hash.length > 1 && getAccounts[0].toUpperCase() != post.owner.toUpperCase()"
                        @click.prevent="buyOrder"
                        class="btn btn--sm press--right">Buy token</a>
-                    <put-on-sale v-if="post.order_hash && post.order_hash.length < 1 && getAccounts[0].toUpperCase() == post.owner.toUpperCase() "
-                                 :text="'Put OnSale1' " @orderDone="getPost" :post="post"/>
+                    <put-on-sale
+                        v-if="post.order_hash && post.order_hash.length < 1 && getAccounts[0].toUpperCase() == post.owner.toUpperCase() "
+                        :text="'Put OnSale1' " @orderDone="getPost" :post="post"/>
 
-                    <put-on-sale v-if="post.order_hash && post.order_hash.length > 1 && getAccounts[0].toUpperCase() == post.owner.toUpperCase() "
-                                 :text="'Change Price' " @orderDone="getPost" :post="post"/>
-
-
+                    <put-on-sale
+                        v-if="post.order_hash && post.order_hash.length > 1 && getAccounts[0].toUpperCase() == post.owner.toUpperCase() "
+                        :text="'Change Price' " @orderDone="getPost" :post="post"/>
 
 
                     <loader v-if="buyOrderLoader"/>
@@ -89,6 +72,8 @@
     <div v-if="loading" style="display: flex; align-items: center; justify-content: center; min-height: 400px">
       <loader/>
     </div>
+    <error-modal @close="closeErrorModal" v-if="error" :error="error"></error-modal>
+
   </div>
 
 
@@ -96,12 +81,12 @@
 <script>
 import api from "../api/api";
 import {mapGetters} from "vuex";
-import {toAddress} from "@rarible/types";
 import buttonConnect from "./parts/buttonConnect";
 import SingleTabs from "./parts/singleTabs";
 import PlaceBid from "./parts/PlaceBid";
 import Loader from "./parts/Loader";
 import PutOnSale from "./parts/PutOnSale";
+import ErrorModal from "./parts/ErrorModal";
 
 export default {
   name: "TokenSingle",
@@ -110,7 +95,7 @@ export default {
 
   },
   components: {
-    buttonConnect, SingleTabs, PlaceBid, Loader, PutOnSale
+    buttonConnect, SingleTabs, PlaceBid, Loader, PutOnSale, ErrorModal
   },
   data() {
     return {
@@ -118,10 +103,14 @@ export default {
       type: 'bid', // bid order,
       loading: true,
       buyOrderLoader: false,
+      error: false
 
     }
   },
   methods: {
+    closeErrorModal() {
+      this.error = false
+    },
     buyOrder() {
       this.buyOrderLoader = true
       console.log('try buyOrder ', this.post.order_hash)
@@ -136,8 +125,9 @@ export default {
             ).then(a => {
               a.runAll()
               alert('Token bought');
-            }).error(e => {
-              console.error(e)
+            }).catch(e => {
+
+              this.error = e.message
             })
                 .finally(() => {
                   setTimeout(() => {
@@ -146,7 +136,13 @@ export default {
                   }, 1500)
                 })
 
-          })
+          }).catch(e => {
+        console.error(e)
+        this.error = e.message
+      }).finally(() => {
+
+        this.buyOrderLoader = false
+      })
 
     },
     getPost() {
@@ -202,6 +198,7 @@ export default {
     font-weight: 900;
     color: rgb(0, 102, 255);
   }
+
   .btn {
 
     outline: none;

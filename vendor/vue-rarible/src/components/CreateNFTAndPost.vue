@@ -315,11 +315,9 @@ export default {
     },
     onChange(image) {
       if (image) {
-        console.log('Picture loaded.')
         this.form.image = image
       } else {
         this.form.image = false
-        console.log('FileReader API not supported: use the <form>, Luke!')
       }
     },
     sleep(ms) {
@@ -393,8 +391,7 @@ export default {
       const ipfsItem = {
         "description": this.form.description,
         "external_url": "",// <-- this can link to a page for the specific file too
-        // "image": this.imgLink, // this.imgLink
-        "image": "https://zooclub.org.ua/uploads/2021/11/19/seraya-myasnaya-muha66-370x240.jpg",
+        "image": this.imgLink, // this.imgLink
         "name": this.form.title,
       }
       if (this.convertKeyVale(this.form.properties).length > 0) {
