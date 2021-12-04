@@ -29,15 +29,20 @@ class MenuPageController extends Controller
             'dashicons-admin-site-alt3',
             81
         );
-       add_submenu_page(
+
+
+
+
+        add_submenu_page(
             'edit.php?post_type=nft', //$parent_slug
             'Tutorial Subpage Example',  //$page_title
             esc_html__('Add nft', 'rarible'),        //$menu_title
             'manage_options',           //$capability
             'nft-add',//$menu_slug
-            [$this, 'addNftInAdmin'], //$function,
+            [$this, 'addNftInAdmin'] //$function,
 
         );
+
     }
 
     public function addNftInAdmin()
