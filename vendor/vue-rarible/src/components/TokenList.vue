@@ -22,7 +22,7 @@
 
               </div>
               <div>
-                <router-link   class="b-t-btn " :to="{ name: 'tokens.single', params: { id: item.id }}"> Buy Token </router-link>
+                <router-link   class="b-t-btn " :to="{ name: 'tokens.single', params: { id: item.id }}">{{getViewTokenText(item)}}</router-link>
               </div>
             </div>
           </div>
@@ -45,9 +45,13 @@
 <script>
 import api from "../api/api";
 import Loader from "./parts/Loader";
+import {mapGetters} from "vuex";
 
 export default {
   name: "TokenList",
+  computed: {
+    ...mapGetters(['getSdk', 'getProvider', 'getAccounts']),
+  },
   components: {
    Loader
   },
@@ -65,6 +69,16 @@ export default {
   },
 
   methods: {
+    getViewTokenText(item){
+      if(item.order_hash.length > 0){
+        return  ' Buy Token'
+      }
+      if(item.order_hash && item.order_hash.length < 1 && this.getAccounts[0].toUpperCase() == item.owner.toUpperCase()){
+        return  'Put on Sale'
+      }
+      return  'Not For Sale'
+
+    },
     getItems(){
       if(this.loadingMore) return
       this.loadingMore = true

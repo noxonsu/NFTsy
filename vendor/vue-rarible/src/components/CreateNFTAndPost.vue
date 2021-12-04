@@ -220,6 +220,8 @@
 
       </div>
     </div>
+    <error-modal @close="closeErrorModal" v-if="error" :error="error"></error-modal>
+
   </layout-default>
 
 
@@ -239,11 +241,12 @@ import buttonConnect from "./parts/buttonConnect";
 import WrongNetwork from "./WrongNetwork";
 import LayoutDefault from "./Layouts/LayoutDefault";
 import Toggle from "./parts/Toggle";
+import ErrorModal from "./parts/ErrorModal";
 
 export default {
   name: "CreateNFTAndPost",
   components: {
-    PictureInput, Loader, buttonConnect, WrongNetwork, LayoutDefault, Toggle
+    PictureInput, Loader, buttonConnect, WrongNetwork, LayoutDefault, Toggle, ErrorModal
   },
   computed: {
     ...mapGetters(['getSdk', 'getProvider', 'getAccounts']),
@@ -276,20 +279,19 @@ export default {
       imgLink: false,
       postId: false,
       salt: '',
+      error: false
     }
   },
   mounted: function () {
-    let res = [{"key": "10", "value": "20120120"},
-      {"key": "pppppppppp", "value": "2222222"},
-      {"key": "", "value": ""}
 
-    ]
-
-
-    // res.forEach(element => console.log(element));
 
   },
   methods: {
+    closeErrorModal() {
+      this.error = false
+      this.message = ''
+      window.location.reload()
+    },
     convertKeyVale(res) {
       return res.filter(({key, value}) => key && key.length > 1 && value && value.length > 1)
           .map(({key, value}) => ({[key]: value}))
@@ -346,12 +348,12 @@ export default {
           await this.makeNftToken()
         } catch (error) {
 
-             api.post('wp-admin/admin-ajax.php?action=rarible_trash_nft_post',  stringify({
-              'postId': this.postId,
-              'salt': this.salt,
-            }))
+          api.post('wp-admin/admin-ajax.php?action=rarible_trash_nft_post', stringify({
+            'postId': this.postId,
+            'salt': this.salt,
+          }))
 
-
+          this.error = error.message ? error.message : e
           this.loadText = error
           this.loader = false
           console.error(error)
@@ -363,6 +365,8 @@ export default {
         this.errors = {...error.response.data.errors}
         this.loader = false
         this.loadText = ''
+      } finally {
+        this.loader = false
       }
 
 
@@ -389,21 +393,21 @@ export default {
       const ipfsItem = {
         "description": this.form.description,
         "external_url": "",// <-- this can link to a page for the specific file too
-        "image": this.imgLink, // this.imgLink
-        //"image": "https://zooclub.org.ua/uploads/2021/11/19/seraya-myasnaya-muha66-370x240.jpg",
+        // "image": this.imgLink, // this.imgLink
+        "image": "https://zooclub.org.ua/uploads/2021/11/19/seraya-myasnaya-muha66-370x240.jpg",
         "name": this.form.title,
       }
-      // if(convertKeyVale(this.form.properties).length > 0){
-      // ipfsItem.attributes = convertKeyVale(this.form.properties)
-      let filteredItems = this.form.properties.filter(({
-                                                         trait_type,
-                                                         value
-                                                       }) => trait_type.length > 1 && value.length > 1)
+      if (this.convertKeyVale(this.form.properties).length > 0) {
+        // ipfsItem.attributes = convertKeyVale(this.form.properties)
+        let filteredItems = this.form.properties.filter(({
+                                                           trait_type,
+                                                           value
+                                                         }) => trait_type.length > 1 && value.length > 1)
 
-      if (filteredItems.length > 0) {
-        ipfsItem.attributes = this.form.properties
+        if (filteredItems.length > 0) {
+          ipfsItem.attributes = this.form.properties
+        }
       }
-      //}
       const ipfs = create({host: 'ipfs.infura.io', port: 5001, protocol: 'https'});
       let uploaded = await ipfs.add(JSON.stringify(ipfsItem))
       const uri = `ipfs/${uploaded.path}`
@@ -477,7 +481,7 @@ export default {
         maker: toAddress(this.getAccounts[0]),
         makeAssetType: {
           assetClass: "ERC721",
-          contract: '0xb0ea149212eb707a1e5fc1d2d3fd318a8d94cf05',
+          contract: this.$collectionId,
           tokenId: tx.tokenId,
         },
         price: this.form.price * 1000000000000000000, // "60000000000000000", // 0.06 ETH

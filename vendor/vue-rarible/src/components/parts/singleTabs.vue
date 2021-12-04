@@ -46,7 +46,7 @@
             </div>
           </div>
 
-          <div v-if="post.properties.length > 0">
+          <div v-if="post.properties && post.properties.length > 0">
             <span class="tab-panel-label">Properties</span>
             <div>
               <div class="properties">

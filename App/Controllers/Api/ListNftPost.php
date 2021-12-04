@@ -20,7 +20,7 @@ class  ListNftPost extends ApiController
         $query = new \WP_Query($args);
         if ($query->have_posts()) {
             while ($query->have_posts()) : $query->the_post();
-
+                $tx = get_post_meta(get_the_ID(),'rarible_tx',1);
                 $items['items'][] = [
                     'title' => get_the_title(),
                     'id' => get_the_ID(),
@@ -29,6 +29,8 @@ class  ListNftPost extends ApiController
                     'ipfs' =>  get_post_meta(get_the_ID(),'rarible_IPFS',true),
                     'price' =>  get_post_meta(get_the_ID(),'price',true),
                     'rarible_tx_item_id' =>  get_post_meta(get_the_ID(),'rarible_tx_item_id',true),
+                    'order_hash'              => get_post_meta(get_the_ID(), 'order_hash', true),
+                    'owner'               => $tx['item']['owners'][0] ?? '',
                 ];
             endwhile;
 

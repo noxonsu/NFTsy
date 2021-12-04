@@ -23,13 +23,14 @@ class  NftPost extends ApiController
             'content'            => apply_filters('the_content', get_post_field('post_content', $postID)),
             'ipfs'               => get_post_meta($postID, 'rarible_IPFS',
                 true),
-            'owner'               => $tx['owner'] ?? '',
+            'owner'               => $tx['item']['owners'][0] ?? '',
             'price'              => get_post_meta($postID, 'price', true),
             'order_hash'              => get_post_meta($postID, 'order_hash', true),
             'rarible_tx_item_id' => get_post_meta($postID,
                 'rarible_tx_item_id', true),
             'properties' => $tx["item"]["meta"]['attributes'] ?? [],
             'contract' =>  $tx['item']['contract'] ?? [],
+
 
 
         ];

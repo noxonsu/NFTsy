@@ -31,37 +31,51 @@
                 <!--              </span>-->
                 <!--            </div>-->
                 <!--            <br><br>-->
-                <div class="col-md-4">
-              <span v-if="type === 'order'"
+
+                <template v-if="post.price && post.order_hash.length > 1">
+                  <div class="col-md-4">
+              <span v-if="type === 'order' && post.order_hash.length > 1"
                     class=""><span style="font-weight: 900; font-size: 28px;"
                                    class="sc-bdnxRM sc-hKFxyN sc-eCApnc RWHKB">Price:
               </span>
               </span>
-                </div>
+                  </div>
 
 
-                <div class="col-md-8">
+                  <div class="col-md-8">
               <span
-                  class="" style="padding-top: 0px; display: block"><a><span
+                  class="" style="padding-top: 0px; display: block"><a>
+                <span v-if="post.price && post.order_hash.length > 1"
+                      style=" font-weight: 900; font-size: 28px">{{ post.price }} ETH</span>
 
-                  v-if="post.price" style=" font-weight: 900; font-size: 28px">{{ post.price }} ETH</span></a>
+              </a>
+
               </span>
-                </div>
+
+                  </div>
+                </template>
+                <span v-else class="not-for-sale">Not for sale</span>
 
                 <div class="col-md-12" style="margin-top: 30px">
                   <buttonConnect v-if="!getAccounts[0]"/>
 
                   <single-tabs :post="post"/>
                   <template v-if="getAccounts[0]">
-                    <a v-if="type === 'order' && getAccounts[0] != post.owner" @click.prevent="buyOrder"
-                       class="btn btn--sm press--right">Buy an order</a>
+                    <a v-if="post.order_hash && post.order_hash.length > 1 && getAccounts[0].toUpperCase() != post.owner.toUpperCase()"
+                       @click.prevent="buyOrder"
+                       class="btn btn--sm press--right">Buy token</a>
+                    <put-on-sale v-if="post.order_hash && post.order_hash.length < 1 && getAccounts[0].toUpperCase() == post.owner.toUpperCase() "
+                                 :text="'Put OnSale1' " @orderDone="getPost" :post="post"/>
 
+                    <put-on-sale v-if="post.order_hash && post.order_hash.length > 1 && getAccounts[0].toUpperCase() == post.owner.toUpperCase() "
+                                 :text="'Change Price' " @orderDone="getPost" :post="post"/>
+
+
+
+
+                    <loader v-if="buyOrderLoader"/>
                     <PlaceBid v-if="$enableBid" :post="post"/>
                   </template>
-
-
-                  <!--       <a @click.prevent="makeOrder"-->
-                  <!--                 class="btn btn&#45;&#45;sm press&#45;&#45;right">makeOrder</a>-->
 
 
                 </div>
@@ -87,6 +101,7 @@ import buttonConnect from "./parts/buttonConnect";
 import SingleTabs from "./parts/singleTabs";
 import PlaceBid from "./parts/PlaceBid";
 import Loader from "./parts/Loader";
+import PutOnSale from "./parts/PutOnSale";
 
 export default {
   name: "TokenSingle",
@@ -95,18 +110,20 @@ export default {
 
   },
   components: {
-    buttonConnect, SingleTabs, PlaceBid, Loader
+    buttonConnect, SingleTabs, PlaceBid, Loader, PutOnSale
   },
   data() {
     return {
       post: {},
       type: 'bid', // bid order,
-      loading: true
+      loading: true,
+      buyOrderLoader: false,
 
     }
   },
   methods: {
     buyOrder() {
+      this.buyOrderLoader = true
       console.log('try buyOrder ', this.post.order_hash)
       this.getSdk.apis.order.getOrderByHash({hash: this.post.order_hash})
           .then(order => {
@@ -118,51 +135,41 @@ export default {
                 }
             ).then(a => {
               a.runAll()
-              console.log('token bought');
+              alert('Token bought');
+            }).error(e => {
+              console.error(e)
             })
+                .finally(() => {
+                  setTimeout(() => {
+                    this.getPost()
+                    this.buyOrderLoader = false
+                  }, 1500)
+                })
+
           })
 
     },
-    async makeOrder() {
-      const order = await this.getSdk.order.sell({
-        maker: toAddress(this.getAccounts[0]),
-        makeAssetType: {
-          assetClass: "ERC721",
-          contract: '0xb0ea149212eb707a1e5fc1d2d3fd318a8d94cf05',
-          tokenId: '21294992975815871805933535892073127469301996728786004586751131538920447148058',
-        },
-        price: "60000000000000000", // 0.06 ETH
-        takeAssetType: {
-          assetClass: "ETH",
-        },
-        amount: 1,
-        payouts: [],
-        originFees: [{
-          account: this.getAccounts[0],
-          value: 1,
-        }],
+    getPost() {
+      api.get('wp-admin/admin-ajax.php',
+          {params: {action: 'rarible_nft_post', post_id: this.$route.params.id}}
+      ).then(res => {
+        this.post = res.data
+        this.type = this.post.order_hash.length > 1 ? 'order' : 'bid'
+      }).finally(this.loading = false)
+
+      this.getSdk.apis.order.getOrderByHash({hash: '0x549f6ad9ecffd5bc7d0059b80d48ff995049e73bf8d21a1536a0a594aab3bb9f'}).then(res => {
+        console.warn('getOrderByHash')
+        console.warn(res)
       })
-      console.warn(order)
+      this.getSdk.apis.order.getOrdersAll({}).then(res => {
+        console.warn('getOrdersAll')
+        console.warn(res)
+      })
 
     }
   },
   async mounted() {
-
-    api.get('wp-admin/admin-ajax.php',
-        {params: {action: 'rarible_nft_post', post_id: this.$route.params.id}}
-    ).then(res => {
-      this.post = res.data
-      this.type = this.post.order_hash.length > 1 ? 'order' : 'bid'
-    }).finally(this.loading = false)
-
-    this.getSdk.apis.order.getOrderByHash({hash: '0x549f6ad9ecffd5bc7d0059b80d48ff995049e73bf8d21a1536a0a594aab3bb9f'}).then(res => {
-      console.warn('getOrderByHash')
-      console.warn(res)
-    })
-    this.getSdk.apis.order.getOrdersAll({}).then(res => {
-      console.warn('getOrdersAll')
-      console.warn(res)
-    })
+    this.getPost()
 
   }
 }
@@ -190,6 +197,11 @@ export default {
     color: rgb(4, 4, 5);
   }
 
+  .not-for-sale {
+    font-size: 18px;
+    font-weight: 900;
+    color: rgb(0, 102, 255);
+  }
   .btn {
 
     outline: none;

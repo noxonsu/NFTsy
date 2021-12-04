@@ -4,6 +4,7 @@ export default {
         sdk: {},
         provider: null,
         networkType: '',
+
     },
     mutations: {
 
