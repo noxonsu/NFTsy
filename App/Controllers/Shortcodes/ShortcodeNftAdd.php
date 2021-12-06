@@ -16,7 +16,7 @@ class ShortcodeNftAdd extends Controller
     public function handle()
     {
 
-        add_shortcode( 'rarible_nft_addform', [$this, 'nft_add_shortcode'] );
+        add_shortcode( 'nftcy_addform', [$this, 'nft_add_shortcode'] );
 
 
     }
