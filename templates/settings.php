@@ -45,7 +45,7 @@
         <h2><?php esc_html_e('Settings','rarible'); ?></h2>
         <?php esc_html_e('First of all please','rarible'); ?>
         <a href="update-core.php?force-check=1"><?php esc_html_e('check for updates','rarible'); ?></a>.
-        <?php esc_html_e('How to use? Add [rarible_nft_addform] to a page where to show "add" form. Add [rarible_nft_view] to a page where to show the catalog:','rarible'); ?><Br>
+        <?php esc_html_e('How to use? Add [nftcy_addform] to a page where to show "add" form. Add [nftcy_view] to a page where to show the catalog:','rarible'); ?><Br>
         <br><br>
         <h2><?php esc_html_e('General settings', 'rarible'); ?></h2>
         <div class="welcome-panel-column-container nft-panel-tab panel-tab-active" id="nft-tab-1">
