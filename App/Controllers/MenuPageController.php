@@ -48,7 +48,7 @@ class MenuPageController extends Controller
     public function addNftInAdmin()
     {
 
-        echo do_shortcode('[nftcy_nft_addform]');
+        echo do_shortcode('[nftcy_addform]');
     }
 
     public function page()
