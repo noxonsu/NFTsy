@@ -13,7 +13,7 @@ class ShortcodeMarketList extends Controller
     public function handle()
     {
 
-        add_shortcode( 'rarible_nft_view', [$this, 'shortcode'] );
+        add_shortcode( 'nftcy_view', [$this, 'shortcode'] );
 
 
     }
