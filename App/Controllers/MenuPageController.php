@@ -90,7 +90,7 @@ class MenuPageController extends Controller
                 <p><?php
                     esc_html_e('Settings saved', 'nftcy'); ?></p>
                 <button type="button" class="notice-dismiss"><span
-                            class="screen-reader-text"><?php
+                        class="screen-reader-text"><?php
                         esc_html_e('Dismiss this notice.', 'nftcy'); ?></span>
                 </button>
             </div>

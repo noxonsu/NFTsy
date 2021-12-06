@@ -1,13 +1,14 @@
 <?php
 /**
- * Plugin Name: nftcy NFT Marketplace
- * Description: nftcy NFT Marketplace
- * Author:  Victor Lerner
+ * Plugin Name: NFTsy showcase
+ * Description:  NFTsy showcase for yor NFT colelction
+ * Author:  Victor Lerne
  * Requires PHP: 7.2
- * Text Domain: de-finance
+ * Text Domain: nftcy
  * Domain Path: /lang
  * Version: 1.0.0
  */
+
 
 /* Define Plugin Constants */
 defined('ABSPATH') || exit;
@@ -27,7 +28,7 @@ require __DIR__.'/App/autoload.php';
 function nftcy_load_plugin_textdomain()
 {
     load_plugin_textdomain('nftcy', false,
-        dirname(plugin_basename(__FILE__)).'/lang/');
+                           dirname(plugin_basename(__FILE__)).'/lang/');
 }
 
 add_action('plugins_loaded', 'nftcy_load_plugin_textdomain');

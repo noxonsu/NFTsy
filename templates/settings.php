@@ -91,7 +91,7 @@ Asset Contract ERC721 0xB0EA149212Eb707a1E5FC1D2d3fD318a8d94cf05', 'nftcy'); ?>
                                 </div>
                             </td>
                         </tr>
-   </tr>
+                        </tr>
                         <tr>
                             <th scope="row">
                                 <label><?php esc_html_e('Enable Bid ', 'nftcy'); ?></label>
