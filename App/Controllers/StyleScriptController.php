@@ -1,7 +1,7 @@
 <?php
 
 
-namespace RARIBLE\Controllers;
+namespace NFTCY\Controllers;
 
 
 class StyleScriptController
@@ -28,17 +28,17 @@ class StyleScriptController
                 'http://localhost:8080/css/chunk-vendors.css');
         } else {
             wp_enqueue_script('vue_prod',
-                plugins_url('/vendor/dist', RARIBLE_BASE_FILE)
+                plugins_url('/vendor/dist', NFTCY_BASE_FILE)
                 .'/js/chunk-vendors.js',
                 array('jquery'), md5(time()), true);
             wp_enqueue_script('vue_prod2',
-                plugins_url('/vendor/dist', RARIBLE_BASE_FILE).'/js/app.js',
+                plugins_url('/vendor/dist', NFTCY_BASE_FILE).'/js/app.js',
                 array('jquery'),     md5(time()), true);
             wp_enqueue_style('vue-style',
-                plugins_url('/vendor/dist', RARIBLE_BASE_FILE).'/css/app.css',
+                plugins_url('/vendor/dist', NFTCY_BASE_FILE).'/css/app.css',
                 [], md5(time()));
             wp_enqueue_style('vue-style-vendor',
-                plugins_url('/vendor/dist', RARIBLE_BASE_FILE)
+                plugins_url('/vendor/dist', NFTCY_BASE_FILE)
                 .'/css/chunk-vendors.css' , [], md5(time()));
         }
         wp_enqueue_style('fonts-google-Roboto',
@@ -46,13 +46,13 @@ class StyleScriptController
         $args_obj = array(
             'ajaxurl'  => esc_url(site_url()).'/wp-admin/admin-ajax.php',
             'site_url' => esc_url(site_url()),
-            'networkName' => get_option('rarible_nft_networkName','ropsten'),
-            'collection' => get_option('rarible_nft_collection','0xB0EA149212Eb707a1E5FC1D2d3fD318a8d94cf05'),
-            'enable_bid' =>  get_option('rarible_nft_bid',0),
+            'networkName' => get_option('nftcy_nft_networkName','ropsten'),
+            'collection' => get_option('nftcy_nft_collection','0xB0EA149212Eb707a1E5FC1D2d3fD318a8d94cf05'),
+            'enable_bid' =>  get_option('nftcy_nft_bid',0),
 
         );
 
-        wp_localize_script('vue_prod', 'rarible_obj', $args_obj);
+        wp_localize_script('vue_prod', 'nftcy_obj', $args_obj);
     }
 
     function isDevelopServer(): bool

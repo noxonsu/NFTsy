@@ -104,9 +104,9 @@ export default {
             }],
           })
 
-          await api.post('wp-admin/admin-ajax.php?action=rarible_update_nft_post', stringify({
+          await api.post('wp-admin/admin-ajax.php?action=nftcy_update_nft_post', stringify({
             postId: this.post.id,
-            tx_item_id: this.post.rarible_tx_item_id,
+            tx_item_id: this.post.nftcy_tx_item_id,
             order_hash: order.hash,
             price: this.form.price
 

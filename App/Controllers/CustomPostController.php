@@ -1,7 +1,7 @@
 <?php
 
 
-namespace RARIBLE\Controllers;
+namespace NFTCY\Controllers;
 
 
 class CustomPostController {

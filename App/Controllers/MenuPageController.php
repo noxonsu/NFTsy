@@ -1,10 +1,10 @@
 <?php
 
 
-namespace RARIBLE\Controllers;
+namespace NFTCY\Controllers;
 
 
-use RARIBLE\Controller;
+use NFTCY\Controller;
 
 class MenuPageController extends Controller
 {
@@ -48,7 +48,7 @@ class MenuPageController extends Controller
     public function addNftInAdmin()
     {
 
-        echo do_shortcode('[rarible_nft_addform]');
+        echo do_shortcode('[nftcy_nft_addform]');
     }
 
     public function page()
@@ -61,26 +61,26 @@ class MenuPageController extends Controller
     public function handleRequest()
     {
         if ( ! empty($_POST)) {
-            if ( ! empty($_POST['rarible_nft_networkName'])) {
+            if ( ! empty($_POST['nftcy_nft_networkName'])) {
                 update_option(
-                    "rarible_nft_networkName",
-                    sanitize_text_field($_POST['rarible_nft_networkName'])
+                    "nftcy_nft_networkName",
+                    sanitize_text_field($_POST['nftcy_nft_networkName'])
                 );
             }
-            if ( ! empty($_POST['rarible_nft_collection'])) {
+            if ( ! empty($_POST['nftcy_nft_collection'])) {
                 update_option(
-                    "rarible_nft_collection",
-                    sanitize_text_field($_POST['rarible_nft_collection'])
+                    "nftcy_nft_collection",
+                    sanitize_text_field($_POST['nftcy_nft_collection'])
                 );
             }
 
-            if ( ! empty($_POST['rarible_nft_bid'])) {
+            if ( ! empty($_POST['nftcy_nft_bid'])) {
                 update_option(
-                    "rarible_nft_bid",
-                    sanitize_text_field($_POST['rarible_nft_bid'])
+                    "nftcy_nft_bid",
+                    sanitize_text_field($_POST['nftcy_nft_bid'])
                 );
             } else {
-                update_option("rarible_nft_bid", 0);
+                update_option("nftcy_nft_bid", 0);
             }
         }
 

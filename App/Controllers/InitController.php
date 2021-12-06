@@ -1,7 +1,7 @@
 <?php
 
 
-namespace RARIBLE\Controllers;
+namespace NFTCY\Controllers;
 
 
 class InitController
@@ -15,7 +15,7 @@ class InitController
 
     public function init()
     {
-        add_image_size( 'rarible-nft-image-370x245-croped', 370, 245, true );
+        add_image_size( 'nftcy-nft-image-370x245-croped', 370, 245, true );
 
     }
 

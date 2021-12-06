@@ -1,8 +1,8 @@
 <?php
 
-namespace RARIBLE\Controllers\Api;
+namespace NFTCY\Controllers\Api;
 
-use RARIBLE\ApiController;
+use NFTCY\ApiController;
 
 class  TransferNftPost extends ApiController
 {
@@ -13,15 +13,15 @@ class  TransferNftPost extends ApiController
     public function action()
     {
         $postID             = $_POST['postId'];
-        $basePathMainNet    = "https://ethereum-api.rarible.org";
-        $basePathRopstenNet = "https://ethereum-api-dev.rarible.org";
-        $nft_network        = get_option('rarible_nft_networkName', 'ropsten');
+        $basePathMainNet    = "https://ethereum-api.nftcy.org";
+        $basePathRopstenNet = "https://ethereum-api-dev.nftcy.org";
+        $nft_network        = get_option('nftcy_nft_networkName', 'ropsten');
         $basePath           = $nft_network == 'ropsten' ? $basePathRopstenNet
             : $basePathMainNet;
 
         $nftId    = get_post_meta(
             $postID,
-            'rarible_tx_item_id',
+            'nftcy_tx_item_id',
             true
         );
         $response = wp_remote_get(
@@ -43,7 +43,7 @@ class  TransferNftPost extends ApiController
                 true
             );
             $currentOwner = $body['owners'][0];
-            $tx           = get_post_meta($postID, 'rarible_tx', 1);
+            $tx           = get_post_meta($postID, 'nftcy_tx', 1);
 
             if ($currentOwner != $tx['item']['owners'][0]) {
                 $tx['item']['owners'][0] = $currentOwner;
@@ -55,7 +55,7 @@ class  TransferNftPost extends ApiController
                 );
                  update_post_meta(
                      $postID,
-                     'rarible_tx',
+                     'nftcy_tx',
                      $tx
                  );
 

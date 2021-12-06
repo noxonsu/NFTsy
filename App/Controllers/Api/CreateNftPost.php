@@ -1,8 +1,8 @@
 <?php
 
-namespace RARIBLE\Controllers\Api;
+namespace NFTCY\Controllers\Api;
 
-use RARIBLE\ApiController;
+use NFTCY\ApiController;
 
 class  CreateNftPost extends ApiController
 {

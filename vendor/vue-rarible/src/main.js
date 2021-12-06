@@ -26,11 +26,11 @@ Vue.use(VueRouter)
 
 if (document.getElementById('v-app')) {
 
-    const NETWORK = rarible_obj.networkName // "ropsten" // "rinkeby" // "e2e" | "ropsten" | "rinkeby" | "mainnet"
-    Vue.prototype.API_URL = rarible_obj.site_url  // rarible_obj.site_url;
-    Vue.prototype.$enableBid = rarible_obj.enable_bid == '1' ? true : false // rarible_obj.site_url;
-    Vue.prototype.$networkName = rarible_obj.networkName  // rarible_obj.site_url;
-    Vue.prototype.$collectionId = rarible_obj.collection  // rarible_obj.site_url;
+    const NETWORK = nftcy_obj.networkName // "ropsten" // "rinkeby" // "e2e" | "ropsten" | "rinkeby" | "mainnet"
+    Vue.prototype.API_URL = nftcy_obj.site_url  // nftcy_obj.site_url;
+    Vue.prototype.$enableBid = nftcy_obj.enable_bid == '1' ? true : false // nftcy_obj.site_url;
+    Vue.prototype.$networkName = nftcy_obj.networkName  // nftcy_obj.site_url;
+    Vue.prototype.$collectionId = nftcy_obj.collection  // nftcy_obj.site_url;
     const router = new VueRouter({
         mode: 'hash',
         routes: [{

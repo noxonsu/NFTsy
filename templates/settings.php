@@ -45,7 +45,7 @@
         <h2><?php esc_html_e('Settings','nftcy'); ?></h2>
         <?php esc_html_e('First of all please','nftcy'); ?>
         <a href="update-core.php?force-check=1"><?php esc_html_e('check for updates','nftcy'); ?></a>.
-        <?php esc_html_e('How to use? Add [rarible_nft_addform] to a page where to show "add" form. Add [rarible_nft_view] to a page where to show the catalog:','nftcy'); ?><Br>
+        <?php esc_html_e('How to use? Add [nftcy_nft_addform] to a page where to show "add" form. Add [nftcy_nft_view] to a page where to show the catalog:','nftcy'); ?><Br>
         <br><br>
         <h2><?php esc_html_e('General settings', 'nftcy'); ?></h2>
         <div class="welcome-panel-column-container nft-panel-tab panel-tab-active" id="nft-tab-1">
@@ -60,10 +60,10 @@
                             </th>
                             <td>
                                 <div class="nft-form-inline"><?php
-                                    $nft_network = get_option('rarible_nft_networkName','ropsten');
+                                    $nft_network = get_option('nftcy_nft_networkName','ropsten');
                                     ?>
                                     <select
-                                            name="rarible_nft_networkName">
+                                            name="nftcy_nft_networkName">
                                         <option <?php selected($nft_network,'ropsten' ) ;  ?>>ropsten</option>
                                         <option <?php selected($nft_network,'mainnet' ) ;  ?>  >mainnet</option>
                                     </select>
@@ -78,9 +78,9 @@
                             </th>
                             <td>
                                 <div class="nft-form-inline"><?php
-                                    $nft_collection = get_option('rarible_nft_collection','0xB0EA149212Eb707a1E5FC1D2d3fD318a8d94cf05');
+                                    $nft_collection = get_option('nftcy_nft_collection','0xB0EA149212Eb707a1E5FC1D2d3fD318a8d94cf05');
                                     ?>
-                                    <input  class="regular-text code" name="rarible_nft_collection" value="<?php  echo  esc_attr($nft_collection); ?>">
+                                    <input  class="regular-text code" name="nftcy_nft_collection" value="<?php  echo  esc_attr($nft_collection); ?>">
 
                                     <br>
                                     <?php esc_html_e('Mainnet
@@ -99,9 +99,9 @@ Asset Contract ERC721 0xB0EA149212Eb707a1E5FC1D2d3fD318a8d94cf05', 'nftcy'); ?>
                             <td>
                                 <div class="nft-form-inline"><?php
 
-                                    $nft_bid = get_option('rarible_nft_bid',0);
+                                    $nft_bid = get_option('nftcy_nft_bid',0);
                                     ?>
-                                    <input type="checkbox"  class="regular-text code" name="rarible_nft_bid"
+                                    <input type="checkbox"  class="regular-text code" name="nftcy_nft_bid"
                                            value="1" <?php checked($nft_bid, 1) ?>>
 
 

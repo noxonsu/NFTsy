@@ -1,26 +1,26 @@
 <?php
 
 
-namespace RARIBLE\Controllers\Shortcodes;
+namespace nftcy\Controllers\Shortcodes;
 
 
 
 
-use RARIBLE\Controller;
+use nftcy\Controller;
 class ShortcodeMarketList extends Controller
 {
 
     public function handle()
     {
 
-        add_shortcode( 'rarible_nft_view', [$this, 'shortcode'] );
+        add_shortcode( 'nftcy_nft_view', [$this, 'shortcode'] );
 
 
     }
 
     public function shortcode($atts, $content)
     {
-       return $this->view->render('/shortcodes/rarible_nft_view_shortcode.php', $atts);
+       return $this->view->render('/shortcodes/nftcy_nft_view_shortcode.php', $atts);
     }
 
 

@@ -337,7 +337,7 @@ export default {
           this.errors = false
       this.loader = true
       try {
-        let res = await api.post('wp-admin/admin-ajax.php?action=rarible_create_nft_post', this.makeRequestForPost(), headers)
+        let res = await api.post('wp-admin/admin-ajax.php?action=nftcy_create_nft_post', this.makeRequestForPost(), headers)
         console.log(res.data)
         this.imgLink = res.data.img
         this.postId = res.data.ID
@@ -346,7 +346,7 @@ export default {
           await this.makeNftToken()
         } catch (error) {
 
-          api.post('wp-admin/admin-ajax.php?action=rarible_trash_nft_post', stringify({
+          api.post('wp-admin/admin-ajax.php?action=nftcy_trash_nft_post', stringify({
             'postId': this.postId,
             'salt': this.salt,
           }))
@@ -433,7 +433,7 @@ export default {
       console.log('tx2', tx)
       console.log({itemId: tx.itemId})
       console.log('itemId', tx.itemId)
-      await api.post('wp-admin/admin-ajax.php?action=rarible_update_nft_post', stringify({
+      await api.post('wp-admin/admin-ajax.php?action=nftcy_update_nft_post', stringify({
         IPFS: uploaded.path,
         postId: this.postId,
         tx: tx,
@@ -493,7 +493,7 @@ export default {
         }],
       })
       console.log('order', order)
-      await api.post('wp-admin/admin-ajax.php?action=rarible_update_nft_post', stringify({
+      await api.post('wp-admin/admin-ajax.php?action=nftcy_update_nft_post', stringify({
         IPFS: uploaded.path,
         postId: this.postId,
         tx: tx,

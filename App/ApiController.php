@@ -1,6 +1,6 @@
 <?php
 
-namespace RARIBLE;
+namespace NFTCY;
 
 
 abstract class  ApiController extends Controller
@@ -28,7 +28,7 @@ abstract class  ApiController extends Controller
             $className));
         $s2 = explode('\\', $s2);
 
-        return 'nftcy _'.$s2[count($s2) - 1];
+        return 'nftcy_'.$s2[count($s2) - 1];
     }
 
     public function actionApi(){

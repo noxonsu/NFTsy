@@ -1,8 +1,8 @@
 <?php
 
-namespace RARIBLE\Controllers\Api;
+namespace NFTCY\Controllers\Api;
 
-use RARIBLE\ApiController;
+use NFTCY\ApiController;
 
 class  UpdateNftPost extends ApiController
 {
@@ -26,7 +26,7 @@ class  UpdateNftPost extends ApiController
         if (isset($_POST['IPFS'][1])) {
             update_post_meta(
                 $this->postId,
-                'rarible_IPFS',
+                'nftcy_IPFS',
                 sanitize_text_field($_POST['IPFS'])
             );
         }
@@ -38,13 +38,13 @@ class  UpdateNftPost extends ApiController
         if(isset($_POST['tx'][1])) {
             update_post_meta(
                 $this->postId,
-                'rarible_tx',
+                'nftcy_tx',
                 $_POST['tx']
             );
         }
         update_post_meta(
             $this->postId,
-            'rarible_tx_item_id',
+            'nftcy_tx_item_id',
             sanitize_text_field($_POST['tx_item_id'] ?? '')
         );
         update_post_meta(

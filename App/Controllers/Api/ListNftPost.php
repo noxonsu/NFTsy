@@ -1,8 +1,8 @@
 <?php
 
-namespace RARIBLE\Controllers\Api;
+namespace NFTCY\Controllers\Api;
 
-use RARIBLE\ApiController;
+use NFTCY\ApiController;
 
 class  ListNftPost extends ApiController
 {
@@ -20,15 +20,15 @@ class  ListNftPost extends ApiController
         $query = new \WP_Query($args);
         if ($query->have_posts()) {
             while ($query->have_posts()) : $query->the_post();
-                $tx = get_post_meta(get_the_ID(),'rarible_tx',1);
+                $tx = get_post_meta(get_the_ID(),'nftcy_tx',1);
                 $items['items'][] = [
                     'title' => get_the_title(),
                     'id' => get_the_ID(),
                     'img'  =>           get_the_post_thumbnail_url(),
                     'content'  =>           get_the_excerpt(),
-                    'ipfs' =>  get_post_meta(get_the_ID(),'rarible_IPFS',true),
+                    'ipfs' =>  get_post_meta(get_the_ID(),'nftcy_IPFS',true),
                     'price' =>  get_post_meta(get_the_ID(),'price',true),
-                    'rarible_tx_item_id' =>  get_post_meta(get_the_ID(),'rarible_tx_item_id',true),
+                    'nftcy_tx_item_id' =>  get_post_meta(get_the_ID(),'nftcy_tx_item_id',true),
                     'order_hash'              => get_post_meta(get_the_ID(), 'order_hash', true),
                     'owner'               => $tx['item']['owners'][0] ?? '',
                 ];

@@ -147,7 +147,7 @@ export default {
     },
     getPost() {
       api.get('wp-admin/admin-ajax.php',
-          {params: {action: 'rarible_nft_post', post_id: this.$route.params.id}}
+          {params: {action: 'nftcy_nft_post', post_id: this.$route.params.id}}
       ).then(res => {
         this.post = res.data
         this.type = this.post.order_hash.length > 1 ? 'order' : 'bid'

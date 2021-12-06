@@ -1,8 +1,8 @@
 <?php
 
-namespace RARIBLE\Controllers\Api;
+namespace NFTCY\Controllers\Api;
 
-use RARIBLE\ApiController;
+use NFTCY\ApiController;
 
 class  CheckNftPost extends ApiController
 {
@@ -10,7 +10,7 @@ class  CheckNftPost extends ApiController
     public function action()
     {
 
-        dd(get_post_meta(45,'rarible_tx',1));
+        dd(get_post_meta(45,'nftcy_tx',1));
 
     }
 

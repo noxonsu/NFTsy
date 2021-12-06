@@ -1,6 +1,6 @@
 <?php
 
-namespace RARIBLE;
+namespace NFTCY;
 defined( 'ABSPATH' ) || exit;
 
 
@@ -37,7 +37,7 @@ class View {
 
 	public function display( $template , $arr =[] ) {
         extract($arr);
-        include RARIBLE_TEMPLATE_DIR. $template;
+        include NFTCY_TEMPLATE_DIR. $template;
 	}
 
 
