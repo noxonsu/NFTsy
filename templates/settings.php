@@ -42,12 +42,12 @@
 
 <div class="wrap">
     <div class="welcome-panel">
-        <h2><?php esc_html_e('Settings','rarible'); ?></h2>
-        <?php esc_html_e('First of all please','rarible'); ?>
-        <a href="update-core.php?force-check=1"><?php esc_html_e('check for updates','rarible'); ?></a>.
-        <?php esc_html_e('How to use? Add [rarible_nft_addform] to a page where to show "add" form. Add [rarible_nft_view] to a page where to show the catalog:','rarible'); ?><Br>
+        <h2><?php esc_html_e('Settings','nftcy'); ?></h2>
+        <?php esc_html_e('First of all please','nftcy'); ?>
+        <a href="update-core.php?force-check=1"><?php esc_html_e('check for updates','nftcy'); ?></a>.
+        <?php esc_html_e('How to use? Add [rarible_nft_addform] to a page where to show "add" form. Add [rarible_nft_view] to a page where to show the catalog:','nftcy'); ?><Br>
         <br><br>
-        <h2><?php esc_html_e('General settings', 'rarible'); ?></h2>
+        <h2><?php esc_html_e('General settings', 'nftcy'); ?></h2>
         <div class="welcome-panel-column-container nft-panel-tab panel-tab-active" id="nft-tab-1">
             <div class="nft-shortcode-panel-row">
                 <form action="#" method="post" class="wp-nft-widget-form">
@@ -56,7 +56,7 @@
 
                         <tr>
                             <th scope="row">
-                                <label><?php esc_html_e('Newtwork ', 'rarible'); ?></label>
+                                <label><?php esc_html_e('Newtwork ', 'nftcy'); ?></label>
                             </th>
                             <td>
                                 <div class="nft-form-inline"><?php
@@ -68,13 +68,13 @@
                                         <option <?php selected($nft_network,'mainnet' ) ;  ?>  >mainnet</option>
                                     </select>
                                     <br>
-                                    <?php esc_html_e('Ropsten or Mainnet. We recommend to test on testnet with testnet tokens before launch', 'rarible'); ?>
+                                    <?php esc_html_e('Ropsten or Mainnet. We recommend to test on testnet with testnet tokens before launch', 'nftcy'); ?>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <th scope="row">
-                                <label><?php esc_html_e('Collection ', 'rarible'); ?></label>
+                                <label><?php esc_html_e('Collection ', 'nftcy'); ?></label>
                             </th>
                             <td>
                                 <div class="nft-form-inline"><?php
@@ -84,17 +84,17 @@
 
                                     <br>
                                     <?php esc_html_e('Mainnet
-Asset Contract ERC721 0xF6793dA657495ffeFF9Ee6350824910Abc21356C', 'rarible'); ?>
+Asset Contract ERC721 0xF6793dA657495ffeFF9Ee6350824910Abc21356C', 'nftcy'); ?>
                                     <br>
                                     <?php esc_html_e('Ropsten
-Asset Contract ERC721 0xB0EA149212Eb707a1E5FC1D2d3fD318a8d94cf05', 'rarible'); ?>
+Asset Contract ERC721 0xB0EA149212Eb707a1E5FC1D2d3fD318a8d94cf05', 'nftcy'); ?>
                                 </div>
                             </td>
                         </tr>
    </tr>
                         <tr>
                             <th scope="row">
-                                <label><?php esc_html_e('Enable Bid ', 'rarible'); ?></label>
+                                <label><?php esc_html_e('Enable Bid ', 'nftcy'); ?></label>
                             </th>
                             <td>
                                 <div class="nft-form-inline"><?php
@@ -116,7 +116,7 @@ Asset Contract ERC721 0xB0EA149212Eb707a1E5FC1D2d3fD318a8d94cf05', 'rarible'); ?
                             <td>
                                 <input type="submit" name="mcwallet-add-token"
                                        class="button button-primary mcwallet-add-token"
-                                       value="<?php esc_attr_e('Save', 'rarible'); ?>">
+                                       value="<?php esc_attr_e('Save', 'nftcy'); ?>">
                                 <span class="spinner"></span>
                                 <br>
 

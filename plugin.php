@@ -26,7 +26,7 @@ require __DIR__.'/App/autoload.php';
  */
 function rarible_load_plugin_textdomain()
 {
-    load_plugin_textdomain('rarible', false,
+    load_plugin_textdomain('nftcy', false,
         dirname(plugin_basename(__FILE__)).'/lang/');
 }
 

@@ -28,7 +28,7 @@ abstract class  ApiController extends Controller
             $className));
         $s2 = explode('\\', $s2);
 
-        return 'rarible_'.$s2[count($s2) - 1];
+        return 'nftcy _'.$s2[count($s2) - 1];
     }
 
     public function actionApi(){

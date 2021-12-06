@@ -7,7 +7,7 @@ namespace RARIBLE\Controllers;
 class AutoUpdateController {
 
 	const INFO_URL = 'https://rarible.wpmix.net/info.json';
-	const PLUGIN_SLUG = 'rarible';
+	const PLUGIN_SLUG = 'nftcy';
 	const TRANSIENT_SLUG = 'rarible_upgrade_plugin';
 
 	public function __construct() {

@@ -39,7 +39,7 @@ class  CreateNftPost extends ApiController
     {
         $return = array(
             'success' => true,
-            'message' => esc_html('Saved', 'rarible'),
+            'message' => esc_html('Saved', 'nftcy'),
             'ID'      => $this->postId,
             'img' => wp_get_attachment_image_url( $this->mediaId, 'full'),
             'mediaId' =>  $this->mediaId,
@@ -53,17 +53,17 @@ class  CreateNftPost extends ApiController
     {
         $errors = [];
         if ( ! isset($_POST['title'][2])) {
-            $errors['title'] =  esc_html('You must provide a title', 'rarible');
+            $errors['title'] =  esc_html('You must provide a title', 'nftcy');
         }
         if ( ! isset($_POST['description'][2])) {
             $errors['description'] =  esc_html('You must provide a description',
-                    'rarible');
+                    'nftcy');
         }
         if ( ! isset($_POST['price'])) {
-            $errors[   'price'] =  esc_html('You must provide a price', 'rarible');
+            $errors[   'price'] =  esc_html('You must provide a price', 'nftcy');
         }
         if ( ! $_FILES) {
-            $errors[   'files'] =  esc_html('You must provide a picture', 'rarible');
+            $errors[   'files'] =  esc_html('You must provide a picture', 'nftcy');
         }
 
         if (count($errors) > 0) {

@@ -21,8 +21,8 @@ class MenuPageController extends Controller
     public function menu()
     {
         add_menu_page(
-            esc_html__('NFT Marketplace', 'rarible'),
-            esc_html__('NFT Marketplace', 'rarible'),
+            esc_html__('NFT Marketplace', 'nftcy'),
+            esc_html__('NFT Marketplace', 'nftcy'),
             'manage_options',
             'nft',
             [$this, 'page'],
@@ -36,7 +36,7 @@ class MenuPageController extends Controller
         add_submenu_page(
             'edit.php?post_type=nft', //$parent_slug
             'Tutorial Subpage Example',  //$page_title
-            esc_html__('Add nft', 'rarible'),        //$menu_title
+            esc_html__('Add nft', 'nftcy'),        //$menu_title
             'manage_options',           //$capability
             'nft-add',//$menu_slug
             [$this, 'addNftInAdmin'] //$function,
@@ -88,10 +88,10 @@ class MenuPageController extends Controller
             ?>
             <div id="message" class="notice notice-success is-dismissible">
                 <p><?php
-                    esc_html_e('Settings saved', 'rarible'); ?></p>
+                    esc_html_e('Settings saved', 'nftcy'); ?></p>
                 <button type="button" class="notice-dismiss"><span
                             class="screen-reader-text"><?php
-                        esc_html_e('Dismiss this notice.', 'rarible'); ?></span>
+                        esc_html_e('Dismiss this notice.', 'nftcy'); ?></span>
                 </button>
             </div>
             <?php

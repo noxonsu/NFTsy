@@ -6,10 +6,6 @@ namespace RARIBLE\Controllers;
 
 class CustomPostController {
 
-	const INFO_URL = 'https://rarible.wpmix.net/info.json';
-	const PLUGIN_SLUG = 'rarible';
-	const TRANSIENT_SLUG = 'rarible_upgrade_plugin';
-
 	public function __construct() {
         add_action('init',  [$this,'customPost']);
 
@@ -20,16 +16,16 @@ class CustomPostController {
 
         register_post_type('nft', array(
             'labels'             => array(
-                'name'               => esc_html__('NFTs', 'rarible' ), //
-                'singular_name'      => esc_html__('rarible', 'rarible' ), // \
-                'add_new'            => esc_html__('Add new', 'rarible' ),
-                'add_new_item'       => esc_html__('Add new NFT', 'rarible' ),
-                'edit_item'          => esc_html__('Edit NFT', 'rarible' ),
-                'new_item'           => esc_html__('New NFT', 'rarible' ),
-                'view_item'          => esc_html__('View NFT', 'rarible' ),
-                'search_items'       => esc_html__('Find NFT', 'rarible' ),
-                'not_found'          => esc_html__('No NFT found', 'rarible' ),
-                'not_found_in_trash' => esc_html__('No NFT found in Trash', 'rarible' ),
+                'name'               => esc_html__('NFTs', 'nftcy' ), //
+                'singular_name'      => esc_html__('nftcy', 'nftcy' ), // \
+                'add_new'            => esc_html__('Add new', 'nftcy' ),
+                'add_new_item'       => esc_html__('Add new NFT', 'nftcy' ),
+                'edit_item'          => esc_html__('Edit NFT', 'nftcy' ),
+                'new_item'           => esc_html__('New NFT', 'nftcy' ),
+                'view_item'          => esc_html__('View NFT', 'nftcy' ),
+                'search_items'       => esc_html__('Find NFT', 'nftcy' ),
+                'not_found'          => esc_html__('No NFT found', 'nftcy' ),
+                'not_found_in_trash' => esc_html__('No NFT found in Trash', 'nftcy' ),
                 'parent_item_colon'  => '',
                 'menu_name'          => esc_html__('NFTs')
 
