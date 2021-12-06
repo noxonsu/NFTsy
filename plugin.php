@@ -1,10 +1,10 @@
 <?php
 /**
- * Plugin Name: Rarible NFT Marketplace
- * Description: Rarible NFT Marketplace
+ * Plugin Name: NFTsy showcase
+ * Description:  NFTsy showcase for yor NFT colelction
  * Author:  Victor Lerner
  * Requires PHP: 7.2
- * Text Domain: de-finance
+ * Text Domain: rarible
  * Domain Path: /lang
  * Version: 1.0.0
  */
