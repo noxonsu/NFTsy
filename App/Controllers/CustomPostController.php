@@ -37,9 +37,7 @@ class CustomPostController {
             'query_var'          => true,
             'rewrite'            => true,
             'capability_type'    => 'post',
-            'capabilities' => array(
-                'create_posts' => false, // Removes support for the "Add New" function ( use 'do_not_allow' instead of false for multisite set ups )
-            ),
+
             'has_archive'        => true,
             'hierarchical'       => false,
             'menu_position'      => null,

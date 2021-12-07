@@ -9,10 +9,15 @@
 import LayoutDefault from "./Layouts/LayoutDefault";
 
 export default {
-  name: "TokenStartPage"
-  ,
+  name: "TokenStartPage",
+  props: ['post'],
   components: {
     LayoutDefault
+  },
+  mounted() {
+    if(this.post){
+      this.$router.push({ name: 'tokens.single', params: { id: this.post }})
+    }
   }
 }
 </script>

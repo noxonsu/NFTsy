@@ -11,33 +11,39 @@ class StyleScriptController
     public function __construct()
     {
         add_action('wp_enqueue_scripts', [$this, 'frontendScriptsStyle'], 500);
+        add_action('admin_enqueue_scripts', [$this, 'adminScriptsStyle'], 500);
         add_action( 'admin_print_scripts-' . 'nft_page_nft-add', [$this, 'frontendScriptsStyle'] );
 
+    }
+    public function adminScriptsStyle(){
+        wp_enqueue_style('nftcy_main_css',
+                         plugins_url('/assets/css/main.css', NFTCY_BASE_FILE),
+                       );
     }
 
     public function frontendScriptsStyle()
     {
         if ($this->isDevelopServer()) {
-            wp_enqueue_script('vue_prod',
+            wp_enqueue_script('nftcy_vue_prod',
                 'http://localhost:8080/js/chunk-vendors.js', array('jquery'),
                 '1', true);
-            wp_enqueue_script('vue_dev', 'http://localhost:8080/js/app.js',
+            wp_enqueue_script('nftcy_vue_dev', 'http://localhost:8080/js/app.js',
                 array('jquery'), '1', true);
-            wp_enqueue_style('vue-style', 'http://localhost:8080/css/app.css');
-            wp_enqueue_style('vue-style-chunk',
+            wp_enqueue_style('nftcy_vue-style', 'http://localhost:8080/css/app.css');
+            wp_enqueue_style('nftcy_vue-style-chunk',
                 'http://localhost:8080/css/chunk-vendors.css');
         } else {
-            wp_enqueue_script('vue_prod',
+            wp_enqueue_script('nftcy_vue_prod',
                 plugins_url('/vendor/dist', NFTCY_BASE_FILE)
                 .'/js/chunk-vendors.js',
                 array('jquery'), md5(time()), true);
-            wp_enqueue_script('vue_prod2',
+            wp_enqueue_script('nftcy_vue_prod2',
                 plugins_url('/vendor/dist', NFTCY_BASE_FILE).'/js/app.js',
                 array('jquery'),     md5(time()), true);
-            wp_enqueue_style('vue-style',
+            wp_enqueue_style('nftcy_vue-style',
                 plugins_url('/vendor/dist', NFTCY_BASE_FILE).'/css/app.css',
                 [], md5(time()));
-            wp_enqueue_style('vue-style-vendor',
+            wp_enqueue_style('nftcy_vue-style-vendor',
                 plugins_url('/vendor/dist', NFTCY_BASE_FILE)
                 .'/css/chunk-vendors.css' , [], md5(time()));
         }
@@ -52,7 +58,7 @@ class StyleScriptController
 
         );
 
-        wp_localize_script('vue_prod', 'nftcy_obj', $args_obj);
+        wp_localize_script('nftcy_vue_prod', 'nftcy_obj', $args_obj);
     }
 
     function isDevelopServer(): bool
