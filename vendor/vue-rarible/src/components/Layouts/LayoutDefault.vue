@@ -2,12 +2,20 @@
   <div class="r-layout">
     <slot></slot>
     <WrongNetwork/>
+    <metamask-modal />
+
   </div>
 </template>
 
 <script>
+
+import MetamaskModal from "../MetamaskModal";
+
 export default {
-  name: "LayoutDefault"
+  name: "LayoutDefault",
+  components: {
+    MetamaskModal
+  }
 }
 </script>
 

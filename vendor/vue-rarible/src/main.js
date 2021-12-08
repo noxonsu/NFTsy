@@ -88,7 +88,7 @@ if (document.getElementById('v-app')) {
                     console.log(e)
                 })
             } else {
-                alert('Please install MetaMask!')
+             //   alert('Please install MetaMask!')
             }
         },
     });

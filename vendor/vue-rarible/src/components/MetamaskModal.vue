@@ -1,11 +1,9 @@
 <template>
-
-  <modal v-if="getNetworkType != $networkName && showModal">
-    <loader style="margin-bottom: 20px;" />
-    <h2>Wrong network </h2>
-    <p>Looks like you connected to unsupported network. Change network to {{$networkName}} </p>
-    <button type="button" class="r-btn ">Sign out</button>
-
+  <modal v-if="getMetamaskModal">
+    <h2>Please install metamask!</h2>
+    <p>
+      <a target="_blank"  href="https://metamask.io/">metamask.io</a>
+    </p>
   </modal>
 </template>
 
@@ -15,12 +13,12 @@ import Loader from "./parts/Loader";
 import {mapGetters} from "vuex";
 
 export default {
-  name: "WrongNetwork",
+  name: "MetamaskModal",
   components: {
     Modal, Loader
   },
   computed: {
-    ...mapGetters(['getSdk', 'getProvider', 'getAccounts','getNetworkType']),
+    ...mapGetters(['getMetamaskModal']),
 
   },
   data() {

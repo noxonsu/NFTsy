@@ -4,12 +4,16 @@ export default {
         sdk: {},
         provider: null,
         networkType: '',
+        metamaskModal: false
 
     },
     mutations: {
 
         setAccounts(state, payload) {
             state.accounts = payload
+        },
+        setMetamaskModal(state, payload) {
+            state.metamaskModal = payload
         },
         setSdk(state, payload) {
             state.sdk = payload
@@ -21,22 +25,22 @@ export default {
             state.networkType = payload
         },
     },
-    actions: {
-
-    },
+    actions: {},
     getters: {
-
-        getSdk(state){
-            return  state.sdk
+        getMetamaskModal(state) {
+            return state.metamaskModal
         },
-        getProvider(state){
-            return  state.provider
+        getSdk(state) {
+            return state.sdk
         },
-        getAccounts(state){
-            return  state.accounts
+        getProvider(state) {
+            return state.provider
         },
-        getNetworkType(state){
-            return  state.networkType
+        getAccounts(state) {
+            return state.accounts
+        },
+        getNetworkType(state) {
+            return state.networkType
         },
 
     }
