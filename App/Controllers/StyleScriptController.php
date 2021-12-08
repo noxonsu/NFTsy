@@ -16,9 +16,7 @@ class StyleScriptController
 
     }
     public function adminScriptsStyle(){
-        wp_enqueue_style('nftcy_main_css',
-                         plugins_url('/assets/css/main.css', NFTCY_BASE_FILE),
-                       );
+        wp_enqueue_style('nftcy_main_css',   plugins_url('/assets/css/main.css', NFTCY_BASE_FILE));
     }
 
     public function frontendScriptsStyle()

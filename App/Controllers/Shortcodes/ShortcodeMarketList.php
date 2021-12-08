@@ -1,12 +1,10 @@
 <?php
 
 
-namespace nftcy\Controllers\Shortcodes;
+namespace NFTCY\Controllers\Shortcodes;
 
+use NFTCY\Controller;
 
-
-
-use nftcy\Controller;
 class ShortcodeMarketList extends Controller
 {
 
