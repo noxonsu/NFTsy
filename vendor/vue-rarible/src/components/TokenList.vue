@@ -21,7 +21,8 @@
 
 
               </div>
-              <div>
+              <div style="display: flex; justify-content: space-between; align-items: center">
+                <spna class="b-t-btn " v-if="item.order_hash.length"  >{{item.price}} ETH</spna>
                 <router-link   class="b-t-btn " :to="{ name: 'tokens.single', params: { id: item.id }}">{{getViewTokenText(item)}}</router-link>
               </div>
             </div>
