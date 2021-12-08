@@ -31,16 +31,17 @@ class  UpdateNftPost extends ApiController
             );
         }
 
-        if (  isset($_POST['price'])) {
-            update_post_meta($this->postId, 'price',  sanitize_text_field($_POST['price'] ?? 0));
-        }
-
-        if(isset($_POST['tx'][1])) {
+        if (isset($_POST['price'])) {
             update_post_meta(
                 $this->postId,
-                'nftcy_tx',
-                $_POST['tx']
+                'price',
+                sanitize_text_field($_POST['price'] ?? 0)
             );
+        }
+
+        if (isset($_POST['tx']) && !empty($_POST['tx'])) {
+            update_post_meta($this->postId, 'nftcy_tx', $_POST['tx']);
+
         }
         update_post_meta(
             $this->postId,
