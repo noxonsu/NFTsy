@@ -18,7 +18,7 @@
                 <template v-if="post.price && post.order_hash.length > 1">
                   <div class="col-md-4">
               <span v-if="type === 'order' && post.order_hash.length > 1"
-                    class=""><span style="font-weight: 900; font-size: 28px;"
+                    class=""><span style="font-weight: 900; font-size: 22px;"
                                    class="sc-bdnxRM sc-hKFxyN sc-eCApnc RWHKB">Price:
               </span>
               </span>
@@ -29,7 +29,7 @@
               <span
                   class="" style="padding-top: 0px; display: block"><a>
                 <span v-if="post.price && post.order_hash.length > 1"
-                      style=" font-weight: 900; font-size: 28px">{{ post.price }} ETH</span>
+                      style=" font-weight: 900; font-size: 22px">{{ post.price }} ETH</span>
 
               </a>
 
@@ -191,8 +191,25 @@ export default {
     font-weight: 400;
     font-size: 16pc;
     color: rgb(4, 4, 5);
-  }
+    * {
+      font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
 
+  }
+  h1,
+  .h1,
+  h2,
+  .h2,
+  h3,
+  .h3,
+  h4,
+  .h4,
+  h5,
+  .h5,
+  h6,
+  .h6 {
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
   .not-for-sale {
     font-size: 18px;
     font-weight: 900;
@@ -224,6 +241,7 @@ export default {
     border-color: rgb(0, 102, 255);
     color: rgb(255, 255, 255);
     background: rgb(0, 102, 255);
+    background-color: rgb(0, 102, 255);
     margin-bottom: 10px;
 
     &:hover {

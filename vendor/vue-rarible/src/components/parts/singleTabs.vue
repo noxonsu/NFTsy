@@ -1,5 +1,5 @@
 <template>
-  <div class="tab-com">
+  <div class="tab-com" v-if="post.owner">
     <div role="tablist" class="r-tablist">
       <button
           class="tab-button "
@@ -134,10 +134,11 @@ export default {
 
 .tab-button {
   background: transparent;
+  background-color: transparent !important;
   border: none;
   cursor: pointer;
   line-height: normal;
-  color: rgba(4, 4, 5, 0.6);
+  color: rgba(4, 4, 5, 0.6) !important;
   -webkit-box-pack: center;
   justify-content: center;
   position: relative;
