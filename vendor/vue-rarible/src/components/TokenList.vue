@@ -1,7 +1,7 @@
 <template>
   <div id="content" >
     <div v-if="!loading" class="b-place-list r-place-list">
-      <div  v-masonry transition-duration="0.3s" item-selector=".item" :origin-top="true" :horizontal-order="false" >
+      <div v-if="localItems.length > 0"  v-masonry transition-duration="0.3s" item-selector=".item" :origin-top="true" :horizontal-order="false" >
 
         <div v-masonry-tile  class="b-grid-item b-grid-item--masonry item" v-for="item in localItems" >
           <div class="b-event">
@@ -30,8 +30,8 @@
         </div>
 
       </div>
-
-      <a :disabled="loadingMore" v-if="max_num_pages > page_number"  @click.prevent="getItems" href=""
+<div v-else>Nothing to show. Add NFT in the admin panel</div>
+      <a :disabled="loadingMore" v-if="localItems.length > 0 && max_num_pages > page_number"  @click.prevent="getItems" href=""
          class="btn btn--sm r-load-more press--right">Load more</a>
 
 

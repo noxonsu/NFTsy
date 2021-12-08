@@ -45,7 +45,6 @@ export default {
       const {ethereum} = window
       if (!(ethereum && ethereum.isMetaMask)) {
         this.setMetamaskModal(true)
-        console.log('open sad')
       } else {
         this.getProvider.request({method: 'eth_requestAccounts'})
         this.buttonMessage = "Wallet connected"
