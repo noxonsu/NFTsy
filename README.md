@@ -28,3 +28,4 @@ How to install
 Support & Updates
 Join our channel https://t.me/nftcy_channel to get updates and contact support. 
 
+Installation service https://www.fiverr.com/s2/3c2703c1a4
