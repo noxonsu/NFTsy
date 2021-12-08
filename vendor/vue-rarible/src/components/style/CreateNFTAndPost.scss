@@ -1,5 +1,6 @@
 
 ::v-deep {
+
   @import "~bootstrap/scss/functions";
   @import "~bootstrap/scss/variables";
   @import "~bootstrap/scss/mixins";
@@ -9,13 +10,17 @@
   @import '~bootstrap/scss/containers';
   @import '~bootstrap/scss/buttons';
   @import '~bootstrap/scss/bootstrap-reboot';
-
+.container {
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 
   label {
     font-weight: 900;
     color: rgb(4, 4, 5);
     font-size: 17px;
-    margin-bottom: -10px;
+    display: block;
+    margin-bottom: 0px;
+    line-height: 20px;
 
   }
 
@@ -34,14 +39,27 @@
     color: #0e0f11;
     background: transparent !important;
     height: 62px;
+    outline: none;
 
+    &:hover, &:active, &:focus {
+      outline: none;
+      box-shadow: none;
+    }
   }
-.form-control-textarea {
-  border: none;
-  border-bottom: 1px solid rgba(4, 4, 5, 0.07);
-  padding: 0;
-}
-  input.form-control:active, input.form-control:focus , input.form-control:hover{
+
+  .form-control-textarea {
+    border: none;
+    border-bottom: 1px solid rgba(4, 4, 5, 0.07);
+    padding: 0;
+    width: 100%;
+    margin-top: 10px;
+    &:hover, &:active, &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
+  input.form-control:active, input.form-control:focus, input.form-control:hover {
     border-color: rgba(4, 4, 5, 0.25);
   }
 
@@ -174,9 +192,11 @@
     color: black;
     display: block;
     line-height: 18px;
+
     &:hover {
       border-color: rgba(4, 4, 5, 0.2);
     }
+
     &.active {
       border: 2px solid rgb(0, 102, 255);
     }

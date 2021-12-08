@@ -1,6 +1,6 @@
 <template>
   <layout-default>
-    <div class="container">
+    <div class="container ">
       <div class="row aligncenter">
         <div>
           <form action="#" method="post" class="b-form-cont " style="position: relative" id="add-places-1"
@@ -124,7 +124,9 @@
                   <div class="b-form__row row">
                     <div class="col-md-12">
                       <label class="floating-label">Description</label>
-                      <textarea v-model="form.description" class="form-control  form-control-textarea"
+                      <textarea style="  border: none;
+  border-bottom: 1px solid rgba(4, 4, 5, 0.07);
+  padding: 0;" v-model="form.description" class="form-control  form-control-textarea"
                                 placeholder="Description"
                                 value=""> </textarea>
 
