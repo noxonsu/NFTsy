@@ -44,6 +44,7 @@
 
                   <single-tabs :post="post"/>
                   <template v-if="getAccounts[0]">
+                    <br>
                     <a v-if="post.order_hash && post.order_hash.length > 1 && getAccounts[0].toUpperCase() != post.owner.toUpperCase()"
                        @click.prevent="buyOrder"
                        class="btn btn--sm press--right">Buy token</a>

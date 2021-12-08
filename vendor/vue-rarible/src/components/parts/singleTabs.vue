@@ -37,11 +37,13 @@
           <div><span class="tab-panel-label">Owner</span>
             <div>
               <div class="properties">
-                <div><img style="border-radius: 100%" alt="Identicon"
+               <img style="border-radius: 100%" alt="Identicon"
                           src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc0MCcgaGVpZ2h0PSc0MCcgc3R5bGU9J2JhY2tncm91bmQtY29sb3I6cmdiYSgyNDYsMjQ2LDI0NiwxKTsnPjxnIHN0eWxlPSdmaWxsOnJnYmEoMjE3LDEyNiwzOCwxKTsgc3Ryb2tlOnJnYmEoMjE3LDEyNiwzOCwxKTsgc3Ryb2tlLXdpZHRoOjAuMjsnPjxyZWN0ICB4PScxOCcgeT0nMTInIHdpZHRoPSczJyBoZWlnaHQ9JzMnLz48cmVjdCAgeD0nMTgnIHk9JzE1JyB3aWR0aD0nMycgaGVpZ2h0PSczJy8+PHJlY3QgIHg9JzE4JyB5PScxOCcgd2lkdGg9JzMnIGhlaWdodD0nMycvPjxyZWN0ICB4PScxNScgeT0nMTInIHdpZHRoPSczJyBoZWlnaHQ9JzMnLz48cmVjdCAgeD0nMjEnIHk9JzEyJyB3aWR0aD0nMycgaGVpZ2h0PSczJy8+PHJlY3QgIHg9JzE1JyB5PScxNScgd2lkdGg9JzMnIGhlaWdodD0nMycvPjxyZWN0ICB4PScyMScgeT0nMTUnIHdpZHRoPSczJyBoZWlnaHQ9JzMnLz48cmVjdCAgeD0nMTInIHk9JzIxJyB3aWR0aD0nMycgaGVpZ2h0PSczJy8+PHJlY3QgIHg9JzI0JyB5PScyMScgd2lkdGg9JzMnIGhlaWdodD0nMycvPjwvZz48L3N2Zz4="
-                          loading="lazy"></div>
-                <div style="padding-left: 10px;"><span><span> <b
-                    style="font-size: 14px;">{{ post.owner }}</b></span></span></div>
+                         >
+
+                  <b
+                    style="font-size: 14px;">{{ post.owner }}</b>
+
               </div>
             </div>
           </div>
@@ -65,10 +67,9 @@
             <div>
               <div>
                 <div class="properties">
-                  <div><img alt="ETHEREUM" src="https://ropsten.rarible.com/9b703a21b9f93a1f0065.svg" loading="lazy">
-                  </div>
-                  <div style="padding-left: 10px;"><span><span> <b style="font-size: 14px;">Ethereum</b></span></span>
-                  </div>
+                    <img alt="ETHEREUM" src="https://ropsten.rarible.com/9b703a21b9f93a1f0065.svg" loading="lazy">
+                    <b style="font-size: 14px;">Ethereum</b>
+
                 </div>
               </div>
             </div>
@@ -79,7 +80,8 @@
         <div>
           <div>
             <div class="properties" >
-              <div><img style="border-radius: 100%; margin-top: 10px;" alt="Identicon"
+              <div>
+                <img style="border-radius: 100%; margin-top: 10px;" alt="Identicon"
                         src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc0MCcgaGVpZ2h0PSc0MCcgc3R5bGU9J2JhY2tncm91bmQtY29sb3I6cmdiYSgyNDYsMjQ2LDI0NiwxKTsnPjxnIHN0eWxlPSdmaWxsOnJnYmEoMjE3LDEyNiwzOCwxKTsgc3Ryb2tlOnJnYmEoMjE3LDEyNiwzOCwxKTsgc3Ryb2tlLXdpZHRoOjAuMjsnPjxyZWN0ICB4PScxOCcgeT0nMTInIHdpZHRoPSczJyBoZWlnaHQ9JzMnLz48cmVjdCAgeD0nMTgnIHk9JzE1JyB3aWR0aD0nMycgaGVpZ2h0PSczJy8+PHJlY3QgIHg9JzE4JyB5PScxOCcgd2lkdGg9JzMnIGhlaWdodD0nMycvPjxyZWN0ICB4PScxNScgeT0nMTInIHdpZHRoPSczJyBoZWlnaHQ9JzMnLz48cmVjdCAgeD0nMjEnIHk9JzEyJyB3aWR0aD0nMycgaGVpZ2h0PSczJy8+PHJlY3QgIHg9JzE1JyB5PScxNScgd2lkdGg9JzMnIGhlaWdodD0nMycvPjxyZWN0ICB4PScyMScgeT0nMTUnIHdpZHRoPSczJyBoZWlnaHQ9JzMnLz48cmVjdCAgeD0nMTInIHk9JzIxJyB3aWR0aD0nMycgaGVpZ2h0PSczJy8+PHJlY3QgIHg9JzI0JyB5PScyMScgd2lkdGg9JzMnIGhlaWdodD0nMycvPjwvZz48L3N2Zz4="
                         loading="lazy"></div>
               <div style="padding-left: 10px; display: flex;
@@ -87,7 +89,7 @@
                 <b style="font-size: 14px;" :title="post.owner">
 0.2 ETH by {{ cutAddress(post.owner) }}</b></span></span>
 
-              <span class="bid-time">  1 hours ago</span>
+<!--              <span class="bid-time">  1 hours ago</span>-->
               </div>
 
             </div>
@@ -194,8 +196,7 @@ export default {
   flex-shrink: 0;
   flex-basis: auto;
   display: flex;
-  -webkit-box-align: stretch;
-  align-items: stretch;
+  align-items: center;
   border-width: 0px;
   border-style: solid;
   border-color: rgb(4, 4, 5);
