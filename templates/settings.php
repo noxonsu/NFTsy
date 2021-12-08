@@ -47,7 +47,13 @@
         <a href="update-core.php?force-check=1"><?php esc_html_e('check for updates','nftcy'); ?></a>.
         <?php esc_html_e('How to use? Add [nftcy_addform] to a page where to show "add" form. Add [nftcy_view] to a page where to show the catalog:','nftcy'); ?><Br>
         <br><br>
-        <h2><?php esc_html_e('General settings', 'nftcy'); ?></h2>
+        <div style="display: flex; align-items: center ">
+            <h2><?php esc_html_e('General settings', 'nftcy'); ?></h2>
+            <div style="padding-left: 20px"><a href="/wp-admin/edit.php?post_type=nft&page=nft-add">Add NFT</a></div>
+
+        </div>
+
+
         <div class="welcome-panel-column-container nft-panel-tab panel-tab-active" id="nft-tab-1">
             <div class="nft-shortcode-panel-row">
                 <form action="#" method="post" class="wp-nft-widget-form">
