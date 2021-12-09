@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: NFTsy showcase
- * Description:  NFTsy showcase for yor NFT colelction
- * Author:  Victor Lerne
+ * Plugin Name: Showcasy NFT
+ * Description:  Showcase for yor NFT colelction. Add [nftcy_view] shortcode to a page
+ * Author:  Victor Lerner
  * Requires PHP: 7.2
  * Text Domain: nftcy
  * Domain Path: /lang
