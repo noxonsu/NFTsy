@@ -49,8 +49,8 @@
                        @click.prevent="buyOrder"
                        class="btn btn--sm press--right">Buy token</a>
                     <put-on-sale
-                        v-if="post.order_hash && post.order_hash.length < 1 && getAccounts[0].toUpperCase() == post.owner.toUpperCase() "
-                        :text="'Put OnSale1' " @orderDone="getPost" :post="post"/>
+                        v-if="post.order_hash.length < 1 && getAccounts[0].toUpperCase() == post.owner.toUpperCase() "
+                        :text="'Put OnSale' " @orderDone="getPost" :post="post"/>
 
                     <put-on-sale
                         v-if="post.order_hash && post.order_hash.length > 1 && getAccounts[0].toUpperCase() == post.owner.toUpperCase() "
@@ -88,6 +88,7 @@ import PlaceBid from "./parts/PlaceBid";
 import Loader from "./parts/Loader";
 import PutOnSale from "./parts/PutOnSale";
 import ErrorModal from "./parts/ErrorModal";
+import {stringify} from "qs";
 
 export default {
   name: "TokenSingle",
@@ -112,6 +113,21 @@ export default {
     closeErrorModal() {
       this.error = false
     },
+    transferToken() {
+      api.post('wp-admin/admin-ajax.php?action=nftcy_transfer_nft_post', stringify({
+        postId: this.post.id
+      })).then(res => {
+        let response = res.data
+        if (!(response.success && response.changed)) {
+          setTimeout(() => this.transferToken(), 1500)
+        } else {
+          console.log('transfer post done')
+          this.getPost()
+          this.buyOrderLoader = false
+        }
+
+      })
+    },
     buyOrder() {
       this.buyOrderLoader = true
       console.log('try buyOrder ', this.post.order_hash)
@@ -124,16 +140,31 @@ export default {
                   amount: 1
                 }
             ).then(a => {
-              a.runAll()
-              alert('Token bought');
+              // a.runAll()
+              // alert('Token bought');
+              console.log('Token bought')
+              this.transferToken()
             }).catch(e => {
-
               this.error = e.message
+              this.buyOrderLoader = false
+              console.error(e)
+
             })
                 .finally(() => {
+
+                  setTimeout(() => {
+                    api.post('wp-admin/admin-ajax.php?action=nftcy_transfer_nft_post', stringify({
+                      postId: this.post.id
+                    })).then(res => {
+                      console.log('transfer post done 2')
+                    })
+                  }, 2000)
+
+
+                  console.log('finally 11')
                   setTimeout(() => {
                     this.getPost()
-                    this.buyOrderLoader = false
+                    //this.buyOrderLoader = false
                   }, 1500)
                 })
 
@@ -142,7 +173,7 @@ export default {
         this.error = e.message
       }).finally(() => {
 
-        this.buyOrderLoader = false
+        // this.buyOrderLoader = false
       })
 
     },
@@ -192,11 +223,13 @@ export default {
     font-weight: 400;
     font-size: 16pc;
     color: rgb(4, 4, 5);
+
     * {
       font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
 
   }
+
   h1,
   .h1,
   h2,
@@ -211,6 +244,7 @@ export default {
   .h6 {
     font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
+
   .not-for-sale {
     font-size: 18px;
     font-weight: 900;

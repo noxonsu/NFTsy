@@ -13,11 +13,12 @@ class  TransferNftPost extends ApiController
     public function action()
     {
         $postID             = $_POST['postId'];
-        $basePathMainNet    = "https://ethereum-api.nftcy.org";
-        $basePathRopstenNet = "https://ethereum-api-dev.nftcy.org";
+        $basePathMainNet    = "https://ethereum-api.rarible.org";
+        $basePathRopstenNet = "https://ethereum-api-dev.rarible.org";
         $nft_network        = get_option('nftcy_nft_networkName', 'ropsten');
         $basePath           = $nft_network == 'ropsten' ? $basePathRopstenNet
             : $basePathMainNet;
+
 
         $nftId    = get_post_meta(
             $postID,
@@ -36,13 +37,13 @@ class  TransferNftPost extends ApiController
                 'cookies'     => array(),
             )
         );
-
         if (wp_remote_retrieve_response_code($response) === 200) {
             $body         = json_decode(
                 wp_remote_retrieve_body($response),
                 true
             );
             $currentOwner = $body['owners'][0];
+
             $tx           = get_post_meta($postID, 'nftcy_tx', 1);
 
             if ($currentOwner != $tx['item']['owners'][0]) {

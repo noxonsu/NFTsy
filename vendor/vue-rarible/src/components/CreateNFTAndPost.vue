@@ -353,7 +353,7 @@ export default {
             'salt': this.salt,
           }))
 
-          this.error = error.message ? error.message : e
+          this.error = error.message ? error.message : error
           this.loadText = error
           this.loader = false
           console.error(error)
@@ -393,7 +393,8 @@ export default {
       const ipfsItem = {
         "description": this.form.description,
         "external_url": "",// <-- this can link to a page for the specific file too
-        "image": this.imgLink, // this.imgLink
+      //  "image": this.imgLink, // this.imgLink
+        "image": 'https://zooclub.org.ua/uploads/2021/11/23/akrida-vengerskaya7-370x240.jpg', // this.imgLink
         "name": this.form.title,
       }
       if (this.convertKeyVale(this.form.properties).length > 0) {

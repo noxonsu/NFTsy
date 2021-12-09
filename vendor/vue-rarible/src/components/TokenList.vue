@@ -22,7 +22,7 @@
 
               </div>
               <div style="display: flex; justify-content: space-between; align-items: center">
-                <spna class="b-t-btn " v-if="item.order_hash.length"  >{{item.price}} ETH</spna>
+                <spna class="b-t-btn " v-if="item.order_hash.length && item.price"  >{{item.price}} ETH</spna>
                 <router-link   class="b-t-btn " :to="{ name: 'tokens.single', params: { id: item.id }}">{{getViewTokenText(item)}}</router-link>
               </div>
             </div>
@@ -71,7 +71,7 @@ export default {
 
   methods: {
     getViewTokenText(item){
-      if(item.order_hash.length > 0){
+      if(item.order_hash.length > 0 && item.price){
         return  ' Buy Token'
       }
       if(item.order_hash && item.order_hash.length < 1 && this.getAccounts[0].toUpperCase() == item.owner.toUpperCase()){
