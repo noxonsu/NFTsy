@@ -1,4 +1,4 @@
-NFT showcase plugin. Make a showcase for your NFT collection on your website. Create an NFT collection and start selling on your own website, earn royalties for every sale of your NFT on your site or another marketplace (like opensea.io or rarible.com). 
+NFT showcase plugin. Make a showcase for your NFT collection on your website. Create an NFT collection and start selling on your own website, earn royalties for every sale of your NFT on your site or another marketplace (like opensea.io or rarible.com). See video https://youtu.be/CEkOSD8nLDk
 
 Features <br> <br>
 
