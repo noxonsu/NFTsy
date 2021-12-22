@@ -28,7 +28,7 @@ export default {
   },
   mounted() {
     const {ethereum} = window
-    if (ethereum && ethereum.isMetaMask) {
+    if (ethereum && ethereum.isMetaMask || ethereum === undefined) {
       setTimeout(() => this.showModal = true, 2000)
     }
   }

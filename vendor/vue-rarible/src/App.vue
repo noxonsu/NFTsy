@@ -50,7 +50,6 @@ export default {
 
   },
   created() {
-alert('22222222222')
     const {ethereum} = window
     console.log(ethereum.isMetaMask)
 

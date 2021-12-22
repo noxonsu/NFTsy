@@ -2,11 +2,11 @@
   <div class="r-single-token">
     <template v-if="!loading">
       <div class="row ">
-        <div class="col-md-7" style="align-items: center; ">
+        <div class="col r-parent-img " style="">
           <img :src="post.img" :alt="post.title">
 
         </div>
-        <div class="col-md-5" style="word-break: break-all">
+        <div class="col r-parent-img" style="word-break: break-all">
           <h1 style="font-size: 40px;" class="r-title">{{ post.title }}</h1>
           <div class="r-content" v-html="post.content"></div>
           <div>
@@ -314,6 +314,20 @@ export default {
     display: flex;
     -webkit-box-align: stretch;
     align-items: stretch;
+  }
+
+  .r-parent-img {
+    align-items: center;
+    flex: unset;
+    width: unset;
+    max-width: 50%
+  }
+
+}
+
+@media (max-width: 576px) {
+  .r-parent-img {
+    max-width: 100%
   }
 }
 </style>

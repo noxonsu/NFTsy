@@ -25,7 +25,17 @@ export default {
             state.networkType = payload
         },
     },
-    actions: {},
+    actions: {
+        tryToShowMetamaskModal(context){
+            const {ethereum} = window
+            console.warn(ethereum)
+            if ( !(ethereum && ethereum.isMetaMask) || ethereum === undefined) {
+                context.commit('setMetamaskModal', true)
+            } else {
+                context.commit('setMetamaskModal', false)
+            }
+        }
+    },
     getters: {
         getMetamaskModal(state) {
             return state.metamaskModal

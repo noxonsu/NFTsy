@@ -238,7 +238,7 @@ import Loader from "./parts/Loader";
 import {create} from "ipfs-http-client";
 import {toAddress} from "@rarible/types";
 import {stringify} from "qs";
-import {mapGetters} from "vuex";
+import {mapGetters, mapMutations} from "vuex";
 import buttonConnect from "./parts/buttonConnect";
 import WrongNetwork from "./WrongNetwork";
 import LayoutDefault from "./Layouts/LayoutDefault";
@@ -284,11 +284,11 @@ export default {
       error: false
     }
   },
-  mounted: function () {
-
-
+  mounted() {
+    this.$store.dispatch('tryToShowMetamaskModal')
   },
   methods: {
+    ...mapMutations(['setMetamaskModal']),
     closeErrorModal() {
       this.error = false
       this.message = ''
