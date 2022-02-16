@@ -36,6 +36,10 @@
 
 
     </div>
+
+    <div>
+      powered by OnOut - <a href="https://tools.onout.org/nft">no-code tool for creating NFT marketplace</a>
+    </div>
     <div v-if="loading" style="display: flex; align-items: center; justify-content: center; min-height: 400px">
       <loader  />
     </div>

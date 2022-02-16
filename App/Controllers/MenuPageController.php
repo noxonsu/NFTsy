@@ -96,5 +96,14 @@ class MenuPageController extends Controller
             </div>
             <?php
         }
+        if ( ! empty($_POST['nftcy_remove_copy'])) {
+            ?>
+            <div id="message" class="notice notice-success is-dismissible">
+                <p><?php
+                    esc_html_e('You using free version, to buy PRO version follow the instructions https://tools.onout.org/nft', 'nftcy'); ?></p>
+
+            </div>
+            <?php
+        }
     }
 }

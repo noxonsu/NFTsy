@@ -114,6 +114,19 @@ Asset Contract ERC721 0xB0EA149212Eb707a1E5FC1D2d3fD318a8d94cf05', 'nftcy'); ?>
                                 </div>
                             </td>
                         </tr>
+                        <tr>
+                            <th scope="row">
+                                <label><?php esc_html_e('Remove "https://tools.onout.org/nft" link', 'nftcy'); ?></label>
+                            </th>
+                            <td>
+                                <div class="nft-form-inline">
+                                    <input type="checkbox"  class="regular-text code" name="nftcy_remove_copy"
+                                           value="1" <>
+
+
+                                </div>
+                            </td>
+                        </tr>
 
 
 
