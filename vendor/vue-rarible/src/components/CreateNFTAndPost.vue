@@ -19,7 +19,7 @@
                         style=""
                         ref="pictureInput"
                         margin="1"
-                        accept="image/jpeg,image/png"
+                        accept="image/jpeg,image/png,image/gif"
                         size="10"
                         button-class="btn"
                         :custom-strings="{
@@ -27,6 +27,7 @@
         drag: 'Drag a image'
       }"
                         :clear="clearImage"
+                        @file="fileChange"
                         @change="onChange"
                         @remove="removeImage"
                         @cleared="clearedImage">
@@ -281,7 +282,8 @@ export default {
       imgLink: false,
       postId: false,
       salt: '',
-      error: false
+      error: false,
+      file: null
     }
   },
   mounted() {
@@ -314,6 +316,9 @@ export default {
     removeImage() {
       this.form.image = null
       this.clearImage = true
+    },
+    fileChange(file){
+      this.file = file
     },
     onChange(image) {
       if (image) {
@@ -393,10 +398,11 @@ export default {
       const ipfsItem = {
         "description": this.form.description,
         "external_url": "",// <-- this can link to a page for the specific file too
-      //  "image": this.imgLink, // this.imgLink
-        "image": 'https://zooclub.org.ua/uploads/2021/11/23/akrida-vengerskaya7-370x240.jpg', // this.imgLink
+        "image": this.imgLink, // this.imgLink
         "name": this.form.title,
+        "type": this.file.type
       }
+      console.log('ipfsItem',ipfsItem)
       if (this.convertKeyVale(this.form.properties).length > 0) {
         // ipfsItem.attributes = convertKeyVale(this.form.properties)
         let filteredItems = this.form.properties.filter(({
@@ -411,6 +417,7 @@ export default {
       const ipfs = create({host: 'ipfs.infura.io', port: 5001, protocol: 'https'});
       let uploaded = await ipfs.add(JSON.stringify(ipfsItem))
       const uri = `ipfs/${uploaded.path}`
+      console.log(uploaded)
       console.log('uri', uri)
       console.log('check IPS', uri)
       await axios.get(`https://ipfs.io/ipfs/${uploaded.path}`)

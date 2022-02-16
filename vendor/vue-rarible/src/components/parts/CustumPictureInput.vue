@@ -307,6 +307,7 @@ export default {
         if (prefill) {
           this.$emit('prefill')
         } else {
+          this.$emit('file', this.files[0])
           this.$emit('change', this.image)
         }
       }
@@ -325,6 +326,7 @@ export default {
           if (prefill) {
             this.$emit('prefill')
           } else {
+            this.$emit('file', file)
             this.$emit('change', this.image)
           }
           this.imageObject = new Image()
