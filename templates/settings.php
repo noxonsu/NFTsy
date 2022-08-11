@@ -71,10 +71,10 @@
                                     <select
                                             name="nftcy_nft_networkName">
                                         <option <?php selected($nft_network,'ropsten' ) ;  ?>>ropsten</option>
-                                        <option <?php selected($nft_network,'mainnet' ) ;  ?>  >mainnet</option>
+                                        <option <?php selected($nft_network,'main' ) ;  ?>  >main</option>
                                     </select>
                                     <br>
-                                    <?php esc_html_e('Ropsten or Mainnet. We recommend to test on testnet with testnet tokens before launch', 'nftcy'); ?>
+                                    <?php esc_html_e('Ropsten or Main. We recommend to test on testnet with testnet tokens before launch', 'nftcy'); ?>
                                 </div>
                             </td>
                         </tr>
@@ -89,7 +89,7 @@
                                     <input  class="regular-text code" name="nftcy_nft_collection" value="<?php  echo  esc_attr($nft_collection); ?>">
 
                                     <br>
-                                    <?php esc_html_e('Mainnet
+                                    <?php esc_html_e('Main
 Asset Contract ERC721 0xF6793dA657495ffeFF9Ee6350824910Abc21356C', 'nftcy'); ?>
                                     <br>
                                     <?php esc_html_e('Ropsten
