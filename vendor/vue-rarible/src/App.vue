@@ -30,7 +30,7 @@ import createNFT from "./components/createNFT";
 import CreateNFTAndPost from "./components/CreateNFTAndPost";
 import TokenList from "./components/TokenList";
 
-const NETWORK = "ropsten" // "rinkeby" // "e2e" | "ropsten" | "rinkeby" | "mainnet"
+const NETWORK = "ropsten" // "rinkeby" // "e2e" | "ropsten" | "rinkeby" | "main"
 export default {
   props: ['icon', 'place', 'iconActive'],
   name: 'App',

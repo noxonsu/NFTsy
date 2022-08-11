@@ -26,7 +26,7 @@ Vue.use(VueRouter)
 
 if (document.getElementById('v-app')) {
 
-    const NETWORK = nftcy_obj.networkName // "ropsten" // "rinkeby" // "e2e" | "ropsten" | "rinkeby" | "mainnet"
+    const NETWORK = nftcy_obj.networkName // "ropsten" // "rinkeby" // "e2e" | "ropsten" | "rinkeby" | "main"
     Vue.prototype.API_URL = nftcy_obj.site_url  // nftcy_obj.site_url;
     Vue.prototype.$enableBid = nftcy_obj.enable_bid == '1' ? true : false // nftcy_obj.site_url;
     Vue.prototype.$networkName = nftcy_obj.networkName  // nftcy_obj.site_url;
